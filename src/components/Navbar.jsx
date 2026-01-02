@@ -101,7 +101,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center relative">
 
           {/* LEFT */}
-          <nav className="hidden md:flex gap-8 uppercase text-xs pr-56">
+          <nav className="hidden md:flex gap-8 uppercase text-xs pr-56 z-60">
             {linksLeft.map(l => (
               <Link key={l.to} to={l.to}
                 className="hover:text-[#800000]">
@@ -111,7 +111,7 @@ const Navbar = () => {
           </nav>
 
           {/* RIGHT */}
-          <div className="hidden md:flex gap-8 uppercase text-xs pl-48">
+          <div className="hidden md:flex gap-8 uppercase text-xs pl-48 z-60">
             {linksRight.map(l => (
               <Link key={l.to} to={l.to}
                 className="hover:text-[#800000]">
