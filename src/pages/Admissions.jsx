@@ -7,6 +7,8 @@ import { toast } from '@/components/ui/use-toast';
 import { useTranslation } from 'react-i18next';
 
 const Admissions = () => {
+  const { t } = useTranslation();
+
   const admissionSteps = [
     {
       icon: FileText,

@@ -20,6 +20,7 @@ import Events from './pages/Events';
 import AntiRagging from './pages/AntiRagging';
 import SexualHarassment from './pages/SexualHarassment';
 import GrievanceCell from './pages/GrievanceCell';
+import Tender from './pages/Tender';
 
 import NEP2020 from './pages/NEP2020';
 import IQAC from './pages/IQAC';
@@ -66,6 +67,7 @@ function App() {
             <Route path="/anti-ragging" element={<AntiRagging />} />
             <Route path="/sexual-harassment" element={<SexualHarassment />} />
             <Route path="/grievance" element={<GrievanceCell />} />
+            <Route path="/tenders" element={<Tender />} />
 
             <Route path="/terms-conditions" element={<TermsConditions />} />
           </Routes>

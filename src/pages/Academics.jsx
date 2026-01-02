@@ -5,6 +5,7 @@ import { GraduationCap, BookOpen, Award, Users, ExternalLink, Download } from 'l
 import { useTranslation } from 'react-i18next';
 
 const Academics = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('all');
 
   const programs = [

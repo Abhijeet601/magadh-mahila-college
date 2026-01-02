@@ -45,6 +45,7 @@ const Navbar = () => {
           <div className="flex gap-6">
             <Link to="/news" className="hover:text-white/80">News</Link>
             <Link to="/events" className="hover:text-white/80">Events</Link>
+            <Link to="/tenders" className="hover:text-white/80">Tenders</Link>
           </div>
           <div className="flex gap-4 items-center flex-wrap">
             {/* Language selector */}
