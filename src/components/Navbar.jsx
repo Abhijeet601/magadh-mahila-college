@@ -161,7 +161,7 @@ const Navbar = () => {
       <Link
         to="/"
         aria-label="Magadh Mahila College home"
-        className="absolute left-1/2 -translate-x-1/2 top-0 z-50"
+        className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 z-50"
       >
         <div className="relative w-[380px]">
 
