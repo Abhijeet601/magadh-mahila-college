@@ -1,0 +1,390 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "aboutDropdown": "ABOUT",
+    "aboutSub": {
+      "welcome": "Welcome to Magadh Mahila College",
+      "principalProfile": "Profile of Principal Magadh Mahila College",
+      "previousPrincipals": "Previous Principals",
+      "collegeEmblem": "College Emblem",
+      "studentsRollOfHonor": "Students Roll Of Honor",
+      "codeOfEthics": "Code of Ethics",
+      "codeOfConduct": "Code of Conduct",
+      "instituteDistinctiveness": "Institute Distinctiveness",
+      "institutionsPride": "Institutions’ Pride",
+      "modelElectoralLiteracyClub": "Model Electoral Literacy Club",
+      "visionMissionCoreValues": "Vision, Mission & Core Values",
+      "bestPractices": "Best Practices",
+      "feedback": "Feedback",
+      "environmentalPolicy": "Environmental Policy",
+      "mou": "MOU",
+      "futurePlans": "Future Plans"
+    },
+    "academics": "Academics",
+    "admissions": "Admissions",
+    "campusLife": "Campus Life",
+    "contact": "Contact",
+    "iqac": "IQAC",
+    "iqacSub": {
+      "workshop": "Workshop",
+      "naac": "NAAC",
+      "feedback": "Feedback",
+      "research": "Research",
+      "extensionActivities": "Extension Activities (NSS, NCC)",
+      "collaboration": "Collaboration",
+      "studentProgressionForm": "Student Progression Form",
+      "studentSatisfactionSurvey": "Student Satisfaction Survey",
+      "projectInternshipFieldWork": "Project Internship & Field Work",
+      "bestPractices2023": "Best practices 2023-24",
+      "bestPracticesPhotoGallery": "Best Practices – Photo Gallery"
+    },
+    "nirf": "NIRF"
+  },
+  "home": {
+    "title": "Home - Magadh Mahila College | Women's College in Patna",
+    "metaDescription": "Magadh Mahila College is a women's college in Patna, NAAC B+ accredited. Dedicated to women's education, academic excellence, and empowerment since 1946.",
+    "hero": {
+      "title": "Educating Women. Empowering Futures.",
+      "subtitle": "At Magadh Mahila College, education focuses on nurturing confidence, leadership, independence, and responsibility — helping young women grow academically and personally in a supportive environment."
+    },
+    "features": {
+      "safeCampus": {
+        "title": "Safe & Supportive Campus",
+        "desc": "A women-only environment that emphasizes safety, respect, mentorship, and student well-being."
+      },
+      "leadership": {
+        "title": "Leadership & Confidence",
+        "desc": "Opportunities through student activities, cultural forums, NSS, and NCC to develop leadership and self-expression."
+      },
+      "careerFocused": {
+        "title": "Career-Focused Learning",
+        "desc": "Academic programs, skill development, and guidance designed to support women in diverse career paths."
+      }
+    },
+    "welcome": {
+      "title": "Welcome to Magadh Mahila College",
+      "description": "Magadh Mahila College, Patna is a premier institution for women under Patna University. We welcome you to become a part of the success story being scripted by Magadh Mahila College, a pioneer institution of higher education for young women in Bihar; established in 1946."
+    },
+    "principal": {
+      "title": "From Principal's Desk",
+      "name": "Prof.(Dr.) Nagendra Prasad Verma - Principal, Magadh Mahila College",
+      "message": "As the Principal of Magadh Mahila College, I am committed to providing quality education and fostering an environment where young women can thrive academically and personally."
+    },
+    "updates": {
+      "title": "Latest Updates",
+      "update1": "Re roofing of both staircases of vocational building of MM College",
+      "update2": "Fixing of aluminium windows in the B.C.A department of MMC",
+      "update3": "Repair of False ceiling of room number 75,80,81,82,85 and verandah at second floor of MMC"
+    },
+    "announcement": {
+      "title": "Announcement",
+      "placeholder": "Scrolling notices section - Latest announcements and updates"
+    },
+    "importantLinks": {
+      "title": "Important Links",
+      "tenders": "Tenders",
+      "notices": "Notices & Announcement",
+      "aqar": "AQAR",
+      "annualReports": "Annual Reports",
+      "mediaGallery": "Media Gallery",
+      "privacyPolicy": "Privacy Policy",
+      "terms": "Terms & Condition",
+      "survey": "Student Satisfaction Survey",
+      "staffIcard": "Apply Staff's I-Card",
+      "studentIcard": "Apply Student's I-Card",
+      "paymentPolicy": "Payment terms & Refund Policy"
+    },
+    "handbook": {
+      "title": "MMC AWARDED B+ GRADE IN THE 3rd CYCLE GRADING BY THE NAAC",
+      "subtitle": "College with Potential for Excellence (CPE) Status Accorded by UGC, New Delhi",
+      "download": "Download - Handbook 23 - 2024 (.pdf file size approx 20MB)"
+    },
+    "closing": {
+      "title": "A College Dedicated to Women's Education and Growth",
+      "message": "For decades, Magadh Mahila College has supported women in building knowledge, confidence, and purpose — preparing them for meaningful roles in society and professional life."
+    }
+  },
+  "footer": {
+    "collegeName": "Magadh Mahila College",
+    "description": "Empowering women through quality education since 1946. NAAC B+ accredited and affiliated with Patna University.",
+    "quickLinks": "Quick Links",
+    "importantLinks": "Important Links",
+    "contactInfo": "Contact Info",
+    "externalLinks": "External Links",
+    "followUs": "Follow Us",
+    "copyright": "Copyright © 2023 Magadh Mahila College, Patna. All rights reserved.",
+    "quickLinksItems": {
+      "about": "About Us",
+      "academics": "Academics",
+    "admissions": "Admissions",
+    "campusLife": "Campus Life",
+    "contact": "Contact"
+    },
+    "importantLinksItems": {
+      "tenders": "Tenders",
+      "notices": "Notices & Announcements",
+      "aqar": "AQAR",
+      "annualReports": "Annual Reports",
+      "mediaGallery": "Media Gallery",
+      "privacyPolicy": "Privacy Policy",
+      "terms": "Terms & Conditions",
+      "erp": "MMC ERP",
+      "payments": "Online Payments (MMC Payment)",
+      "survey": "Student Satisfaction Survey",
+      "staffIcard": "Apply Staff's I-Card",
+      "studentIcard": "Apply Student's I-Card",
+      "paymentPolicy": "Payment Terms & Refund Policy"
+    },
+    "externalLinksItems": {
+      "handbook": "College Handbook",
+      "university": "Patna University",
+      "ugc": "UGC",
+      "naac": "NAAC"
+    }
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "hindi": "हिंदी",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "hero": {
+    "badge": "Empowering Women Since 1946",
+    "title": "Magadh Mahila College",
+    "subtitle": "Educating and Empowering Women Through Quality Academic Excellence",
+    "accreditations": "NAAC B+ Accredited | Patna University Affiliated | UGC Recognized",
+    "applyNow": "Apply Now",
+    "exploreLegacy": "Explore Our Legacy"
+  },
+  "features": {
+    "experienceExcellence": "Experience Excellence",
+    "excellenceDesc": "A glimpse into our world-class facilities and vibrant campus life",
+    "modernCampus": "Modern Campus",
+    "modernCampusDesc": "State-of-the-art facilities for holistic development",
+    "academicExcellence": "Academic Excellence",
+    "academicExcellenceDesc": "Comprehensive programs designed for success"
+  },
+  "quickHighlights": {
+    "whyChooseUs": "Why Choose Us",
+    "whyChooseUsDesc": "Discover what makes Magadh Mahila College a premier choice for women's education",
+    "academicPrograms": "Academic Programs",
+    "academicProgramsDesc": "Wide range of UG, PG & Diploma courses",
+    "modernCampus": "Modern Campus",
+    "modernCampusDesc": "State-of-the-art facilities & infrastructure",
+    "admissionsOpen": "Admissions Open",
+    "admissionsOpenDesc": "Join our vibrant learning community",
+    "achievements": "Achievements",
+    "achievementsDesc": "NAAC B+ accredited excellence"
+  },
+  "notices": {
+    "noticeBoard": "Notice Board",
+    "upcomingEvents": "Upcoming Events",
+    "viewAllNotices": "View All Notices →",
+    "viewAllEvents": "View All Events →",
+    "ugAdmission": "UG Admission Notification 2025",
+    "examSchedule": "Semester Examination Schedule",
+    "independenceDay": "Holiday Notice – Independence Day",
+    "hostelGuidelines": "Hostel Admission Guidelines",
+    "scholarshipDeadline": "Scholarship Form Submission Last Date",
+    "womenLeadership": "Women Leadership Seminar",
+    "nssProgram": "NSS Community Awareness Program",
+    "careerWorkshop": "Career Guidance Workshop",
+    "culturalWeek": "Cultural Activities Week"
+  },
+  "slidingNotices": [
+    "🎓 UG Admission Notification 2025 - Apply Now!",
+    "📅 Semester Examination Schedule Released",
+    "🏛️ Independence Day Holiday Notice",
+    "🏠 Hostel Admission Guidelines Available",
+    "💰 Scholarship Form Submission Deadline: 20 Aug 2025"
+  ],
+  "about": {
+    "title": "About Us - Magadh Mahila College | Our Legacy Since 1946",
+    "metaDescription": "Learn about Magadh Mahila College's rich history since 1946. NAAC B+ accredited, UGC recognized institution dedicated to empowering women through quality education.",
+    "briefProfile": "Brief Profile Of The College",
+    "collegeDescription": "Magadh Mahila College, a pioneer institution of higher education for young women in Bihar was established in 1946.",
+    "established1946": "Established in 1946, Magadh Mahila College has been a beacon of women's education in Bihar. Located at North Gandhi Maidan, Patna, our institution has consistently delivered excellence in higher education for over seven decades.",
+    "comprehensivePrograms": "With NAAC B+ accreditation and affiliation to Patna University, we offer a comprehensive range of undergraduate, postgraduate, and diploma programs. Our modern campus houses 3 hostels accommodating 640 students, state-of-the-art laboratories, a well-stocked library, and extensive sports facilities.",
+    "committedTo": "We are committed to fostering scholarly excellence, career readiness, and holistic development, preparing our students to become confident, capable leaders in their chosen fields.",
+    "campusFacilities": "Campus & Facilities",
+    "locationCampus": "Location & Campus",
+    "locationCampusDesc": "The College is situated besides the holy river Ganga. The college campus is lush green and spread over an area of 09 acres of land in the heart of Patna, Bihar. It has 9144 Sqm. of built-up area.",
+    "academicFacilities": "Academic Facilities",
+    "academicFacilitiesDesc": "Academic blocks, smart class rooms, laboratories, faculty rooms, open auditorium, seminar halls, computer labs with latest computing facilities, well-equipped library.",
+    "modernAmenities": "Modern Amenities",
+    "modernAmenitiesDesc": "Modern cafeteria with full hygiene facilities, sports ground, indoor sports complex, well-equipped GYM, day care center, banking facility, botanical garden.",
+    "greenInitiatives": "Green Initiatives",
+    "greenInitiativesDesc": "Botanical garden and recreation facilities. The campus is equipped with latest teaching aids and is Wi-Fi enabled.",
+    "zoologicalGarden": "Zoological Garden",
+    "zoologicalGardenDesc": "MMC is the first college in the state to construct a 'Zoological Garden' to boost natural habitat in its campus. Inside the campus, a large Aquarium with different varieties of fish species.",
+    "aquaticPark": "Aquatic Park",
+    "aquaticParkDesc": "Aquatic Park of the College nurtures aquatic birds and animals. Ducks and swans along with their Ducklings and swan-lings swim and roam in the vicinity of the pond.",
+    "medhaKnowledgeCentre": "Medha Knowledge Centre",
+    "medhaDesc": "As a prime learning resource, the College Central Library namely 'Medha Knowledge Centre' is automated with all its subsystems like LAN connectivity and Wi-Fi. Library Management Software system is incorporated with latest technologies that enables library to serve its users more effectively.",
+    "resourcesAvailable": "Resources Available",
+    "digitalServices": "Digital Services",
+    "ourJourney": "Our Journey Through Time",
+    "collegeFounded": "College Founded",
+    "collegeFoundedDesc": "Established to provide quality education for women",
+    "patnaAffiliation": "Patna University Affiliation",
+    "patnaAffiliationDesc": "Affiliated with Patna University",
+    "infrastructureExpansion": "Infrastructure Expansion",
+    "infrastructureExpansionDesc": "Major campus development and facility upgrades",
+    "ugcRecognition": "UGC Recognition",
+    "ugcRecognitionDesc": "Recognized by University Grants Commission",
+    "naacAccreditation": "NAAC Accreditation",
+    "naacAccreditationDesc": "Achieved NAAC B+ accreditation",
+    "modernCampus": "Modern Campus",
+    "modernCampusDesc": "State-of-the-art facilities and digital transformation",
+    "accreditationsRecognitions": "Accreditations & Recognitions",
+    "naacAccredited": "NAAC B+ Accredited",
+    "ugcRecognized": "UGC Recognized",
+    "patnaAffiliated": "Patna University Affiliated",
+    "isoCertified": "ISO Certified Campus"
+  },
+  "contact": {
+    "title": "Contact Us - Magadh Mahila College | Get in Touch",
+    "metaDescription": "Contact Magadh Mahila College at North Gandhi Maidan, Patna. Phone: +91-612-2219454. Email: info@magadhmahilacollege.org. Visit us or send your queries.",
+    "getInTouch": "Get in Touch",
+    "getInTouchDesc": "We're here to answer your questions and help you begin your journey with us",
+    "contactInformation": "Contact Information",
+    "contactDetails": "Contact Details",
+    "workingHoursNote": "All enquiries will be reproduced on working days during working hours only. Working hours is from 10:30 A.M to 4:30 P.M",
+    "collegeAddress": "College Address",
+    "phoneNos": "Phone No(s).",
+    "webUrl": "Web URL",
+    "emailId": "E-mail ID",
+    "departmentWiseContact": "Department Wise Contact Number",
+    "department": "Department",
+    "contactNumber": "Contact Number",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "officeHours": "Office Hours",
+    "contactInfo": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "webUrl": "Web URL",
+      "officeHours": "Office Hours"
+    },
+    "departments": {
+      "bba": "B.B.A",
+      "bcom": "B.Com",
+      "bca": "B.C.A, P.G.D.C.A",
+      "bsw": "B.SW, P.GD in WCW",
+      "music": "Music"
+    },
+    "departmentContacts": {
+      "bba": "+91-612-6550287",
+      "bcom": "+91-612-6455262, +91-612-2213738",
+      "bca": "+91-612-2207920",
+      "bsw": "+91-9431879047",
+      "music": "+91-9835681230"
+    }
+  },
+  "academics": {
+    "title": "Academics - Magadh Mahila College | UG, PG & Diploma Programs",
+    "metaDescription": "Explore academic programs at Magadh Mahila College. Offering B.A., B.Sc., B.Com, B.B.A., B.C.A., B.S.W., M.A., M.Sc., and PGDCA programs with quality education.",
+    "programsTitle": "Academic Programs",
+    "programsSubtitle": "Discover diverse programs designed to empower your academic journey and career aspirations",
+    "allPrograms": "All Programs",
+    "undergraduate": "Undergraduate",
+    "postgraduate": "Postgraduate",
+    "diploma": "Diploma",
+    "programDescription": "Comprehensive curriculum designed for excellence and career readiness",
+    "stats": {
+      "programs": "50+",
+      "programsLabel": "Academic Programs",
+      "faculty": "100+",
+      "facultyLabel": "Experienced Faculty",
+      "successRate": "95%",
+      "successRateLabel": "Success Rate"
+    }
+  },
+  "admissions": {
+    "title": "Admissions - Magadh Mahila College | Apply Now for 2024",
+    "metaDescription": "Apply for admission to Magadh Mahila College. Learn about eligibility criteria, admission process, important dates, and how to join our vibrant academic community.",
+    "title2024": "Admissions 2024",
+    "description": "The enrollment process of the Institution is fully transparent and follows the guidelines of Patna University including the Reservation Policy of Central Govt. and Govt. of Bihar. Students from different community backgrounds are enrolled in every academic session.",
+    "processTitle": "Admission Process",
+    "steps": {
+      "onlineApplication": {
+        "title": "Online Application",
+        "description": "Fill out the online admission form with accurate details"
+      },
+      "applicationFee": {
+        "title": "Application Fee",
+        "description": "Pay the application fee through secure payment gateway"
+      },
+      "documentVerification": {
+        "title": "Document Verification",
+        "description": "Submit required documents for verification"
+      },
+      "admissionConfirmation": {
+        "title": "Admission Confirmation",
+        "description": "Receive confirmation and complete enrollment process"
+      }
+    },
+    "importantDates": "Important Dates",
+    "eligibilityCriteria": "Eligibility Criteria",
+    "undergraduate": "Undergraduate (UG)",
+    "postgraduate": "Postgraduate (PG)",
+    "diploma": "Diploma",
+    "ugCriteria": [
+      "Passed 10+2 or equivalent examination",
+      "Minimum 45% aggregate marks",
+      "Stream-specific requirements apply"
+    ],
+    "pgCriteria": [
+      "Bachelor's degree in relevant field",
+      "Minimum 50% aggregate marks",
+      "Entrance test may be required"
+    ],
+    "diplomaCriteria": [
+      "Passed 10+2 or graduation",
+      "Basic computer knowledge",
+      "No minimum percentage required"
+    ],
+    "helpTitle": "Need Help with Admissions?",
+    "helpDescription": "Our admission team is here to guide you through the process. Contact us for any queries or assistance."
+  },
+  "pages": {
+    "welcome": "Welcome to Magadh Mahila College! Established in 1946, our institution has been a cornerstone of women's education in Bihar. We are committed to providing quality education that empowers young women to become confident, capable leaders in their chosen fields. Our campus offers a nurturing environment with modern facilities, experienced faculty, and a focus on holistic development.",
+    "principalProfile": "Prof. (Dr.) Nagendra Prasad Verma serves as the Principal of Magadh Mahila College. With extensive experience in academia, Dr. Verma leads our institution with a vision to foster excellence in education and research. Under his guidance, the college has achieved significant milestones including NAAC B+ accreditation and various recognitions for academic and infrastructural development.",
+    "previousPrincipals": "Magadh Mahila College has been led by distinguished educators who have contributed significantly to its growth. Our previous principals have played pivotal roles in establishing the college as a premier institution for women's education in Bihar. Their leadership has shaped the academic culture and infrastructure that continues to benefit students today.",
+    "collegeEmblem": "The college emblem symbolizes our commitment to knowledge, empowerment, and excellence. Featuring traditional motifs combined with modern elements, it represents the harmonious blend of heritage and progress that defines Magadh Mahila College. The emblem is proudly displayed across our campus and official communications.",
+    "studentsRollOfHonor": "Our Students' Roll of Honor celebrates the outstanding achievements of our alumni and current students. From academic excellence to leadership in various fields, our students have made significant contributions to society. This section highlights remarkable accomplishments and serves as inspiration for current and future generations.",
+    "codeOfEthics": "The Code of Ethics at Magadh Mahila College outlines the principles and standards that guide our community. It emphasizes integrity, respect, academic honesty, and responsible conduct. All students, faculty, and staff are expected to uphold these values to maintain a positive and productive learning environment.",
+    "codeOfConduct": "Our Code of Conduct establishes behavioral expectations for all members of the college community. It promotes a safe, inclusive, and respectful campus environment. The code covers academic integrity, interpersonal relationships, use of facilities, and participation in college activities.",
+    "instituteDistinctiveness": "Magadh Mahila College's distinctiveness lies in its commitment to women's empowerment through quality education. As Bihar's premier women's college, we offer specialized programs, mentorship opportunities, and a supportive environment that helps students achieve their full potential in academics and personal growth.",
+    "institutionsPride": "Our Institution's Pride encompasses the achievements, traditions, and values that make Magadh Mahila College special. From our NAAC B+ accreditation to our rich history of empowering women, we take pride in our contributions to education and society. Our alumni network and community impact reflect our enduring legacy.",
+    "modelElectoralLiteracyClub": "The Model Electoral Literacy Club at Magadh Mahila College promotes civic awareness and democratic participation. Through workshops, seminars, and awareness campaigns, the club educates students about electoral processes, voting rights, and responsible citizenship. It plays a vital role in fostering informed and engaged citizens.",
+    "visionMissionCoreValues": "Our Vision is to be a leading institution for women's education, empowering students to become confident leaders. Our Mission focuses on providing quality education, fostering holistic development, and promoting gender equality. Core Values include excellence, integrity, inclusivity, innovation, and social responsibility.",
+    "bestPractices": "Magadh Mahila College implements various best practices in teaching, learning, and administration. These include innovative teaching methods, student-centered approaches, quality assurance measures, and sustainable campus initiatives. Our commitment to continuous improvement ensures we provide the best possible educational experience.",
+    "feedback": "We value feedback from our stakeholders as it helps us improve and grow. The college has established various feedback mechanisms including student satisfaction surveys, parent feedback forms, and alumni responses. Your input is crucial in helping us maintain and enhance the quality of education and services.",
+    "environmentalPolicy": "Magadh Mahila College is committed to environmental sustainability. Our environmental policy promotes green practices, waste management, energy conservation, and ecological awareness. Through initiatives like our botanical garden, zoological garden, and green campus programs, we contribute to environmental protection and education.",
+    "mou": "Magadh Mahila College has established Memorandums of Understanding (MOUs) with various institutions, organizations, and industries. These partnerships facilitate academic collaborations, research opportunities, internships, and skill development programs. MOUs enhance our students' learning experiences and career prospects.",
+    "futurePlans": "Looking ahead, Magadh Mahila College has ambitious plans for growth and development. We aim to expand academic programs, enhance infrastructure, strengthen industry partnerships, and embrace digital transformation. Our future initiatives focus on innovation, research, and preparing students for emerging challenges.",
+    "workshop": "IQAC organizes various workshops to enhance teaching-learning processes and institutional quality. These workshops cover topics like innovative teaching methods, research methodology, quality assurance, and professional development. They provide faculty and staff opportunities to update their skills and knowledge.",
+    "naac": "The IQAC coordinates with NAAC for accreditation and quality assurance. We maintain quality benchmarks, prepare Self Study Reports, and implement quality enhancement measures. Our NAAC B+ accreditation reflects our commitment to maintaining high educational standards.",
+    "research": "Research activities at Magadh Mahila College are promoted through IQAC initiatives. We encourage faculty and students to engage in research projects, publish papers, and participate in conferences. The IQAC supports research infrastructure and provides guidance for research methodology and ethics.",
+    "extensionActivities": "Extension activities including NSS and NCC programs are integral to our holistic education approach. Students participate in community service, environmental awareness, disaster management, and leadership development activities. These programs foster social responsibility and practical skills.",
+    "collaboration": "IQAC facilitates collaborations with other institutions, industries, and organizations. These partnerships enable knowledge sharing, joint research projects, student exchanges, and professional development opportunities. Collaborations enhance our academic and research capabilities.",
+    "studentProgressionForm": "The Student Progression Form tracks academic progress and career development of our students. It monitors enrollment, completion rates, placement records, and higher education pursuits. This data helps us improve curriculum and support services to enhance student success.",
+    "studentSatisfactionSurvey": "Regular Student Satisfaction Surveys are conducted to gather feedback on teaching, facilities, and overall experience. The results inform quality improvement initiatives and help us address areas needing enhancement. Student feedback is crucial for maintaining educational quality.",
+    "projectInternshipFieldWork": "Project work, internships, and field work are essential components of our curriculum. Students gain practical experience through industry internships, research projects, and field studies. These activities bridge theoretical learning with real-world applications.",
+    "bestPractices2023": "Our Best Practices for 2023-24 include innovative teaching methods, digital learning platforms, student mentorship programs, and community engagement initiatives. These practices have been recognized for their effectiveness in enhancing learning outcomes and student satisfaction.",
+    "bestPracticesPhotoGallery": "The Best Practices Photo Gallery showcases our innovative initiatives and successful programs through visual documentation. It includes images of workshops, events, student activities, and infrastructure developments that highlight our commitment to quality education.",
+    "nirf": "The National Institutional Ranking Framework (NIRF) is a methodology adopted by the Ministry of Education, Government of India, to rank higher educational institutions in India. Magadh Mahila College participates in NIRF rankings to assess and improve our institutional performance across various parameters including Teaching, Learning & Research, Research and Professional Practices, Graduation Outcomes, Outreach and Inclusivity, and Inclusion and Availability of Resources.",
+    "news": "Stay updated with the latest news and announcements from Magadh Mahila College. Our news section features important updates, achievements, events, and developments happening at the college. From academic achievements to community initiatives, we keep our students, faculty, and stakeholders informed about all the exciting happenings at MMC.",
+    "events": "Discover upcoming and past events at Magadh Mahila College. Our events calendar includes academic seminars, cultural festivals, sports competitions, workshops, and community outreach programs. Join us in celebrating knowledge, creativity, and excellence through various events that enrich our campus life and contribute to holistic development.",
+    "careers": "Explore career opportunities at Magadh Mahila College. We are always looking for talented and dedicated professionals to join our team. Whether you're interested in teaching positions, administrative roles, or support staff opportunities, MMC offers a rewarding work environment with opportunities for growth and professional development.",
+    "antiRagging": "The Anti-Ragging Committee at Magadh Mahila College is dedicated to creating and maintaining a safe, respectful, and harassment-free campus environment. Ragging in any form is strictly prohibited and considered a serious offense. The committee works proactively to prevent ragging incidents, conducts awareness programs, and ensures compliance with UGC Anti-Ragging Regulations. The committee comprises faculty members, student representatives, and external experts who handle complaints confidentially and take appropriate disciplinary action when necessary. Students are encouraged to report any incidents without fear of retaliation.",
+    "sexualHarassment": "The Sexual Harassment Committee at Magadh Mahila College is committed to providing a safe and secure environment for all students, faculty, and staff. The committee operates in accordance with the UGC guidelines and the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013. It addresses complaints of sexual harassment, conducts investigations confidentially, and ensures appropriate redressal measures. The committee includes internal complaint committee members trained to handle sensitive matters with empathy and professionalism. Awareness workshops and counseling services are regularly organized to promote a culture of respect and gender equality.",
+    "grievanceCell": "The Grievance Cell at Magadh Mahila College serves as a vital mechanism for addressing concerns and grievances of students, faculty, and staff. The cell ensures fair and timely resolution of issues related to academics, facilities, administration, and interpersonal matters. Students can submit grievances through various channels including online forms, suggestion boxes, or direct communication. The cell maintains confidentiality and works towards creating a supportive environment where all concerns are heard and addressed appropriately. Regular reviews and feedback mechanisms help in continuous improvement of institutional practices."
+  }
+}
