@@ -21,6 +21,12 @@ const Navbar = () => {
   const [nepDropdownOpen, setNepDropdownOpen] = useState(false);
   const [admissionsDropdownOpen, setAdmissionsDropdownOpen] = useState(false);
 
+  // Mobile collapsible states
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileAdmissionsOpen, setMobileAdmissionsOpen] = useState(false);
+  const [mobileNepOpen, setMobileNepOpen] = useState(false);
+  const [mobileAdminOpen, setMobileAdminOpen] = useState(false);
+
   const aboutDropdownRef = useRef(null);
   const adminDropdownRef = useRef(null);
   const nepDropdownRef = useRef(null);
@@ -381,63 +387,132 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-white border-b">
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
-            <Link to="/" className="block uppercase text-xs py-2 hover:text-primary">Home</Link>
+            <Link to="/" className="block uppercase text-xs py-2 hover:text-primary" onClick={() => setOpen(false)}>Home</Link>
 
+            {/* About Section */}
             <div className="pt-4 border-t border-gray-200">
-              <h3 className="uppercase text-xs font-semibold text-primary mb-2">About</h3>
-              {aboutItems.map((item, idx) => (
-                <Link key={`${item.to}-${idx}`} to={item.to} className="block uppercase text-xs py-1 hover:text-primary">
-                  {item.label}
-                </Link>
-              ))}
+              <button
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                className="flex items-center justify-between w-full uppercase text-xs font-semibold text-primary mb-2"
+              >
+                <span>About</span>
+                <ChevronDown
+                  className={`transition-transform duration-200 ${mobileAboutOpen ? 'rotate-180' : ''}`}
+                  size={14}
+                />
+              </button>
+              {mobileAboutOpen && (
+                <div className="space-y-1">
+                  {aboutItems.map((item, idx) => (
+                    <Link
+                      key={`${item.to}-${idx}`}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className="block uppercase text-xs py-1 hover:text-primary pl-4"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
             {linksLeft.map(l => (
-              <Link key={l.to} to={l.to} className="block uppercase text-xs py-2 hover:text-primary">
+              <Link key={l.to} to={l.to} className="block uppercase text-xs py-2 hover:text-primary" onClick={() => setOpen(false)}>
                 {l.label}
               </Link>
             ))}
 
-            {/* ✅ ADMISSIONS MOBILE */}
+            {/* Admissions Section */}
             <div className="pt-4 border-t border-gray-200">
-              <h3 className="uppercase text-xs font-semibold text-primary mb-2">Admissions</h3>
-              {admissionsItems.map((item, idx) => (
-                <Link key={`${item.to}-${idx}`} to={item.to} className="block uppercase text-xs py-1 hover:text-primary">
-                  {item.label}
-                </Link>
-              ))}
+              <button
+                onClick={() => setMobileAdmissionsOpen(!mobileAdmissionsOpen)}
+                className="flex items-center justify-between w-full uppercase text-xs font-semibold text-primary mb-2"
+              >
+                <span>Admissions</span>
+                <ChevronDown
+                  className={`transition-transform duration-200 ${mobileAdmissionsOpen ? 'rotate-180' : ''}`}
+                  size={14}
+                />
+              </button>
+              {mobileAdmissionsOpen && (
+                <div className="space-y-1">
+                  {admissionsItems.map((item, idx) => (
+                    <Link
+                      key={`${item.to}-${idx}`}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className="block uppercase text-xs py-1 hover:text-primary pl-4"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* ✅ NEP 2020 MOBILE (UPDATED ITEMS) */}
+            {/* NEP 2020 Section */}
             <div className="pt-4 border-t border-gray-200">
-              <h3 className="uppercase text-xs font-semibold text-primary mb-2">NEP 2020</h3>
-              {nepItems.map((item, idx) => (
-                <Link key={`${item.to}-${idx}`} to={item.to} className="block uppercase text-xs py-1 hover:text-primary">
-                  {item.label}
-                </Link>
-              ))}
+              <button
+                onClick={() => setMobileNepOpen(!mobileNepOpen)}
+                className="flex items-center justify-between w-full uppercase text-xs font-semibold text-primary mb-2"
+              >
+                <span>NEP 2020</span>
+                <ChevronDown
+                  className={`transition-transform duration-200 ${mobileNepOpen ? 'rotate-180' : ''}`}
+                  size={14}
+                />
+              </button>
+              {mobileNepOpen && (
+                <div className="space-y-1">
+                  {nepItems.map((item, idx) => (
+                    <Link
+                      key={`${item.to}-${idx}`}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className="block uppercase text-xs py-1 hover:text-primary pl-4"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
             {linksRight.map(l => (
-              <Link key={l.to} to={l.to} className="block uppercase text-xs py-2 hover:text-primary">
+              <Link key={l.to} to={l.to} className="block uppercase text-xs py-2 hover:text-primary" onClick={() => setOpen(false)}>
                 {l.label}
               </Link>
             ))}
 
+            {/* Administration Section */}
             <div className="pt-4 border-t border-gray-200">
-              <h3 className="uppercase text-xs font-semibold text-primary mb-2">Administration</h3>
-              <Link to="/anti-ragging" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.antiRagging')}</Link>
-              <Link to="/sexual-harassment" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.sexualHarassment')}</Link>
-              <Link to="/grievance" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.grievanceCell')}</Link>
-              <Link to="/administration/cells" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.cells')}</Link>
-              <Link to="/administration/committees" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.committees')}</Link>
-              <Link to="/administration/incubation-centre" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.incubationCentre')}</Link>
-              <Link to="/administration/organogram-of-institution" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.organogramOfInstitution')}</Link>
-              <Link to="/administration/societies" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.societies')}</Link>
-              <Link to="/administration/staff-council" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.staffCouncil')}</Link>
-              <Link to="/administration/centres-list-2020-21" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.centresList202021')}</Link>
-              <Link to="/administration/staff-profile" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.staffProfile')}</Link>
-              <Link to="/administration/teaching-staff-sanctioned-post" className="block uppercase text-xs py-1 hover:text-primary">{t('nav.administrationSub.teachingStaffSanctionedPost')}</Link>
+              <button
+                onClick={() => setMobileAdminOpen(!mobileAdminOpen)}
+                className="flex items-center justify-between w-full uppercase text-xs font-semibold text-primary mb-2"
+              >
+                <span>Administration</span>
+                <ChevronDown
+                  className={`transition-transform duration-200 ${mobileAdminOpen ? 'rotate-180' : ''}`}
+                  size={14}
+                />
+              </button>
+              {mobileAdminOpen && (
+                <div className="space-y-1">
+                  <Link to="/anti-ragging" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.antiRagging')}</Link>
+                  <Link to="/sexual-harassment" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.sexualHarassment')}</Link>
+                  <Link to="/grievance" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.grievanceCell')}</Link>
+                  <Link to="/administration/cells" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.cells')}</Link>
+                  <Link to="/administration/committees" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.committees')}</Link>
+                  <Link to="/administration/incubation-centre" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.incubationCentre')}</Link>
+                  <Link to="/administration/organogram-of-institution" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.organogramOfInstitution')}</Link>
+                  <Link to="/administration/societies" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.societies')}</Link>
+                  <Link to="/administration/staff-council" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.staffCouncil')}</Link>
+                  <Link to="/administration/centres-list-2020-21" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.centresList202021')}</Link>
+                  <Link to="/administration/staff-profile" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.staffProfile')}</Link>
+                  <Link to="/administration/teaching-staff-sanctioned-post" onClick={() => setOpen(false)} className="block uppercase text-xs py-1 hover:text-primary pl-4">{t('nav.administrationSub.teachingStaffSanctionedPost')}</Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
