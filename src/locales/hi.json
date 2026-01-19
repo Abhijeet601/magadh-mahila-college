@@ -1,14 +1,35 @@
 {
   "nav": {
     "home": "होम",
+    "notifications": "सूचनाएं",
+    "tenders": "टेंडर",
+    "language": "भाषा",
+    "theme": "थीम",
+    "blue": "नीला",
+    "maroon": "मरून",
     "about": "हमारे बारे में",
+    "academics": "अकादमिक",
+    "admissions": "प्रवेश",
+    "nep2020": "NEP 2020",
+    "nirf": "NIRF",
+    "campusLife": "कैंपस जीवन",
+    "contact": "संपर्क",
+    "administration": "प्रशासन",
     "aboutDropdown": "ABOUT",
     "aboutSub": {
       "welcome": "मगध महिला कॉलेज में आपका स्वागत है",
       "principalProfile": "मगध महिला कॉलेज के प्रधानाचार्य की प्रोफ़ाइल",
       "previousPrincipals": "पूर्व प्रधानाचार्य",
-      "collegeEmblem": "कॉलेज का प्रतीक",
+    "collegeEmblem": "कॉलेज का प्रतीक",
+    "collegeEmblemPage": {
+      "title": "कॉलेज का प्रतीक",
+      "contentPlaceholder": "कॉलेज का प्रतीक चित्र यहां जोड़ा जाएगा।"
+    },
       "studentsRollOfHonor": "छात्रों की सम्मान सूची",
+      "studentsRollOfHonorPage": {
+        "title": "छात्रों की सम्मान सूची",
+        "contentPlaceholder": "सामग्री जल्द ही अपडेट की जाएगी।"
+      },
       "codeOfEthics": "नैतिक संहिता",
       "codeOfConduct": "आचार संहिता",
       "instituteDistinctiveness": "संस्थान की विशिष्टता",
@@ -21,10 +42,6 @@
       "mou": "एमओयू",
       "futurePlans": "भविष्य की योजनाएं"
     },
-    "academics": "अकादमिक",
-    "admissions": "प्रवेश",
-    "campusLife": "कैंपस जीवन",
-    "contact": "संपर्क",
     "iqac": "IQAC",
     "iqacSub": {
       "workshop": "कार्यशाला",
@@ -39,7 +56,61 @@
       "bestPractices2023": "सर्वोत्तम प्रथाएं 2023-24",
       "bestPracticesPhotoGallery": "सर्वोत्तम प्रथाएं – फोटो गैलरी"
     },
-    "nirf": "NIRF"
+    "admissionsSub": {
+      "courses": "पाठ्यक्रम",
+      "generalInformation": "सामान्य जानकारी",
+      "intakeCapacity": "प्रवेश क्षमता",
+      "eligibility": "पात्रता",
+      "feeStructure": "शुल्क संरचना",
+      "ugAdmission": "स्नातक प्रवेश",
+      "pgAdmission": "स्नातकोत्तर प्रवेश",
+      "computerApplicationCourse": "कंप्यूटर एप्लिकेशन कोर्स",
+      "vocationalAdmission": "व्यावसायिक प्रवेश",
+      "commerceAdmission": "वाणिज्य प्रवेश",
+      "bbaAdmission": "बीबीए प्रवेश",
+      "admittedStudentsYearWise": "प्रवेशित छात्र वर्षवार"
+    },
+    "nep2020Sub": {
+      "academicInfrastructure": "शैक्षणिक बुनियादी ढांचा",
+      "courseMaterial": "पाठ्यक्रम सामग्री",
+      "fineArts": "ललित कला",
+      "humanities": "मानविकी",
+      "library": "पुस्तकालय",
+      "programOutcome": "कार्यक्रम परिणाम",
+      "publications": "प्रकाशन",
+      "science": "विज्ञान",
+      "socialScience": "सामाजिक विज्ञान",
+      "syllabus": "पाठ्यक्रम",
+      "syllabusNEP": "पाठ्यक्रम NEP",
+      "timeTable": "समय सारिणी",
+      "vocationalCommerce": "व्यावसायिक वाणिज्य",
+    "vocationalComputerApplication": "व्यावसायिक कंप्यूटर एप्लिकेशन",
+    "programOutcome": {
+      "title": "कार्यक्रम परिणाम और पाठ्यक्रम परिणाम",
+      "metaTitle": "कार्यक्रम परिणाम और पाठ्यक्रम परिणाम - NEP 2020 - मगध महिला कॉलेज",
+      "metaDescription": "मगध महिला कॉलेज में राष्ट्रीय शिक्षा नीति 2020 के तहत कार्यक्रम परिणाम और पाठ्यक्रम परिणाम।",
+      "intro": "कार्यक्रम परिणाम (POs) और पाठ्यक्रम परिणाम (COs) मगध महिला कॉलेज में राष्ट्रीय शिक्षा नीति 2020 के कार्यान्वयन के आवश्यक घटक हैं।",
+      "programOutcomesTitle": "कार्यक्रम परिणाम",
+      "programOutcomesDesc": "कार्यक्रम परिणाम परिभाषित करते हैं कि स्नातक तक पहुंचने तक छात्रों को क्या जानना और क्या करने की अपेक्षा है। ये परिणाम NEP 2020 दिशानिर्देशों के साथ संरेखित हैं और समग्र विकास पर ध्यान केंद्रित करते हैं।",
+      "courseOutcomesTitle": "पाठ्यक्रम परिणाम",
+      "courseOutcomesDesc": "पाठ्यक्रम परिणाम प्रत्येक पाठ्यक्रम के पूरा होने पर छात्रों द्वारा प्राप्त किए जाने वाले ज्ञान, कौशल और क्षमताओं को निर्दिष्ट करते हैं। ये कार्यक्रम परिणामों में मैप किए जाते हैं।",
+      "note": "प्रत्येक कार्यक्रम के लिए विस्तृत कार्यक्रम और पाठ्यक्रम परिणाम जल्द ही यहां उपलब्ध होंगे। विशिष्ट जानकारी के लिए, कृपया संबंधित विभाग प्रमुखों से संपर्क करें।"
+    }
+    },
+    "administrationSub": {
+      "antiRagging": "एंटी-रैगिंग कमेटी",
+      "sexualHarassment": "सेक्सुअल हारसमेंट कमेटी",
+      "grievanceCell": "शिकायत सेल",
+      "cells": "सेल्स",
+      "committees": "कमेटियां",
+      "incubationCentre": "इन्क्यूबेशन सेंटर",
+      "organogramOfInstitution": "संस्थान का संगठनात्मक चार्ट",
+      "societies": "समाज",
+      "staffCouncil": "स्टाफ काउंसिल",
+      "centresList202021": "केंद्र सूची 2020-21",
+      "staffProfile": "स्टाफ प्रोफाइल",
+      "teachingStaffSanctionedPost": "शिक्षण स्टाफ स्वीकृत पद"
+    }
   },
   "home": {
     "title": "होम - मगध महिला कॉलेज | पटना में महिला कॉलेज",
@@ -141,7 +212,14 @@
       "university": "पटना विश्वविद्यालय",
       "ugc": "UGC",
       "naac": "NAAC"
-    }
+    },
+    "contactDetails": {
+      "address": "उत्तर गांधी मैदान, पटना – 800001",
+      "phone": "+91-612-2219454",
+      "email": "info@magadhmahilacollege.org"
+    },
+    "managedBy": "द्वारा प्रबंधित",
+    "companyName": "अल्पेनरोस डिजिटल सॉल्यूशंस"
   },
   "common": {
     "language": "भाषा",

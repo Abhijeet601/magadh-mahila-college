@@ -22,9 +22,6 @@ const HeroSection = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/60 z-10"></div>
-
       {/* CONTENT */}
       <motion.div
         className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
@@ -43,9 +40,9 @@ const HeroSection = () => {
             animate={{ rotate: [0, 12, -12, 0], scale: [1, 1.1, 1] }}
             transition={{ duration: 4, repeat: Infinity }}
           >
-            <Sparkles className="w-5 h-5 text-[#1E3A8A]" />
+            <Sparkles className="w-5 h-5 text-primary" />
           </motion.div>
-          <span className="text-sm font-medium text-[#0A1F44]">
+          <span className="text-sm font-medium text-primary">
             {t('hero.badge')}
           </span>
         </motion.div>
@@ -103,7 +100,7 @@ const HeroSection = () => {
             <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="group bg-[#1E3A8A] hover:bg-[#0A1F44] text-white shadow-xl"
+                className="group bg-primary hover:bg-primary/80 text-white shadow-xl"
               >
                 {t('hero.applyNow')}
                 <motion.span

@@ -11,35 +11,29 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('blue');
 
   useEffect(() => {
     // Load theme from localStorage
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
+    if (savedTheme && (savedTheme === 'blue' || savedTheme === 'maroon')) {
       setTheme(savedTheme);
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
+      setTheme('blue'); // Default to blue
     }
   }, []);
 
   useEffect(() => {
     // Apply theme to document
     const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add(theme);
+    root.classList.remove('theme-blue', 'theme-maroon');
+    root.classList.add(`theme-${theme}`);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
-  // expose setTheme so callers can explicitly choose light/dark
+  // expose setTheme so callers can explicitly choose blue/maroon
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,303 +1,114 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { Award, Target, Eye, CheckCircle, Calendar, GraduationCap, Wifi, Coffee, Dumbbell, Trees, Fish, Bird, BookOpen, Users, MapPin } from 'lucide-react';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 const About = () => {
   const { t } = useTranslation();
+  const [openSections, setOpenSections] = useState([]);
 
-  const timeline = [
-    { year: '1946', event: t('about.collegeFounded'), description: t('about.collegeFoundedDesc') },
-    { year: '1960', event: t('about.patnaAffiliation'), description: t('about.patnaAffiliationDesc') },
-    { year: '1980', event: t('about.infrastructureExpansion'), description: t('about.infrastructureExpansionDesc') },
-    { year: '2000', event: t('about.ugcRecognition'), description: t('about.ugcRecognitionDesc') },
-    { year: '2015', event: t('about.naacAccreditation'), description: t('about.naacAccreditationDesc') },
-    { year: '2023', event: t('about.modernCampus'), description: t('about.modernCampusDesc') },
-  ];
+  const toggleSection = (index) => {
+    setOpenSections(prev => prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]);
+  };
 
-  const accreditations = [
-    'NAAC B+ Accredited',
-    'UGC Recognized',
-    'Patna University Affiliated',
-    'ISO Certified Campus',
+  const aboutSections = [
+    { path: '/about/brief-profile', title: 'Brief Profile', description: 'Learn about the history and overview of Magadh Mahila College' },
+    { path: '/about/principal', title: 'Principal Profile', description: 'Meet our esteemed Principal and leadership team' },
+    { path: '/about/previous-principals', title: 'Previous Principals', description: 'Honorable former principals of the college' },
+    { path: '/about/emblem', title: 'College Emblem', description: 'The symbolic representation of our institution' },
+    { path: '/about/roll-of-honor', title: "Students' Roll of Honor", description: 'Celebrating our outstanding students' },
+    { path: '/about/code-of-ethics', title: 'Code of Ethics', description: 'Our commitment to ethical standards' },
+    { path: '/about/code-of-conduct', title: 'Code of Conduct', description: 'Guidelines for student behavior and conduct' },
+    { path: '/about/melc', title: 'MELC', description: 'Modern Education and Learning Center' },
+    { path: '/about/vision-mission', title: 'Vision & Mission', description: 'Our goals and objectives' },
+    { path: '/about/best-practices', title: 'Best Practices', description: 'Excellence in education and administration' },
+    { path: '/about/feedback-forms', title: 'Feedback Forms', description: 'Share your thoughts and suggestions' },
+    { path: '/about/environment-policy', title: 'Environmental Policy', description: 'Our commitment to sustainability' },
+    { path: '/about/mou', title: 'MOU', description: 'Memorandums of Understanding' },
+    { path: '/about/future-plans', title: 'Future Plans', description: 'Our roadmap for the future' },
+    { path: '/about/milestones', title: 'Milestones', description: 'Key achievements and landmarks' },
+    { path: '/about/visitors-note', title: "Visitor's Note", description: 'Messages from our esteemed visitors' },
+    { path: '/about/management-administration', title: 'Management & Administration', description: 'Governance and administrative structure' },
+    { path: '/about/mis', title: 'MIS', description: 'Management Information System' },
   ];
 
   return (
     <>
       <Helmet>
-        <title>{t('about.title')}</title>
-        <meta name="description" content={t('about.metaDescription')} />
+        <title>{t('pages.about.title')}</title>
+        <meta name="description" content={t('pages.about.metaDescription')} />
       </Helmet>
 
-      <div className="pt-0">
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-section dark:bg-gray-900">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-primary dark:text-blue-400">
-                  {t('about.briefProfile')}
-                </span>
-              </h1>
-                <p className="text-xl text-foreground dark:text-gray-200 max-w-3xl mx-auto">
-                {t('about.collegeDescription')}
-              </p>
-            </motion.div>
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              {t('pages.about.mainTitle')}
+            </h1>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              {t('pages.about.subtitle')}
+            </p>
+          </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <video
-                  className="w-full h-96 object-cover rounded-3xl shadow-2xl"
-                  controls
-                  muted
-                  loop
-                  autoPlay
-                >
-                  <source src="/main%20gate%20video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="space-y-6"
-              >
-                <h2 className="text-3xl font-bold text-foreground"></h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('about.established1946')}
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('about.comprehensivePrograms')}
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('about.committedTo')}
-                </p>
-              </motion.div>
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-semibold text-primary mb-4">{t('pages.about.exploreSectionsTitle')}</h2>
+            <div className="space-y-4">
+              {Object.entries(t('pages.about.sections', { returnObjects: true })).map(([key, section], sectionIndex) => {
+                const isOpen = openSections.includes(sectionIndex);
+                return (
+                  <Accordion key={sectionIndex} className="w-full">
+                    <AccordionItem>
+                      <AccordionTrigger
+                        className="text-xl font-semibold text-primary hover:text-primary/80"
+                        onClick={() => toggleSection(sectionIndex)}
+                        isOpen={isOpen}
+                      >
+                        {section.title}
+                      </AccordionTrigger>
+                      <AccordionContent isOpen={isOpen}>
+                        <div className="pt-4">
+                          <p className="text-gray-700 mb-4">
+                            {section.description}
+                          </p>
+                          <Link
+                            to={`/about/${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`}
+                            className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+                          >
+                            {t('pages.about.learnMore')}
+                          </Link>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                );
+              })}
             </div>
-
-
-
-            {/* CAMPUS FACILITIES */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-20"
-            >
-              <h2 className="text-4xl font-bold text-center mb-12">
-                <span className="text-primary">
-                  {t('about.campusFacilities')}
-                </span>
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="p-6 rounded-xl bg-card shadow-lg border border-border"
-                >
-                  <MapPin className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{t('about.locationCampus')}</h3>
-                  <p className="text-muted-foreground">
-                    {t('about.locationCampusDesc')}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="p-6 rounded-xl bg-card shadow-lg border border-border"
-                >
-                  <BookOpen className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{t('about.academicFacilities')}</h3>
-                  <p className="text-muted-foreground">
-                    {t('about.academicFacilitiesDesc')}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="p-6 rounded-xl bg-card shadow-lg border border-border"
-                >
-                  <Wifi className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{t('about.modernAmenities')}</h3>
-                  <p className="text-muted-foreground">
-                    {t('about.modernAmenitiesDesc')}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="p-6 rounded-xl bg-card shadow-lg border border-border"
-                >
-                  <Trees className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">Green Initiatives</h3>
-                  <p className="text-muted-foreground">
-                    Botanical garden and recreation facilities. The campus is equipped with latest teaching aids and is Wi-Fi enabled.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="p-6 rounded-xl bg-card shadow-lg border border-border"
-                >
-                  <Fish className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{t('about.zoologicalGarden')}</h3>
-                  <p className="text-muted-foreground">
-                    {t('about.zoologicalGardenDesc')}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="p-6 rounded-xl bg-card shadow-lg border border-border"
-                >
-                  <Bird className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{t('about.aquaticPark')}</h3>
-                  <p className="text-muted-foreground">
-                    {t('about.aquaticParkDesc')}
-                  </p>
-                </motion.div>
-              </div>
-
-              {/* LIBRARY SECTION */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 p-8 rounded-3xl"
-              >
-                <div className="flex items-center justify-center mb-6">
-                  <BookOpen className="w-16 h-16 text-primary dark:text-blue-400" />
-                </div>
-                <h3 className="text-3xl font-bold text-center text-foreground dark:text-white mb-6">{t('about.medhaKnowledgeCentre')}</h3>
-                <p className="text-muted-foreground dark:text-gray-300 text-center max-w-4xl mx-auto mb-6">
-                  {t('about.medhaDesc')}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md dark:shadow-xl">
-                    <h4 className="text-xl font-bold text-foreground dark:text-white mb-3">{t('about.resourcesAvailable')}</h4>
-                    <ul className="text-muted-foreground dark:text-gray-300 space-y-2">
-                      <li>• Books, Reference Books, Rare Books</li>
-                      <li>• Journals, Periodicals, Newspaper</li>
-                      <li>• Previous Year Question Papers</li>
-                      <li>• Photo copying facility, e-journals</li>
-                      <li>• Audio-Video Materials</li>
-                    </ul>
-                  </div>
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md dark:shadow-xl">
-                    <h4 className="text-xl font-bold text-foreground dark:text-white mb-3">{t('about.digitalServices')}</h4>
-                    <ul className="text-muted-foreground dark:text-gray-300 space-y-2">
-                      <li>• INFLIBNET facility with Network Centre</li>
-                      <li>• Access and download e-resources</li>
-                      <li>• KOHA software and OPAC facility</li>
-                      <li>• Barcode online circulation system</li>
-                      <li>• Linked with National Digital Library</li>
-                      <li>• Special software for visually challenged students</li>
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-20"
-            >
-              <h2 className="text-4xl font-bold text-center mb-12">
-                <span className="text-primary">
-                  {t('about.ourJourney')}
-                </span>
-              </h2>
-              <div className="relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-highlight" />
-                {timeline.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`relative mb-12 ${
-                      index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto md:text-left'
-                    }`}
-                  >
-                    <div className="md:w-1/2">
-                      <div className="p-6 rounded-2xl bg-card shadow-lg border border-border">
-                        <div className="text-2xl font-bold text-primary mb-2">{item.year}</div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">{item.event}</h3>
-                        <p className="text-muted-foreground">{item.description}</p>
-                      </div>
-                    </div>
-                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-highlight border-4 border-white shadow-lg" />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="p-8 md:p-12 rounded-3xl bg-primary dark:bg-gray-800 text-primary-foreground dark:text-white"
-            >
-              <div className="flex items-center justify-center mb-8">
-                <Award className="w-12 h-12" />
-              </div>
-              <h2 className="text-3xl font-bold text-center mb-8">{t('about.accreditationsRecognitions')}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {accreditations.map((accreditation, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex items-center space-x-3 p-4 rounded-xl bg-section/10 dark:bg-gray-700/50 backdrop-blur-sm"
-                  >
-                    <CheckCircle className="w-6 h-6 flex-shrink-0" />
-                    <span className="font-medium">{accreditation}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </div>
-        </section>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-16 bg-white rounded-lg shadow-lg p-8 text-center"
+          >
+            <h2 className="text-3xl font-bold text-primary mb-6">
+              Our Commitment to Excellence
+            </h2>
+            <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
+              Magadh Mahila College stands as a beacon of women's empowerment and academic excellence.
+              Established in 1946, we have been nurturing young minds and shaping futures for generations.
+              Our institution is committed to providing quality education, fostering holistic development,
+              and creating an environment where every student can thrive and achieve their full potential.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </>
   );

@@ -45,7 +45,7 @@ const QuickHighlights = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#800000]">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-primary">
             {t('quickHighlights.whyChooseUs')}
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto font-sans">
@@ -68,7 +68,7 @@ const QuickHighlights = () => {
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="w-16 h-16 rounded-xl bg-[#800000] flex items-center justify-center mb-6 shadow-lg"
+                  className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center mb-6 shadow-lg"
                 >
                   <highlight.icon className="w-8 h-8 text-white" />
                 </motion.div>

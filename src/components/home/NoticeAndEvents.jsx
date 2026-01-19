@@ -20,7 +20,7 @@ const ScrollList = ({ items, accent }) => {
           <motion.div
             key={index}
             whileHover={{ scale: 1.02 }}
-            className="p-4 rounded-lg border border-gray-200 bg-white hover:shadow-lg hover:border-[#800000] transition-all duration-300"
+            className="p-4 rounded-lg border border-gray-200 bg-white hover:shadow-lg hover:border-primary transition-all duration-300"
           >
             <p className={`text-sm font-sans font-medium ${accent} mb-1`}>
               {item.date}
@@ -55,7 +55,7 @@ const NoticeAndEvents = () => {
 
   return (
     <section className="py-20 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-4">
 
         {/* NOTICE BOARD */}
         <motion.div
@@ -64,32 +64,14 @@ const NoticeAndEvents = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-[#0A1F44] mb-6 border-b-2 border-red-600 inline-block pb-2">
+          <h2 className="text-3xl font-bold text-primary mb-6 border-b-2 border-primary inline-block pb-2">
             {t('notices.noticeBoard')}
           </h2>
 
           <ScrollList items={notices} accent="text-red-600" />
 
-          <button className="mt-6 text-sm font-semibold text-[#1E3A8A] hover:underline">
+          <button className="mt-6 text-sm font-semibold text-primary hover:underline">
             {t('notices.viewAllNotices')}
-          </button>
-        </motion.div>
-
-        {/* EVENTS */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <h2 className="text-3xl font-bold text-[#0A1F44] mb-6 border-b-2 border-red-600 inline-block pb-2">
-            {t('notices.upcomingEvents')}
-          </h2>
-
-          <ScrollList items={events} accent="text-[#1E3A8A]" />
-
-          <button className="mt-6 text-sm font-semibold text-[#1E3A8A] hover:underline">
-            {t('notices.viewAllEvents')}
           </button>
         </motion.div>
 

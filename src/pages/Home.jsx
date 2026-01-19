@@ -50,8 +50,8 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto px-4 text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#800000] mb-6">
-              {t('home.hero.title').split('. ')[0]}. <span className="text-red-600">{t('home.hero.title').split('. ')[1]}</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
+              {t('home.hero.title').split('. ')[0]}. <span className="text-primary">{t('home.hero.title').split('. ')[1]}</span>
             </h2>
 
             <p className="text-gray-600 max-w-3xl mx-auto text-lg mb-12 font-sans">
@@ -82,7 +82,7 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                   className="p-8 rounded-xl border border-gray-100 hover:shadow-xl transition-transform transform hover:-translate-y-2 bg-white"
                 >
-                  <h3 className="text-xl font-serif font-semibold text-[#800000] mb-2">
+                  <h3 className="text-xl font-serif font-semibold text-primary mb-2">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 font-sans">{item.desc}</p>
@@ -111,7 +111,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-12"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0A1F44] dark:text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
                 {t('home.welcome.title')}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-lg max-w-4xl mx-auto">
@@ -127,7 +127,7 @@ const Home = () => {
                 transition={{ duration: 0.8 }}
                 className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1"
               >
-                <h3 className="text-2xl font-bold text-[#0A1F44] dark:text-white mb-4">{t('home.principal.title')}</h3>
+                <h3 className="text-2xl font-bold text-primary mb-4">{t('home.principal.title')}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {t('home.principal.name')}
                 </p>
@@ -143,7 +143,7 @@ const Home = () => {
                 transition={{ duration: 0.8 }}
                 className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1"
               >
-                <h3 className="text-2xl font-bold text-[#0A1F44] dark:text-white mb-4">{t('home.updates.title')}</h3>
+                <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">{t('home.updates.title')}</h3>
                 <div className="space-y-3">
                   <div className="border-l-4 border-red-500 dark:border-red-400 pl-4">
                     <p className="text-sm text-gray-500 dark:text-gray-400">NIQ-No.P-MMC-957 Dated 10.12.2025</p>
@@ -173,7 +173,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <h3 className="text-3xl font-serif font-bold text-[#800000] mb-6">{t('home.announcement.title')}</h3>
+                <h3 className="text-3xl font-serif font-bold text-primary mb-6">{t('home.announcement.title')}</h3>
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <p className="text-gray-600 italic font-sans">{t('home.announcement.placeholder')}</p>
                 </div>
@@ -185,7 +185,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h3 className="text-3xl font-serif font-bold text-[#800000] mb-6">{t('home.importantLinks.title')}</h3>
+                <h3 className="text-3xl font-serif font-bold text-primary mb-6">{t('home.importantLinks.title')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
                     { name: t('home.importantLinks.tenders'), href: '/tenders' },
@@ -204,7 +204,7 @@ const Home = () => {
                       key={index}
                       href={link.href}
                       whileHover={{ scale: 1.02 }}
-                      className="flex items-center space-x-2 text-[#800000] hover:text-red-700 transition transform hover:-translate-y-1 p-4 rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-lg"
+                      className="flex items-center space-x-2 text-primary hover:text-primary/80 transition transform hover:-translate-y-1 p-4 rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-lg"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span className="text-sm font-sans">{link.name}</span>
@@ -223,13 +223,13 @@ const Home = () => {
               className="mt-12 text-center"
             >
               <div className="bg-white border border-gray-100 rounded-xl p-6 inline-block shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1">
-                <h4 className="text-xl font-serif font-bold text-[#800000] mb-2">{t('home.handbook.title')}</h4>
+                <h4 className="text-xl font-serif font-bold text-primary mb-2">{t('home.handbook.title')}</h4>
                 <p className="text-gray-700 mb-4 font-sans">{t('home.handbook.subtitle')}</p>
                 <a
                   href="http://magadhmahilacollege.org/wp-content/uploads/2023/12/Handbook-2023-2024_mmc.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-[#800000] text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                  className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors"
                 >
                   <Download className="w-5 h-5" />
                   <span className="font-sans">{t('home.handbook.download')}</span>
@@ -240,7 +240,7 @@ const Home = () => {
         </section>
 
         {/* CLOSING MESSAGE */}
-        <section className="py-20 bg-[#0A1F44] dark:bg-gray-800 text-center">
+        <section className="py-20 bg-navbar text-navbar-foreground text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -248,10 +248,10 @@ const Home = () => {
             transition={{ duration: 0.7 }}
             className="max-w-4xl mx-auto px-4"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-navbar-foreground mb-6">
               {t('home.closing.title')}
             </h2>
-            <p className="text-blue-200 dark:text-blue-300 text-lg">
+            <p className="text-navbar-foreground/80 text-lg">
               {t('home.closing.message')}
             </p>
           </motion.div>

@@ -20,15 +20,28 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    debug: false,
+    debug: true,
 
     interpolation: {
       escapeValue: false,
     },
 
+    returnObjects: true,
+
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
+    },
+
+    missingKeyHandler: (lngs, ns, key, fallbackValue) => {
+      console.warn(`Missing key: ${key} in ${lngs[0]}`);
+      if (lngs[0] !== 'en') {
+        const enValue = i18n.getFixedT('en')(key);
+        if (enValue !== key) {
+          return enValue;
+        }
+      }
+      return fallbackValue || key;
     },
   });
 

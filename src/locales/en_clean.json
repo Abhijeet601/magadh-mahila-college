@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "home": "Home",
+    "notifications": "Notifications",
+    "tenders": "Tenders",
+    "language": "Language",
+    "theme": "Theme",
+    "blue": "Blue",
+    "maroon": "Maroon",
+    "about": "About",
+    "academics": "Academics",
+    "admissions": "Admissions",
+    "nep2020": "NEP 2020",
+    "nirf": "NIRF",
+    "campusLife": "Campus Life",
+    "contact": "Contact",
+    "administration": "Administration",
+    "aboutDropdown": "ABOUT",
+    "aboutSub": {
+      "welcome": "Welcome to Magadh Mahila College",
+      "principalProfile": "Profile of Principal Magadh Mahila College",
+      "previousPrincipals": "Previous Principals",
+      "collegeEmblem": "College Emblem",
+      "collegeEmblemPage": {
+        "title": "College Emblem",
+        "contentPlaceholder": "College emblem image will be added here."
+      },
+      "studentsRollOfHonor": "Students Roll Of Honor",
+      "studentsRollOfHonorPage": {
+        "title": "Students Roll Of Honor",
+        "contentPlaceholder": "Content will be updated soon."
+      },
+      "codeOfEthics": "Code of Ethics",
+      "codeOfConduct": "Code of Conduct",
+      "instituteDistinctiveness": "Institute Distinctiveness",
+      "institutionsPride": "Institutions’ Pride",
+      "modelElectoralLiteracyClub": "Model Electoral Literacy Club",
+      "visionMissionCoreValues": "Vision, Mission & Core Values",
+      "bestPractices": "Best Practices",
+      "feedback": "Feedback",
+      "environmentalPolicy": "Environmental Policy",
+      "mou": "MOU",
+      "futurePlans": "Future Plans"
+    },
+    "iqac": "IQAC",
+    "iqacSub": {
+      "workshop": "Workshop",
+      "naac": "NAAC",
+      "feedback": "Feedback",
+      "research": "Research",
+      "extensionActivities": "Extension Activities (NSS, NCC)",
+      "collaboration": "Collaboration",
+      "studentProgressionForm": "Student Progression Form",
+      "studentSatisfactionSurvey": "Student Satisfaction Survey",
+      "projectInternshipFieldWork": "Project Internship & Field Work",
+      "bestPractices2023": "Best practices 2023-24",
+      "bestPracticesPhotoGallery": "Best Practices – Photo Gallery"
+    },
+    "admissionsSub": {
+      "courses": "Courses",
+      "generalInformation": "General Information",
+      "intakeCapacity": "Intake Capacity",
+      "eligibility": "Eligibility",
+      "feeStructure": "Fee Structure",
+      "ugAdmission": "U.G. Admission",
+      "pgAdmission": "P.G. Admission",
+      "computerApplicationCourse": "Computer Application Course",
+      "vocationalAdmission": "Vocational Admission",
+      "commerceAdmission": "Commerce Admission",
+      "bbaAdmission": "BBA Admission",
+      "admittedStudentsYearWise": "Admitted Students (Year wise)"
+    },
+    "nep2020Sub": {
+      "academicInfrastructure": "Academic Infrastructure",
+      "courseMaterial": "Course Material",
+      "fineArts": "Fine Arts",
+      "humanities": "Humanities",
+      "library": "Library",
+      "programOutcome": {
+        "title": "Program Outcome & Course Outcome",
+        "metaTitle": "Program Outcome & Course Outcome - NEP 2020 - Magadh Mahila College",
+        "metaDescription": "Program Outcome and Course Outcome under National Education Policy 2020 at Magadh Mahila College.",
+        "intro": "Program Outcomes (POs) and Course Outcomes (COs) are essential components of the National Education Policy 2020 implementation at Magadh Mahila College.",
+        "programOutcomesTitle": "Program Outcomes",
+        "programOutcomesDesc": "Program Outcomes define what students are expected to know and be able to do by the time of graduation. These outcomes are aligned with the NEP 2020 guidelines and focus on holistic development.",
+        "courseOutcomesTitle": "Course Outcomes",
+        "courseOutcomesDesc": "Course Outcomes specify the knowledge, skills, and competencies that students should acquire upon completion of each course. These are mapped to the Program Outcomes.",
+        "note": "Detailed Program and Course Outcomes for each program will be available here soon. For specific information, please contact the respective department heads."
+      },
+      "publications": "Publications",
+      "science": "Science",
+      "socialScience": "Social Science",
+      "syllabus": "Syllabus",
+      "syllabusNEP": "Syllabus NEP",
+      "timeTable": "Time Table",
+      "vocationalCommerce": "Vocational Commerce",
+      "vocationalComputerApplication": "Vocational Computer Application"
+    },
+    "administrationSub": {
+      "antiRagging": "Anti-Ragging Committee",
+      "sexualHarassment": "Sexual Harassment Committee",
+      "grievanceCell": "Grievance Cell",
+      "cells": {
+        "title": "Cells",
+        "contentPlaceholder": "Placeholder content for Cells page."
+      },
+      "committees": "Committees",
+      "incubationCentre": "Incubation Centre",
+      "organogramOfInstitution": "Organogram of Institution",
+      "societies": "Societies",
+      "staffCouncil": "Staff Council",
+      "centresList202021": "Centres List 2020-21",
+      "staffProfile": "Staff Profile",
+      "teachingStaffSanctionedPost": "Teaching Staff Sanctioned Post"
+    }
+  },
+  "pages": {
+    "about": {
+      "title": "About Us - Magadh Mahila College",
+      "metaDescription": "Learn about Magadh Mahila College, its history, vision, mission, and various aspects of our institution.",
+      "mainTitle": "About Magadh Mahila College",
+      "subtitle": "Discover the rich heritage, values, and achievements that make Magadh Mahila College a premier institution for women's education in Bihar.",
+      "exploreSectionsTitle": "Explore About Sections",
+      "sections": {
+        "briefProfile": {
+          "title": "Brief Profile",
+          "description": "Learn about the history and overview of Magadh Mahila College"
+        },
+        "principalProfile": {
+          "title": "Principal Profile",
+          "description": "Meet our esteemed Principal and leadership team"
+        },
+        "previousPrincipals": {
+          "title": "Previous Principals",
+          "description": "Honorable former principals of the college"
+        },
+        "collegeEmblem": {
+          "title": "College Emblem",
+          "description": "The symbolic representation of our institution"
+        },
+        "studentsRollOfHonor": {
+          "title": "Students' Roll of Honor",
+          "description": "Celebrating our outstanding students"
+        },
+        "codeOfEthics": {
+          "title": "Code of Ethics",
+          "description": "Our commitment to ethical standards"
+        },
+        "codeOfConduct": {
+          "title": "Code of Conduct",
+          "description": "Guidelines for student behavior and conduct"
+        },
+        "melc": {
+          "title": "MELC",
+          "description": "Modern Education and Learning Center"
+        },
+        "visionMission": {
+          "title": "Vision & Mission",
+          "description": "Our goals and objectives"
+        },
+        "bestPractices": {
+          "title": "Best Practices",
+          "description": "Excellence in education and administration"
+        },
+        "feedbackForms": {
+          "title": "Feedback Forms",
+          "description": "Share your thoughts and suggestions"
+        },
+        "environmentalPolicy": {
+          "title": "Environmental Policy",
+          "description": "Our commitment to sustainability"
+        },
+        "mou": {
+          "title": "MOU",
+          "description": "Memorandums of Understanding"
+        },
+        "futurePlans": {
+          "title": "Future Plans",
+          "description": "Our roadmap for the future"
+        },
+        "milestones": {
+          "title": "Milestones",
+          "description": "Key achievements and landmarks"
+        },
+        "visitorsNote": {
+          "title": "Visitor's Note",
+          "description": "Messages from our esteemed visitors"
+        },
+        "managementAdministration": {
+          "title": "Management & Administration",
+          "description": "Governance and administrative structure"
+        },
+        "mis": {
+          "title": "MIS",
+          "description": "Management Information System"
+        }
+      },
+      "learnMore": "Learn More →",
+      "commitmentTitle": "Our Commitment to Excellence",
+      "commitmentText": "Magadh Mahila College stands as a beacon of women's empowerment and academic excellence. Established in 1946, we have been nurturing young minds and shaping futures for generations. Our institution is committed to providing quality education, fostering holistic development, and creating an environment where every student can thrive and achieve their full potential."
+    }
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "hindi": "हिंदी",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "note": "Note"
+  }
+}

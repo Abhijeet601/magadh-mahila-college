@@ -51,7 +51,10 @@ module.exports = {
 					foreground: 'hsl(var(--card-foreground))',
 				},
 				/* Project-specific tokens */
-				navbar: 'hsl(var(--navbar))',
+				navbar: {
+					DEFAULT: 'hsl(var(--navbar))',
+					foreground: 'hsl(var(--navbar-foreground))',
+				},
 				section: 'hsl(var(--section))',
 				highlight: 'hsl(var(--highlight))',
 			},
