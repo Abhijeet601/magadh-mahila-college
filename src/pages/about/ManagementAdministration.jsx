@@ -14,7 +14,7 @@ const ManagementAdministration = () => {
 
           <div className="prose prose-gray max-w-none">
             <div className="whitespace-pre-line text-gray-700 leading-relaxed">
-              Content will be updated soon.
+              {t('pages.about.sections.managementAdministration.content')}
             </div>
           </div>
         </div>

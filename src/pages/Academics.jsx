@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GraduationCap, BookOpen, Award, Users, ExternalLink, Download } from 'lucide-react';
+import { GraduationCap, BookOpen, Award, Users, ExternalLink, Download, Sparkles, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Academics = () => {
@@ -39,8 +39,25 @@ const Academics = () => {
       </Helmet>
 
       <div className="pt-0">
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          {/* Animated Background Elements */}
+          <motion.div
+            className="fixed inset-0 -z-10"
+            animate={{
+              background: [
+                'radial-gradient(600px at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 80%)',
+                'radial-gradient(600px at 90% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 80%)',
+                'radial-gradient(600px at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 80%)',
+              ]
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+
+          <div className="max-w-7xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,8 +80,8 @@ const Academics = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap justify-center gap-4 mb-12"
             >
-              {tabs.map((tab) => (
-                <button
+              {tabs.map((tab, idx) => (
+                <motion.button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
@@ -72,10 +89,20 @@ const Academics = () => {
                       ? 'bg-primary text-primary-foreground shadow-lg scale-105'
                       : 'bg-card text-foreground hover:bg-section shadow-md'
                   }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
                 >
-                  <tab.icon className="w-5 h-5" />
+                  <motion.div
+                    animate={activeTab === tab.id ? { rotate: 360 } : { rotate: 0 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <tab.icon className="w-5 h-5" />
+                  </motion.div>
                   <span>{tab.label}</span>
-                </button>
+                </motion.button>
               ))}
             </motion.div>
 
@@ -91,31 +118,70 @@ const Academics = () => {
                 {filteredPrograms.map((program, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="group relative"
+                    initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    whileHover={{ y: -15, scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative cursor-pointer h-full"
                   >
-                    <div className="h-full p-8 rounded-2xl bg-card shadow-lg hover:shadow-2xl transition-all duration-300 border border-border">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-section rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-200 overflow-hidden">
+                      {/* Animated background blob */}
+                      <motion.div
+                        className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-blue-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                      />
+                      
+                      {/* Shine effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
+                        animate={{ x: ['-100%', '100%'] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
                       
                       <div className="relative z-10">
-                        <div className="text-5xl mb-4">{program.icon}</div>
-                        <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-highlight transition-colors">
+                        <motion.div
+                          className="text-5xl mb-4"
+                          animate={{ y: [0, -5, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                        >
+                          {program.icon}
+                        </motion.div>
+                        
+                        <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                           {program.name}
                         </h3>
-                        <div className="flex items-center space-x-2 text-muted-foreground mb-4">
-                          <div className="px-3 py-1 rounded-full bg-section text-sm font-medium">
+                        
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <motion.div
+                            className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-300 to-blue-400 text-white text-sm font-medium"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: 'spring', stiffness: 400 }}
+                          >
                             {program.duration}
-                          </div>
-                          <div className="px-3 py-1 rounded-full bg-gray-100 text-sm font-medium capitalize">
+                          </motion.div>
+                          <motion.div
+                            className="px-3 py-1 rounded-full bg-gradient-to-r from-gray-200 to-gray-300 text-gray-800 text-sm font-medium capitalize"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: 'spring', stiffness: 400 }}
+                          >
                             {program.category === 'ug' ? 'UG' : program.category === 'pg' ? 'PG' : 'Diploma'}
-                          </div>
+                          </motion.div>
                         </div>
-                        <p className="text-muted-foreground text-sm">
+                        
+                        <p className="text-muted-foreground text-sm mb-4">
                           {t('academics.programDescription')}
                         </p>
+                        
+                        <motion.div
+                          className="flex items-center gap-2 text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                          initial={{ x: -10, opacity: 0 }}
+                          whileHover={{ x: 5 }}
+                        >
+                          Learn More
+                          <ChevronRight className="w-4 h-4" />
+                        </motion.div>
                       </div>
                     </div>
                   </motion.div>
@@ -124,25 +190,117 @@ const Academics = () => {
             </AnimatePresence>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mt-20 p-8 md:p-12 rounded-3xl bg-primary text-primary-foreground"
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8 }}
+              className="mt-20 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-primary to-blue-600 text-primary-foreground relative overflow-hidden"
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-4xl font-bold mb-2">50+</div>
-                  <p className="text-white/90">Academic Programs</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold mb-2">100+</div>
-                  <p className="text-white/90">Experienced Faculty</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold mb-2">95%</div>
-                  <p className="text-white/90">Success Rate</p>
-                </div>
+              {/* Animated background elements */}
+              <motion.div
+                className="absolute inset-0 opacity-10"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+              >
+                <div className="absolute w-96 h-96 -top-48 -right-48 bg-white rounded-full" />
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0 }}
+                >
+                  <motion.div
+                    className="text-4xl font-bold mb-2"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      50+
+                    </motion.span>
+                  </motion.div>
+                  <motion.p
+                    className="text-white/90"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    Academic Programs
+                  </motion.p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <motion.div
+                    className="text-4xl font-bold mb-2"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      100+
+                    </motion.span>
+                  </motion.div>
+                  <motion.p
+                    className="text-white/90"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                    Experienced Faculty
+                  </motion.p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <motion.div
+                    className="text-4xl font-bold mb-2"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                    >
+                      95%
+                    </motion.span>
+                  </motion.div>
+                  <motion.p
+                    className="text-white/90"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    Success Rate
+                  </motion.p>
+                </motion.div>
               </div>
             </motion.div>
           </div>

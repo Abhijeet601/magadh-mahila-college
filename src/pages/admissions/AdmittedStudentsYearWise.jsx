@@ -1,10 +1,41 @@
 import React from 'react';
 
 const AdmittedStudentsYearWise = () => {
+  const pdfs = {
+    2018: [
+      { name: 'ADMITTED-IN-2018-PART-I-UG-PG-r.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2018-PART-I-UG-PG-r.pdf' },
+      { name: 'ADMITTED-IN-2018-PART-II-UG-PG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2018-PART-II-UG-PG-R.pdf' },
+      { name: 'ADMITTED-IN-2018-PART-III-UG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2018-PART-III-UG-R.pdf' },
+    ],
+    2019: [
+      { name: 'ADMITTED-IN-2019-PART-I-UG-PG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2019-PART-I-UG-PG-R.pdf' },
+      { name: 'ADMITTED-IN-2019-PART-II-UG-PG_R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2019-PART-II-UG-PG_R.pdf' },
+      { name: 'ADMITTED-IN-2019-PART-III-UG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2019-PART-III-UG-R.pdf' },
+    ],
+    2020: [
+      { name: 'ADMITTED-IN-2020-PART-I-UG-PG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2020-PART-I-UG-PG-R.pdf' },
+      { name: 'ADMITTED-IN-2020-PART-II-UG-PG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2020-PART-II-UG-PG-R.pdf' },
+      { name: 'ADMITTED-IN-2020-PART-III-UG-R.pdf', url: '/documents/admission/admitted-students/ADMITTED-IN-2020-PART-III-UG-R.pdf' },
+    ],
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">Admitted Students (Year wise)</h1>
-      <p>Placeholder content for Admitted Students (Year wise) page.</p>
+      {Object.keys(pdfs).map(year => (
+        <div key={year} className="mb-6">
+          <h2 className="text-2xl font-semibold mb-2">{year}</h2>
+          <ul className="list-disc list-inside">
+            {pdfs[year].map(pdf => (
+              <li key={pdf.name}>
+                <a href={pdf.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  {pdf.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };

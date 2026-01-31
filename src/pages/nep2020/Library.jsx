@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Library = () => {
   return (
@@ -18,7 +18,7 @@ const Library = () => {
 
             <div className="prose max-w-none">
               <p className="text-gray-700 mb-6 text-lg">
-                The 'Medha Knowledge Centre' library at Magadh Mahila College is a modern learning resource center equipped with digital facilities to support NEP 2020 implementation.
+                The Central Library at Magadh Mahila College is a modern learning resource center equipped with digital facilities to support NEP 2020 implementation.
               </p>
 
               <h2 className="text-2xl font-semibold text-primary mb-4">Library Resources</h2>

@@ -12,10 +12,12 @@ const CollegeEmblem = () => {
             {t('nav.aboutSub.collegeEmblem')}
           </h1>
 
-          <div className="prose prose-gray max-w-none">
-            <div className="whitespace-pre-line text-gray-700 leading-relaxed">
-              {t('nav.aboutSub.collegeEmblemPage.contentPlaceholder')}
-            </div>
+          <div className="flex justify-center">
+            <img
+              src="/images/college-embelem.jpg"
+              alt="College Emblem"
+              className="max-w-full h-auto rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </div>

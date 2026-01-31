@@ -14,7 +14,20 @@ const FeedbackForms = () => {
 
           <div className="prose prose-gray max-w-none">
             <div className="whitespace-pre-line text-gray-700 leading-relaxed">
-              Content will be updated soon.
+              Feedback Forms
+
+Magadh Mahila College values feedback from students, faculty, and stakeholders to continuously improve our services and educational quality. We provide various feedback forms to gather insights on teaching, infrastructure, facilities, and overall experience.
+
+Available Feedback Forms:
+- Student Feedback on Teaching
+- Infrastructure and Facilities Feedback
+- Library Services Feedback
+- Hostel and Accommodation Feedback
+- General College Experience Feedback
+
+Please fill out the relevant feedback forms to help us enhance our institution. Your feedback is confidential and greatly appreciated.
+
+For access to feedback forms, please contact the IQAC Cell or visit the college website.
             </div>
           </div>
         </div>

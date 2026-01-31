@@ -14,7 +14,14 @@ const EnvironmentalPolicy = () => {
 
           <div className="prose prose-gray max-w-none">
             <div className="whitespace-pre-line text-gray-700 leading-relaxed">
-              Content will be updated soon.
+              Environmental Policy
+            </div>
+            <div className="flex justify-center mt-6">
+              <img
+                src="/data files/about/environment-policy.jpg"
+                alt="Environmental Policy"
+                className="max-w-full h-auto rounded-lg shadow-lg"
+              />
             </div>
           </div>
         </div>

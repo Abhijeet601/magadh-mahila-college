@@ -1,11 +1,27 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Shield, Target, Users, Award, TrendingUp, CheckCircle, BookOpen, Lightbulb, FileText, BarChart3 } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Shield, Target, Users, Award, TrendingUp, CheckCircle, BookOpen, Lightbulb, FileText, BarChart3, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const IQAC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+
+  const iqacMenuItems = [
+    { label: 'Workshop', to: '/iqac/workshop' },
+    { label: 'NAAC', to: '/iqac/naac' },
+    { label: 'Feedback', to: '/iqac/feedback' },
+    { label: 'Research', to: '/iqac/research' },
+    { label: 'Extension Activities (NSS, NCC)', to: '/iqac/extension-activities' },
+    { label: 'Collaboration', to: '/iqac/collaboration' },
+    { label: 'Student Progression Form', to: '/iqac/student-progression-form' },
+    { label: 'Student Satisfaction Survey', to: '/iqac/student-satisfaction-survey' },
+    { label: 'Project Internship & Field Work', to: '/iqac/project-internship-fieldwork' },
+    { label: 'Best practices 2023-24', to: '/iqac/best-practices-2023-24' },
+    { label: 'Best Practices – Photo Gallery', to: '/iqac/best-practices-photo-gallery' },
+  ];
 
   const objectives = [
     {

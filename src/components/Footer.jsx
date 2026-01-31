@@ -11,7 +11,15 @@ import {
   Linkedin,
   Youtube,
   MessageCircle,
-  Send
+  Send,
+  Info,
+  FileText,
+  ExternalLink,
+  Download,
+  Globe,
+  GraduationCap,
+  Users,
+  Home
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -58,16 +66,6 @@ const Footer = () => {
     { path: '/terms', label: t('footer.importantLinksItems.terms') }
   ];
 
-  const externalLinks = [
-    {
-      href: 'http://magadhmahilacollege.org/wp-content/uploads/2023/12/Handbook-2023-2024_mmc.pdf',
-      label: t('footer.externalLinksItems.handbook')
-    },
-    { href: 'https://www.patnauniversity.ac.in/', label: t('footer.externalLinksItems.university') },
-    { href: 'https://www.ugc.ac.in/', label: t('footer.externalLinksItems.ugc') },
-    { href: 'https://www.naac.gov.in/', label: t('footer.externalLinksItems.naac') }
-  ];
-
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
     { icon: Twitter, href: '#', label: 'Twitter' },
@@ -81,7 +79,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-navbar text-primary-foreground overflow-hidden">
 
-      {/* SUBTLE BACKGROUND EFFECT */}
+      {/* BACKGROUND EFFECT */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-30 pointer-events-none" />
 
       <motion.div
@@ -89,38 +87,48 @@ const Footer = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* LOGO + DESCRIPTION */}
           <motion.div variants={itemUp} className="text-center">
-            <Link to="/" className="inline-block">
-              <div className="relative max-w-[300px] mx-auto">
 
-                <svg viewBox="0 0 400 140" className="w-full">
-                  <path d="M0 0 H400 V70 C300 140 100 140 0 70 Z" fill="white" />
+            <Link to="/" className="inline-block">
+              {/* LOGO CONTAINER MOVED UP */}
+              <div className="relative max-w-[340px] mx-auto -mt-6">
+
+                {/* BIGGER SVG SHAPE TOUCHING TOP */}
+                <svg viewBox="0 0 400 160" className="w-full">
                   <path
-                    d="M0 0 H400 V70 C300 140 100 140 0 70 Z"
+                    d="M0 0 H400 V80 C300 160 100 160 0 80 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0 0 H400 V80 C300 160 100 160 0 80 Z"
                     fill="none"
                     stroke="hsl(var(--primary))"
                     strokeWidth="4"
                   />
                 </svg>
 
-                <div className="absolute inset-0 flex items-center justify-center gap-2 px-4">
+                {/* LOGO CONTENT */}
+                <div className="absolute inset-0 flex items-center justify-center gap-3 px-6">
                   <motion.img
                     src="/Magadh_Mahila_College.png"
                     alt="Magadh Mahila College Logo"
-                    className="w-10 h-10"
+                    className="w-14 h-14"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   />
+
                   <div className="text-left leading-tight">
                     <h1 className="font-serif font-bold text-primary">
-                      <span className="block text-sm">{tHi('hero.title')}</span>
-                      <span className="block text-xs">{tEn('hero.title')}</span>
+                      <span className="block text-base">{tHi('hero.title')}</span>
+                      <span className="block text-sm">{tEn('hero.title')}</span>
                     </h1>
-                    <p className="text-xs text-gray-500">Patna University</p>
+                    <p className="text-xs text-gray-500">
+                      Patna University
+                    </p>
                   </div>
                 </div>
               </div>
@@ -133,14 +141,22 @@ const Footer = () => {
 
           {/* QUICK LINKS */}
           <motion.div variants={itemUp}>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <Info className="w-5 h-5" />
+              {t('footer.quickLinks')}
+            </h3>
             <nav className="space-y-2">
               {quickLinks.map(link => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="block text-sm hover:text-highlight transition"
+                  className="block text-sm hover:text-highlight transition flex items-center gap-2"
                 >
+                  {link.path === '/about' && <Info className="w-4 h-4" />}
+                  {link.path === '/academics' && <GraduationCap className="w-4 h-4" />}
+                  {link.path === '/admissions' && <Users className="w-4 h-4" />}
+                  {link.path === '/campus-life' && <Home className="w-4 h-4" />}
+                  {link.path === '/contact' && <Phone className="w-4 h-4" />}
                   {link.label}
                 </Link>
               ))}
@@ -149,14 +165,18 @@ const Footer = () => {
 
           {/* IMPORTANT LINKS */}
           <motion.div variants={itemUp}>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.importantLinks')}</h3>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <FileText className="w-5 h-5" />
+              {t('footer.importantLinks')}
+            </h3>
             <nav className="space-y-2">
               {importantLinks.map(link => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="block text-sm hover:text-highlight transition"
+                  className="block text-sm hover:text-highlight transition flex items-center gap-2"
                 >
+                  <Download className="w-4 h-4" />
                   {link.label}
                 </Link>
               ))}
@@ -165,7 +185,11 @@ const Footer = () => {
 
           {/* CONTACT */}
           <motion.div variants={itemUp}>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.contactInfo')}</h3>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <Phone className="w-5 h-5" />
+              {t('footer.contactInfo')}
+            </h3>
+
             <div className="space-y-3 text-sm">
               <div className="flex gap-3">
                 <MapPin className="w-5 h-5 text-highlight" />
@@ -184,10 +208,7 @@ const Footer = () => {
         </div>
 
         {/* SOCIAL ICONS */}
-        <motion.div
-          variants={itemUp}
-          className="mt-10 flex justify-center gap-4"
-        >
+        <motion.div variants={itemUp} className="mt-10 flex justify-center gap-4">
           {socialLinks.map(social => (
             <motion.a
               key={social.label}
@@ -202,34 +223,25 @@ const Footer = () => {
         </motion.div>
 
         {/* DIVIDER */}
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: '100%' }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-12 h-px bg-white/10"
-        />
+        <div className="mt-12 h-px bg-white/10" />
 
-        {/* COPYRIGHT + MANAGED BY */}
-        <motion.div
-          variants={itemUp}
-          className="mt-6 text-center text-sm space-y-2"
-        >
+        {/* COPYRIGHT */}
+        <div className="mt-6 text-center text-sm space-y-2">
           <p>{t('footer.copyright')}</p>
 
           <p className="text-xs text-muted-foreground">
             Managed by{' '}
-            <motion.a
+            <a
               href="https://ards.in/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              className="font-semibold text-highlight hover:underline inline-block"
+              className="font-semibold text-highlight hover:underline inline-flex items-center gap-1"
             >
+              <Globe className="w-3 h-3" />
               Alpenrose Digital Solutions
-            </motion.a>
+            </a>
           </p>
-        </motion.div>
+        </div>
 
       </motion.div>
     </footer>

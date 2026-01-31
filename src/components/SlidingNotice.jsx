@@ -26,18 +26,18 @@ const SlidingNotice = () => {
           repeat: Infinity,
           ease: 'linear'
         }}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
         style={{ width: '200%' }}
       >
         {[...notices, ...notices].map((notice, index) => (
           <div
             key={index}
-            className="flex items-center px-3 py-0.5 text-white mx-2 min-w-max"
+            className="flex items-center px-3 py-0.5 text-white font-bold mx-2 min-w-max"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
           >
-            <Link to="/notices" className="hover:underline">
-              <span className="font-medium text-xs">{notice}</span>
-            </Link>
+            <a href={notice.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <span className="font-medium text-xs">{notice.text}</span>
+            </a>
           </div>
         ))}
       </motion.div>

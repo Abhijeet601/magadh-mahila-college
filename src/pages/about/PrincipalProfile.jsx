@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useBilingual } from '../../contexts/BilingualContext';
 
 const PrincipalProfile = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const tEn = i18n.getFixedT('en');
   const tHi = i18n.getFixedT('hi');
   const { isBilingual } = useBilingual();

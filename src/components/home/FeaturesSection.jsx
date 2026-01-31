@@ -36,6 +36,7 @@ const FeaturesSection = () => {
             className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group"
           >
             <img
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               alt="Modern college campus with students"
              src="/modern-campus.webp" />
@@ -56,6 +57,7 @@ const FeaturesSection = () => {
             className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group"
           >
             <img
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               alt={t('features.academicExcellence')}
              src={academicExcellenceImg} />

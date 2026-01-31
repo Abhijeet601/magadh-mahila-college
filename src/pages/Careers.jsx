@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Clock, DollarSign, ArrowRight, GraduationCap, Users, Award, Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';

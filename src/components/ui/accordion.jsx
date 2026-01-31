@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 
-const Accordion = ({ children, className, ...props }) => {
+const Accordion = ({ children, className, type, collapsible, ...props }) => {
   return (
     <div className={cn('w-full', className)} {...props}>
       {children}

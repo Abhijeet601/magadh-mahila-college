@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ExternalLink, Download, Phone, Mail, MapPin } from 'lucide-react';
+import { ExternalLink, Download, Phone, Mail, MapPin, Users, Shield, Heart, Award, BookOpen, GraduationCap, Star, CheckCircle, Calendar, FileText, Home as HomeIcon, Sparkles, Target, Lightbulb, Zap, Trophy, Globe, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import HeroSection from '@/components/home/HeroSection';
@@ -27,30 +27,505 @@ const Home = () => {
         {/* HERO */}
         <HeroSection />
 
+        {/* WELCOME MESSAGE */}
+        <section className="py-10 bg-gray-50 relative overflow-hidden">
+          {/* Animated Background */}
+          <motion.div
+            className="absolute inset-0 opacity-10"
+            animate={{
+              background: [
+                'radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.3) 0%, transparent 50%)',
+                'radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)',
+                'radial-gradient(circle at 60% 30%, rgba(139, 69, 19, 0.3) 0%, transparent 50%)',
+              ],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+
+          {/* Floating Icons */}
+          {[
+            { Icon: Trophy, color: 'text-yellow-500', delay: 0 },
+            { Icon: Globe, color: 'text-blue-500', delay: 1 },
+            { Icon: Rocket, color: 'text-red-500', delay: 2 },
+            { Icon: Zap, color: 'text-purple-500', delay: 3 },
+          ].map(({ Icon, color, delay }, i) => (
+            <motion.div
+              key={i}
+              className={`absolute ${color} opacity-20`}
+              style={{
+                left: `${15 + i * 20}%`,
+                top: `${20 + (i % 2) * 40}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                rotate: [0, 10, -10, 0],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: delay,
+              }}
+            >
+              <Icon size={40} />
+            </motion.div>
+          ))}
+
+          <div className="px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-12"
+            >
+              <motion.h2
+                className="text-4xl md:text-5xl font-bold text-primary mb-6 flex items-center justify-center gap-3"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <HomeIcon className="w-8 h-8" />
+                </motion.div>
+                {t('home.welcome.title')}
+              </motion.h2>
+              <motion.p
+                className="text-gray-600 dark:text-gray-300 text-lg max-w-4xl mx-auto"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.3 }}
+              >
+                {t('home.welcome.description')}
+              </motion.p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 relative overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-maroon-500"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+
+                <motion.div
+                  className="text-center mb-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <img
+                    src="/images/principal.jpg"
+                    alt="Principal"
+                    loading="lazy"
+                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                  />
+                  <motion.h3
+                    className="text-lg font-semibold text-primary dark:text-white mb-2"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    Prof. (Dr.) Nagendra Prasad Verma
+                  </motion.h3>
+                  <motion.p
+                    className="text-2xl font-bold text-primary dark:text-white"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    Principal, Magadh Mahila College
+                  </motion.p>
+                </motion.div>
+                <div className="space-y-3">
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 relative overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-maroon-500 to-blue-500"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+                <motion.div
+                  className="text-center mb-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <motion.img
+                    loading="lazy"
+                    src="/images/vc_profile.jpg"
+                    alt="Vice Chancellor, Patna University"
+                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  />
+                  <motion.h3
+                    className="text-lg font-semibold text-primary dark:text-white mb-2"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    Prof. Ajay Kumar Singh
+                  </motion.h3>
+                  <motion.p
+                    className="text-2xl font-bold text-primary dark:text-white"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    Vice Chancellor, Patna University
+                  </motion.p>
+                </motion.div>
+                <div className="space-y-3">
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ANTI RAGGING SECTION */}
+        <section className="py-10 bg-gray-50 relative overflow-hidden">
+          <div className="px-4 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-8"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                Anti Ragging
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Important anti-ragging resources and information for students and parents.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <motion.a
+                href="https://antiragging.in/affidavit_registration_disclaimer.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 block"
+                whileHover={{ scale: 1.02, y: -5 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-center">
+                  <Shield className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-primary mb-2">
+                    Student's Undertaking
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Anti-Ragging Affidavit Registration
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="/documents/Notice/Anti-Ragging-Committee-2024.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 block"
+                whileHover={{ scale: 1.02, y: -5 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="text-center">
+                  <FileText className="w-12 h-12 text-blue-500 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-primary mb-2">
+                    Anti Ragging Committee 2024-25
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Committee details and contact information
+                  </p>
+                </div>
+              </motion.a>
+            </div>
+          </div>
+        </section>
+
         {/* QUICK HIGHLIGHTS */}
         <section className="pt-0 pb-12 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="px-4">
             <QuickHighlights />
           </div>
         </section>
 
         {/* NOTICE & EVENTS (SCROLLING) */}
-        <section className="py-8 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <NoticeAndEvents />
+        <section className="py-8 bg-white relative">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-white to-maroon-50/20"
+            animate={{
+              background: [
+                'linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(255, 255, 255, 0.8), rgba(139, 69, 19, 0.1))',
+                'linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(255, 255, 255, 0.8), rgba(59, 130, 246, 0.1))',
+                'linear-gradient(225deg, rgba(59, 130, 246, 0.1), rgba(255, 255, 255, 0.8), rgba(139, 69, 19, 0.1))',
+                'linear-gradient(315deg, rgba(139, 69, 19, 0.1), rgba(255, 255, 255, 0.8), rgba(59, 130, 246, 0.1))',
+              ],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+          <div className="px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <NoticeAndEvents />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* VISITORS SECTION */}
+        <section className="py-10 bg-white relative overflow-hidden">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-blue-50/10 via-white to-maroon-50/10"
+            animate={{
+              background: [
+                'linear-gradient(45deg, rgba(59, 130, 246, 0.05), rgba(255, 255, 255, 0.9), rgba(139, 69, 19, 0.05))',
+                'linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(255, 255, 255, 0.9), rgba(59, 130, 246, 0.05))',
+                'linear-gradient(225deg, rgba(59, 130, 246, 0.05), rgba(255, 255, 255, 0.9), rgba(139, 69, 19, 0.05))',
+                'linear-gradient(315deg, rgba(139, 69, 19, 0.05), rgba(255, 255, 255, 0.9), rgba(59, 130, 246, 0.05))',
+              ],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+          <div className="px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center mb-8"
+            >
+              <motion.h2
+                className="text-3xl md:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <Users className="w-8 h-8" />
+                </motion.div>
+                {t('home.visitors.title', 'Distinguished Visitors')}
+              </motion.h2>
+              <motion.p
+                className="text-gray-600 text-lg max-w-2xl mx-auto"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.3 }}
+              >
+                {t('home.visitors.subtitle', 'Honored guests who have graced our institution')}
+              </motion.p>
+            </motion.div>
+
+            <div className="relative overflow-hidden">
+              <motion.div
+                className="flex space-x-6"
+                animate={{
+                  x: [0, -100 * 10], // 10 images, each taking roughly 100% width equivalent
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 30,
+                    ease: "linear",
+                  },
+                }}
+                style={{ width: '200%' }} // Double width to allow seamless loop
+              >
+                {[
+                  { name: 'Abhishek Bachchan', image: 'AbhishekBachhan.jpg' },
+                  { name: 'Dr. Sharda Sinha', image: 'Dr.ShardaSinha.jpg' },
+                  { name: 'Gupteshwar Pandey', image: 'G.-P-andry.jpg' },
+                  { name: 'Gurmeet Choudhary', image: 'Gurmeet-choudhary.jpg' },
+                  { name: 'Mridula Sinha', image: 'Mridula-sinha.jpg' },
+                  { name: 'Nitish Kumar', image: 'Nitish-Kumar.jpg' },
+                  { name: 'Ratan Rajput', image: 'Ratan-Rajput.jpg' },
+                  { name: 'Shri K. G. Balakrishanan', image: 'ShriK.G-Balakrishanan.jpg' },
+                  { name: 'Shri Shatrughan Sinha', image: 'ShriShatrughanSinha.jpg' },
+                  { name: 'Sri Satya Pal Malik', image: 'Sri-Satya-Pal-Malik.jpg' },
+                ].map((visitor, i) => (
+                  <motion.div
+                    key={i}
+                    className="flex-shrink-0 w-full md:w-64 bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2 relative overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <motion.div
+                      className="relative h-48 overflow-hidden"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <img
+                        src={`/images/visitor-notes/${visitor.image}`}
+                        alt={visitor.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.src = '/images/placeholder.jpg'; // Fallback image
+                        }}
+                      />
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
+                    <motion.div
+                      className="p-4 text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: i * 0.1 }}
+                    >
+                      <motion.h3
+                        className="text-lg font-semibold text-primary mb-1"
+                        whileHover={{ color: '#8B4513' }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {visitor.name}
+                      </motion.h3>
+                      <motion.p
+                        className="text-sm text-gray-600"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
+                      >
+                        Distinguished Visitor
+                      </motion.p>
+                    </motion.div>
+                  </motion.div>
+                ))}
+                {/* Duplicate the array for seamless loop */}
+                {[
+                  { name: 'Abhishek Bachchan', image: 'AbhishekBachhan.jpg' },
+                  { name: 'Dr. Sharda Sinha', image: 'Dr.ShardaSinha.jpg' },
+                  { name: 'G. P. Andry', image: 'G.-P-andry.jpg' },
+                  { name: 'Gurmeet Choudhary', image: 'Gurmeet-choudhary.jpg' },
+                  { name: 'Mridula Sinha', image: 'Mridula-sinha.jpg' },
+                  { name: 'Nitish Kumar', image: 'Nitish-Kumar.jpg' },
+                  { name: 'Ratan Rajput', image: 'Ratan-Rajput.jpg' },
+                  { name: 'Shri K. G. Balakrishanan', image: 'ShriK.G-Balakrishanan.jpg' },
+                  { name: 'Shri Shatrughan Sinha', image: 'ShriShatrughanSinha.jpg' },
+                  { name: 'Sri Satya Pal Malik', image: 'Sri-Satya-Pal-Malik.jpg' },
+                ].map((visitor, i) => (
+                  <motion.div
+                    key={`duplicate-${i}`}
+                    className="flex-shrink-0 w-full md:w-64 bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2 relative overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <motion.div
+                      className="relative h-48 overflow-hidden"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <img
+                        src={`/images/visitor-notes/${visitor.image}`}
+                        alt={visitor.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.src = '/images/placeholder.jpg'; // Fallback image
+                        }}
+                      />
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
+                    <motion.div
+                      className="p-4 text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: i * 0.1 }}
+                    >
+                      <motion.h3
+                        className="text-lg font-semibold text-primary mb-1"
+                        whileHover={{ color: '#8B4513' }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {visitor.name}
+                      </motion.h3>
+                      <motion.p
+                        className="text-sm text-gray-600"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
+                      >
+                        Distinguished Visitor
+                      </motion.p>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </section>
 
         {/* WOMEN EMPOWERMENT SECTION */}
-        <section className="relative py-20 bg-white overflow-hidden border-t border-gray-100">
+        <section className="relative py-10 bg-white overflow-hidden border-t border-gray-100">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-6xl mx-auto px-4 text-center"
+            className="px-4 text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6 flex items-center justify-center gap-3">
+              <Users className="w-8 h-8" />
               {t('home.hero.title').split('. ')[0]}. <span className="text-primary">{t('home.hero.title').split('. ')[1]}</span>
             </h2>
 
@@ -95,158 +570,181 @@ const Home = () => {
 
 
         {/* FEATURES */}
-        <section className="py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <FeaturesSection />
+        <section className="py-10 bg-white relative overflow-hidden">
+          {/* Animated Background Pattern */}
+          <motion.div
+            className="absolute inset-0 opacity-5"
+            animate={{
+              backgroundPosition: ['0% 0%', '50% 50%', '100% 100%', '0% 0%'],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+            style={{
+              backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.2) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.2) 0%, transparent 50%)',
+              backgroundSize: '200% 200%',
+            }}
+          />
+
+          {/* Floating Particles */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/20 rounded-full"
+              style={{
+                left: `${20 + i * 15}%`,
+                top: `${10 + (i % 2) * 60}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [0.5, 1.2, 0.5],
+              }}
+              transition={{
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: i * 0.3,
+              }}
+            />
+          ))}
+
+          <div className="px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <FeaturesSection />
+            </motion.div>
           </div>
         </section>
 
-        {/* WELCOME MESSAGE */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4">
+        {/* WELCOME MESSAGE (moved above) */}
+
+        {/* ANTI RAGGING SECTION (moved above) */}
+
+        {/* DOWNLOAD HANDBOOK */}
+        <section className="py-10 bg-white border-t border-gray-100 relative overflow-hidden">
+          {/* Animated Background */}
+          <motion.div
+            className="absolute inset-0 opacity-5"
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+            style={{
+              backgroundImage: 'linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 69, 19, 0.1), rgba(59, 130, 246, 0.1))',
+              backgroundSize: '400% 400%',
+            }}
+          />
+
+          {/* Floating Download Icons */}
+          {[...Array(4)].map((_, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={i}
+              className="absolute opacity-10"
+              style={{
+                left: `${20 + i * 20}%`,
+                top: `${30 + (i % 2) * 30}%`,
+              }}
+              animate={{
+                y: [0, -15, 0],
+                rotate: [0, 5, -5, 0],
+                scale: [0.8, 1.1, 0.8],
+              }}
+              transition={{
+                duration: 5 + i,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: i * 0.5,
+              }}
+            >
+              <Download className="w-8 h-8 text-primary" />
+            </motion.div>
+          ))}
+
+          <div className="px-4 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-12"
+              className="bg-white border border-gray-100 rounded-xl p-6 inline-block shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                {t('home.welcome.title')}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-lg max-w-4xl mx-auto">
-                {t('home.welcome.description')}
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Animated Border */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1"
+                className="absolute inset-0 rounded-xl"
+                style={{
+                  background: 'linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 69, 19, 0.1), rgba(59, 130, 246, 0.1))',
+                  backgroundSize: '400% 400%',
+                }}
+                animate={{
+                  backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              />
+
+              <motion.h4
+                className="text-xl font-serif font-bold text-primary mb-2 relative z-10"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 400 }}
               >
-                <h3 className="text-2xl font-bold text-primary mb-4">{t('home.principal.title')}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {t('home.principal.name')}
-                </p>
-                <p className="text-gray-700 dark:text-gray-200">
-                  {t('home.principal.message')}
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                {t('home.handbook.title')}
+              </motion.h4>
+              <motion.p
+                className="text-gray-700 mb-4 font-sans relative z-10"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1"
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">{t('home.updates.title')}</h3>
-                <div className="space-y-3">
-                  <div className="border-l-4 border-red-500 dark:border-red-400 pl-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">NIQ-No.P-MMC-957 Dated 10.12.2025</p>
-                    <p className="text-gray-700 dark:text-gray-200">{t('home.updates.update1')}</p>
-                  </div>
-                  <div className="border-l-4 border-red-500 dark:border-red-400 pl-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">NIQ-No.P-MMC-958 dated 10.12.2025</p>
-                    <p className="text-gray-700 dark:text-gray-200">{t('home.updates.update2')}</p>
-                  </div>
-                  <div className="border-l-4 border-red-500 dark:border-red-400 pl-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">NIQ-No-P-MMC-956 dated 10.12.2025</p>
-                    <p className="text-gray-700 dark:text-gray-200">{t('home.updates.update3')}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* ANNOUNCEMENT & IMPORTANT LINKS */}
-        <section className="py-20 bg-white border-t border-gray-100">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                {t('home.handbook.subtitle')}
+              </motion.p>
+              <motion.a
+                href="/documents/Handbook-2025-26 (MMC, Patna).pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors relative z-10"
+                whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(0,0,0,0.2)' }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <h3 className="text-3xl font-serif font-bold text-primary mb-6">{t('home.announcement.title')}</h3>
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <p className="text-gray-600 italic font-sans">{t('home.announcement.placeholder')}</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <h3 className="text-3xl font-serif font-bold text-primary mb-6">{t('home.importantLinks.title')}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    { name: t('home.importantLinks.tenders'), href: '/tenders' },
-                    { name: t('home.importantLinks.notices'), href: '/notices' },
-                    { name: t('home.importantLinks.aqar'), href: '/aqar' },
-                    { name: t('home.importantLinks.annualReports'), href: '/annual-reports' },
-                    { name: t('home.importantLinks.mediaGallery'), href: '/media-gallery' },
-                    { name: t('home.importantLinks.privacyPolicy'), href: '/privacy-policy' },
-                    { name: t('home.importantLinks.terms'), href: '/terms' },
-                    { name: t('home.importantLinks.survey'), href: '/survey' },
-                    { name: t('home.importantLinks.staffIcard'), href: '/staff-icard' },
-                    { name: t('home.importantLinks.studentIcard'), href: '/student-icard' },
-                    { name: t('home.importantLinks.paymentPolicy'), href: '/payment-policy' }
-                  ].map((link, index) => (
-                    <motion.a
-                      key={index}
-                      href={link.href}
-                      whileHover={{ scale: 1.02 }}
-                      className="flex items-center space-x-2 text-primary hover:text-primary/80 transition transform hover:-translate-y-1 p-4 rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-lg"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm font-sans">{link.name}</span>
-                    </motion.a>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-
-            {/* DOWNLOAD HANDBOOK */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-12 text-center"
-            >
-              <div className="bg-white border border-gray-100 rounded-xl p-6 inline-block shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1">
-                <h4 className="text-xl font-serif font-bold text-primary mb-2">{t('home.handbook.title')}</h4>
-                <p className="text-gray-700 mb-4 font-sans">{t('home.handbook.subtitle')}</p>
-                <a
-                  href="http://magadhmahilacollege.org/wp-content/uploads/2023/12/Handbook-2023-2024_mmc.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors"
+                <motion.div
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
                 >
                   <Download className="w-5 h-5" />
-                  <span className="font-sans">{t('home.handbook.download')}</span>
-                </a>
-              </div>
+                </motion.div>
+                <span className="font-sans">{t('home.handbook.download')}</span>
+              </motion.a>
             </motion.div>
           </div>
         </section>
 
         {/* CLOSING MESSAGE */}
-        <section className="py-20 bg-navbar text-navbar-foreground text-center">
+        <section className="py-10 bg-navbar text-navbar-foreground text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="max-w-4xl mx-auto px-4"
+            className="px-4"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-navbar-foreground mb-6">
               {t('home.closing.title')}

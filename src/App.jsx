@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, Suspense } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { BilingualProvider } from './contexts/BilingualContext';
 import Navbar from './components/Navbar';
 import SlidingNotice from './components/SlidingNotice';
@@ -24,6 +25,38 @@ import Tender from './pages/Tender';
 
 import NEP2020 from './pages/NEP2020';
 import IQAC from './pages/IQAC';
+
+// NIRF pages
+import NIRF from './pages/NIRF/NIRF';
+import NIRFData from './pages/NIRF/Data';
+import NIRFReports from './pages/NIRF/Reports';
+import NIRFDocuments from './pages/NIRF/Documents';
+
+// AICTE pages
+import AICTE from './pages/AICTE/AICTE';
+import AICTEApprovals from './pages/AICTE/Approvals';
+import AICTECompliance from './pages/AICTE/Compliance';
+import AICTEReports from './pages/AICTE/Reports';
+
+// IQAC sub-pages
+import IQACWorkshop from './pages/IQAC/Workshop';
+import IQACNAAC from './pages/IQAC/NAAC';
+import IQACFeedback from './pages/IQAC/Feedback';
+import IQACResearch from './pages/IQAC/Research';
+import IQACExtensionActivities from './pages/IQAC/ExtensionActivities';
+import IQACCollaboration from './pages/IQAC/Collaboration';
+import IQACStudentProgressionForm from './pages/IQAC/StudentProgressionForm';
+import IQACStudentSatisfactionSurvey from './pages/IQAC/StudentSatisfactionSurvey';
+import IQACProjectInternshipFieldwork from './pages/IQAC/ProjectInternshipFieldwork';
+import IQACBestPractices2023 from './pages/IQAC/BestPractices2023';
+import IQACBestPracticesPhotoGallery from './pages/IQAC/BestPracticesPhotoGallery';
+
+// IQAC Feedback Forms
+import StudentFeedbackForm from './pages/IQAC/StudentFeedbackForm';
+import ParentsFeedbackForm from './pages/IQAC/ParentsFeedbackForm';
+import TeachersFeedbackForm from './pages/IQAC/TeachersFeedbackForm';
+import AlumniFeedbackForm from './pages/IQAC/AlumniFeedbackForm';
+import IndustryFeedbackForm from './pages/IQAC/IndustryFeedbackForm';
 
 // NEP 2020 pages
 import ProgramOutcome from './pages/nep2020/ProgramOutcome';
@@ -50,6 +83,7 @@ import StudentsRollOfHonor from './pages/about/StudentsRollOfHonor';
 import CodeOfEthics from './pages/about/CodeOfEthics';
 import CodeOfConduct from './pages/about/CodeOfConduct';
 import MELC from './pages/about/MELC';
+import InstitutionsPride from './pages/about/InstitutionsPride';
 import VisionMission from './pages/about/VisionMission';
 import BestPractices from './pages/about/BestPractices';
 import FeedbackForms from './pages/about/FeedbackForms';
@@ -62,7 +96,6 @@ import ManagementAdministration from './pages/about/ManagementAdministration';
 import MIS from './pages/about/MIS';
 
 // Administration pages
-import Cells from './pages/administration/Cells';
 import Committees from './pages/administration/Committees';
 import IncubationCentre from './pages/administration/IncubationCentre';
 import OrganogramOfInstitution from './pages/administration/OrganogramOfInstitution';
@@ -71,6 +104,9 @@ import StaffCouncil from './pages/administration/StaffCouncil';
 import CentresList202021 from './pages/administration/CentresList202021';
 import StaffProfile from './pages/administration/StaffProfile';
 import TeachingStaffSanctionedPost from './pages/administration/TeachingStaffSanctionedPost';
+import Cells20232024 from './pages/administration/Cells20232024';
+import Cells20242025 from './pages/administration/Cells20242025';
+import Cells20252026 from './pages/administration/Cells20252026';
 
 // Admissions pages
 import Courses from './pages/admissions/Courses';
@@ -108,103 +144,137 @@ function App() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <BilingualProvider>
-        <div>
-          <Router>
-            <ScrollToTop />
-            <Navbar />
-            <SlidingNotice />
-            <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/academics" element={<Academics />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/campus-life" element={<CampusLife />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/annual-reports" element={<AnnualReports />} />
+      <HelmetProvider>
+        <BilingualProvider>
+          <div>
+            <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+              <ScrollToTop />
+              <Navbar />
+              <SlidingNotice />
+              <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/academics" element={<Academics />} />
+              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/campus-life" element={<CampusLife />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/annual-reports" element={<AnnualReports />} />
 
-            {/* Dedicated pages */}
-            <Route path="/news" element={<News />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/nep-2020" element={<NEP2020 />} />
-            <Route path="/iqac" element={<IQAC />} />
+              {/* Dedicated pages */}
+              <Route path="/news" element={<News />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/nep-2020" element={<NEP2020 />} />
+              <Route path="/iqac" element={<IQAC />} />
 
-            {/* NEP 2020 pages */}
-            <Route path="/nep2020/program-outcome" element={<ProgramOutcome />} />
-            <Route path="/nep2020/humanities" element={<Humanities />} />
-            <Route path="/nep2020/social-science" element={<SocialScience />} />
-            <Route path="/nep2020/science" element={<Science />} />
-            <Route path="/nep2020/fine-arts" element={<FineArts />} />
-            <Route path="/nep2020/vocational-commerce" element={<VocationalCommerce />} />
-            <Route path="/nep2020/vocational-computer-application" element={<VocationalComputerApplication />} />
-            <Route path="/nep2020/academic-infrastructure" element={<AcademicInfrastructure />} />
-            <Route path="/nep2020/course-material" element={<CourseMaterial />} />
-            <Route path="/nep2020/library" element={<Library />} />
-            <Route path="/nep2020/publications" element={<Publications />} />
-            <Route path="/nep2020/time-table" element={<TimeTable />} />
-            <Route path="/nep2020/syllabus" element={<Syllabus />} />
-            <Route path="/nep2020/syllabus-nep" element={<SyllabusNEP />} />
+              {/* NIRF pages */}
+              <Route path="/nirf" element={<NIRF />} />
+              <Route path="/nirf/data" element={<NIRFData />} />
+              <Route path="/nirf/reports" element={<NIRFReports />} />
+              <Route path="/nirf/documents" element={<NIRFDocuments />} />
 
-            {/* Generic pages for committee/info pages */}
-            <Route path="/nirf" element={<GenericPage pageKey="nirf" />} />
-            <Route path="/anti-ragging" element={<AntiRagging />} />
-            <Route path="/sexual-harassment" element={<SexualHarassment />} />
-            <Route path="/grievance" element={<GrievanceCell />} />
-            <Route path="/tenders" element={<Tender />} />
+              {/* AICTE pages */}
+              <Route path="/aicte" element={<AICTE />} />
+              <Route path="/aicte/approvals" element={<AICTEApprovals />} />
+              <Route path="/aicte/compliance" element={<AICTECompliance />} />
+              <Route path="/aicte/reports" element={<AICTEReports />} />
 
-            {/* Administration pages */}
-            <Route path="/administration/cells" element={<Cells />} />
-            <Route path="/administration/committees" element={<Committees />} />
-            <Route path="/administration/incubation-centre" element={<IncubationCentre />} />
-            <Route path="/administration/organogram-of-institution" element={<OrganogramOfInstitution />} />
-            <Route path="/administration/societies" element={<Societies />} />
-            <Route path="/administration/staff-council" element={<StaffCouncil />} />
-            <Route path="/administration/centres-list-2020-21" element={<CentresList202021 />} />
-            <Route path="/administration/staff-profile" element={<StaffProfile />} />
-            <Route path="/administration/teaching-staff-sanctioned-post" element={<TeachingStaffSanctionedPost />} />
+              {/* IQAC sub-pages */}
+              <Route path="/iqac/workshop" element={<IQACWorkshop />} />
+              <Route path="/iqac/naac" element={<IQACNAAC />} />
+              <Route path="/iqac/feedback" element={<IQACFeedback />} />
+              <Route path="/iqac/feedback/student" element={<StudentFeedbackForm />} />
+              <Route path="/iqac/feedback/parents" element={<ParentsFeedbackForm />} />
+              <Route path="/iqac/feedback/teachers" element={<TeachersFeedbackForm />} />
+              <Route path="/iqac/feedback/alumni" element={<AlumniFeedbackForm />} />
+              <Route path="/iqac/feedback/industry" element={<IndustryFeedbackForm />} />
+              <Route path="/iqac/research" element={<IQACResearch />} />
+              <Route path="/iqac/extension-activities" element={<IQACExtensionActivities />} />
+              <Route path="/iqac/collaboration" element={<IQACCollaboration />} />
+              <Route path="/iqac/student-progression-form" element={<IQACStudentProgressionForm />} />
+              <Route path="/iqac/student-satisfaction-survey" element={<IQACStudentSatisfactionSurvey />} />
+              <Route path="/iqac/project-internship-fieldwork" element={<IQACProjectInternshipFieldwork />} />
+              <Route path="/iqac/best-practices-2023-24" element={<IQACBestPractices2023 />} />
+              <Route path="/iqac/best-practices-photo-gallery" element={<IQACBestPracticesPhotoGallery />} />
 
-            {/* Admissions pages */}
-            <Route path="/admissions/courses" element={<Courses />} />
-            <Route path="/admissions/general-information" element={<GeneralInformation />} />
-            <Route path="/admissions/intake-capacity" element={<IntakeCapacity />} />
-            <Route path="/admissions/eligibility" element={<Eligibility />} />
-            <Route path="/admissions/fee-structure" element={<FeeStructure />} />
-            <Route path="/admissions/ug-admission" element={<UGAdmission />} />
-            <Route path="/admissions/pg-admission" element={<PGAdmission />} />
-            <Route path="/admissions/computer-application-course" element={<ComputerApplicationCourse />} />
-            <Route path="/admissions/vocational-admission" element={<VocationalAdmission />} />
-            <Route path="/admissions/commerce-admission" element={<CommerceAdmission />} />
-            <Route path="/admissions/bba-admission" element={<BBAAdmission />} />
-            <Route path="/admissions/admitted-students-year-wise" element={<AdmittedStudentsYearWise />} />
+              {/* NEP 2020 pages */}
+              <Route path="/nep2020/program-outcome" element={<ProgramOutcome />} />
+              <Route path="/nep2020/humanities" element={<Humanities />} />
+              <Route path="/nep2020/social-science" element={<SocialScience />} />
+              <Route path="/nep2020/science" element={<Science />} />
+              <Route path="/nep2020/fine-arts" element={<FineArts />} />
+              <Route path="/nep2020/vocational-commerce" element={<VocationalCommerce />} />
+              <Route path="/nep2020/vocational-computer-application" element={<VocationalComputerApplication />} />
+              <Route path="/nep2020/academic-infrastructure" element={<AcademicInfrastructure />} />
+              <Route path="/nep2020/course-material" element={<CourseMaterial />} />
+              <Route path="/nep2020/library" element={<Library />} />
+              <Route path="/nep2020/publications" element={<Publications />} />
+              <Route path="/nep2020/time-table" element={<TimeTable />} />
+              <Route path="/nep2020/syllabus" element={<Syllabus />} />
+              <Route path="/nep2020/syllabus-nep" element={<SyllabusNEP />} />
 
-            <Route path="/terms-conditions" element={<TermsConditions />} />
+              {/* Generic pages for committee/info pages */}
+              <Route path="/anti-ragging" element={<AntiRagging />} />
+              <Route path="/sexual-harassment" element={<SexualHarassment />} />
+              <Route path="/grievance" element={<GrievanceCell />} />
+              <Route path="/tenders" element={<Tender />} />
 
-            {/* About pages */}
-            <Route path="/about/brief-profile" element={<BriefProfile />} />
-            <Route path="/about/principal" element={<PrincipalProfile />} />
-            <Route path="/about/previous-principals" element={<PreviousPrincipals />} />
-            <Route path="/about/emblem" element={<CollegeEmblem />} />
-            <Route path="/about/roll-of-honor" element={<StudentsRollOfHonor />} />
-            <Route path="/about/code-of-ethics" element={<CodeOfEthics />} />
-            <Route path="/about/code-of-conduct" element={<CodeOfConduct />} />
-            <Route path="/about/melc" element={<MELC />} />
-            <Route path="/about/vision-mission" element={<VisionMission />} />
-            <Route path="/about/best-practices" element={<BestPractices />} />
-            <Route path="/about/feedback-forms" element={<FeedbackForms />} />
-            <Route path="/about/environment-policy" element={<EnvironmentalPolicy />} />
-            <Route path="/about/mou" element={<MOU />} />
-            <Route path="/about/future-plans" element={<FuturePlans />} />
-            <Route path="/about/milestones" element={<Milestones />} />
-            <Route path="/about/visitors-note" element={<VisitorsNote />} />
-            <Route path="/about/management-administration" element={<ManagementAdministration />} />
-            <Route path="/about/mis" element={<MIS />} />
-          </Routes>
-          <Footer />
-          <Toaster />
-        </Router>
-      </div>
-    </BilingualProvider>
-    </Suspense>
+              {/* Administration pages */}
+              <Route path="/administration/committees" element={<Committees />} />
+              <Route path="/administration/incubation-centre" element={<IncubationCentre />} />
+              <Route path="/administration/organogram-of-institution" element={<OrganogramOfInstitution />} />
+              <Route path="/administration/societies" element={<Societies />} />
+              <Route path="/administration/staff-council" element={<StaffCouncil />} />
+              <Route path="/administration/centres-list-2020-21" element={<CentresList202021 />} />
+              <Route path="/administration/staff-profile" element={<StaffProfile />} />
+              <Route path="/administration/teaching-staff-sanctioned-post" element={<TeachingStaffSanctionedPost />} />
+              <Route path="/administration/cells/2023-2024" element={<Cells20232024 />} />
+              <Route path="/administration/cells/2024-2025" element={<Cells20242025 />} />
+              <Route path="/administration/cells/2025-2026" element={<Cells20252026 />} />
+
+              {/* Admissions pages */}
+              <Route path="/admissions/courses" element={<Courses />} />
+              <Route path="/admissions/general-information" element={<GeneralInformation />} />
+              <Route path="/admissions/intake-capacity" element={<IntakeCapacity />} />
+              <Route path="/admissions/eligibility" element={<Eligibility />} />
+              <Route path="/admissions/fee-structure" element={<FeeStructure />} />
+              <Route path="/admissions/ug-admission" element={<UGAdmission />} />
+              <Route path="/admissions/pg-admission" element={<PGAdmission />} />
+              <Route path="/admissions/computer-application-course" element={<ComputerApplicationCourse />} />
+              <Route path="/admissions/vocational-admission" element={<VocationalAdmission />} />
+              <Route path="/admissions/commerce-admission" element={<CommerceAdmission />} />
+              <Route path="/admissions/bba-admission" element={<BBAAdmission />} />
+              <Route path="/admissions/admitted-students-year-wise" element={<AdmittedStudentsYearWise />} />
+
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+
+              {/* About pages */}
+              <Route path="/about/brief-profile" element={<BriefProfile />} />
+              <Route path="/about/principal" element={<PrincipalProfile />} />
+              <Route path="/about/previous-principals" element={<PreviousPrincipals />} />
+              <Route path="/about/emblem" element={<CollegeEmblem />} />
+              <Route path="/about/roll-of-honor" element={<StudentsRollOfHonor />} />
+              <Route path="/about/code-of-ethics" element={<CodeOfEthics />} />
+              <Route path="/about/code-of-conduct" element={<CodeOfConduct />} />
+              <Route path="/about/melc" element={<MELC />} />
+              <Route path="/about/institutions-pride" element={<InstitutionsPride />} />
+              <Route path="/about/vision-mission" element={<VisionMission />} />
+              <Route path="/about/best-practices" element={<BestPractices />} />
+              <Route path="/about/feedback-forms" element={<FeedbackForms />} />
+              <Route path="/about/environment-policy" element={<EnvironmentalPolicy />} />
+              <Route path="/about/mou" element={<MOU />} />
+              <Route path="/about/future-plans" element={<FuturePlans />} />
+              <Route path="/about/milestones" element={<Milestones />} />
+              <Route path="/about/visitors-note" element={<VisitorsNote />} />
+              <Route path="/about/management-administration" element={<ManagementAdministration />} />
+              <Route path="/about/mis" element={<MIS />} />
+            </Routes>
+            <Footer />
+            <Toaster />
+          </Router>
+        </div>
+      </BilingualProvider>
+    </HelmetProvider>
+  </Suspense>
   );
 }
 
