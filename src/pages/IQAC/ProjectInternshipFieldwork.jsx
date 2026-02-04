@@ -28,18 +28,103 @@ const ProjectInternshipFieldwork = () => {
               </p>
             </motion.div>
 
+            {/* Project Internship & Field Work Documents */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center p-12 bg-gray-50 rounded-2xl"
+              className="mb-20"
             >
-              <Briefcase className="w-16 h-16 text-primary mx-auto mb-4" />
-              <h2 className="text-2xl font-bold mb-4">Coming Soon</h2>
-              <p className="text-muted-foreground">
-                Detailed information about project internships and fieldwork opportunities will be available here.
-              </p>
+              <h2 className="text-4xl font-bold text-center mb-12">
+                <span className="text-primary">Project Internship & Field Work Documents</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Documents Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                  className="p-8 rounded-2xl bg-white shadow-lg border border-border cursor-pointer"
+                >
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Project Internship & Field Work Reports</h3>
+                  <p className="text-muted-foreground mb-6">Documents related to project internships and fieldwork activities.</p>
+                  <div className="space-y-2">
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/Field-WorkInternship-Project.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Field-WorkInternship-Project.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/Internship_project_22-23.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Internship_project_22-23.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/mmc_Internship.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      mmc_Internship.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/Project-Internship-and-Field-Work-2018-19.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Project-Internship-and-Field-Work-2018-19.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/Project-Internship-Field-Work-23-24.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Project-Internship-Field-Work-23-24.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/Project-internship-field-work-2021-22-1.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Project-internship-field-work-2021-22-1.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/wp-content/uploads/2021/12/Project-Internship-Field-Work-Session-2019-2020.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Project-Internship-Field-Work-Session-2019-2020.pdf
+                    </motion.a>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </section>

@@ -78,34 +78,17 @@ const ExtensionActivities = () => {
                 <span className="text-primary">Extension Activities</span>
               </h1>
               <p className="text-foreground max-w-3xl mx-auto text-lg">
-                NSS and NCC programs fostering community service, leadership, and holistic development of students.
+                
               </p>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-20"
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center p-6 rounded-2xl bg-white shadow-lg border border-border"
-                >
-                  <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
-                  <p className="text-muted-foreground">{stat.label}</p>
-                </motion.div>
-              ))}
-            </motion.div>
 
-            {/* Activities */}
+
+
+
+
+
+            {/* NCC and NSS Reports */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -114,97 +97,87 @@ const ExtensionActivities = () => {
               className="mb-20"
             >
               <h2 className="text-4xl font-bold text-center mb-12">
-                <span className="text-primary">Our Programs</span>
+                <span className="text-primary">Reports</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {activities.map((activity, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="p-8 rounded-2xl bg-white shadow-lg border border-border"
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${activity.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                        <activity.icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-foreground mb-4">
-                          {activity.title}
-                        </h3>
-                        <p className="text-muted-foreground text-lg mb-6">
-                          {activity.description}
-                        </p>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="text-center p-4 bg-gray-50 rounded-lg">
-                            <div className="text-2xl font-bold text-primary">{activity.participants}</div>
-                            <div className="text-sm text-muted-foreground">Participants</div>
-                          </div>
-                          <div className="text-center p-4 bg-gray-50 rounded-lg">
-                            <div className="text-2xl font-bold text-primary">{activity.events}</div>
-                            <div className="text-sm text-muted-foreground">Events</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Recent Events */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-20"
-            >
-              <h2 className="text-4xl font-bold text-center mb-12">
-                <span className="text-primary">Recent Events</span>
-              </h2>
-              <div className="space-y-6">
-                {recentEvents.map((event, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="p-6 rounded-2xl bg-white shadow-lg border border-border"
-                  >
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                      <div className="flex-1 mb-4 lg:mb-0">
-                        <div className="flex items-center space-x-4 mb-2">
-                          <h3 className="text-xl font-bold text-foreground">
-                            {event.title}
-                          </h3>
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            event.type === 'NSS' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'
-                          }`}>
-                            {event.type}
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-2" />
-                            {event.date}
-                          </div>
-                          <div className="flex items-center">
-                            <MapPin className="w-4 h-4 mr-2" />
-                            {event.location}
-                          </div>
-                          <div className="flex items-center">
-                            <Users className="w-4 h-4 mr-2" />
-                            {event.participants} participants
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+                {/* NCC Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                  className="p-8 rounded-2xl bg-white shadow-lg border border-border cursor-pointer"
+                >
+                  <h3 className="text-2xl font-bold text-foreground mb-4">NCC Reports</h3>
+                  <p className="text-muted-foreground mb-6">National Cadet Corps reports and documents.</p>
+                  <div className="space-y-2">
+                    <motion.a
+                      href="/documents/IQAC/NCC/mmc-ncc-report.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      mmc-ncc-report.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/documents/IQAC/NCC/NCC-Report-2023-24.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      NCC-Report-2023-24.pdf
+                    </motion.a>
+                  </div>
+                </motion.div>
+                {/* NSS Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                  className="p-8 rounded-2xl bg-white shadow-lg border border-border cursor-pointer"
+                >
+                  <h3 className="text-2xl font-bold text-foreground mb-4">NSS Reports</h3>
+                  <p className="text-muted-foreground mb-6">National Service Scheme reports and documents.</p>
+                  <div className="space-y-2">
+                    <motion.a
+                      href="/documents/IQAC/NSS/mmc_nss_aanual_report_2223.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      mmc_nss_aanual_report_2223.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/documents/IQAC/NSS/mmc-nss-report-1.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      mmc-nss-report-1.pdf
+                    </motion.a>
+                    <motion.a
+                      href="/documents/IQAC/NSS/NSS-Report-2023-24.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      NSS-Report-2023-24.pdf
+                    </motion.a>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
 

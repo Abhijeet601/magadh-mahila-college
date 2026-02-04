@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Award, FileText, Users, Lightbulb } from 'lucide-react';
+import { Award, FileText, Users, Lightbulb, BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Research = () => {
@@ -44,7 +44,7 @@ const Research = () => {
               <h2 className="text-4xl font-bold text-center mb-12">
                 <span className="text-primary">Research Initiatives</span>
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 <Link
                   to="/iqac/research-grants"
                   className="group p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:shadow-lg transition-all duration-300"
@@ -83,6 +83,16 @@ const Research = () => {
                   <h3 className="text-xl font-bold text-orange-900 mb-2">Research & Development Cell</h3>
                   <p className="text-orange-700 text-sm">
                     Innovation hub for research and development activities.
+                  </p>
+                </Link>
+                <Link
+                  to="/iqac/publication-in-books-other-journals"
+                  className="group p-6 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 border border-red-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <BookOpen className="w-12 h-12 text-red-600 mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-bold text-red-900 mb-2">Publication in Books & Other Journals</h3>
+                  <p className="text-red-700 text-sm">
+                    Academic publications in books and other scholarly journals.
                   </p>
                 </Link>
               </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FileText, Download, ExternalLink } from 'lucide-react';
+import { FileText, Download, ExternalLink, Lightbulb, Target, Award, Calendar, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const ResearchDevelopmentCell = () => {
@@ -34,6 +34,72 @@ const ResearchDevelopmentCell = () => {
               <p className="text-foreground max-w-3xl mx-auto text-lg">
                 Driving innovation and excellence in research through collaborative initiatives, cutting-edge projects, and industry partnerships.
               </p>
+            </motion.div>
+
+            {/* Cell Composition */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <h2 className="text-4xl font-bold text-center mb-12">
+                <span className="text-primary">Cell Composition 2022-23</span>
+              </h2>
+              <div className="overflow-x-auto">
+                <table className="w-full bg-white shadow-lg rounded-2xl border border-border">
+                  <thead className="bg-primary text-primary-foreground">
+                    <tr>
+                      <th className="px-6 py-4 text-left font-bold">Sl. No.</th>
+                      <th className="px-6 py-4 text-left font-bold">Name</th>
+                      <th className="px-6 py-4 text-left font-bold">Designation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">1.</td>
+                      <td className="px-6 py-4 font-semibold">Prof.(Dr.) Namita Kumari</td>
+                      <td className="px-6 py-4">Principal</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">2.</td>
+                      <td className="px-6 py-4 font-semibold">Prof.(Dr.) Anju Srivastava</td>
+                      <td className="px-6 py-4">Convener, Dean, Social Sciences</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">3.</td>
+                      <td className="px-6 py-4 font-semibold">Dr. Mridula Renu Sinha</td>
+                      <td className="px-6 py-4">Coordinator, Science, HoD & Associate Professor, Zoology</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">4.</td>
+                      <td className="px-6 py-4 font-semibold">Dr. Deepti Tiwary</td>
+                      <td className="px-6 py-4">Coordinator, Social Science, Assistant Professor, History</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">5.</td>
+                      <td className="px-6 py-4 font-semibold">Dr. Archana Jaiswal</td>
+                      <td className="px-6 py-4">Coordinator, Humanities, Associate Professor, English</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">6.</td>
+                      <td className="px-6 py-4 font-semibold">Dr. Amrita Prasad</td>
+                      <td className="px-6 py-4">Member, Assistant Professor, Chemistry</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">7.</td>
+                      <td className="px-6 py-4 font-semibold">Dr. Rajani Pandey</td>
+                      <td className="px-6 py-4">Member, Assistant Professor, Home Science</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50">
+                      <td className="px-6 py-4">8.</td>
+                      <td className="px-6 py-4 font-semibold">Dr. Suchita Arpan</td>
+                      <td className="px-6 py-4">Member, Assistant Professor, Philosophy</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </motion.div>
 
             {/* PDF Files */}

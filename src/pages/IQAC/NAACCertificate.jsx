@@ -42,8 +42,6 @@ const NAACCertificate = () => {
               <div className="bg-gradient-to-r from-primary to-highlight rounded-2xl p-8 mb-8">
                 <Award className="w-24 h-24 text-white mx-auto mb-6" />
                 <h2 className="text-3xl font-bold text-white mb-4">B+ Grade Accreditation</h2>
-                <p className="text-white/90 text-lg">Cumulative Grade Point Average: 3.45/4</p>
-                <p className="text-white/90">Valid Till: 2028</p>
               </div>
 
               {/* NAAC Certificate Images */}

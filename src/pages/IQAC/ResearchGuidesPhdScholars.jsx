@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { GraduationCap, Users, Award, BookOpen, Mail, Phone, Calendar, TrendingUp } from 'lucide-react';
+import { GraduationCap, Users, Award, BookOpen, Mail, Phone, Calendar, TrendingUp, FileText, Download, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const ResearchGuidesPhdScholars = () => {
@@ -81,6 +81,21 @@ const ResearchGuidesPhdScholars = () => {
     { label: 'PhD Scholars', value: '33', icon: GraduationCap, change: '+15%' },
     { label: 'Completed PhDs', value: '44', icon: Award, change: '+25%' },
     { label: 'Ongoing Research', value: '22', icon: BookOpen, change: '+18%' }
+  ];
+
+  const pdfFiles = [
+    {
+      title: 'Research Guides & PhD Scholars 2023-24',
+      filename: '3.3.2_2324.pdf',
+      path: '/documents/IQAC/Research/Research Guides & PHD Scholars/3.3.2_2324.pdf',
+      description: 'Detailed report on research guides and PhD scholars for the academic year 2023-24.'
+    },
+    {
+      title: 'MMC PhD Scholars',
+      filename: 'mmc_Phd_scholar.pdf',
+      path: '/documents/IQAC/Research/Research Guides & PHD Scholars/mmc_Phd_scholar.pdf',
+      description: 'Comprehensive overview of PhD scholars at Magadh Mahila College.'
+    }
   ];
 
   const recentAchievements = [

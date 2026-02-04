@@ -46,6 +46,7 @@ import IQACFeedback from './pages/IQAC/Feedback';
 import IQACResearch from './pages/IQAC/Research';
 import IQACResearchGrants from './pages/IQAC/ResearchGrants';
 import IQACResearchPublications from './pages/IQAC/ResearchPublications';
+import PublicationInBooksOtherJournals from './pages/IQAC/PublicationInBooksOtherJournals';
 import IQACResearchGuidesPhdScholars from './pages/IQAC/ResearchGuidesPhdScholars';
 import IQACResearchDevelopmentCell from './pages/IQAC/ResearchDevelopmentCell';
 import IQACExtensionActivities from './pages/IQAC/ExtensionActivities';

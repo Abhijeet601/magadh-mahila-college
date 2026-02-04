@@ -89,14 +89,14 @@ const Footer = () => {
         viewport={{ once: true }}
         className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* LOGO + DESCRIPTION */}
           <motion.div variants={itemUp} className="text-center">
 
             <Link to="/" className="inline-block">
               {/* LOGO CONTAINER MOVED UP */}
-              <div className="relative max-w-[340px] mx-auto -mt-6">
+              <div className="relative max-w-[400px] mx-auto -mt-6">
 
                 {/* BIGGER SVG SHAPE TOUCHING TOP */}
                 <svg viewBox="0 0 400 160" className="w-full">
@@ -165,7 +165,7 @@ const Footer = () => {
 
           {/* IMPORTANT LINKS */}
           <motion.div variants={itemUp}>
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-base font-semibold mb-4 flex items-center gap-2">
               <FileText className="w-5 h-5" />
               {t('footer.importantLinks')}
             </h3>
@@ -174,7 +174,7 @@ const Footer = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                  className="block text-xs hover:text-highlight transition flex items-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   {link.label}
@@ -185,91 +185,100 @@ const Footer = () => {
 
           {/* EXTERNAL IMPORTANT LINKS */}
           <motion.div variants={itemUp}>
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-base font-semibold mb-4 flex items-center gap-2">
               <Globe className="w-5 h-5" />
-              {t('footer.externalImportantLinks')}
+              External Important Links
             </h3>
             <nav className="space-y-2">
               <a
                 href="https://naac.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.naac')}
+                National Assessment and Accreditation Council (NAAC)
               </a>
               <a
                 href="https://www.ugc.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.ugc')}
+                University Grants Commission (UGC)
               </a>
               <a
-                href="https://www.nkn.in/"
+                href="https://nkn.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.nkn')}
+                National Knowledge Network
               </a>
               <a
                 href="https://nad.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.nad')}
+                National Academic Depository (NAD)
               </a>
               <a
                 href="https://www.education.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.mhrd')}
+                Ministry of Human Resource Development (MHRD)
               </a>
               <a
                 href="https://scholarships.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.nsp')}
+                National Scholarship Portal
+              </a>
+              <a
+                href="https://scholarships.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                National Scholarship Portal
               </a>
               <a
                 href="https://aishe.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.aishe')}
+                All India Survey on Higher Education (AISHE)
               </a>
               <a
-                href="https://www.mygov.in/aarogya-setu-app/"
+                href="https://www.aarogyasetu.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.arogyaSetu')}
+                Arogya Setu
               </a>
               <a
                 href="https://www.mygov.in/campaigns/bharat-padhe-online-campaign/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
-                {t('footer.externalImportantLinksItems.bharatPadhe')}
+                Bharat Padhe Online campaign
               </a>
             </nav>
           </motion.div>
@@ -289,6 +298,14 @@ const Footer = () => {
               <div className="flex gap-3">
                 <Phone className="w-5 h-5 text-highlight" />
                 {t('footer.contactDetails.phone')}
+              </div>
+              <div className="flex gap-3">
+                <Phone className="w-5 h-5 text-highlight" />
+                {t('footer.contactDetails.mobile')}
+              </div>
+              <div className="flex gap-3">
+                <Phone className="w-5 h-5 text-highlight" />
+                {t('footer.contactDetails.fax')}
               </div>
               <div className="flex gap-3">
                 <Mail className="w-5 h-5 text-highlight" />
