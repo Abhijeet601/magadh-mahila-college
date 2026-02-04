@@ -269,6 +269,18 @@
       "ugc": "UGC",
       "naac": "NAAC"
     },
+    "externalImportantLinks": "External Important Links",
+    "externalImportantLinksItems": {
+      "naac": "National Assessment and Accreditation Council (NAAC)",
+      "ugc": "University Grants Commission (UGC)",
+      "nkn": "National Knowledge Network",
+      "nad": "National Academic Depository (NAD)",
+      "mhrd": "Ministry of Human Resource Development (MHRD)",
+      "nsp": "National Scholarship Portal",
+      "aishe": "All India Survey on Higher Education (AISHE)",
+      "arogyaSetu": "Arogya Setu",
+      "bharatPadhe": "Bharat Padhe Online campaign"
+    },
     "contactDetails": {
       "address": "North Gandhi Maidan, Patna – 800001",
       "phone": "+91-612-2219454",

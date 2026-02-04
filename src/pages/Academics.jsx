@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, BookOpen, Award, Users, ExternalLink, Download, Sparkles, ChevronRight } from 'lucide-react';
@@ -188,6 +189,23 @@ const Academics = () => {
                 ))}
               </motion.div>
             </AnimatePresence>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8 }}
+              className="mt-20 text-center"
+            >
+              <Link
+                to="/departments"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                <Users className="w-6 h-6" />
+                Explore Departments
+                <ChevronRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}

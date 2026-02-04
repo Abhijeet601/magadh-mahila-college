@@ -144,6 +144,19 @@ body {
     gap: 0.5rem;
   }
 
+  /* Logo container - centered and responsive */
+  .logo-container {
+    display: block;
+    pointer-events: auto;
+    transition: transform 0.25s ease;
+  }
+  .logo-container img {
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 3.5rem;
+  }
+
   /* Mobile menu: ensure adequate touch padding for menu links and buttons */
   .mobile-menu-enter a,
   .mobile-menu-enter button {
@@ -167,4 +180,20 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

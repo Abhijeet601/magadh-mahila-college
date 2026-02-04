@@ -24,6 +24,7 @@ import GrievanceCell from './pages/GrievanceCell';
 import Tender from './pages/Tender';
 
 import NEP2020 from './pages/NEP2020';
+import Departments from './pages/Departments';
 import IQAC from './pages/IQAC';
 
 // NIRF pages
@@ -43,6 +44,10 @@ import IQACWorkshop from './pages/IQAC/Workshop';
 import IQACNAAC from './pages/IQAC/NAAC';
 import IQACFeedback from './pages/IQAC/Feedback';
 import IQACResearch from './pages/IQAC/Research';
+import IQACResearchGrants from './pages/IQAC/ResearchGrants';
+import IQACResearchPublications from './pages/IQAC/ResearchPublications';
+import IQACResearchGuidesPhdScholars from './pages/IQAC/ResearchGuidesPhdScholars';
+import IQACResearchDevelopmentCell from './pages/IQAC/ResearchDevelopmentCell';
 import IQACExtensionActivities from './pages/IQAC/ExtensionActivities';
 import IQACCollaboration from './pages/IQAC/Collaboration';
 import IQACStudentProgressionForm from './pages/IQAC/StudentProgressionForm';
@@ -50,6 +55,15 @@ import IQACStudentSatisfactionSurvey from './pages/IQAC/StudentSatisfactionSurve
 import IQACProjectInternshipFieldwork from './pages/IQAC/ProjectInternshipFieldwork';
 import IQACBestPractices2023 from './pages/IQAC/BestPractices2023';
 import IQACBestPracticesPhotoGallery from './pages/IQAC/BestPracticesPhotoGallery';
+
+// NAAC sub-pages
+import NAACCertificate from './pages/IQAC/NAACCertificate';
+import NAACCertificates from './pages/IQAC/NAACCertificates';
+import SelfStudyReport from './pages/IQAC/SelfStudyReport';
+import PeerTeamVisitPhotos from './pages/IQAC/PeerTeamVisitPhotos';
+import VideoRecordingNAACPeerTeamVisit from './pages/IQAC/VideoRecordingNAACPeerTeamVisit';
+import RevisitNAACPeerTeam from './pages/IQAC/RevisitNAACPeerTeam';
+import AQAR from './pages/IQAC/AQAR';
 
 // IQAC Feedback Forms
 import StudentFeedbackForm from './pages/IQAC/StudentFeedbackForm';
@@ -163,6 +177,7 @@ function App() {
               {/* Dedicated pages */}
               <Route path="/news" element={<News />} />
               <Route path="/events" element={<Events />} />
+              <Route path="/departments" element={<Departments />} />
               <Route path="/nep-2020" element={<NEP2020 />} />
               <Route path="/iqac" element={<IQAC />} />
 
@@ -181,6 +196,13 @@ function App() {
               {/* IQAC sub-pages */}
               <Route path="/iqac/workshop" element={<IQACWorkshop />} />
               <Route path="/iqac/naac" element={<IQACNAAC />} />
+              <Route path="/iqac/naac-certificate" element={<NAACCertificate />} />
+              <Route path="/iqac/naac-certificates" element={<NAACCertificates />} />
+              <Route path="/iqac/self-study-report" element={<SelfStudyReport />} />
+              <Route path="/iqac/peer-team-visit-photos" element={<PeerTeamVisitPhotos />} />
+              <Route path="/iqac/video-recording-naac-peer-team-visit" element={<VideoRecordingNAACPeerTeamVisit />} />
+              <Route path="/iqac/revisit-naac-peer-team" element={<RevisitNAACPeerTeam />} />
+              <Route path="/iqac/aqar" element={<AQAR />} />
               <Route path="/iqac/feedback" element={<IQACFeedback />} />
               <Route path="/iqac/feedback/student" element={<StudentFeedbackForm />} />
               <Route path="/iqac/feedback/parents" element={<ParentsFeedbackForm />} />
@@ -188,6 +210,10 @@ function App() {
               <Route path="/iqac/feedback/alumni" element={<AlumniFeedbackForm />} />
               <Route path="/iqac/feedback/industry" element={<IndustryFeedbackForm />} />
               <Route path="/iqac/research" element={<IQACResearch />} />
+              <Route path="/iqac/research-grants" element={<IQACResearchGrants />} />
+              <Route path="/iqac/research-publications" element={<IQACResearchPublications />} />
+              <Route path="/iqac/research-guides-phd-scholars" element={<IQACResearchGuidesPhdScholars />} />
+              <Route path="/iqac/research-development-cell" element={<IQACResearchDevelopmentCell />} />
               <Route path="/iqac/extension-activities" element={<IQACExtensionActivities />} />
               <Route path="/iqac/collaboration" element={<IQACCollaboration />} />
               <Route path="/iqac/student-progression-form" element={<IQACStudentProgressionForm />} />

@@ -89,7 +89,7 @@ const Footer = () => {
         viewport={{ once: true }}
         className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
           {/* LOGO + DESCRIPTION */}
           <motion.div variants={itemUp} className="text-center">
@@ -180,6 +180,97 @@ const Footer = () => {
                   {link.label}
                 </Link>
               ))}
+            </nav>
+          </motion.div>
+
+          {/* EXTERNAL IMPORTANT LINKS */}
+          <motion.div variants={itemUp}>
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <Globe className="w-5 h-5" />
+              {t('footer.externalImportantLinks')}
+            </h3>
+            <nav className="space-y-2">
+              <a
+                href="https://naac.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.naac')}
+              </a>
+              <a
+                href="https://www.ugc.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.ugc')}
+              </a>
+              <a
+                href="https://www.nkn.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.nkn')}
+              </a>
+              <a
+                href="https://nad.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.nad')}
+              </a>
+              <a
+                href="https://www.education.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.mhrd')}
+              </a>
+              <a
+                href="https://scholarships.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.nsp')}
+              </a>
+              <a
+                href="https://aishe.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.aishe')}
+              </a>
+              <a
+                href="https://www.mygov.in/aarogya-setu-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.arogyaSetu')}
+              </a>
+              <a
+                href="https://www.mygov.in/campaigns/bharat-padhe-online-campaign/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t('footer.externalImportantLinksItems.bharatPadhe')}
+              </a>
             </nav>
           </motion.div>
 

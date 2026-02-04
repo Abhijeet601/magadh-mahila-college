@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Info, Building, Shield, UserCheck, BookOpen, GraduationCap, Home, Phone, TrendingUp, Users, Bell, FileText } from 'lucide-react';
+import { Menu, X, ChevronDown, Info, Building, Shield, UserCheck, BookOpen, GraduationCap, Home, Phone, TrendingUp, Users, Bell, FileText, Search } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../contexts/ThemeContext';
 import { useBilingual } from '../contexts/BilingualContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import Notifications from './Notifications';
+
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -23,6 +23,7 @@ const Navbar = () => {
   const [nepDropdownOpen, setNepDropdownOpen] = useState(false);
   const [admissionsDropdownOpen, setAdmissionsDropdownOpen] = useState(false);
   const [iqacDropdownOpen, setIqacDropdownOpen] = useState(false);
+  const [academicsDropdownOpen, setAcademicsDropdownOpen] = useState(false);
   const [cellsDropdownOpen, setCellsDropdownOpen] = useState(false);
 
 
@@ -60,6 +61,64 @@ const Navbar = () => {
     setCellsDropdownOpen(false);
   };
 
+  // Close mobile menu and reset mobile submenu states
+  const closeMobileMenu = useCallback(() => {
+    setOpen(false);
+    setMobileAboutOpen(false);
+    setMobileAdmissionsOpen(false);
+    setMobileNepOpen(false);
+    setMobileAdminOpen(false);
+    setMobileIqacOpen(false);
+    setMobileCellsOpen(false);
+  }, []);
+
+  // Keyboard helper: open with Enter/Space/ArrowDown and focus the first item
+  const handleDropdownButtonKeyDown = (e, openSetter, ref) => {
+    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openSetter(true);
+      setTimeout(() => {
+        const first = ref.current?.querySelector('a, button');
+        if (first && typeof first.focus === 'function') first.focus();
+      }, 0);
+    } else if (e.key === 'Escape') {
+      openSetter(false);
+    }
+  };
+
+  // Prevent background scroll when mobile menu is open and close on Escape
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    const handleKey = (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    };
+    if (open) document.addEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleKey);
+    };
+  }, [open, closeMobileMenu]);
+
+  // Close all dropdowns on Escape and clear hover timeouts on unmount
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') {
+        closeAllDropdowns();
+        closeMobileMenu();
+      }
+    };
+    document.addEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      [adminCloseTimeoutRef, aboutCloseTimeoutRef, iqacCloseTimeoutRef, admissionsCloseTimeoutRef, nepCloseTimeoutRef, cellsCloseTimeoutRef].forEach(ref => {
+        if (ref.current) {
+          clearTimeout(ref.current);
+          ref.current = null;
+        }
+      });
+    };
+  }, [closeMobileMenu]);
+
   // Scroll detection for navbar shadow
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +128,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const aboutItems = [
+  const aboutItems = React.useMemo(() => ([
     { label: t('nav.aboutSub.welcome'), to: "/about/brief-profile" },
     { label: t('nav.aboutSub.principalProfile'), to: "/about/principal" },
     { label: t('nav.aboutSub.previousPrincipals'), to: "/about/previous-principals" },
@@ -91,9 +150,9 @@ const Navbar = () => {
     { label: t('nav.aboutSub.managementAdministration'), to: "/about/management-administration" },
     { label: t('nav.aboutSub.infrastructureMaintenance'), to: "/about/infrastructure-maintenance" },
     { label: t('nav.aboutSub.mis'), to: "/about/mis" },
-  ];
+  ]), [i18n.language]);
 
-  const nepItems = [
+  const nepItems = React.useMemo(() => ([
     { label: t('nav.nep2020Sub.academicInfrastructure'), to: "/nep2020/academic-infrastructure" },
     { label: t('nav.nep2020Sub.courseMaterial'), to: "/nep2020/course-material" },
     { label: t('nav.nep2020Sub.fineArts'), to: "/nep2020/fine-arts" },
@@ -108,9 +167,9 @@ const Navbar = () => {
     { label: t('nav.nep2020Sub.timeTable'), to: "/nep2020/time-table" },
     { label: t('nav.nep2020Sub.vocationalCommerce'), to: "/nep2020/vocational-commerce" },
     { label: t('nav.nep2020Sub.vocationalComputerApplication'), to: "/nep2020/vocational-computer-application" },
-  ];
+  ]), [i18n.language]);
 
-  const admissionsItems = [
+  const admissionsItems = React.useMemo(() => ([
     { label: t('nav.admissionsSub.courses'), to: "/admissions/courses" },
     { label: t('nav.admissionsSub.generalInformation'), to: "/admissions/general-information" },
     { label: t('nav.admissionsSub.intakeCapacity'), to: "/admissions/intake-capacity" },
@@ -123,9 +182,9 @@ const Navbar = () => {
     { label: t('nav.admissionsSub.commerceAdmission'), to: "/admissions/commerce-admission" },
     { label: t('nav.admissionsSub.bbaAdmission'), to: "/admissions/bba-admission" },
     { label: t('nav.admissionsSub.admittedStudentsYearWise'), to: "/admissions/admitted-students-year-wise" },
-  ];
+  ]), [i18n.language]);
 
-  const iqacItems = [
+  const iqacItems = React.useMemo(() => ([
     { label: 'Workshop', to: '/iqac/workshop' },
     { label: 'NAAC', to: '/iqac/naac' },
     { label: 'Feedback', to: '/iqac/feedback' },
@@ -137,16 +196,16 @@ const Navbar = () => {
     { label: 'Project Internship & Field Work', to: '/iqac/project-internship-fieldwork' },
     { label: 'Best practices 2023-24', to: '/iqac/best-practices-2023-24' },
     { label: 'Best Practices – Photo Gallery', to: '/iqac/best-practices-photo-gallery' },
-  ];
+  ]), []);
 
   const linksLeft = [];
 
-  const linksRight = [
+  const linksRight = React.useMemo(() => ([
+    { to: '/academics', label: 'Academics' },
     { to: '/campus-life', label: 'Campus Life' },
     { to: '/contact', label: 'Contact' },
     { to: '/nirf', label: 'NIRF' },
-    { to: '/academics', label: 'Academics' },
-  ];
+  ]), []);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -182,10 +241,10 @@ const Navbar = () => {
 
 
       {/* ========== TOP BAR ========== */}
-      <div className="bg-primary text-primary-foreground text-sm relative overflow-hidden">
+      <div className="hidden md:block bg-primary text-primary-foreground text-sm relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
         <div className="max-w-7xl mx-auto px-4 h-10 flex justify-between items-center uppercase relative z-10">
-          <div className="flex gap-6">
+          <div className="flex gap-4">
             <Link to="/" className="nav-link hover:text-white transition-colors duration-300 flex items-center gap-2">
               <Home className="w-4 h-4" />
               {t('nav.home')}
@@ -202,7 +261,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="flex gap-4 items-center flex-wrap">
+          <div className="flex gap-4 items-center flex-wrap ml-4">
             {/* Language selector */}
             <div className="flex items-center gap-2 text-white text-xs">
               <span className="font-medium">Language</span>
@@ -271,17 +330,39 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Notifications />
+
           </div>
         </div>
       </div>
 
+      {/* ========== MOBILE HEADER BAR ========== */}
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-white text-primary h-14 flex items-center justify-between px-4 z-50 shadow-md">
+        <button
+          onClick={() => setOpen(true)}
+          className="p-2 hover:bg-primary/10 rounded-lg"
+          aria-label="Open menu"
+        >
+          <Menu size={20} />
+        </button>
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/Magadh_Mahila_College.png"
+            alt="Magadh Mahila College Logo"
+            className="w-8 h-8 object-contain bg-white rounded"
+          />
+          <span className="text-sm font-semibold">Magadh Mahila College, Patna</span>
+        </Link>
+        <button className="p-2 hover:bg-primary/10 rounded-lg" aria-label="Search">
+          <Search size={20} />
+        </button>
+      </div>
+
       {/* ========== MAIN NAV ========== */}
-      <div className={`bg-white border-b transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+      <div className={`hidden md:block bg-white border-b transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center relative">
 
           {/* LEFT NAVIGATION */}
-          <nav className="hidden md:grid grid-cols-3 grid-rows-2 gap-4 uppercase text-xs pr-8 lg:pr-56 items-center">
+          <nav className="hidden md:grid grid-cols-3 grid-rows-2 gap-2 uppercase text-xs pr-8 lg:pr-56 items-center">
             {/* ABOUT DROPDOWN */}
             <div
               className="relative"
@@ -305,6 +386,10 @@ const Navbar = () => {
               <div className="absolute top-0 left-0 w-[300px] h-[400px] opacity-0 pointer-events-none" />
               <button
                 onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setAboutDropdownOpen, aboutDropdownRef)}
+                aria-haspopup="menu"
+                aria-expanded={aboutDropdownOpen}
+                aria-controls="about-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
                 <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
@@ -320,6 +405,9 @@ const Navbar = () => {
               <AnimatePresence>
                 {aboutDropdownOpen && (
                   <motion.div
+                    id="about-menu"
+                    role="menu"
+                    aria-label={t('nav.about')}
                     initial={{ opacity: 0, y: -8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -345,6 +433,8 @@ const Navbar = () => {
                       >
                         <Link
                           to={item.to}
+                          role="menuitem"
+                          tabIndex={-1}
                           className="group relative block px-5 py-3 text-xs uppercase hover:text-primary whitespace-normal border-b border-gray-100 last:border-0 transition-all duration-200 ease-out"
                         >
                           <motion.span
@@ -378,6 +468,12 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
+            {/* AICTE LINK */}
+            <Link to="/aicte" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
+              <Shield className="w-4 h-4 mr-2" />
+              AICTE
+            </Link>
+
             {/* ADMIN DROPDOWN */}
             <div
               className="relative"
@@ -403,6 +499,10 @@ const Navbar = () => {
               <div className="absolute top-0 left-full ml-1 w-[250px] h-[400px] opacity-0 pointer-events-none" />
               <button
                 onClick={() => setAdminDropdownOpen(!adminDropdownOpen)}
+                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setAdminDropdownOpen, adminDropdownRef)}
+                aria-haspopup="menu"
+                aria-expanded={adminDropdownOpen}
+                aria-controls="admin-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
                 <Building className="w-4 h-4 mr-2" />
@@ -416,6 +516,9 @@ const Navbar = () => {
               <AnimatePresence>
                 {adminDropdownOpen && (
                   <motion.div
+                    id="admin-menu"
+                    role="menu"
+                    aria-label="Administration"
                     initial={{ opacity: 0, y: -8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -490,6 +593,8 @@ const Navbar = () => {
                               >
                                 <Link
                                   to={item.to}
+                                  role="menuitem"
+                                  tabIndex={-1}
                                   className="group relative block px-5 py-3 text-xs uppercase hover:text-primary border-b border-gray-100 last:border-0 transition-all duration-200 ease-out"
                                 >
                                   <motion.span
@@ -638,6 +743,10 @@ const Navbar = () => {
             >
               <button
                 onClick={() => setIqacDropdownOpen(!iqacDropdownOpen)}
+                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setIqacDropdownOpen, iqacDropdownRef)}
+                aria-haspopup="menu"
+                aria-expanded={iqacDropdownOpen}
+                aria-controls="iqac-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
                 <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
@@ -653,6 +762,9 @@ const Navbar = () => {
               <AnimatePresence>
                 {iqacDropdownOpen && (
                   <motion.div
+                    id="iqac-menu"
+                    role="menu"
+                    aria-label="IQAC"
                     initial={{ opacity: 0, y: -8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -678,6 +790,8 @@ const Navbar = () => {
                       >
                         <Link
                           to={item.to}
+                          role="menuitem"
+                          tabIndex={-1}
                           className="group relative block px-5 py-3 text-xs uppercase hover:text-primary whitespace-normal border-b border-gray-100 last:border-0 transition-all duration-200 ease-out"
                         >
                           <motion.span
@@ -734,6 +848,10 @@ const Navbar = () => {
               <div className="absolute top-0 left-0 w-[300px] h-[400px] opacity-0 pointer-events-none" />
               <button
                 onClick={() => setAdmissionsDropdownOpen(!admissionsDropdownOpen)}
+                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setAdmissionsDropdownOpen, admissionsDropdownRef)}
+                aria-haspopup="menu"
+                aria-expanded={admissionsDropdownOpen}
+                aria-controls="admissions-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
                 <Users className="w-4 h-4 mr-2" />
@@ -747,6 +865,9 @@ const Navbar = () => {
               <AnimatePresence>
                 {admissionsDropdownOpen && (
                   <motion.div
+                    id="admissions-menu"
+                    role="menu"
+                    aria-label={t('nav.admissions')}
                     initial={{ opacity: 0, y: -8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -772,6 +893,8 @@ const Navbar = () => {
                       >
                         <Link
                           to={item.to}
+                          role="menuitem"
+                          tabIndex={-1}
                           className="group relative block px-5 py-3 text-xs uppercase hover:text-primary whitespace-normal border-b border-gray-100 last:border-0 transition-all duration-200 ease-out"
                         >
                           <motion.span
@@ -827,6 +950,10 @@ const Navbar = () => {
               <div className="absolute top-0 left-0 w-[300px] h-[400px] opacity-0 pointer-events-none" />
               <button
                 onClick={() => setNepDropdownOpen(!nepDropdownOpen)}
+                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setNepDropdownOpen, nepDropdownRef)}
+                aria-haspopup="menu"
+                aria-expanded={nepDropdownOpen}
+                aria-controls="nep-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
                 <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
@@ -842,6 +969,9 @@ const Navbar = () => {
               <AnimatePresence>
                 {nepDropdownOpen && (
                   <motion.div
+                    id="nep-menu"
+                    role="menu"
+                    aria-label="NEP 2020"
                     initial={{ opacity: 0, y: -8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -867,6 +997,8 @@ const Navbar = () => {
                       >
                         <Link
                           to={item.to}
+                          role="menuitem"
+                          tabIndex={-1}
                           className="group relative block px-5 py-3 text-xs uppercase hover:text-primary whitespace-normal border-b border-gray-100 last:border-0 transition-all duration-200 ease-out"
                         >
                           <motion.span
@@ -900,19 +1032,18 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {/* AICTE LINK */}
-            <Link to="/aicte" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
-              <Shield className="w-4 h-4 mr-2" />
-              AICTE
-            </Link>
+
 
           </nav>
 
           {/* RIGHT NAVIGATION */}
-          <div className="hidden md:flex gap-8 uppercase text-xs pl-8 lg:pl-48 items-center">
+          <div className="hidden md:flex gap-4 uppercase text-xs pl-8 lg:pl-48 items-center">
             {linksRight.map(l => {
               let icon;
               switch (l.to) {
+                case '/departments':
+                  icon = <Users className="w-4 h-4 mr-2" />;
+                  break;
                 case '/aicte':
                   icon = <Shield className="w-4 h-4 mr-2" />;
                   break;
@@ -941,221 +1072,394 @@ const Navbar = () => {
           </div>
 
           {/* MOBILE MENU TOGGLE */}
-          <button 
-            className="md:hidden mobile-toggle p-2 hover:bg-gray-100 rounded-lg" 
-            onClick={() => setOpen(!open)}
+          <button
+            className="md:hidden mobile-toggle p-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            onClick={() => setOpen(prev => !prev)}
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
-      {open && (
-        <div className="md:hidden bg-white border-b mobile-menu-enter shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 py-4 space-y-2 max-h-[80vh] overflow-y-auto">
-            <Link to="/" className="block uppercase text-xs py-3 hover:text-primary font-medium transition-colors" onClick={() => setOpen(false)}>Home</Link>
+      {/* MOBILE MENU BACKDROP */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 bg-black/50 z-40"
+            onClick={closeMobileMenu}
+          />
+        )}
+      </AnimatePresence>
 
-            {/* About Section */}
-            <div className="pt-4 border-t border-gray-200">
-              <button
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className="flex items-center justify-between w-full uppercase text-xs font-bold text-primary mb-2 py-2 hover:bg-gray-50 px-2 rounded transition-colors"
-              >
-                <Info className="w-4 h-4 mr-2" />
-                <span>About</span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180' : ''}`}
-                  size={16}
-                />
-              </button>
-              {mobileAboutOpen && (
-                <div className="space-y-1 bg-gray-50 rounded-lg p-2">
-                  {aboutItems.map((item, idx) => (
-                    <Link
-                      key={`${item.to}-${idx}`}
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+      {/* MOBILE MENU PANEL */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col"
+          >
+            {/* Top Section: Logo + College Name */}
+            <div className="bg-primary text-primary-foreground p-4 flex items-center gap-3">
+              <img
+                src="/Magadh_Mahila_College.png"
+                alt="Magadh Mahila College Logo"
+                className="w-10 h-10 object-contain"
+              />
+              <div>
+                <h1 className="text-lg font-bold">Magadh Mahila College</h1>
+                <p className="text-sm opacity-90">Patna University</p>
+              </div>
             </div>
 
-            {/* Administration Section */}
-            <div className="pt-4 border-t border-gray-200">
-              <button
-                onClick={() => setMobileAdminOpen(!mobileAdminOpen)}
-                className="flex items-center justify-between w-full uppercase text-xs font-bold text-primary mb-2 py-2 hover:bg-gray-50 px-2 rounded transition-colors"
-              >
-                <Building className="w-4 h-4 mr-2" />
-                <span>Administration</span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${mobileAdminOpen ? 'rotate-180' : ''}`}
-                  size={16}
-                />
-              </button>
-              {mobileAdminOpen && (
-                <div className="space-y-1 bg-gray-50 rounded-lg p-2">
-                  {/* Cells Submenu */}
-                  <div className="pl-2">
-                    <button
-                      onClick={() => setMobileCellsOpen(!mobileCellsOpen)}
-                      className="flex items-center justify-between w-full uppercase text-xs font-semibold mb-1 py-3 hover:text-primary transition-colors"
-                    >
-                      <span>Cells</span>
-                      <ChevronDown
-                        className={`transition-transform duration-300 ${mobileCellsOpen ? 'rotate-180' : ''}`}
-                        size={14}
-                      />
-                    </button>
-                    {mobileCellsOpen && (
-                      <div className="space-y-1 bg-white rounded p-2 ml-2">
-                        <Link to="/administration/cells/2023-2024" onClick={() => setOpen(false)} className="block uppercase text-xs py-1.5 hover:text-primary pl-4 transition-colors">
-                          Cells 2023–2024
-                        </Link>
-                        <Link to="/administration/cells/2024-2025" onClick={() => setOpen(false)} className="block uppercase text-xs py-1.5 hover:text-primary pl-4 transition-colors">
-                          Cells 2024–2025
-                        </Link>
-                        <Link to="/administration/cells/2025-2026" onClick={() => setOpen(false)} className="block uppercase text-xs py-1.5 hover:text-primary pl-4 transition-colors">
-                          Cells 2025–2026
-                        </Link>
-                      </div>
-                    )}
+            {/* Middle Section: Menu Items */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
+              <Link to="/" className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors" onClick={closeMobileMenu}>
+                Home
+              </Link>
+
+              {/* About Accordion */}
+              <div className="border-b border-gray-200 pb-2">
+                <button
+                  onClick={() => {
+                    setMobileAboutOpen(!mobileAboutOpen);
+                    setMobileAdmissionsOpen(false);
+                    setMobileNepOpen(false);
+                    setMobileAdminOpen(false);
+                    setMobileIqacOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Info className="w-5 h-5" />
+                    <span>About</span>
                   </div>
-
-                  <Link to="/anti-ragging" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Anti-Ragging Committee</Link>
-                  <Link to="/sexual-harassment" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Sexual Harassment Committee</Link>
-                  <Link to="/grievance" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Grievance Cell</Link>
-
-                  <Link to="/administration/committees" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Committees</Link>
-                  <Link to="/administration/incubation-centre" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Incubation Centre</Link>
-                  <Link to="/administration/organogram-of-institution" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Organogram of Institution</Link>
-                  <Link to="/administration/societies" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Societies</Link>
-                  <Link to="/administration/staff-council" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Staff Council</Link>
-                  <Link to="/administration/centres-list-2020-21" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Centres List 2020-21</Link>
-                  <Link to="/administration/staff-profile" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Staff Profile</Link>
-                  <Link to="/administration/teaching-staff-sanctioned-post" onClick={() => setOpen(false)} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Teaching Staff Sanctioned Post</Link>
-                </div>
-              )}
-            </div>
-
-            {/* IQAC Section */}
-            <div className="pt-4 border-t border-gray-200">
-              <button
-                onClick={() => setMobileIqacOpen(!mobileIqacOpen)}
-                className="flex items-center justify-between w-full uppercase text-xs font-bold text-primary mb-2 py-2 hover:bg-gray-50 px-2 rounded transition-colors"
-              >
-                <Shield className="w-4 h-4 mr-2" />
-                <span>IQAC</span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${mobileIqacOpen ? 'rotate-180' : ''}`}
-                  size={16}
-                />
-              </button>
-              {mobileIqacOpen && (
-                <div className="space-y-1 bg-gray-50 rounded-lg p-2">
-                  {iqacItems.map((item, idx) => (
-                    <Link
-                      key={`${item.to}-${idx}`}
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
+                  <ChevronDown
+                    className={`transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180' : ''}`}
+                    size={18}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileAboutOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
                     >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+                      <div className="space-y-1 bg-gray-50 rounded-lg p-3 mt-2">
+                        {aboutItems.map((item, idx) => (
+                          <Link
+                            key={`${item.to}-${idx}`}
+                            to={item.to}
+                            onClick={closeMobileMenu}
+                            className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-            {/* Admissions Section */}
-            <div className="pt-4 border-t border-gray-200">
-              <button
-                onClick={() => setMobileAdmissionsOpen(!mobileAdmissionsOpen)}
-                className="flex items-center justify-between w-full uppercase text-xs font-bold text-primary mb-2 py-2 hover:bg-gray-50 px-2 rounded transition-colors"
-              >
-                <Users className="w-4 h-4 mr-2" />
-                <span>Admissions</span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${mobileAdmissionsOpen ? 'rotate-180' : ''}`}
-                  size={16}
-                />
-              </button>
-              {mobileAdmissionsOpen && (
-                <div className="space-y-1 bg-gray-50 rounded-lg p-2">
-                  {admissionsItems.map((item, idx) => (
-                    <Link
-                      key={`${item.to}-${idx}`}
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* NEP 2020 Section */}
-            <div className="pt-4 border-t border-gray-200">
-              <button
-                onClick={() => setMobileNepOpen(!mobileNepOpen)}
-                className="flex items-center justify-between w-full uppercase text-xs font-bold text-primary mb-2 py-2 hover:bg-gray-50 px-2 rounded transition-colors"
-              >
-                <BookOpen className="w-4 h-4 mr-2" />
-                <span>NEP 2020</span>
-                <ChevronDown
-                  className={`transition-transform duration-300 ${mobileNepOpen ? 'rotate-180' : ''}`}
-                  size={16}
-                />
-              </button>
-              {mobileNepOpen && (
-                <div className="space-y-1 bg-gray-50 rounded-lg p-2">
-                  {nepItems.map((item, idx) => (
-                    <Link
-                      key={`${item.to}-${idx}`}
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* AICTE Link */}
-            <div className="pt-4 border-t border-gray-200">
-              <Link to="/aicte" onClick={() => setOpen(false)} className="flex items-center uppercase text-xs font-bold text-primary py-2 hover:bg-gray-50 px-2 rounded transition-colors">
-                <Shield className="w-4 h-4 mr-2" />
+              {/* AICTE Link */}
+              <Link to="/aicte" onClick={closeMobileMenu} className="flex items-center gap-2 uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors">
+                <Shield className="w-5 h-5" />
                 AICTE
+              </Link>
+
+              {/* Administration Accordion */}
+              <div className="border-b border-gray-200 pb-2">
+                <button
+                  onClick={() => {
+                    setMobileAdminOpen(!mobileAdminOpen);
+                    setMobileAboutOpen(false);
+                    setMobileAdmissionsOpen(false);
+                    setMobileNepOpen(false);
+                    setMobileIqacOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Building className="w-5 h-5" />
+                    <span>Administration</span>
+                  </div>
+                  <ChevronDown
+                    className={`transition-transform duration-300 ${mobileAdminOpen ? 'rotate-180' : ''}`}
+                    size={18}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileAdminOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-1 bg-gray-50 rounded-lg p-3 mt-2">
+                        {/* Cells Submenu */}
+                        <div className="pl-2 border-b border-gray-100 pb-2 mb-2">
+                          <button
+                            onClick={() => setMobileCellsOpen(!mobileCellsOpen)}
+                            className="flex items-center justify-between w-full uppercase text-xs font-semibold py-2 hover:text-primary transition-colors"
+                          >
+                            <span>Cells</span>
+                            <ChevronDown
+                              className={`transition-transform duration-300 ${mobileCellsOpen ? 'rotate-180' : ''}`}
+                              size={14}
+                            />
+                          </button>
+                          <AnimatePresence>
+                            {mobileCellsOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="space-y-1 bg-white rounded p-2 ml-2 mt-1">
+                                  <Link to="/administration/cells/2023-2024" onClick={closeMobileMenu} className="block uppercase text-xs py-1.5 hover:text-primary pl-4 transition-colors">
+                                    Cells 2023–2024
+                                  </Link>
+                                  <Link to="/administration/cells/2024-2025" onClick={closeMobileMenu} className="block uppercase text-xs py-1.5 hover:text-primary pl-4 transition-colors">
+                                    Cells 2024–2025
+                                  </Link>
+                                  <Link to="/administration/cells/2025-2026" onClick={closeMobileMenu} className="block uppercase text-xs py-1.5 hover:text-primary pl-4 transition-colors">
+                                    Cells 2025–2026
+                                  </Link>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+
+                        <Link to="/anti-ragging" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Anti-Ragging Committee</Link>
+                        <Link to="/sexual-harassment" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Sexual Harassment Committee</Link>
+                        <Link to="/grievance" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Grievance Cell</Link>
+                        <Link to="/administration/committees" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Committees</Link>
+                        <Link to="/administration/incubation-centre" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Incubation Centre</Link>
+                        <Link to="/administration/organogram-of-institution" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Organogram of Institution</Link>
+                        <Link to="/administration/societies" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Societies</Link>
+                        <Link to="/administration/staff-council" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Staff Council</Link>
+                        <Link to="/administration/centres-list-2020-21" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Centres List 2020-21</Link>
+                        <Link to="/administration/staff-profile" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Staff Profile</Link>
+                        <Link to="/administration/teaching-staff-sanctioned-post" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Teaching Staff Sanctioned Post</Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* IQAC Accordion */}
+              <div className="border-b border-gray-200 pb-2">
+                <button
+                  onClick={() => {
+                    setMobileIqacOpen(!mobileIqacOpen);
+                    setMobileAboutOpen(false);
+                    setMobileAdmissionsOpen(false);
+                    setMobileNepOpen(false);
+                    setMobileAdminOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-5 h-5" />
+                    <span>IQAC</span>
+                  </div>
+                  <ChevronDown
+                    className={`transition-transform duration-300 ${mobileIqacOpen ? 'rotate-180' : ''}`}
+                    size={18}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileIqacOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-1 bg-gray-50 rounded-lg p-3 mt-2">
+                        {iqacItems.map((item, idx) => (
+                          <Link
+                            key={`${item.to}-${idx}`}
+                            to={item.to}
+                            onClick={closeMobileMenu}
+                            className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Admissions Accordion */}
+              <div className="border-b border-gray-200 pb-2">
+                <button
+                  onClick={() => {
+                    setMobileAdmissionsOpen(!mobileAdmissionsOpen);
+                    setMobileAboutOpen(false);
+                    setMobileNepOpen(false);
+                    setMobileAdminOpen(false);
+                    setMobileIqacOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <Users className="w-5 h-5" />
+                    <span>Admissions</span>
+                  </div>
+                  <ChevronDown
+                    className={`transition-transform duration-300 ${mobileAdmissionsOpen ? 'rotate-180' : ''}`}
+                    size={18}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileAdmissionsOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-1 bg-gray-50 rounded-lg p-3 mt-2">
+                        {admissionsItems.map((item, idx) => (
+                          <Link
+                            key={`${item.to}-${idx}`}
+                            to={item.to}
+                            onClick={closeMobileMenu}
+                            className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* NEP 2020 Accordion */}
+              <div className="border-b border-gray-200 pb-2">
+                <button
+                  onClick={() => {
+                    setMobileNepOpen(!mobileNepOpen);
+                    setMobileAboutOpen(false);
+                    setMobileAdmissionsOpen(false);
+                    setMobileAdminOpen(false);
+                    setMobileIqacOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <BookOpen className="w-5 h-5" />
+                    <span>NEP 2020</span>
+                  </div>
+                  <ChevronDown
+                    className={`transition-transform duration-300 ${mobileNepOpen ? 'rotate-180' : ''}`}
+                    size={18}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileNepOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-1 bg-gray-50 rounded-lg p-3 mt-2">
+                        {nepItems.map((item, idx) => (
+                          <Link
+                            key={`${item.to}-${idx}`}
+                            to={item.to}
+                            onClick={closeMobileMenu}
+                            className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other Links */}
+              <Link to="/campus-life" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                Campus Life
+              </Link>
+              <Link to="/contact" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                Contact
+              </Link>
+              <Link to="/academics" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                Academics
+              </Link>
+              <Link to="/departments" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                Departments
+              </Link>
+              <Link to="/nirf" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                NIRF
+              </Link>
+              <Link to="/tenders" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                Tenders
               </Link>
             </div>
 
-            {/* Right Links */}
-            <div className="pt-4 border-t border-gray-200">
-              {linksRight.map(l => (
-                <Link key={l.to} to={l.to} className="block uppercase text-xs py-2 hover:text-primary font-medium transition-colors" onClick={() => setOpen(false)}>
-                  {l.label}
-                </Link>
-              ))}
+            {/* Bottom Section: Quick Action Buttons */}
+            <div className="border-t border-gray-200 p-4 space-y-3">
+              <Link
+                to="/admissions"
+                onClick={closeMobileMenu}
+                className="block w-full bg-primary text-primary-foreground text-center py-3 px-4 rounded-lg font-semibold uppercase text-sm hover:bg-primary/90 transition-colors"
+              >
+                Apply Now
+              </Link>
+              <Link
+                to="/contact"
+                onClick={closeMobileMenu}
+                className="block w-full bg-primary text-primary-foreground text-center py-3 px-4 rounded-lg font-semibold uppercase text-sm hover:bg-primary/90 transition-colors"
+              >
+                Contact Us
+              </Link>
+              <Link
+                to="/campus-life"
+                onClick={closeMobileMenu}
+                className="block w-full bg-primary text-primary-foreground text-center py-3 px-4 rounded-lg font-semibold uppercase text-sm hover:bg-primary/90 transition-colors"
+              >
+                Visit Campus
+              </Link>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ========== SVG SHIELD LOGO ========== */}
       <Link
         to="/"
         aria-label="Magadh Mahila College home"
-        className="logo-container hidden lg:block absolute left-[48%] -translate-x-1/2 top-0 z-50"
+        className="logo-container hidden xl:block absolute left-1/2 -translate-x-1/2 top-0 z-40 pointer-events-none"
       >
         <div className="relative w-44 md:w-60 lg:w-[380px]">
           <svg viewBox="0 0 400 140" className="w-full h-auto drop-shadow-lg" xmlns="http://www.w3.org/2000/svg">
