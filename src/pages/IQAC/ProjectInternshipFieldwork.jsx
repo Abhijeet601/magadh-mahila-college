@@ -53,7 +53,7 @@ const ProjectInternshipFieldwork = () => {
                   <p className="text-muted-foreground mb-6">Documents related to project internships and fieldwork activities.</p>
                   <div className="space-y-2">
                     <motion.a
-                      href="/wp-content/uploads/2021/12/Field-WorkInternship-Project.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/Field-WorkInternship-Project.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
@@ -63,7 +63,7 @@ const ProjectInternshipFieldwork = () => {
                       Field-WorkInternship-Project.pdf
                     </motion.a>
                     <motion.a
-                      href="/wp-content/uploads/2021/12/Internship_project_22-23.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/Internship_project_22-23.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
@@ -73,7 +73,7 @@ const ProjectInternshipFieldwork = () => {
                       Internship_project_22-23.pdf
                     </motion.a>
                     <motion.a
-                      href="/wp-content/uploads/2021/12/mmc_Internship.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/mmc_Internship.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
@@ -83,7 +83,7 @@ const ProjectInternshipFieldwork = () => {
                       mmc_Internship.pdf
                     </motion.a>
                     <motion.a
-                      href="/wp-content/uploads/2021/12/Project-Internship-and-Field-Work-2018-19.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/Project-Internship-and-Field-Work-2018-19.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
@@ -93,7 +93,7 @@ const ProjectInternshipFieldwork = () => {
                       Project-Internship-and-Field-Work-2018-19.pdf
                     </motion.a>
                     <motion.a
-                      href="/wp-content/uploads/2021/12/Project-Internship-Field-Work-23-24.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/Project-Internship-Field-Work-23-24.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
@@ -103,7 +103,7 @@ const ProjectInternshipFieldwork = () => {
                       Project-Internship-Field-Work-23-24.pdf
                     </motion.a>
                     <motion.a
-                      href="/wp-content/uploads/2021/12/Project-internship-field-work-2021-22-1.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/Project-internship-field-work-2021-22-1.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
@@ -113,7 +113,7 @@ const ProjectInternshipFieldwork = () => {
                       Project-internship-field-work-2021-22-1.pdf
                     </motion.a>
                     <motion.a
-                      href="/wp-content/uploads/2021/12/Project-Internship-Field-Work-Session-2019-2020.pdf"
+                      href="/documents/IQAC/Project%20Internship%20%26%20Field%20Work/Project-Internship-Field-Work-Session-2019-2020.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary hover:underline"
