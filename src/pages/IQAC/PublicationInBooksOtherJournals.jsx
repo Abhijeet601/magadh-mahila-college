@@ -11,13 +11,13 @@ const PublicationInBooksOtherJournals = () => {
     {
       title: 'Publication in Books & Other Journals',
       filename: 'mmc_publication.pdf',
-      path: '/documents/IQAC/Research/Publication in Books & Other Journals/mmc_publication.pdf',
+      path: '/documents/IQAC/Research/Publication%20in%20Books%20%26%20Other%20Journals/mmc_publication.pdf',
       description: 'Comprehensive collection of publications in books and other journals by MMC faculty members.'
     },
     {
       title: 'Research Publications of Faculties in UGC Journals',
       filename: 'mmc_ugc_journals2.pdf',
-      path: '/documents/IQAC/Research/Research_Publications_of_faculties_in_UGC_Journals/mmc_ugc_journals2.pdf',
+      path: '/documents/IQAC/Research/Research%20Publications%20of%20faculties%20in%20UGC%20Journals/mmc_ugc_journals2.pdf',
       description: 'Research publications by MMC faculty members in UGC-approved journals.'
     }
   ];

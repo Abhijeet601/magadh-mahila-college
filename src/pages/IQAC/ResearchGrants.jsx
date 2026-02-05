@@ -11,13 +11,13 @@ const ResearchGrants = () => {
     {
       title: 'Research Grants 2023-24',
       filename: '3.1.3_2324.pdf',
-      path: '/documents/IQAC/Research/Research Grants/3.1.3_2324.pdf',
+      path: '/documents/IQAC/Research/Research%20Grants/3.1.3_2324.pdf',
       description: 'Detailed report on research grants and funding for the academic year 2023-24.'
     },
     {
       title: 'MMC Grants 2023',
       filename: 'mmc_grants_2023.pdf',
-      path: '/documents/IQAC/Research/Research Grants/mmc_grants_2023.pdf',
+      path: '/documents/IQAC/Research/Research%20Grants/mmc_grants_2023.pdf',
       description: 'Comprehensive overview of research grants awarded to MMC faculty in 2023.'
     }
   ];

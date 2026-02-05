@@ -87,13 +87,13 @@ const ResearchGuidesPhdScholars = () => {
     {
       title: 'Research Guides & PhD Scholars 2023-24',
       filename: '3.3.2_2324.pdf',
-      path: '/documents/IQAC/Research/Research Guides & PHD Scholars/3.3.2_2324.pdf',
+      path: '/documents/IQAC/Research/Research%20Guides%20%26%20PHD%20Scholars/3.3.2_2324.pdf',
       description: 'Detailed report on research guides and PhD scholars for the academic year 2023-24.'
     },
     {
       title: 'MMC PhD Scholars',
       filename: 'mmc_Phd_scholar.pdf',
-      path: '/documents/IQAC/Research/Research Guides & PHD Scholars/mmc_Phd_scholar.pdf',
+      path: '/documents/IQAC/Research/Research%20Guides%20%26%20PHD%20Scholars/mmc_Phd_scholar.pdf',
       description: 'Comprehensive overview of PhD scholars at Magadh Mahila College.'
     }
   ];

@@ -10,17 +10,17 @@ const Workshop = () => {
   const workshops = [
     {
       title: 'NAAC Awareness and Documentation',
-      pdf: '/wp-content/uploads/2023/04/NAAC-AWARENESS-AND-DOCUMENTATION.pdf',
+      pdf: '/documents/IQAC/workshop/NAAC-AWARENESS-AND-DOCUMENTATION.pdf',
       description: 'Comprehensive guide on NAAC accreditation process and documentation requirements.'
     },
     {
       title: 'Report of IPR and Entrepreneurship',
-      pdf: '/wp-content/uploads/2023/04/Report-of-IPR-and-enterpneurship-4.pdf',
+      pdf: '/documents/IQAC/workshop/Report-of-IPR-and-enterpneurship-4.pdf',
       description: 'Detailed report on Intellectual Property Rights and entrepreneurship initiatives.'
     },
     {
       title: 'SWAYAM Programme',
-      pdf: '/wp-content/uploads/2023/04/swyam_prog.pdf',
+      pdf: '/documents/IQAC/workshop/swyam_prog.pdf',
       description: 'Information on SWAYAM online learning platform and course offerings.'
     }
   ];
