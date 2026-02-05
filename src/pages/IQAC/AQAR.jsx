@@ -1,23 +1,33 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FileText, Download, ExternalLink } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { FileText, Download } from 'lucide-react';
 
 const AQAR = () => {
-  const { t } = useTranslation();
+  const aqarFiles = [
+    { year: '2013', file: 'EC-34-050-MMCPU-AQAR2013 magadhmahilacollege patna university patna.pdf' },
+    { year: '2014', file: 'EC-34-050-MMCPU-AQAR2014 magadhmahilacollege patna university patna.pdf' },
+    { year: '2015', file: 'EC-34-050-MMCPU-AQAR2015.pdf' },
+    { year: '2016', file: 'EC-34-050-MMCPU-AQAR2016.pdf' },
+    { year: '2018', file: 'EC-34-50-MMCPU-AQAR2018.pdf' },
+    { year: '2018 (31.05)', file: 'AQAR-31.05.2018.pdf' },
+    { year: '2018-19', file: 'AQAR-2018-19.pdf' },
+    { year: '2019-20 (Resubmitted)', file: 'AQAR-2019-20-resubmitted-2.pdf' },
+    { year: '2020-21', file: 'AQAR-2020-21.pdf' },
+    { year: '2021-22', file: 'AQAR-2021-22.pdf' },
+    { year: '2022-23', file: 'AQAR-2022-23.pdf' },
+  ];
 
   return (
     <>
       <Helmet>
-        <title>AQAR - Annual Quality Assurance Report | Magadh Mahila College</title>
-        <meta name="description" content="Annual Quality Assurance Report (AQAR) submissions for NAAC accreditation at Magadh Mahila College." />
+        <title>AQAR - Annual Quality Assurance Reports | Magadh Mahila College</title>
+        <meta name="description" content="Download Annual Quality Assurance Reports (AQAR) for NAAC accreditation at Magadh Mahila College." />
       </Helmet>
 
       <div className="pt-0">
         <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
+          <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -25,70 +35,45 @@ const AQAR = () => {
               className="text-center mb-16"
             >
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-primary">AQAR</span>
+                <span className="text-primary">Annual Quality Assurance Reports (AQAR)</span>
               </h1>
               <p className="text-foreground max-w-3xl mx-auto text-lg">
-                Annual Quality Assurance Report submissions for continuous quality improvement and NAAC compliance.
+                Comprehensive annual reports detailing quality assurance measures and institutional performance.
               </p>
             </motion.div>
 
-            {/* AQAR Overview */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-lg border border-border p-8 mb-12"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              <h2 className="text-2xl font-bold text-foreground mb-6">About AQAR</h2>
-              <p className="text-muted-foreground mb-6">
-                The Annual Quality Assurance Report (AQAR) is a mandatory submission for all accredited institutions. It documents the quality assurance activities, progress on quality improvement, and compliance with NAAC guidelines throughout the accreditation cycle.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-primary/5 rounded-lg p-4">
-                  <h3 className="font-bold text-primary mb-2">Key Components</h3>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Quality improvement initiatives</li>
-                    <li>• Stakeholder feedback analysis</li>
-                    <li>• Best practices implementation</li>
-                    <li>• Infrastructure development</li>
-                  </ul>
-                </div>
-                <div className="bg-primary/5 rounded-lg p-4">
-                  <h3 className="font-bold text-primary mb-2">Reporting Period</h3>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Annual submissions</li>
-                    <li>• Academic year coverage</li>
-                    <li>• Progress tracking</li>
-                    <li>• Future action plans</li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Access Reports */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-lg border border-border p-8"
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">AQAR Reports</h3>
-              <p className="text-muted-foreground text-center mb-8">
-                Access all Annual Quality Assurance Reports submitted to NAAC.
-              </p>
-              <div className="flex justify-center">
-                <a
-                  href="/documents/IQAC/NAAC/AQAR/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              {aqarFiles.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg border border-border p-6 hover:shadow-xl transition-shadow"
                 >
-                  <ExternalLink className="w-5 h-5" />
-                  View AQAR Reports
-                </a>
-              </div>
+                  <FileText className="w-12 h-12 mb-4 text-primary" />
+                  <h3 className="text-xl font-bold mb-2">AQAR {item.year}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Annual Quality Assurance Report for {item.year}
+                  </p>
+                  <a
+                    href={`/documents/IQAC/NAAC/AQAR/${item.file}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download
+                  </a>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>

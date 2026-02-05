@@ -1,23 +1,26 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Camera, ExternalLink } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Camera } from 'lucide-react';
 
 const PeerTeamVisitPhotos = () => {
-  const { t } = useTranslation();
+  // Placeholder images - replace with actual photos if available
+  const photos = [
+    { src: '/images/mmc_naac2013.jpg', alt: 'NAAC Peer Team Visit 2013' },
+    { src: '/images/mmc_naac2020.jpg', alt: 'NAAC Peer Team Visit 2020' },
+    { src: '/images/WhatsApp-Image-2021-02-11-at-3.04.42-PM.jpeg', alt: 'NAAC Peer Team Visit 2021' },
+  ];
 
   return (
     <>
       <Helmet>
-        <title>Peer Team Visit Photos | Magadh Mahila College</title>
-        <meta name="description" content="Photographs from the NAAC peer team visit and assessment at Magadh Mahila College." />
+        <title>Peer Team Visit Photos - NAAC | Magadh Mahila College</title>
+        <meta name="description" content="View photos from the NAAC Peer Team visits and assessment process at Magadh Mahila College." />
       </Helmet>
 
       <div className="pt-0">
         <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
+          <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -28,64 +31,44 @@ const PeerTeamVisitPhotos = () => {
                 <span className="text-primary">Peer Team Visit Photos</span>
               </h1>
               <p className="text-foreground max-w-3xl mx-auto text-lg">
-                Capturing moments from the NAAC peer team visit and assessment process.
+                Photographic documentation of NAAC Peer Team visits and assessment activities.
               </p>
             </motion.div>
 
-            {/* Photo Gallery Overview */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-lg border border-border p-8 mb-12"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              <h2 className="text-2xl font-bold text-foreground mb-6">Photo Gallery</h2>
-              <p className="text-muted-foreground mb-6">
-                A collection of photographs documenting the NAAC peer team visit, including interactions with faculty, students, infrastructure tours, and assessment activities.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-primary/5 rounded-lg p-4 text-center">
-                  <Camera className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-bold text-primary">Campus Tours</h3>
-                  <p className="text-sm text-muted-foreground">Infrastructure and facilities</p>
-                </div>
-                <div className="bg-primary/5 rounded-lg p-4 text-center">
-                  <Camera className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-bold text-primary">Interactions</h3>
-                  <p className="text-sm text-muted-foreground">Meetings with stakeholders</p>
-                </div>
-                <div className="bg-primary/5 rounded-lg p-4 text-center">
-                  <Camera className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-bold text-primary">Assessment</h3>
-                  <p className="text-sm text-muted-foreground">Evaluation activities</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* View Gallery */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-lg border border-border p-8"
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">View Photo Gallery</h3>
-              <p className="text-muted-foreground text-center mb-8">
-                Browse through the complete collection of photographs from the NAAC peer team visit.
-              </p>
-              <div className="flex justify-center">
-                <a
-                  href="/documents/IQAC/NAAC/Peer_Team_Visit_Photos/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              {photos.map((photo, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg border border-border overflow-hidden hover:shadow-xl transition-shadow"
                 >
-                  <ExternalLink className="w-5 h-5" />
-                  Open Photo Gallery
-                </a>
-              </div>
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <Camera className="w-5 h-5 text-primary mb-2" />
+                    <h3 className="text-xl font-bold text-foreground mb-2">
+                      {photo.alt}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      Official documentation of the NAAC assessment visit.
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>

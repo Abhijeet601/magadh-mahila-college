@@ -1,11 +1,54 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle, FileText, TrendingUp, Users, Target, Shield, Star, Download, ExternalLink, Camera, Video, RotateCcw } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Award, FileText, Camera, Video, RotateCcw, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const NAAC = () => {
-  const { t } = useTranslation();
+  const sections = [
+    {
+      title: 'NAAC Certificate',
+      description: 'Official NAAC accreditation certificates and grades',
+      icon: Award,
+      to: '/iqac/naac-certificate',
+      color: 'text-blue-600'
+    },
+    {
+      title: 'Self Study Report',
+      description: 'Comprehensive self-evaluation document for NAAC assessment',
+      icon: FileText,
+      to: '/iqac/self-study-report',
+      color: 'text-green-600'
+    },
+    {
+      title: 'Peer Team Visit Photos',
+      description: 'Photographic documentation of NAAC Peer Team visits',
+      icon: Camera,
+      to: '/iqac/peer-team-visit-photos',
+      color: 'text-purple-600'
+    },
+    {
+      title: 'Video Recording of NAAC Peer Team Visit',
+      description: 'Official video documentation of the NAAC assessment visit',
+      icon: Video,
+      to: '/iqac/video-recording-naac-peer-team-visit',
+      color: 'text-red-600'
+    },
+    {
+      title: 'Revisit of NAAC Peer Team',
+      description: 'Follow-up assessment and revisit by the NAAC Peer Team',
+      icon: RotateCcw,
+      to: '/iqac/revisit-naac-peer-team',
+      color: 'text-orange-600'
+    },
+    {
+      title: 'AQAR',
+      description: 'Annual Quality Assurance Reports detailing institutional performance',
+      icon: FileText,
+      to: '/iqac/aqar',
+      color: 'text-teal-600'
+    }
+  ];
 
   return (
     <>
@@ -32,158 +75,40 @@ const NAAC = () => {
               </p>
             </motion.div>
 
-
-
-            {/* NAAC Pages */}
+            {/* Sections Grid */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-20"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
             >
-              <h2 className="text-4xl font-bold text-center mb-12">
-                <span className="text-primary">NAAC Pages</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {sections.map((section, index) => (
                 <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="p-6 rounded-2xl bg-white shadow-lg border border-border hover:shadow-xl transition-shadow"
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg border border-border p-6 hover:shadow-xl transition-shadow group"
                 >
-                  <div className="flex flex-col items-center text-center">
-                    <Award className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">NAAC Certificate</h3>
+                  <Link to={section.to} className="block">
+                    <div className="flex items-center gap-4 mb-4">
+                      <section.icon className={`w-8 h-8 ${section.color}`} />
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {section.title}
+                      </h3>
+                    </div>
                     <p className="text-muted-foreground text-sm mb-4">
-                      Official NAAC accreditation certificate with B+ grade.
+                      {section.description}
                     </p>
-                    <a
-                      href="/iqac/naac-certificate"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                    >
+                    <div className="inline-flex items-center gap-2 text-primary font-medium">
                       <ExternalLink className="w-4 h-4" />
-                      View Page
-                    </a>
-                  </div>
+                      Explore
+                    </div>
+                  </Link>
                 </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="p-6 rounded-2xl bg-white shadow-lg border border-border hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <FileText className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">Self Study Report</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Comprehensive self-study report submitted for NAAC accreditation.
-                    </p>
-                    <a
-                      href="/iqac/self-study-report"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Page
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="p-6 rounded-2xl bg-white shadow-lg border border-border hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <Camera className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">Peer Team Visit Photos</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Photographs from the NAAC peer team visit and assessment.
-                    </p>
-                    <a
-                      href="/iqac/peer-team-visit-photos"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Page
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="p-6 rounded-2xl bg-white shadow-lg border border-border hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <Video className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">Video Recording</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Video recording of the NAAC peer team visit and proceedings.
-                    </p>
-                    <a
-                      href="/iqac/video-recording-naac-peer-team-visit"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Page
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="p-6 rounded-2xl bg-white shadow-lg border border-border hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <RotateCcw className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">Revisit of NAAC Peer Team</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Documentation and reports from the NAAC peer team revisit.
-                    </p>
-                    <a
-                      href="/iqac/revisit-naac-peer-team"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Page
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="p-6 rounded-2xl bg-white shadow-lg border border-border hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <FileText className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">AQAR</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Annual Quality Assurance Report (AQAR) submissions.
-                    </p>
-                    <a
-                      href="/iqac/aqar"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Page
-                    </a>
-                  </div>
-                </motion.div>
-              </div>
+              ))}
             </motion.div>
 
             {/* Contact */}
