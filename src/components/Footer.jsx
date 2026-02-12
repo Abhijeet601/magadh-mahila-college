@@ -63,7 +63,13 @@ const Footer = () => {
     { path: '/annual-reports', label: t('footer.importantLinksItems.annualReports') },
     { path: '/media-gallery', label: t('footer.importantLinksItems.mediaGallery') },
     { path: '/privacy-policy', label: t('footer.importantLinksItems.privacyPolicy') },
-    { path: '/terms', label: t('footer.importantLinksItems.terms') }
+    { path: '/terms', label: t('footer.importantLinksItems.terms') },
+    { path: '/disclaimer', label: t('footer.importantLinksItems.disclaimer') },
+    { path: '/rti', label: t('footer.importantLinksItems.rti') },
+    { path: '/rti-manual', label: t('footer.importantLinksItems.rtiManual') },
+    { path: '/fee-refund-policy', label: t('footer.importantLinksItems.feeRefundPolicy') },
+    { path: '/online-payment-policy', label: t('footer.importantLinksItems.onlinePaymentPolicy') },
+    { path: '/transaction-fee-clause', label: t('footer.importantLinksItems.transactionFeeClause') }
   ];
 
   const socialLinks = [

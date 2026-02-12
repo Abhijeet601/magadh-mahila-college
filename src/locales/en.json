@@ -107,7 +107,7 @@
     },
     "administrationSub": {
       "antiRagging": "Anti-Ragging Committee",
-      "sexualHarassment": "Sexual Harassment Committee",
+      "sexualHarassment": "Anti Sexual Harassment Committee",
       "grievanceCell": "Grievance Cell",
       "cells": {
         "title": "Cells",
@@ -117,7 +117,7 @@
       "incubationCentre": "Incubation Centre",
       "organogramOfInstitution": "Organogram of Institution",
       "societies": "Societies",
-      "staffCouncil": "Staff Council",
+      "staffCouncil": "Teachers and Employee List",
       "centresList202021": "Centres List 2020-21",
       "staffProfile": "Staff Profile",
       "teachingStaffSanctionedPost": "Teaching Staff Sanctioned Post"
@@ -256,6 +256,12 @@
       "mediaGallery": "Media Gallery",
       "privacyPolicy": "Privacy Policy",
       "terms": "Terms and Conditions",
+      "disclaimer": "Disclaimer",
+      "rti": "RTI",
+      "rtiManual": "RTI Manual",
+      "feeRefundPolicy": "Fee Refund Policy",
+      "onlinePaymentPolicy": "Online Payment Policy",
+      "transactionFeeClause": "Transaction Fee Clause",
       "erp": "MMC ERP",
       "payments": "Make Online Payment (MMC Payment)",
       "survey": "Student Satisfaction Survey",
@@ -269,23 +275,9 @@
       "ugc": "UGC",
       "naac": "NAAC"
     },
-    "externalImportantLinks": "External Important Links",
-    "externalImportantLinksItems": {
-      "naac": "National Assessment and Accreditation Council (NAAC)",
-      "ugc": "University Grants Commission (UGC)",
-      "nkn": "National Knowledge Network",
-      "nad": "National Academic Depository (NAD)",
-      "mhrd": "Ministry of Human Resource Development (MHRD)",
-      "nsp": "National Scholarship Portal",
-      "aishe": "All India Survey on Higher Education (AISHE)",
-      "arogyaSetu": "Arogya Setu",
-      "bharatPadhe": "Bharat Padhe Online campaign"
-    },
     "contactDetails": {
       "address": "North Gandhi Maidan, Patna – 800001",
       "phone": "+91-612-2219454",
-      "mobile": "+91 72618 05666",
-      "fax": "+91 (612) 2219454",
       "email": "info@magadhmahilacollege.org"
     },
     "managedBy": "Managed by",
@@ -403,58 +395,11 @@
     "culturalWeek": "Cultural Activities Week"
   },
   "slidingNotices": [
-    {
-      "text": "📄 Auction Notice for Unserviceable Items of Awantika Matrayee Hostel",
-      "link": "/documents/Notice/Auction-Notice-for-unserviceable-items-of-Awantika-Matrayee-Hostel.pdf"
-    },
-    {
-      "text": "📄 Notice Inviting Quotation for Physics Equipment and Consumables",
-      "link": "/documents/Notice/NIQ-for-Physics-Equipment-and-consumables.pdf"
-    },
-    {
-      "text": "📄 Notice Inviting Quotation for Website",
-      "link": "/documents/Notice/Niq-for-website.pdf"
-    },
-    {
-      "text": "📄 NIQ No. P-MMC-956: Repair of False Ceiling in Rooms 75,80,81,82,85 and Veranda at Second Floor of MMC",
-      "link": "/documents/Notice/NIQ-No-P-MMC-956-dated-10.12.2025-Repair-of-False-ceiling-of-room-number-7580818285-and-verandah-at-second-floor-of-MMC.pdf"
-    },
-    {
-      "text": "📄 NIQ No. P-MMC-957: Re-roofing of Both Staircases of Vocational Building of MM College",
-      "link": "/documents/Notice/NIQ-No.P-MMC-957-Dated-10.12.2025-Re-roofing-of-both-staircases-of-vocational-building-of-MM-College.pdf"
-    },
-    {
-      "text": "📄 NIQ No. P-MMC-958: Fixing of Aluminium Windows in BCA Department of MMC",
-      "link": "/documents/Notice/NIQ-No.P-MMC-958-dated-10.12.2025-Fixing-of-aluminium-windows-in-the-B.C.A-department-of-MMC.pdf"
-    },
-    {
-      "text": "📄 Notice for Admission in Hostel",
-      "link": "/documents/Notice/Notice for admission in hostel.jpeg"
-    },
-    {
-      "text": "📄 Notice for Awantika Hostel Demolishing Material Auction (1)",
-      "link": "/documents/Notice/Notice-for-Awantika-Hostel-demolishing-material-Auction (1).pdf"
-    },
-    {
-      "text": "📄 Notice for Awantika Hostel Demolishing Material Auction",
-      "link": "/documents/Notice/Notice-for-Awantika-Hostel-demolishing-material-Auction.pdf"
-    },
-    {
-      "text": "📄 Quotation Invited for Repair and Painting at Department of Music",
-      "link": "/documents/Notice/Quotation Invited for Repair and painting at Department of Music.pdf"
-    },
-    {
-      "text": "📄 Anti Ragging - Student's undertaking",
-      "link": "https://antiragging.in/affidavit_registration_disclaimer.html"
-    },
-    {
-      "text": "📄 Anti Ragging - Committee 2024-25",
-      "link": "/documents/Notice/Anti-Ragging-Committee-2024.pdf"
-    },
-    {
-      "text": "📄 This Notice",
-      "link": "/notices"
-    }
+    "🎓 UG Admission Notification 2025 - Apply Now!",
+    "📅 Semester Exam Schedule Released",
+    "🏛️ Independence Day Holiday Notice",
+    "🏠 Hostel Admission Guidelines Available",
+    "💰 Scholarship Form Submission Deadline: 20 August 2025"
   ],
   "academics": {
     "allPrograms": "All Programs",
@@ -472,20 +417,36 @@
     "metaDescription": "Learn about the Anti-Ragging Committee at Magadh Mahila College and our commitment to a safe campus environment.",
     "content": "Anti-Ragging Committee ensures a safe and harassment-free environment for all students."
   },
-  "pages": {
-    "tenders": {
-      "title": "Tenders - Magadh Mahila College | Current Procurement Opportunities",
-      "metaDescription": "View current tenders and procurement opportunities at Magadh Mahila College. Stay updated with the latest bids, contracts, and procurement notices for various college projects and services.",
-      "pageTitle": "Tenders and Procurement",
-      "pageSubtitle": "Current procurement opportunities and tender notices",
-      "searchPlaceholder": "Search tenders...",
-      "lastDate": "Last Date",
-      "download": "Download",
-      "noTenders": "No tenders available at this time.",
-      "contactProcurement": "For any queries regarding tenders, please contact:",
-      "procurementOfficer": "Procurement Officer",
-      "procurementEmail": "procurement@magadhmahilacollege.org",
-      "procurementPhone": "+91-612-2219454"
-    }
+  "tenders": {
+    "title": "Tenders - Magadh Mahila College | Current Procurement Opportunities",
+    "metaDescription": "View current tenders and procurement opportunities at Magadh Mahila College. Stay updated with the latest bids, contracts, and procurement notices for various college projects and services.",
+    "pageTitle": "Tenders and Procurement",
+    "pageSubtitle": "Current procurement opportunities and tender notices",
+    "searchPlaceholder": "Search tenders...",
+    "lastDate": "Last Date",
+    "download": "Download",
+    "noTenders": "No tenders available at this time.",
+    "contactProcurement": "For any queries regarding tenders, please contact:",
+    "procurementOfficer": "Procurement Officer",
+    "procurementEmail": "procurement@magadhmahilacollege.org",
+    "procurementPhone": "+91-612-2219454"
+  },
+  "admin": {
+    "title": "Admin Panel - Magadh Mahila College",
+    "metaDescription": "Admin panel for managing notifications and announcements at Magadh Mahila College.",
+    "loginTitle": "Admin Login",
+    "passwordPlaceholder": "Enter admin password",
+    "loginButton": "Login",
+    "logoutButton": "Logout",
+    "dashboardTitle": "Notification Management",
+    "addNotification": "Add New Notification",
+    "editNotification": "Edit Notification",
+    "deleteNotification": "Delete Notification",
+    "confirmDelete": "Are you sure you want to delete this notification?",
+    "noNotifications": "No notifications found.",
+    "notificationSaved": "Notification saved successfully!",
+    "notificationDeleted": "Notification deleted successfully!",
+    "loginRequired": "Please login to access the admin panel.",
+    "invalidPassword": "Invalid password. Please try again."
   }
 }

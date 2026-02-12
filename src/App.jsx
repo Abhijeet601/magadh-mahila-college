@@ -15,6 +15,12 @@ import Contact from './pages/Contact';
 import AnnualReports from './pages/AnnualReports';
 
 import TermsConditions from './pages/TermsConditions';
+import Disclaimer from './pages/Disclaimer';
+import RTI from './pages/RTI';
+import RTIManual from './pages/RTIManual';
+import FeeRefundPolicy from './pages/FeeRefundPolicy';
+import OnlinePaymentPolicy from './pages/OnlinePaymentPolicy';
+import TransactionFeeClause from './pages/TransactionFeeClause';
 import GenericPage from './pages/GenericPage';
 import News from './pages/News';
 import Events from './pages/Events';
@@ -137,6 +143,11 @@ import CommerceAdmission from './pages/admissions/CommerceAdmission';
 import BBAAdmission from './pages/admissions/BBAAdmission';
 import AdmittedStudentsYearWise from './pages/admissions/AdmittedStudentsYearWise';
 
+// Admin page
+import Admin from './pages/Admin';
+import Alumni from './pages/Alumni';
+import Notifications from './pages/Notifications';
+
 import { Toaster } from './components/ui/toaster';
 
 // Component to handle scroll to top on route change
@@ -181,6 +192,11 @@ function App() {
               <Route path="/departments" element={<Departments />} />
               <Route path="/nep-2020" element={<NEP2020 />} />
               <Route path="/iqac" element={<IQAC />} />
+              <Route path="/alumni" element={<Alumni />} />
+
+              {/* Admin page */}
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/notifications" element={<Notifications />} />
 
               {/* NIRF pages */}
               <Route path="/nirf" element={<NIRF />} />
@@ -273,6 +289,12 @@ function App() {
               <Route path="/admissions/admitted-students-year-wise" element={<AdmittedStudentsYearWise />} />
 
               <Route path="/terms-conditions" element={<TermsConditions />} />
+              <Route path="/disclaimer" element={<Disclaimer />} />
+              <Route path="/rti" element={<RTI />} />
+              <Route path="/rti-manual" element={<RTIManual />} />
+              <Route path="/fee-refund-policy" element={<FeeRefundPolicy />} />
+              <Route path="/online-payment-policy" element={<OnlinePaymentPolicy />} />
+              <Route path="/transaction-fee-clause" element={<TransactionFeeClause />} />
 
               {/* About pages */}
               <Route path="/about/brief-profile" element={<BriefProfile />} />

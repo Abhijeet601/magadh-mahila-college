@@ -9,7 +9,7 @@ const SexualHarassment = () => {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Sexual Harassment Committee
+           Anti Sexual Harassment Committee
           </h1>
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-gray-700 dark:text-gray-300 mb-6">

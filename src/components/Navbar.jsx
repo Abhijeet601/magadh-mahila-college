@@ -20,44 +20,43 @@ const Navbar = () => {
 
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [adminDropdownOpen, setAdminDropdownOpen] = useState(false);
-  const [nepDropdownOpen, setNepDropdownOpen] = useState(false);
   const [admissionsDropdownOpen, setAdmissionsDropdownOpen] = useState(false);
   const [iqacDropdownOpen, setIqacDropdownOpen] = useState(false);
-  const [academicsDropdownOpen, setAcademicsDropdownOpen] = useState(false);
   const [cellsDropdownOpen, setCellsDropdownOpen] = useState(false);
+  const [rightAcademicsDropdownOpen, setRightAcademicsDropdownOpen] = useState(false);
 
 
   // Mobile collapsible states
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileAdmissionsOpen, setMobileAdmissionsOpen] = useState(false);
-  const [mobileNepOpen, setMobileNepOpen] = useState(false);
   const [mobileAdminOpen, setMobileAdminOpen] = useState(false);
   const [mobileIqacOpen, setMobileIqacOpen] = useState(false);
+  const [mobileAcademicsOpen, setMobileAcademicsOpen] = useState(false);
   const [mobileCellsOpen, setMobileCellsOpen] = useState(false);
 
 
   const aboutDropdownRef = useRef(null);
   const adminDropdownRef = useRef(null);
-  const nepDropdownRef = useRef(null);
   const admissionsDropdownRef = useRef(null);
   const iqacDropdownRef = useRef(null);
   const cellsDropdownRef = useRef(null);
+  const rightAcademicsDropdownRef = useRef(null);
 
 
   const adminCloseTimeoutRef = useRef(null);
   const aboutCloseTimeoutRef = useRef(null);
   const iqacCloseTimeoutRef = useRef(null);
   const admissionsCloseTimeoutRef = useRef(null);
-  const nepCloseTimeoutRef = useRef(null);
+  const rightAcademicsCloseTimeoutRef = useRef(null);
   const cellsCloseTimeoutRef = useRef(null);
 
   // Function to close all dropdowns instantly
   const closeAllDropdowns = () => {
     setAboutDropdownOpen(false);
     setAdminDropdownOpen(false);
-    setNepDropdownOpen(false);
     setAdmissionsDropdownOpen(false);
     setIqacDropdownOpen(false);
+    setRightAcademicsDropdownOpen(false);
     setCellsDropdownOpen(false);
   };
 
@@ -66,9 +65,9 @@ const Navbar = () => {
     setOpen(false);
     setMobileAboutOpen(false);
     setMobileAdmissionsOpen(false);
-    setMobileNepOpen(false);
     setMobileAdminOpen(false);
     setMobileIqacOpen(false);
+    setMobileAcademicsOpen(false);
     setMobileCellsOpen(false);
   }, []);
 
@@ -110,7 +109,7 @@ const Navbar = () => {
     document.addEventListener('keydown', handleKey);
     return () => {
       document.removeEventListener('keydown', handleKey);
-      [adminCloseTimeoutRef, aboutCloseTimeoutRef, iqacCloseTimeoutRef, admissionsCloseTimeoutRef, nepCloseTimeoutRef, cellsCloseTimeoutRef].forEach(ref => {
+      [adminCloseTimeoutRef, aboutCloseTimeoutRef, iqacCloseTimeoutRef, admissionsCloseTimeoutRef, rightAcademicsCloseTimeoutRef, cellsCloseTimeoutRef].forEach(ref => {
         if (ref.current) {
           clearTimeout(ref.current);
           ref.current = null;
@@ -153,6 +152,8 @@ const Navbar = () => {
   ]), [i18n.language]);
 
   const nepItems = React.useMemo(() => ([
+    { label: 'Academics Program', to: '/academics' },
+    { label: 'Departments', to: '/departments' },
     { label: t('nav.nep2020Sub.academicInfrastructure'), to: "/nep2020/academic-infrastructure" },
     { label: t('nav.nep2020Sub.courseMaterial'), to: "/nep2020/course-material" },
     { label: t('nav.nep2020Sub.fineArts'), to: "/nep2020/fine-arts" },
@@ -201,7 +202,7 @@ const Navbar = () => {
   const linksLeft = [];
 
   const linksRight = React.useMemo(() => ([
-    { to: '/academics', label: 'Academics' },
+    { to: '/alumni', label: 'Alumni' },
     { to: '/campus-life', label: 'Campus Life' },
     { to: '/contact', label: 'Contact' },
     { to: '/nirf', label: 'NIRF' },
@@ -216,14 +217,14 @@ const Navbar = () => {
       if (adminDropdownRef.current && !adminDropdownRef.current.contains(event.target)) {
         setAdminDropdownOpen(false);
       }
-      if (nepDropdownRef.current && !nepDropdownRef.current.contains(event.target)) {
-        setNepDropdownOpen(false);
-      }
       if (admissionsDropdownRef.current && !admissionsDropdownRef.current.contains(event.target)) {
         setAdmissionsDropdownOpen(false);
       }
       if (iqacDropdownRef.current && !iqacDropdownRef.current.contains(event.target)) {
         setIqacDropdownOpen(false);
+      }
+      if (rightAcademicsDropdownRef.current && !rightAcademicsDropdownRef.current.contains(event.target)) {
+        setRightAcademicsDropdownOpen(false);
       }
 
     };
@@ -234,8 +235,8 @@ const Navbar = () => {
   return (
     <motion.header
       className="relative z-50"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
 
@@ -336,26 +337,32 @@ const Navbar = () => {
       </div>
 
       {/* ========== MOBILE HEADER BAR ========== */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-white text-primary h-14 flex items-center justify-between px-4 z-50 shadow-md">
-        <button
-          onClick={() => setOpen(true)}
-          className="p-2 hover:bg-primary/10 rounded-lg"
-          aria-label="Open menu"
-        >
-          <Menu size={20} />
-        </button>
-        <Link to="/" className="flex items-center gap-2">
-          <img
-            src="/Magadh_Mahila_College.png"
-            alt="Magadh Mahila College Logo"
-            className="w-8 h-8 object-contain bg-white rounded"
-          />
-          <span className="text-sm font-semibold">Magadh Mahila College, Patna</span>
-        </Link>
-        <button className="p-2 hover:bg-primary/10 rounded-lg" aria-label="Search">
-          <Search size={20} />
-        </button>
-      </div>
+      {!open && (
+        <div className="md:hidden relative bg-white text-primary h-14 flex items-center justify-between px-4 z-50 shadow-md">
+          <button
+            onClick={() => setOpen(prev => !prev)}
+            className="p-2 hover:bg-primary/10 rounded-lg"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="/Magadh_Mahila_College.png"
+              alt="Magadh Mahila College Logo"
+              className="w-8 h-8 object-contain bg-white rounded"
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="text-sm font-semibold truncate max-w-[60%]">Magadh Mahila College, Patna</span>
+          </Link>
+          <button className="p-2 hover:bg-primary/10 rounded-lg" aria-label="Search">
+            <Search size={20} />
+          </button>
+        </div>
+      )}
 
       {/* ========== MAIN NAV ========== */}
       <div className={`hidden md:block bg-white border-b transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
@@ -417,7 +424,7 @@ const Navbar = () => {
                       staggerChildren: 0.05,
                       delayChildren: 0.1
                     }}
-                    className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-[999] overflow-y-auto overflow-x-hidden"
+                    className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-[10000] overflow-y-auto overflow-x-hidden"
                     style={{ width: 'min(520px, 80vw)', maxHeight: '70vh' }}
                   >
                     {aboutItems.map((item, index) => (
@@ -577,9 +584,9 @@ const Navbar = () => {
                             style={{ width: 'min(200px, 80vw)', maxHeight: '70vh' }}
                           >
                             {[
-                              { to: "/administration/cells/2023-2024", label: "Cells 2023–2024" },
+                              { to: "/administration/cells/2025-2026", label: "Cells 2025–2026" },
                               { to: "/administration/cells/2024-2025", label: "Cells 2024–2025" },
-                              { to: "/administration/cells/2025-2026", label: "Cells 2025–2026" }
+                              { to: "/administration/cells/2023-2024", label: "Cells 2023–2024" }
                             ].map((item, index) => (
                               <motion.div
                                 key={item.to}
@@ -630,7 +637,7 @@ const Navbar = () => {
 
                     {[
                       { to: "/anti-ragging", label: "Anti-Ragging Committee" },
-                      { to: "/sexual-harassment", label: "Sexual Harassment Committee" },
+                      { to: "/sexual-harassment", label: "Anti Sexual Harassment Committee" },
                       { to: "/grievance", label: "Grievance Cell" }
                     ].map((item, index) => (
                       <motion.div
@@ -681,7 +688,7 @@ const Navbar = () => {
                       { to: "/administration/incubation-centre", label: "Incubation Centre" },
                       { to: "/administration/organogram-of-institution", label: "Organogram of Institution" },
                       { to: "/administration/societies", label: "Societies" },
-                      { to: "/administration/staff-council", label: "Staff Council" },
+                      { to: "/administration/staff-council", label: "Teachers and Employee List" },
                       { to: "/administration/centres-list-2020-21", label: "Centres List 2020-21" },
                       { to: "/administration/staff-profile", label: "Staff Profile" },
                       { to: "/administration/teaching-staff-sanctioned-post", label: "Teaching Staff Sanctioned Post" }
@@ -854,7 +861,7 @@ const Navbar = () => {
                 aria-controls="admissions-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
-                <Users className="w-4 h-4 mr-2" />
+                <BookOpen className="w-4 h-4 mr-2" />
                 {t('nav.admissions')}
                 <ChevronDown
                   className={`ml-1 transition-transform duration-300 ${admissionsDropdownOpen ? 'rotate-180' : ''}`}
@@ -928,20 +935,31 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {/* NEP 2020 DROPDOWN */}
+            {/* ALUMNI LINK */}
+            <Link to="/alumni" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
+              <Users className="w-4 h-4 mr-2" />
+              Alumni
+            </Link>
+
+          </nav>
+
+          {/* RIGHT NAVIGATION */}
+          <div className="hidden md:flex gap-4 uppercase text-xs pl-8 lg:pl-48 items-center">
+            {/* ACADEMICS DROPDOWN */}
             <div
               className="relative"
-              ref={nepDropdownRef}
+              ref={rightAcademicsDropdownRef}
               onMouseEnter={() => {
-                if (nepCloseTimeoutRef.current) {
-                  clearTimeout(nepCloseTimeoutRef.current);
-                  nepCloseTimeoutRef.current = null;
+                if (rightAcademicsCloseTimeoutRef.current) {
+                  clearTimeout(rightAcademicsCloseTimeoutRef.current);
+                  rightAcademicsCloseTimeoutRef.current = null;
                 }
-                setNepDropdownOpen(true);
+                closeAllDropdowns();
+                setRightAcademicsDropdownOpen(true);
               }}
               onMouseLeave={() => {
-                nepCloseTimeoutRef.current = setTimeout(() => {
-                  setNepDropdownOpen(false);
+                rightAcademicsCloseTimeoutRef.current = setTimeout(() => {
+                  setRightAcademicsDropdownOpen(false);
                 }, 800);
               }}
             >
@@ -949,29 +967,29 @@ const Navbar = () => {
               <div className="absolute inset-0 w-full h-full opacity-0 pointer-events-none" />
               <div className="absolute top-0 left-0 w-[300px] h-[400px] opacity-0 pointer-events-none" />
               <button
-                onClick={() => setNepDropdownOpen(!nepDropdownOpen)}
-                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setNepDropdownOpen, nepDropdownRef)}
+                onClick={() => setRightAcademicsDropdownOpen(!rightAcademicsDropdownOpen)}
+                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setRightAcademicsDropdownOpen, rightAcademicsDropdownRef)}
                 aria-haspopup="menu"
-                aria-expanded={nepDropdownOpen}
-                aria-controls="nep-menu"
+                aria-expanded={rightAcademicsDropdownOpen}
+                aria-controls="right-academics-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
                 <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
-                  <BookOpen className="w-4 h-4 mr-2" />
+                  <GraduationCap className="w-4 h-4 mr-2" />
                 </motion.div>
-                NEP 2020
+                Academics
                 <ChevronDown
-                  className={`ml-1 transition-transform duration-300 ${nepDropdownOpen ? 'rotate-180' : ''}`}
+                  className={`ml-1 transition-transform duration-300 ${rightAcademicsDropdownOpen ? 'rotate-180' : ''}`}
                   size={14}
                 />
               </button>
 
               <AnimatePresence>
-                {nepDropdownOpen && (
+                {rightAcademicsDropdownOpen && (
                   <motion.div
-                    id="nep-menu"
+                    id="right-academics-menu"
                     role="menu"
-                    aria-label="NEP 2020"
+                    aria-label="Academics"
                     initial={{ opacity: 0, y: -8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -981,13 +999,13 @@ const Navbar = () => {
                       staggerChildren: 0.05,
                       delayChildren: 0.1
                     }}
-                    className="absolute top-full left-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-[999] overflow-y-auto overflow-x-hidden"
-                    style={{ width: 'min(420px, 80vw)', maxHeight: '60vh' }}
+                    className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-[999] overflow-y-auto overflow-x-hidden"
+                    style={{ width: 'min(420px, 80vw)', maxHeight: '70vh' }}
                   >
                     {nepItems.map((item, index) => (
                       <motion.div
                         key={`${item.to}-${index}`}
-                        initial={{ opacity: 0, x: 6 }}
+                        initial={{ opacity: 0, x: -6 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                           duration: 0.2,
@@ -1032,54 +1050,43 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-
-
-          </nav>
-
-          {/* RIGHT NAVIGATION */}
-          <div className="hidden md:flex gap-4 uppercase text-xs pl-8 lg:pl-48 items-center">
-            {linksRight.map(l => {
-              let icon;
-              switch (l.to) {
-                case '/departments':
-                  icon = <Users className="w-4 h-4 mr-2" />;
-                  break;
-                case '/aicte':
-                  icon = <Shield className="w-4 h-4 mr-2" />;
-                  break;
-                case '/campus-life':
-                  icon = <Home className="w-4 h-4 mr-2" />;
-                  break;
-                case '/contact':
-                  icon = <Phone className="w-4 h-4 mr-2" />;
-                  break;
-                case '/nirf':
-                  icon = <TrendingUp className="w-4 h-4 mr-2" />;
-                  break;
-                case '/academics':
-                  icon = <GraduationCap className="w-4 h-4 mr-2" />;
-                  break;
-                default:
-                  icon = null;
-              }
-              return (
-                <Link key={l.to} to={l.to} className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
-                  {icon}
-                  {l.label}
-                </Link>
-              );
-            })}
+            <Link to="/campus-life" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
+              <Home className="w-4 h-4 mr-2" />
+              Campus Life
+            </Link>
+            <Link to="/contact" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
+              <Phone className="w-4 h-4 mr-2" />
+              Contact
+            </Link>
+            <Link to="/nirf" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
+              <TrendingUp className="w-4 h-4 mr-2" />
+              NIRF
+            </Link>
           </div>
 
           {/* MOBILE MENU TOGGLE */}
           <button
-            className="md:hidden mobile-toggle p-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="md:hidden mobile-toggle p-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary relative"
             onClick={() => setOpen(prev => !prev)}
             aria-label="Toggle menu"
             aria-expanded={open}
             aria-controls="mobile-menu"
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="relative z-10"
+            >
+              <path d={open ? "M3 3l18 18" : "M3 12h18"} />
+              <path d={open ? "M3 21l18-18" : "M3 6h18"} />
+              <path d={open ? "M3 12h18" : "M3 18h18"} opacity={open ? "0" : "1"} />
+            </svg>
           </button>
         </div>
       </div>
@@ -1102,40 +1109,162 @@ const Navbar = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ x: '-100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col"
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            initial={{ x: '-100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '-100%', opacity: 0 }}
+            transition={{
+              duration: 0.4,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              opacity: { duration: 0.2 }
+            }}
+            className="md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col shadow-2xl"
           >
             {/* Top Section: Logo + College Name */}
-            <div className="bg-primary text-primary-foreground p-4 flex items-center gap-3">
+            <div className="bg-primary text-primary-foreground p-4 flex items-center gap-3 relative">
               <img
                 src="/Magadh_Mahila_College.png"
                 alt="Magadh Mahila College Logo"
                 className="w-10 h-10 object-contain"
+                loading="lazy"
+                decoding="async"
               />
               <div>
                 <h1 className="text-lg font-bold">Magadh Mahila College</h1>
                 <p className="text-sm opacity-90">Patna University</p>
               </div>
+
+              {/* Close button (accessible) */}
+              <button
+                aria-label="Close menu"
+                onClick={closeMobileMenu}
+                className="absolute right-3 top-3 p-2 rounded-md hover:bg-primary/10"
+              >
+                <X size={20} />
+              </button>
             </div>
 
+            {/* Settings Section: Theme and Language Switchers */}
+            <motion.div
+              className="bg-white border-b border-gray-200 px-4 py-3"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <div className="flex items-center justify-between gap-4">
+                {/* Language selector */}
+                <div className="flex items-center gap-2 flex-1">
+                  <span className="text-sm font-medium text-gray-700">Language</span>
+                  <div className="flex items-center bg-gray-100 rounded-md p-0.5">
+                    <button
+                      onClick={() => {
+                        i18n.changeLanguage('en');
+                        if (isBilingual) toggleBilingual();
+                      }}
+                      className={`px-3 py-1 text-xs rounded-sm transition-colors ${
+                        i18n.language?.startsWith('en')
+                          ? 'bg-primary text-primary-foreground font-semibold'
+                          : 'text-gray-600 hover:bg-gray-200'
+                      }`}
+                      aria-pressed={i18n.language?.startsWith('en')}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => {
+                        i18n.changeLanguage('hi');
+                        if (!isBilingual) toggleBilingual();
+                      }}
+                      className={`px-3 py-1 text-xs rounded-sm transition-colors ${
+                        i18n.language?.startsWith('hi')
+                          ? 'bg-primary text-primary-foreground font-semibold'
+                          : 'text-gray-600 hover:bg-gray-200'
+                      }`}
+                      aria-pressed={i18n.language?.startsWith('hi')}
+                    >
+                      हिंदी
+                    </button>
+                  </div>
+                </div>
+
+                {/* Theme selector */}
+                <div className="flex items-center gap-2 flex-1">
+                  <span className="text-sm font-medium text-gray-700">Theme</span>
+                  <div className="flex items-center bg-gray-100 rounded-md p-0.5">
+                    <button
+                      onClick={() => setTheme('blue')}
+                      className={`flex items-center px-3 py-1 text-xs rounded-sm transition-colors ${
+                        theme === 'blue'
+                          ? 'bg-primary text-primary-foreground font-semibold'
+                          : 'text-gray-600 hover:bg-gray-200'
+                      }`}
+                      aria-pressed={theme === 'blue'}
+                    >
+                      <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-1.5"></span>
+                      Blue
+                    </button>
+                    <button
+                      onClick={() => setTheme('maroon')}
+                      className={`flex items-center px-3 py-1 text-xs rounded-sm transition-colors ${
+                        theme === 'maroon'
+                          ? 'bg-primary text-primary-foreground font-semibold'
+                          : 'text-gray-600 hover:bg-gray-200'
+                      }`}
+                      aria-pressed={theme === 'maroon'}
+                    >
+                      <span className="inline-block w-2 h-2 bg-red-800 rounded-full mr-1.5"></span>
+                      Maroon
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Middle Section: Menu Items */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
-              <Link to="/" className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors" onClick={closeMobileMenu}>
-                Home
-              </Link>
+            <motion.div
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-2"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/" className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors" onClick={closeMobileMenu}>
+                  Home
+                </Link>
+              </motion.div>
 
               {/* About Accordion */}
-              <div className="border-b border-gray-200 pb-2">
+              <motion.div
+                className="border-b border-gray-200 pb-2"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <button
                   onClick={() => {
                     setMobileAboutOpen(!mobileAboutOpen);
                     setMobileAdmissionsOpen(false);
-                    setMobileNepOpen(false);
                     setMobileAdminOpen(false);
                     setMobileIqacOpen(false);
+                    setMobileAcademicsOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
@@ -1172,23 +1301,38 @@ const Navbar = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
 
               {/* AICTE Link */}
-              <Link to="/aicte" onClick={closeMobileMenu} className="flex items-center gap-2 uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors">
-                <Shield className="w-5 h-5" />
-                AICTE
-              </Link>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/aicte" onClick={closeMobileMenu} className="flex items-center gap-2 uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors">
+                  <Shield className="w-5 h-5" />
+                  AICTE
+                </Link>
+              </motion.div>
 
               {/* Administration Accordion */}
-              <div className="border-b border-gray-200 pb-2">
+              <motion.div
+                className="border-b border-gray-200 pb-2"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <button
                   onClick={() => {
                     setMobileAdminOpen(!mobileAdminOpen);
                     setMobileAboutOpen(false);
                     setMobileAdmissionsOpen(false);
-                    setMobileNepOpen(false);
                     setMobileIqacOpen(false);
+                    setMobileAcademicsOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
@@ -1249,7 +1393,7 @@ const Navbar = () => {
                         </div>
 
                         <Link to="/anti-ragging" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Anti-Ragging Committee</Link>
-                        <Link to="/sexual-harassment" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Sexual Harassment Committee</Link>
+                        <Link to="/sexual-harassment" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Anti Sexual Harassment Committee</Link>
                         <Link to="/grievance" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Grievance Cell</Link>
                         <Link to="/administration/committees" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Committees</Link>
                         <Link to="/administration/incubation-centre" onClick={closeMobileMenu} className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors">Incubation Centre</Link>
@@ -1263,17 +1407,24 @@ const Navbar = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
 
               {/* IQAC Accordion */}
-              <div className="border-b border-gray-200 pb-2">
+              <motion.div
+                className="border-b border-gray-200 pb-2"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <button
                   onClick={() => {
                     setMobileIqacOpen(!mobileIqacOpen);
                     setMobileAboutOpen(false);
                     setMobileAdmissionsOpen(false);
-                    setMobileNepOpen(false);
                     setMobileAdminOpen(false);
+                    setMobileAcademicsOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
@@ -1310,10 +1461,17 @@ const Navbar = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
 
               {/* Admissions Accordion */}
-              <div className="border-b border-gray-200 pb-2">
+              <motion.div
+                className="border-b border-gray-200 pb-2"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <button
                   onClick={() => {
                     setMobileAdmissionsOpen(!mobileAdmissionsOpen);
@@ -1325,7 +1483,7 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
                   <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5" />
+                    <BookOpen className="w-5 h-5" />
                     <span>Admissions</span>
                   </div>
                   <ChevronDown
@@ -1357,13 +1515,20 @@ const Navbar = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
 
-              {/* NEP 2020 Accordion */}
-              <div className="border-b border-gray-200 pb-2">
+              {/* ACADEMICS Accordion */}
+              <motion.div
+                className="border-b border-gray-200 pb-2"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <button
                   onClick={() => {
-                    setMobileNepOpen(!mobileNepOpen);
+                    setMobileAcademicsOpen(!mobileAcademicsOpen);
                     setMobileAboutOpen(false);
                     setMobileAdmissionsOpen(false);
                     setMobileAdminOpen(false);
@@ -1372,16 +1537,16 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
                   <div className="flex items-center gap-2">
-                    <BookOpen className="w-5 h-5" />
-                    <span>NEP 2020</span>
+                    <GraduationCap className="w-5 h-5" />
+                    <span>Academics</span>
                   </div>
                   <ChevronDown
-                    className={`transition-transform duration-300 ${mobileNepOpen ? 'rotate-180' : ''}`}
+                    className={`transition-transform duration-300 ${mobileAcademicsOpen ? 'rotate-180' : ''}`}
                     size={18}
                   />
                 </button>
                 <AnimatePresence>
-                  {mobileNepOpen && (
+                  {mobileAcademicsOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
@@ -1404,28 +1569,79 @@ const Navbar = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
+
+              {/* Alumni Link */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/alumni" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  Alumni
+                </Link>
+              </motion.div>
 
               {/* Other Links */}
-              <Link to="/campus-life" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
-                Campus Life
-              </Link>
-              <Link to="/contact" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
-                Contact
-              </Link>
-              <Link to="/academics" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
-                Academics
-              </Link>
-              <Link to="/departments" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
-                Departments
-              </Link>
-              <Link to="/nirf" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
-                NIRF
-              </Link>
-              <Link to="/tenders" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
-                Tenders
-              </Link>
-            </div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/campus-life" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  Campus Life
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/contact" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  Contact
+                </Link>
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/departments" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  Departments
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/nirf" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  NIRF
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/tenders" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  Tenders
+                </Link>
+              </motion.div>
+            </motion.div>
 
             {/* Bottom Section: Quick Action Buttons */}
             <div className="border-t border-gray-200 p-4 space-y-3">
@@ -1459,10 +1675,10 @@ const Navbar = () => {
       <Link
         to="/"
         aria-label="Magadh Mahila College home"
-        className="logo-container hidden xl:block absolute left-1/2 -translate-x-1/2 top-0 z-40 pointer-events-none"
+        className="logo-container hidden md:block absolute left-1/2 -translate-x-1/2 top-0 z-40 pointer-events-none"
       >
-        <div className="relative w-44 md:w-60 lg:w-[380px]">
-          <svg viewBox="0 0 400 140" className="w-full h-auto drop-shadow-lg" xmlns="http://www.w3.org/2000/svg">
+        <div className="relative w-52 md:w-72 lg:w-88 xl:w-96 max-w-[500px]">
+          <svg viewBox="0 0 400 140" className="w-full h-auto drop-shadow-lg max-w-[400px]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" style={{ stopColor: 'white', stopOpacity: 1 }} />
@@ -1483,18 +1699,18 @@ const Navbar = () => {
             />
           </svg>
 
-          <div className="absolute inset-0 flex items-center justify-center gap-3 px-6 pt-0">
+          <div className="absolute inset-0 flex items-center justify-center gap-2 md:gap-3 px-4 md:px-6 pt-0">
             <img
               src="/Magadh_Mahila_College.png"
               alt="Magadh Mahila College Logo"
-              className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110"
+              className="w-8 h-8 md:w-10 h-10 lg:w-12 h-12 object-contain transition-transform duration-300 hover:scale-110"
             />
             <div className="text-left leading-tight">
               <h1 className="font-serif font-bold text-primary">
-                <span className="block text-sm md:text-base font-semibold text-primary">
+                <span className="block text-xs md:text-sm lg:text-base font-semibold text-primary">
                   {tHi('hero.title')}
                 </span>
-                <span className="block text-sm md:text-base font-semibold text-primary">
+                <span className="block text-xs md:text-sm lg:text-base font-semibold text-primary">
                   {tEn('hero.title')}
                 </span>
               </h1>

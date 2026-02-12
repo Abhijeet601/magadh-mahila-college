@@ -1,6 +1,7 @@
-# NAAC Page Update Tasks
+# TODO: Add PDFs to Time Table Page
 
-- [x] Create separate pages for each section: NAACCertificate.jsx, SelfStudyReport.jsx, PeerTeamVisitPhotos.jsx, VideoRecordingNAACPeerTeamVisit.jsx, RevisitNAACPeerTeam.jsx, AQAR.jsx
-- [x] Update NAAC.jsx to have links to these separate pages
-- [x] Add content to each page using available files
-- [x] Test the updated pages for functionality
+- [x] Create public/timetables/ directory
+- [x] Copy Master Time Table BA 2026 (1).pdf to public/timetables/
+- [x] Copy Master Time Table BSc 2026 (1).pdf to public/timetables/
+- [x] Copy BCA Time Table 2026 (1).pdf to public/timetables/
+- [x] Update src/pages/nep2020/TimeTable.jsx to add "Available Time Tables" section with download links

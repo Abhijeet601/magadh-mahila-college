@@ -37,6 +37,40 @@ const TimeTable = () => {
                 <li>Summer internships and field work</li>
               </ul>
 
+              <h2 className="text-2xl font-semibold text-primary mb-4">Available Time Tables</h2>
+              <div className="space-y-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium text-gray-800 mb-2">Master Time Table BA 2026</h3>
+                  <iframe
+                    src="/timetables/Master%20Time%20Table%20BA%202026%20(1).pdf"
+                    width="100%"
+                    height="600px"
+                    title="Master Time Table BA 2026"
+                    className="border border-gray-300 rounded"
+                  ></iframe>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-gray-800 mb-2">Master Time Table BSc 2026</h3>
+                  <iframe
+                    src="/timetables/Master%20Time%20Table%20BSc%202026%20(1).pdf"
+                    width="100%"
+                    height="600px"
+                    title="Master Time Table BSc 2026"
+                    className="border border-gray-300 rounded"
+                  ></iframe>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-gray-800 mb-2">BCA Time Table 2026</h3>
+                  <iframe
+                    src="/timetables/BCA%20Time%20Table%202026%20(1).pdf"
+                    width="100%"
+                    height="600px"
+                    title="BCA Time Table 2026"
+                    className="border border-gray-300 rounded"
+                  ></iframe>
+                </div>
+              </div>
+
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
                 <p className="text-blue-800">
                   <strong>Note:</strong> Current semester time tables are available in the respective departments.

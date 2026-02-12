@@ -134,8 +134,8 @@ const StaffCouncil = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-2">Staff Council 2025-2026</h1>
-      <p className="text-gray-600 mb-8">Magadh Mahila College, Patna - Complete Staff Directory</p>
+      <h1 className="text-4xl font-bold mb-2">Teachers and Employee List 2025-2026</h1>
+      <p className="text-gray-600 mb-8">Magadh Mahila College, Patna - Complete Teachers and Employee Directory</p>
 
       <div className="flex flex-wrap gap-2 mb-6">
         <button

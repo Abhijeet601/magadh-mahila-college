@@ -4,12 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden; /* Prevent horizontal scrolling on small devices */
-} 
+}
+
+@media (max-width: 767px) {
+  /* Hide the decorative shield SVG and prevent it from overlapping mobile header */
+  .logo-container {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+}
 
 * {
   scroll-behavior: smooth;
@@ -54,6 +74,9 @@ body {
     --navbar-foreground: 0 0% 100%; /* White text on navbar */
     --section: 220 16% 96.1%; /* #F2F4F7 */
     --highlight: 210 50% 70%; /* Blue highlight */
+
+    /* Mobile settings */
+    --mobile-navbar-height: 3.5rem; /* height used by the fixed mobile navbar */
 
     --radius: 0.5rem;
   }

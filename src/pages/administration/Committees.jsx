@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Committees = () => {
   const [expandedYear, setExpandedYear] = useState(null);
 
-  const years = ['2020-21', '2021-22', '2022-23', '2023-24', '2025-26'];
+  const years = ['2025-26', '2023-24', '2022-23', '2021-22', '2020-21'];
 
   const academicAuditCommittee202021 = [
     { sl: '01', name: 'Prof. (Dr.) Namita Kumari', designation: 'Principal University Professor', department: '—————' },
@@ -26,17 +26,37 @@ const Committees = () => {
   ];
 
   const disciplineCommittee202526 = [
-    { sl: '1', name: 'Prof. (Dr.) Nagendra Prasad Verma', designation: 'Principal', department: '' },
+    { sl: '1', name: 'Prof. (Dr.) Nagendra Prasad Verma', designation: 'Principal', department: 'Main Building – Ground Floor' },
     { sl: '2', name: 'Prof. (Dr.) Pushpalata Kumari', designation: 'Coordinator IQAC', department: 'Convener' },
     { sl: '3', name: 'Dr. Rishu Raj', designation: 'HOD, Political Science', department: 'In-charge: North Corridor' },
     { sl: '4', name: 'Dr. Asha Kumari', designation: 'Dept. of Hindi', department: 'In-charge: East Corridor' },
+    { sl: '5', name: 'Dr. Rizwan', designation: 'Dept. of Urdu', department: 'In-charge: South Corridor' },
+    { sl: '6', name: 'Dr. Ashish Kumar', designation: 'Dept. of Economics', department: 'In-charge: North Corridor' },
+    { sl: '7', name: 'Dr. Sonali Kumari', designation: 'Dept. of Psychology', department: 'In-charge: South Corridor' },
+    { sl: '8', name: 'Dr. Ranjana Kumari', designation: 'Dept. of Psychology', department: 'In-charge: West Corridor' },
+    { sl: '9', name: 'Ms. Ranjana Yadav', designation: 'Dept. of Philosophy', department: 'In-charge: West Corridor' },
+    { sl: '10', name: 'Dr. Veena Kumari', designation: 'Dept. of Sociology', department: 'In-charge: East Corridor' },
+    { sl: '11', name: 'Dr. Rajendra Kumar', designation: 'Dept. of Sociology', department: 'In-charge: East Corridor' },
+    { sl: '12', name: 'Dr. Usha Kumari', designation: 'Dept. of Chemistry', department: 'Convener, Main Building – 1st Floor' },
+    { sl: '13', name: 'Dr. Binay Kumar', designation: 'Dept. of Mathematics', department: 'In-charge: South Corridor' },
+    { sl: '14', name: 'Dr. Priti Mishra', designation: 'Dept. Physics', department: 'In-charge: South Corridor' },
+    { sl: '15', name: 'Dr. Archana Sinha', designation: 'Dept. of Chemistry', department: 'In-charge: North Corridor' },
+    { sl: '16', name: 'Dr. Deepak Kumar', designation: 'Dept. of Chemistry', department: 'In-charge: North Corridor' },
+    { sl: '17', name: 'Dr. Sonu Rani', designation: 'Dept. of Physics', department: 'In-charge: East Corridor' },
   ];
 
   const academicAuditCommittee202526 = [
     { sl: '01', name: 'Prof. (Dr.) Nagendra Prasad Verma', designation: 'Principal', department: '' },
     { sl: '02', name: 'Dr. Binay Kumar Bimal', designation: 'Bursar', department: '' },
-    { sl: '03', name: 'Prof. (Dr.) Pushpalata Kumari', designation: 'Coordinator IQAC', department: 'Political Science' },
-    { sl: '04', name: 'Dr. Surendra Kumar Prasad', designation: 'Convener', department: 'Botany' },
+    { sl: '03', name: 'Prof. (Dr.) Pushpalata Kumari', designation: 'Coordinator IQAC', department: 'Department of Political Science' },
+    { sl: '04', name: 'Dr. Surendra Kumar Prasad', designation: 'Convener', department: 'Department of Botany' },
+    { sl: '05', name: 'Dr. Archana Jaiswal', designation: 'HOD', department: 'Department of English' },
+    { sl: '06', name: 'Ms. Nidhi Singh', designation: '', department: 'Department of Psychology' },
+    { sl: '07', name: 'Dr. Chandan Chandra Chunna', designation: '', department: 'Department of Economics' },
+    { sl: '08', name: 'Dr. Reena Kumari', designation: '', department: 'Department of Chemistry' },
+    { sl: '09', name: 'Dr. Priyamvada', designation: '', department: 'Department of Psychology' },
+    { sl: '10', name: 'Dr. Anju Kumari', designation: '', department: 'Department of Sociology' },
+    { sl: '11', name: 'Ms. Ranjana Yadav', designation: '', department: 'Department of Philosophy' },
   ];
 
   const buildingCommittee202526 = [
@@ -44,6 +64,14 @@ const Committees = () => {
     { sl: '02', name: 'Dr. Binay Kumar Bimal', designation: 'Bursar', department: '' },
     { sl: '03', name: 'Dr. Khagendra Kumar', designation: 'Development Officer, P. U.', department: '' },
     { sl: '04', name: 'Er. Sachin Dayal', designation: 'University Engineer, P. U.', department: '' },
+    { sl: '05', name: 'Dr. Pushpanjali Khare', designation: 'HOD, Department of Botany', department: '' },
+    { sl: '06', name: 'Dr. Shyam Deo Yadav', designation: 'HOD, Department of Chemistry', department: '' },
+    { sl: '07', name: 'Dr. Surendra Kumar Prasad', designation: 'Department of Botany', department: '' },
+    { sl: '08', name: 'Dr. Manish Kumar Verma', designation: 'Department of Physics', department: '' },
+    { sl: '09', name: 'Dr. Shipra Prabha', designation: 'HOD, Department of Hindi', department: '' },
+    { sl: '10', name: 'Dr. Priti Mishra', designation: 'Department of Physics', department: '' },
+    { sl: '11', name: 'Dr. Sweta Sharan', designation: 'HOD, Department of Economics', department: '' },
+    { sl: '12', name: 'Mr. Ravi Prakash', designation: 'Head Assistant', department: '' },
   ];
 
   const naacCommittee202526 = [
@@ -51,6 +79,74 @@ const Committees = () => {
     { sl: '02', name: 'Prof. (Dr.) Pushpalata Kumari', designation: 'Professor', department: 'Coordinator, IQAC and NAAC' },
     { sl: '03', name: 'Dr. Pushpanjali Khare', designation: 'Associate Prof. & HOD, Botany', department: 'Member' },
     { sl: '04', name: 'Dr. Archana Jaiswal', designation: 'Associate Prof. & HOD, English', department: 'Member' },
+    { sl: '05', name: 'Dr. Shyam Deo Yadav', designation: 'Associate Prof. & HOD, Chemistry', department: 'Member' },
+    { sl: '06', name: 'Dr. Manish Kumar Verma', designation: 'Asst. Prof. Physics', department: 'Member' },
+    { sl: '07', name: 'Dr. Sonu Rani', designation: 'Asst. Prof. Physics', department: 'Member, In-charge of Criteria I' },
+    { sl: '08', name: 'Dr. Sonali Kumari', designation: 'Asst. Prof. Psychology', department: 'Member' },
+    { sl: '09', name: 'Dr. Mita Malkhandi', designation: 'Asst. Prof. Economics', department: 'Member' },
+    { sl: '10', name: 'Dr. Minu Minj', designation: 'Asst. Prof. Sociology', department: 'Member' },
+    { sl: '11', name: 'Dr. Madhu Kumari Gupta', designation: 'Asst. Prof. Chemistry', department: 'Member, In-charge of Criteria II' },
+    { sl: '12', name: 'Dr. Priyamvada', designation: 'Asst. Prof. Psychology', department: 'Member' },
+    { sl: '13', name: 'Dr. Rajendra Kumar', designation: 'Asst. Prof. Sociology', department: 'Member' },
+    { sl: '14', name: 'Dr. Seema Prakash', designation: 'Asst. Prof. Home Science', department: 'Member' },
+    { sl: '15', name: 'Dr. Amrita Prasad', designation: 'Asst. Prof. Chemistry', department: 'Member, In-charge of Criteria III' },
+    { sl: '16', name: 'Dr. Suchita Arpan', designation: 'Asst. Prof. Philosophy', department: 'Member' },
+    { sl: '17', name: 'Dr. Ashish Kumar', designation: 'Asst. Prof. Economics', department: 'Member' },
+    { sl: '18', name: 'Dr. Preeti Kumari', designation: 'Asst. Prof. Hindi', department: 'Member' },
+    { sl: '19', name: 'Dr. Sujata Kumari', designation: 'Assistant Prof. & HOD, Zoology', department: 'Member, In-charge of Criteria IV' },
+    { sl: '20', name: 'Dr. Jyoti Dubey', designation: 'Assistant Prof. Hindi', department: 'Member' },
+    { sl: '21', name: 'Dr. Rishu Raj', designation: 'Asst. Prof., Political Science', department: 'Member' },
+    { sl: '22', name: 'Dr. Chandan Chandra Chunna', designation: 'Asst. Prof. Economics', department: 'Member' },
+    { sl: '23', name: 'Dr. Sweta Sharan', designation: 'Asst. Prof. Economics', department: 'Member, In-charge of Criteria V' },
+    { sl: '24', name: 'Dr. Nidhi Singh', designation: 'Asst. Prof. Psychology', department: 'Member' },
+    { sl: '25', name: 'Dr. Anju Kumari', designation: 'Asst. Prof. Sociology', department: 'Member' },
+    { sl: '26', name: 'Dr. Deepak Kumar', designation: 'Asst. Prof. Chemistry', department: 'Member' },
+    { sl: '27', name: 'Dr. Binay Kumar', designation: 'Asst. Prof. Mathematics', department: 'Member, In-charge of Criteria VI' },
+    { sl: '28', name: 'Dr. Kavita Kumari', designation: 'Asst. Prof. Home Science', department: 'Member' },
+    { sl: '29', name: 'Ms. Ranjana Yadav', designation: 'Asst. Prof. Philosophy', department: 'Member' },
+    { sl: '30', name: 'Dr. Archna Kumari', designation: 'Asst. Prof. Sociology', department: 'Member' },
+    { sl: '31', name: 'Dr. Namrata', designation: 'Assistant Prof. Psychology', department: 'Member, In-charge of Criteria VII' },
+    { sl: '32', name: 'Dr. Kavita Chowdhary', designation: 'Asst. Prof. Psychology', department: 'Member' },
+    { sl: '33', name: 'Dr. Pankaj Kumar Baitha', designation: 'Asst. Prof. Physics', department: 'Member' },
+    { sl: '34', name: 'Dr. Ranjana Kumari', designation: 'Asst. Prof. Psychology', department: 'Member' },
+    { sl: '35', name: 'Mr. Ravi Prakash', designation: 'Head Assistant', department: 'Technical Assistance' },
+    { sl: '36', name: 'Mr. Arun Kumar', designation: 'Accountant – in-charge', department: 'Technical Assistance' },
+    { sl: '37', name: 'Mr. Som Shekhar', designation: 'Office Assistant', department: 'Technical Assistance' },
+    { sl: '38', name: 'Mr. Shambhu Kumar Mahto', designation: 'Office Assistant', department: 'Technical Assistance' },
+    { sl: '39', name: 'Mr. Gajendra Prasad', designation: 'Office Assistant', department: 'Technical Assistance' },
+  ];
+
+  const nirfAisheAicteCommittee202526 = [
+    { sl: '01', name: 'Prof. (Dr.) Nagendra Prasad Verma', designation: 'Principal', department: '' },
+    { sl: '02', name: 'Dr. Manish Kumar Verma', designation: 'Nodal Officer, AISHF / NIRF', department: 'Department of Physics' },
+    { sl: '03', name: 'Ms. Nidhi Singh', designation: '', department: 'Department of Psychology' },
+    { sl: '04', name: 'Dr. Suchita Arpan', designation: 'Nodal Officer, AICTE', department: 'HOD, Department of Philosophy' },
+    { sl: '05', name: 'Dr. Sweta Sharan', designation: 'HOD', department: 'Department of Economics' },
+    { sl: '06', name: 'Dr. Anju Kumari', designation: '', department: 'Department of Sociology' },
+    { sl: '07', name: 'Dr. Kavita Chowdhary', designation: '', department: 'Department of Psychology' },
+    { sl: '08', name: 'Dr. Reena Kumari', designation: '', department: 'Department of Chemistry' },
+    { sl: '09', name: 'Mr. Som Shekhar', designation: 'IT Staff', department: '' },
+  ];
+
+
+
+  const researchJournalJigyasaCommittee202526 = [
+    { sl: '01', name: 'Prof. (Dr.) Nagendra Prasad Verma', designation: 'Principal, Chief Editor', department: '' },
+    { sl: '02', name: 'Prof. (Dr.) Pushpalata Kumari', designation: 'IQAC Coordinator & Editor', department: 'Department of Political Science' },
+  ];
+
+  const contractualEngagementOutsourcingCommittee202526 = [
+    { sl: '01', name: 'Prof. (Dr.) Nagendra Prasad Verma', designation: 'Principal', department: '' },
+    { sl: '02', name: 'Dr. Binay Kumar Bimal', designation: 'Bursar', department: '' },
+    { sl: '03', name: 'Prof. (Dr.) Pushpalata Kumari', designation: 'Coordinator IQAC', department: 'Department of Political Science' },
+    { sl: '04', name: 'Dr. Shyam Deo Yadav', designation: 'Convener', department: 'HOD, Department of Chemistry' },
+    { sl: '05', name: 'Dr. Pushpanjali Khare', designation: 'HOD, Department of Botany', department: '' },
+    { sl: '06', name: 'Dr. Surendra Kumar Prasad', designation: 'Coordinator, Department of B. Com.', department: '' },
+    { sl: '07', name: 'Dr. Manish Kumar Verma', designation: 'Coordinator, Department of BCA', department: '' },
+    { sl: '08', name: 'Dr. Suchita Arpan', designation: 'Coordinator, Department of BBA', department: '' },
+    { sl: '09', name: 'Dr. Rishu Raj', designation: 'HOD, Department of Political Sc.', department: '' },
+    { sl: '10', name: 'Mr. Ravi Prakash', designation: 'Head Assistant', department: '' },
+    { sl: '11', name: 'Mr. Arun Kumar', designation: 'Accountant – in-charge', department: '' },
   ];
 
   const allCommittees = {
@@ -79,6 +175,9 @@ const Committees = () => {
       { title: 'Academic Audit Committee', data: academicAuditCommittee202526 },
       { title: 'Building Committee', data: buildingCommittee202526 },
       { title: 'NAAC Committee', data: naacCommittee202526 },
+      { title: 'NIRF/AISHE/AICTE Committee', data: nirfAisheAicteCommittee202526 },
+      { title: 'Contractual Engagement/Outsourcing Committee', data: contractualEngagementOutsourcingCommittee202526 },
+      { title: 'Research Journal Jigyasa Committee', data: researchJournalJigyasaCommittee202526 },
     ],
   };
 

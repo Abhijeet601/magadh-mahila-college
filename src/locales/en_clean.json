@@ -98,7 +98,7 @@
     },
     "administrationSub": {
       "antiRagging": "Anti-Ragging Committee",
-      "sexualHarassment": "Sexual Harassment Committee",
+      "sexualHarassment": "Anti Sexual Harassment Committee",
       "grievanceCell": "Grievance Cell",
       "cells": {
         "title": "Cells",
@@ -108,7 +108,7 @@
       "incubationCentre": "Incubation Centre",
       "organogramOfInstitution": "Organogram of Institution",
       "societies": "Societies",
-      "staffCouncil": "Staff Council",
+      "staffCouncil": "Teachers and Employee List",
       "centresList202021": "Centres List 2020-21",
       "staffProfile": "Staff Profile",
       "teachingStaffSanctionedPost": "Teaching Staff Sanctioned Post"
@@ -191,7 +191,7 @@
           "description": "Governance and administrative structure"
         },
         "mis": {
-          "title": "MIS",
+          "title": "Management Information System (MIS)",
           "description": "Management Information System"
         }
       },

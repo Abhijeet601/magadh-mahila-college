@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ExternalLink, Download, Phone, Mail, MapPin, Users, Shield, Heart, Award, BookOpen, GraduationCap, Star, CheckCircle, Calendar, FileText, Home as HomeIcon, Sparkles, Target, Lightbulb, Zap, Trophy, Globe, Rocket } from 'lucide-react';
@@ -109,7 +109,7 @@ const Home = () => {
               </motion.p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -182,8 +182,8 @@ const Home = () => {
                 >
                   <motion.img
                     loading="lazy"
-                    src="/images/vc_profile.jpg"
-                    alt="Vice Chancellor, Patna University"
+                    src="/images/Namita_singh_VC_PU.jpeg"
+                    alt="Officiating Vice Chancellor, Patna University"
                     className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300 }}
@@ -193,14 +193,64 @@ const Home = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    Prof. Ajay Kumar Singh
+                    Prof. Namita Singh
                   </motion.h3>
                   <motion.p
                     className="text-2xl font-bold text-primary dark:text-white"
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    Vice Chancellor, Patna University
+                    Officiating Vice Chancellor, Patna University
+                  </motion.p>
+                </motion.div>
+                <div className="space-y-3">
+                </div>
+              </motion.div>
+
+              {/* SEPARATE CARD: Hon'ble Chancellor */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 relative overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-maroon-500"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+                <motion.div
+                  className="text-center mb-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <motion.img
+                    loading="lazy"
+                    src="/images/Arif_Md.jpeg"
+                    alt="Hon'ble Chancellor"
+                    className="w-32 h-32 rounded-full mx-auto mb-4 object-contain shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  />
+                  <motion.h3
+                    className="text-lg font-semibold text-primary dark:text-white mb-2"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    Shri Arif Mohammed Khan
+                  </motion.h3>
+                  <motion.p
+                    className="text-2xl font-bold text-primary dark:text-white"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    Hon'ble Chancellor
                   </motion.p>
                 </motion.div>
                 <div className="space-y-3">
@@ -367,7 +417,7 @@ const Home = () => {
               <motion.div
                 className="flex space-x-6"
                 animate={{
-                  x: [0, -100 * 10], // 10 images, each taking roughly 100% width equivalent
+                  x: [0, -2304], // Scroll through 10 items of 256px each, total 2560px, scroll to -2304 to show last
                 }}
                 transition={{
                   x: {
@@ -377,7 +427,7 @@ const Home = () => {
                     ease: "linear",
                   },
                 }}
-                style={{ width: '200%' }} // Double width to allow seamless loop
+                style={{ width: '2560px' }} // Fixed width for 10 items of 256px each
               >
                 {[
                   { name: 'Abhishek Bachchan', image: 'AbhishekBachhan.jpg' },
@@ -398,15 +448,14 @@ const Home = () => {
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <motion.div
-                      className="relative h-48 overflow-hidden"
-                      whileHover={{ scale: 1.1 }}
+                      className="relative h-48 md:h-64 flex items-center justify-center bg-gray-100"
                       transition={{ duration: 0.3 }}
                     >
                       <img
                         src={`/images/visitor-notes/${visitor.image}`}
                         alt={visitor.name}
                         loading="lazy"
-                        className="w-full h-full object-cover"
+                        className="max-w-full max-h-full object-contain"
                         onError={(e) => {
                           e.target.src = '/images/placeholder.jpg'; // Fallback image
                         }}

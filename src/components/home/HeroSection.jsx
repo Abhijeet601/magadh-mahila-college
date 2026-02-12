@@ -18,7 +18,7 @@ const HeroSection = () => {
         muted
         playsInline
       >
-        <source src="/Magadh Mahila College, Patna.mp4" type="video/mp4" />
+        <source src="/Magadh Mahila College New Edited Video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -96,13 +96,13 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Link to="/admissions">
+          <a href="https://formbuilder.ccavenue.com/live/patna-university" target="_blank" rel="noopener noreferrer">
             <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
                 className="group bg-primary hover:bg-primary/80 text-white shadow-xl"
               >
-                {t('hero.applyNow')}
+                Admission Fee Payment
                 <motion.span
                   animate={{ x: [0, 6, 0] }}
                   transition={{ duration: 1.6, repeat: Infinity }}
@@ -111,7 +111,7 @@ const HeroSection = () => {
                 </motion.span>
               </Button>
             </motion.div>
-          </Link>
+          </a>
 
           <Link to="/about">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

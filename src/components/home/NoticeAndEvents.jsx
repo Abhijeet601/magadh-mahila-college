@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { getActiveNotifications } from '@/services/notifications';
 
 const ScrollList = ({ items, accent }) => {
   const [paused, setPaused] = useState(false);
@@ -19,18 +20,25 @@ const ScrollList = ({ items, accent }) => {
         onMouseLeave={() => setPaused(false)}
       >
         {[...items, ...items].map((item, index) => (
-          <motion.div
+          <a
             key={index}
-            whileHover={{ scale: 1.02 }}
-            className="p-4 rounded-lg border border-gray-200 bg-white hover:shadow-lg hover:border-primary transition-all duration-300"
+            href={item.link || item.fileUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
           >
-            <p className={`text-sm font-sans font-medium ${accent} mb-1`}>
-              {item.date || 'Recent'}
-            </p>
-            <p className="text-gray-800 font-serif font-medium">
-              {item.title || item.text}
-            </p>
-          </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="p-4 rounded-lg border border-gray-200 bg-white hover:shadow-lg hover:border-primary transition-all duration-300"
+            >
+              <p className={`text-sm font-sans font-medium ${accent} mb-1`}>
+                {item.date || 'Recent'}
+              </p>
+              <p className="text-gray-800 font-serif font-medium">
+                {item.title || item.text}
+              </p>
+            </motion.div>
+          </a>
         ))}
       </motion.div>
     </div>
@@ -39,15 +47,26 @@ const ScrollList = ({ items, accent }) => {
 
 const NoticeAndEvents = () => {
   const { t } = useTranslation();
+  const [notices, setNotices] = useState([]);
+  const [events, setEvents] = useState([]);
 
-  const slidingNotices = t('slidingNotices', { returnObjects: true });
+  useEffect(() => {
+    const loadNotifications = () => {
+      const activeNotifications = getActiveNotifications();
+      const formattedNotices = activeNotifications.slice(0, 10).map(notification => ({
+        title: notification.title,
+        date: new Date(notification.createdAt).toLocaleDateString(),
+        link: notification.link || notification.fileUrl
+      }));
+      setNotices(formattedNotices);
+    };
 
-  const notices = slidingNotices.map(notice => ({
-    title: notice.text,
-    date: 'Recent'
-  }));
+    loadNotifications();
 
-  const events = [];
+    // Refresh notifications every 30 seconds
+    const interval = setInterval(loadNotifications, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20 bg-[#F8FAFC]">
