@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Target, Users, Award, TrendingUp, CheckCircle, BookOpen, Lightbulb, FileText, BarChart3, ChevronRight } from 'lucide-react';
+import { Shield, Target, Users, Award, TrendingUp, CheckCircle, BookOpen, Lightbulb, FileText, BarChart3, ChevronRight, Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const IQAC = () => {
@@ -22,6 +22,8 @@ const IQAC = () => {
     { label: 'Best practices 2023-24', to: '/iqac/best-practices-2023-24' },
     { label: 'Best Practices – Photo Gallery', to: '/iqac/best-practices-photo-gallery' },
   ];
+
+  const [activeTab, setActiveTab] = useState(null);
 
   const objectives = [
     {
@@ -109,7 +111,7 @@ const IQAC = () => {
       </Helmet>
 
       <div className="pt-0">
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -177,6 +179,84 @@ const IQAC = () => {
                   </div>
                 </motion.div>
               </div>
+            </motion.div>
+
+            {/* IQAC Sections Tabs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <h2 className="text-4xl font-bold text-center mb-12">
+                <span className="text-primary">IQAC Sections</span>
+              </h2>
+              
+              {/* Tabs Navigation */}
+              <div className="fixed top-0 left-0 right-0 bg-white z-50 py-4 border-b border-border shadow-lg">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {iqacMenuItems.map((item, index) => (
+                      <motion.button
+                        key={index}
+                        onClick={() => {
+                          setActiveTab(activeTab === index ? null : index);
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 whitespace-nowrap ${
+                          activeTab === index
+                            ? 'bg-primary text-white shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        {item.label}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Tab Contents */}
+              {activeTab !== null && (
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-2xl shadow-lg border border-border p-8 mb-4"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-bold text-primary mb-4">
+                        {iqacMenuItems[activeTab].label}
+                      </h3>
+                      <p className="text-muted-foreground text-lg mb-6">
+                        Access detailed information about {iqacMenuItems[activeTab].label.toLowerCase()}. Click the button below to explore comprehensive resources and documentation.
+                      </p>
+                      <Link
+                        to={iqacMenuItems[activeTab].to}
+                        className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                      >
+                        <span>Explore {iqacMenuItems[activeTab].label}</span>
+                        <ChevronRight className="w-5 h-5" />
+                      </Link>
+                    </div>
+                    <div className="flex-1">
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 flex items-center justify-center"
+                      >
+                        <Menu className="w-32 h-32 text-primary/30" />
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
 
             {/* Objectives */}

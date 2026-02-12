@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import modernCampusImg from '@/assets/images/modern-campus.webp';
-import academicExcellenceImg from '@/assets/images/academic-excellence.webp';
 
 const FeaturesSection = () => {
   const { t } = useTranslation();
@@ -35,11 +33,16 @@ const FeaturesSection = () => {
             whileHover={{ scale: 1.02 }}
             className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group"
           >
-            <img
-              loading="lazy"
+            <video
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              alt="Modern college campus with students"
-             src="/modern-campus.webp" />
+              controls
+              autoPlay
+              loop
+              muted
+            >
+              <source src="/main%20gate%20video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="absolute inset-0 bg-section/10 flex items-end p-8">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('features.modernCampus')}</h3>
@@ -56,11 +59,16 @@ const FeaturesSection = () => {
             whileHover={{ scale: 1.02 }}
             className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group"
           >
-            <img
-              loading="lazy"
+            <video
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              alt={t('features.academicExcellence')}
-             src={academicExcellenceImg} />
+              controls
+              autoPlay
+              loop
+              muted
+            >
+              <source src="/building.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="absolute inset-0 bg-section/10 flex items-end p-8">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('features.academicExcellence')}</h3>
