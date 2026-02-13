@@ -1,25 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { getActiveNotifications } from '@/services/notifications';
 
+/* ================= Scroll List ================= */
 const ScrollList = ({ items, accent }) => {
-  const [paused, setPaused] = useState(false);
+  const trackRef = useRef(null);
+  const controls = useAnimation();
+  const [contentHeight, setContentHeight] = useState(0);
+
+  /* Measure content height */
+  useEffect(() => {
+    if (!trackRef.current) return;
+
+    const height = trackRef.current.scrollHeight / 2;
+    setContentHeight(height);
+    startScroll(height);
+  }, [items]);
+
+  const startScroll = async (height) => {
+    if (!height) return;
+
+    await controls.start({
+      y: -height,
+      transition: {
+        duration: height / 40,
+        ease: 'linear',
+        repeat: Infinity,
+      },
+    });
+  };
+
+  const pauseScroll = () => controls.stop();
+  const resumeScroll = () => startScroll(contentHeight);
+
+  const duplicatedItems = [...items, ...items];
 
   return (
-    <div className="relative h-64 overflow-hidden group">
+    <div
+      className="relative h-64 overflow-hidden"
+      onMouseEnter={pauseScroll}
+      onMouseLeave={resumeScroll}
+    >
       <motion.div
-        animate={paused ? false : { y: ['0%', '-50%'] }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
+        ref={trackRef}
+        animate={controls}
         className="space-y-4"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
       >
-        {[...items, ...items].map((item, index) => (
+        {duplicatedItems.map((item, index) => (
           <a
             key={index}
             href={item.link || item.fileUrl || "#"}
@@ -34,6 +62,7 @@ const ScrollList = ({ items, accent }) => {
               <p className={`text-sm font-sans font-medium ${accent} mb-1`}>
                 {item.date || 'Recent'}
               </p>
+
               <p className="text-gray-800 font-serif font-medium">
                 {item.title || item.text}
               </p>
@@ -45,6 +74,7 @@ const ScrollList = ({ items, accent }) => {
   );
 };
 
+/* ================= Main Component ================= */
 const NoticeAndEvents = () => {
   const { t } = useTranslation();
   const [notices, setNotices] = useState([]);
@@ -53,17 +83,33 @@ const NoticeAndEvents = () => {
   useEffect(() => {
     const loadNotifications = () => {
       const activeNotifications = getActiveNotifications();
-      const formattedNotices = activeNotifications.slice(0, 10).map(notification => ({
-        title: notification.title,
-        date: new Date(notification.createdAt).toLocaleDateString(),
-        link: notification.link || notification.fileUrl
-      }));
+
+      const formattedNotices = activeNotifications
+        .slice(0, 10)
+        .map(notification => ({
+          title: notification.title,
+          date: new Date(notification.createdAt).toLocaleDateString(),
+          link: notification.link || notification.fileUrl,
+        }));
+
       setNotices(formattedNotices);
+
+      /* Example events placeholder */
+      setEvents([
+        {
+          title: 'Annual Cultural Fest',
+          date: 'March 25, 2026',
+          link: '#',
+        },
+        {
+          title: 'Sports Meet',
+          date: 'April 2, 2026',
+          link: '#',
+        },
+      ]);
     };
 
     loadNotifications();
-
-    // Refresh notifications every 30 seconds
     const interval = setInterval(loadNotifications, 30000);
     return () => clearInterval(interval);
   }, []);

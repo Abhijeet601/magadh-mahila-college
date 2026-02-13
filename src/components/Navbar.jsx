@@ -152,7 +152,7 @@ const Navbar = () => {
   ]), [i18n.language]);
 
   const nepItems = React.useMemo(() => ([
-    { label: 'Academics Program', to: '/academics' },
+    { label: 'Academic Programs', to: '/academics' },
     { label: 'Departments', to: '/departments' },
     { label: t('nav.nep2020Sub.academicInfrastructure'), to: "/nep2020/academic-infrastructure" },
     { label: t('nav.nep2020Sub.courseMaterial'), to: "/nep2020/course-material" },

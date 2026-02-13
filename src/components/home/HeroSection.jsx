@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,20 +7,33 @@ import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
   const { t } = useTranslation();
+  const [videoError, setVideoError] = useState(false);
 
   return (
     <section className="relative min-h-[80vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden bg-gray-900">
       {/* VIDEO BACKGROUND */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover z-10 transform scale-125 md:scale-135 origin-center"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="/Magadh Mahila College New Edited Video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {!videoError && (
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-10 transform scale-125 md:scale-135 origin-center"
+          autoPlay
+          loop
+          muted
+          playsInline
+          onError={() => setVideoError(true)}
+        >
+          <source src="/Magadh_Mahila_College_New_Edited_Video.mp4" type="video/mp4" />
+          <source src="/new-hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+      
+      {/* FALLBACK BACKGROUND */}
+      {videoError && (
+        <div className="absolute inset-0 z-10 bg-gradient-to-br from-primary/80 to-primary/40" />
+      )}
+      
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 z-10 bg-black/40" />
 
       {/* CONTENT */}
       <motion.div

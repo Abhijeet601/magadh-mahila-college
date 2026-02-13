@@ -70,7 +70,7 @@ const CommerceAdmission = () => {
             <p>Courses offered related to Computer Applications include:</p>
             <ul className="list-disc list-inside">
               <li>B.A. / B.Sc. in Computer Applications (BCA)</li>
-              <li>PGDCA (Post Graduate Diploma in Computer Applications)</li>
+              <li>PGDCA (Post Graduate Vocational in Computer Applications)</li>
               <li>CIC (Certificate Course in Computer Applications)</li>
             </ul>
             <p>For full details on eligibility, duration, fees and selection procedure, see the Computer Application Course page.</p>

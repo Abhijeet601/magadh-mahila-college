@@ -24,7 +24,7 @@ const VocationalCommerce = () => {
               <h2 className="text-2xl font-semibold text-primary mb-4">Programs Offered</h2>
               <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
                 <li>Bachelor of Commerce (BCom) with Vocational Specializations</li>
-                <li>Diploma in Business Administration</li>
+                <li>Vocational in Business Administration</li>
                 <li>Certificate courses in Commerce</li>
               </ul>
 

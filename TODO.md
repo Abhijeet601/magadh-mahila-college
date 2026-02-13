@@ -1,7 +1,8 @@
-# TODO: Add PDFs to Time Table Page
+# TODO: Update Anti Ragging Committee on Home Page
 
-- [x] Create public/timetables/ directory
-- [x] Copy Master Time Table BA 2026 (1).pdf to public/timetables/
-- [x] Copy Master Time Table BSc 2026 (1).pdf to public/timetables/
-- [x] Copy BCA Time Table 2026 (1).pdf to public/timetables/
-- [x] Update src/pages/nep2020/TimeTable.jsx to add "Available Time Tables" section with download links
+## Tasks
+- [ ] Update Home.jsx: Change title from "Anti Ragging Committee 2024-25" to "Anti Ragging Committee 2025-26" and change href from PDF to "/anti-ragging"
+- [ ] Update AntiRagging.jsx: Replace placeholder content with detailed committee, cell, and squad information
+
+## Followup
+- [ ] Test the link by running the app and verifying the page opens with new content

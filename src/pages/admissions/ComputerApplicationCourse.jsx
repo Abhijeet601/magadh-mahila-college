@@ -33,7 +33,7 @@ const ComputerApplicationCourse = () => {
             <p>The minimum academic qualification for the applicants seeking admission to this programme is a pass in the final examination of I.A / I.Sc / I.Com or 10 + 2 (Class XII) or its equivalent qualifying examination conducted by any for general category students and 45% for SC/ST/OBC/EBC.</p>
             <p>Candidates appearing in the final examination may also apply. However they must submit the mark sheet of final examination at the time of admission.</p>
             <p>Candidates having passed with mathematics at Intermediate / +2 level will be given preference in admission.</p>
-            <h3>For Post Graduate Diploma in Computer Applications (PGDCA)</h3>
+            <h3>For Post Graduate Vocational in Computer Applications (PGDCA)</h3>
             <p>The minimum academic qualification for the applicants seeking admission to this programme is a pass in the Bachelor Degree Examination conducted by any recognized University.</p>
             <p>Candidates appearing in the final examination may also apply. However they must submit the mark sheet of final examination at the time of admission.</p>
             <p>Candidates having science background will be given preference in admission.</p>
@@ -61,7 +61,7 @@ const ComputerApplicationCourse = () => {
             <p>The Laboratory and Library caution money will be charged only at the time of admission in first year for BCA and in the first semester for PGDCA.</p>
 
             <h3 className="mt-4">2. For Post Graduate Diploma in Computer Applications (PGDCA)</h3>
-            <p>The Tuition fee of PGDCA (1 year Diploma Course) as per notification no. SFC/05 dated 03.05.2012 is Rs. 23,760/-. These revised fees are enforced from the academic year 2012-2013.</p>
+            <p>The Tuition fee of PGDCA (1 year Vocational Course) as per notification no. SFC/05 dated 03.05.2012 is Rs. 23,760/-. These revised fees are enforced from the academic year 2012-2013.</p>
           </AccordionContent>
         </AccordionItem>
 

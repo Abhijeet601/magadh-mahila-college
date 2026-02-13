@@ -101,7 +101,7 @@ const Humanities = () => {
               <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
                 <li>Bachelor of Arts (BA) - 4 Year Program</li>
                 <li>Master of Arts (MA) in various disciplines</li>
-                <li>Certificate and Diploma courses</li>
+                <li>Certificate and Vocational courses</li>
               </ul>
 
               <h2 className="text-2xl font-semibold text-primary mb-4">Key Features</h2>

@@ -302,9 +302,7 @@ const Home = () => {
               </motion.a>
 
               <motion.a
-                href="/documents/Notice/Anti-Ragging-Committee-2024.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/anti-ragging"
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 block"
                 whileHover={{ scale: 1.02, y: -5 }}
                 initial={{ opacity: 0, x: 20 }}
@@ -315,7 +313,7 @@ const Home = () => {
                 <div className="text-center">
                   <FileText className="w-12 h-12 text-blue-500 mx-auto mb-4" />
                   <h3 className="text-lg font-semibold text-primary mb-2">
-                    Anti Ragging Committee 2024-25
+                    Anti Ragging Committee 2025-26
                   </h3>
                   <p className="text-gray-600 text-sm">
                     Committee details and contact information

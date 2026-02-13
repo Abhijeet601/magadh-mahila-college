@@ -18,7 +18,7 @@ const Academics = () => {
     { name: 'Bachelor of Social Work (B.S.W.)', category: 'ug', duration: '3 Years', icon: '🤝' },
     { name: 'Master of Arts (M.A.)', category: 'pg', duration: '2 Years', icon: '📚' },
     { name: 'Master of Science (M.Sc.)', category: 'pg', duration: '2 Years', icon: '🔭' },
-    { name: 'Post Graduate Diploma in Computer Applications (PGDCA)', category: 'diploma', duration: '1 Year', icon: '🖥️' },
+    { name: 'Post Graduate Vocational in Computer Applications (PGDCA)', category: 'vocational', duration: '1 Year', icon: '🖥️' },
   ];
 
   const filteredPrograms = activeTab === 'all' 
@@ -167,7 +167,7 @@ const Academics = () => {
                             whileHover={{ scale: 1.1 }}
                             transition={{ type: 'spring', stiffness: 400 }}
                           >
-                            {program.category === 'ug' ? 'UG' : program.category === 'pg' ? 'PG' : 'Diploma'}
+                            {program.category === 'ug' ? 'UG' : program.category === 'pg' ? 'PG' : 'Vocational'}
                           </motion.div>
                         </div>
                         
