@@ -17,27 +17,6 @@ const TimeTable = () => {
             </h1>
 
             <div className="prose max-w-none">
-              <p className="text-gray-700 mb-6 text-lg">
-                Academic time tables are designed to optimize learning outcomes and provide a balanced schedule for students under the NEP 2020 framework.
-              </p>
-
-              <h2 className="text-2xl font-semibold text-primary mb-4">Time Table Features</h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                <li>Flexible scheduling for multidisciplinary courses</li>
-                <li>Balanced distribution of theory and practical sessions</li>
-                <li>Incorporation of co-curricular activities</li>
-                <li>Regular assessment and feedback sessions</li>
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-primary mb-4">Semester Structure</h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                <li>Two semesters per academic year</li>
-                <li>Mid-semester and end-semester examinations</li>
-                <li>Continuous assessment through assignments and projects</li>
-                <li>Summer internships and field work</li>
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-primary mb-4">Available Time Tables</h2>
               <div className="space-y-6 mb-6">
                 <div>
                   <h3 className="text-xl font-medium text-gray-800 mb-2">Master Time Table BA 2026</h3>

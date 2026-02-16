@@ -7,8 +7,8 @@ const NIRF = () => {
   return (
     <>
       <Helmet>
-        <title>NIRF 2025 - National Institutional Ranking Framework | Magadh Mahila College</title>
-        <meta name="description" content="View the NIRF 2025 report for Magadh Mahila College." />
+        <title>NIRF 2026 - National Institutional Ranking Framework | Magadh Mahila College</title>
+        <meta name="description" content="View the NIRF 2026 report for Magadh Mahila College." />
       </Helmet>
 
       <div className="pt-0">
@@ -22,10 +22,10 @@ const NIRF = () => {
               className="text-center mb-16"
             >
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-primary">NIRF 2025</span>
+                <span className="text-primary">NIRF 2026</span>
               </h1>
               <p className="text-foreground max-w-3xl mx-auto text-lg">
-                National Institutional Ranking Framework - 2025 Report
+                National Institutional Ranking Framework - 2026 Report
               </p>
             </motion.div>
 
@@ -42,12 +42,12 @@ const NIRF = () => {
                     <div className="flex items-center space-x-3">
                       <FileText className="w-8 h-8 text-primary" />
                       <div>
-                        <h2 className="text-xl font-bold text-foreground">NIRF 2025.pdf</h2>
+                        <h2 className="text-xl font-bold text-foreground">NIRF 2026.pdf</h2>
                         <p className="text-muted-foreground">National Institutional Ranking Framework Report</p>
                       </div>
                     </div>
                     <motion.a
-                      href="/documents/NIRF 2025.pdf"
+                      href="/documents/NIRF 2026.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
@@ -61,9 +61,9 @@ const NIRF = () => {
                 </div>
                 <div className="p-6">
                   <iframe
-                    src="/documents/NIRF 2025.pdf"
+                    src="/documents/NIRF 2026.pdf"
                     className="w-full h-[600px] border-0 rounded-lg"
-                    title="NIRF 2025 Report"
+                    title="NIRF 2026 Report"
                   />
                 </div>
               </div>

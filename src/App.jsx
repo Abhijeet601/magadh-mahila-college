@@ -32,6 +32,8 @@ import Tender from './pages/Tender';
 import NEP2020 from './pages/NEP2020';
 import Departments from './pages/Departments';
 import IQAC from './pages/IQAC';
+import NCC from './pages/NCC';
+import NSS from './pages/NSS';
 
 // NIRF pages
 import NIRF from './pages/NIRF/NIRF';
@@ -62,6 +64,12 @@ import IQACStudentSatisfactionSurvey from './pages/IQAC/StudentSatisfactionSurve
 import IQACProjectInternshipFieldwork from './pages/IQAC/ProjectInternshipFieldwork';
 import IQACBestPractices2023 from './pages/IQAC/BestPractices2023';
 import IQACBestPracticesPhotoGallery from './pages/IQAC/BestPracticesPhotoGallery';
+import CompositionOfIQAC from './pages/IQAC/CompositionOfIQAC';
+import IQACBestPractices from './pages/IQAC/BestPractices';
+import Criteria from './pages/IQAC/Criteria';
+import ObjectivesOfIQAC from './pages/IQAC/ObjectivesOfIQAC';
+import MinutesOfIQAC from './pages/IQAC/MinutesOfIQAC';
+import NAACPeerTeamVisit from './pages/IQAC/NAACPeerTeamVisit';
 
 // NAAC sub-pages
 import NAACCertificate from './pages/IQAC/NAACCertificate';
@@ -115,6 +123,8 @@ import Milestones from './pages/about/Milestones';
 import VisitorsNote from './pages/about/VisitorsNote';
 import ManagementAdministration from './pages/about/ManagementAdministration';
 import MIS from './pages/about/MIS';
+import InstituteDistinctiveness from './pages/about/InstituteDistinctiveness';
+import InfrastructureMaintenance from './pages/about/InfrastructureMaintenance';
 
 // Administration pages
 import Committees from './pages/administration/Committees';
@@ -190,6 +200,8 @@ function App() {
               <Route path="/news" element={<News />} />
               <Route path="/events" element={<Events />} />
               <Route path="/departments" element={<Departments />} />
+              <Route path="/ncc" element={<NCC />} />
+              <Route path="/nss" element={<NSS />} />
               <Route path="/nep-2020" element={<NEP2020 />} />
               <Route path="/iqac" element={<IQAC />} />
               <Route path="/alumni" element={<Alumni />} />
@@ -238,6 +250,12 @@ function App() {
               <Route path="/iqac/project-internship-fieldwork" element={<IQACProjectInternshipFieldwork />} />
               <Route path="/iqac/best-practices-2023-24" element={<IQACBestPractices2023 />} />
               <Route path="/iqac/best-practices-photo-gallery" element={<IQACBestPracticesPhotoGallery />} />
+              <Route path="/iqac/composition-of-iqac" element={<CompositionOfIQAC />} />
+              <Route path="/iqac/best-practices" element={<IQACBestPractices />} />
+              <Route path="/iqac/criteria" element={<Criteria />} />
+              <Route path="/iqac/objectives-of-iqac" element={<ObjectivesOfIQAC />} />
+              <Route path="/iqac/minutes-of-iqac" element={<MinutesOfIQAC />} />
+              <Route path="/iqac/naac-peer-team-visit" element={<NAACPeerTeamVisit />} />
 
               {/* NEP 2020 pages */}
               <Route path="/nep2020/program-outcome" element={<ProgramOutcome />} />
@@ -315,7 +333,9 @@ function App() {
               <Route path="/about/milestones" element={<Milestones />} />
               <Route path="/about/visitors-note" element={<VisitorsNote />} />
               <Route path="/about/management-administration" element={<ManagementAdministration />} />
-              <Route path="/about/mis" element={<MIS />} />
+<Route path="/about/mis" element={<MIS />} />
+              <Route path="/about/infrastructure-maintenance" element={<InfrastructureMaintenance />} />
+              <Route path="/about/institute-distinctiveness" element={<InstituteDistinctiveness />} />
             </Routes>
             <Footer />
             <Toaster />

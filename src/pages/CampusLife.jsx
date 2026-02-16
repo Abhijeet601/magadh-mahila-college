@@ -79,8 +79,7 @@ const CampusLife = () => {
         ],
         staff: [
           { name: 'Ragini Kumari', qualification: 'M.Lib. & Info. Sc. , M.A (Philosophy), DCA, e-Library', post: 'Librarian' },
-          { name: 'Moni Kumari', qualification: 'B.Lib. & Info. Sc. , B.A (Political Sc. Hons) DCA', post: 'Library Assistant' },
-          { name: 'Moina Khatoon', qualification: 'Non Matriculation', post: 'Class IV' }
+          { name: 'Moni Kumari', qualification: 'B.Lib. & Info. Sc. , B.A (Political Sc. Hons) DCA', post: 'Library Assistant' }
         ],
         timing: 'Library remains open from 9.30 am. to 4.30 PM on all working days.',
         membership: 'Magadh Mahila College library has an academic library to meet the need of the students and teaching staff of the college. The new members in 2017 are 1,486 students of which 322 are vocational and 1,164 are from the general section.',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Info, Building, Shield, UserCheck, BookOpen, GraduationCap, Home, Phone, TrendingUp, Users, Bell, FileText, Search } from 'lucide-react';
+import { Menu, X, ChevronDown, Info, Building, Shield, UserCheck, BookOpen, GraduationCap, Home, Phone, TrendingUp, Users, Bell, FileText, Search, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../contexts/ThemeContext';
 import { useBilingual } from '../contexts/BilingualContext';
@@ -21,7 +21,6 @@ const Navbar = () => {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [adminDropdownOpen, setAdminDropdownOpen] = useState(false);
   const [admissionsDropdownOpen, setAdmissionsDropdownOpen] = useState(false);
-  const [iqacDropdownOpen, setIqacDropdownOpen] = useState(false);
   const [cellsDropdownOpen, setCellsDropdownOpen] = useState(false);
   const [rightAcademicsDropdownOpen, setRightAcademicsDropdownOpen] = useState(false);
 
@@ -30,7 +29,6 @@ const Navbar = () => {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileAdmissionsOpen, setMobileAdmissionsOpen] = useState(false);
   const [mobileAdminOpen, setMobileAdminOpen] = useState(false);
-  const [mobileIqacOpen, setMobileIqacOpen] = useState(false);
   const [mobileAcademicsOpen, setMobileAcademicsOpen] = useState(false);
   const [mobileCellsOpen, setMobileCellsOpen] = useState(false);
 
@@ -38,14 +36,12 @@ const Navbar = () => {
   const aboutDropdownRef = useRef(null);
   const adminDropdownRef = useRef(null);
   const admissionsDropdownRef = useRef(null);
-  const iqacDropdownRef = useRef(null);
   const cellsDropdownRef = useRef(null);
   const rightAcademicsDropdownRef = useRef(null);
 
 
   const adminCloseTimeoutRef = useRef(null);
   const aboutCloseTimeoutRef = useRef(null);
-  const iqacCloseTimeoutRef = useRef(null);
   const admissionsCloseTimeoutRef = useRef(null);
   const rightAcademicsCloseTimeoutRef = useRef(null);
   const cellsCloseTimeoutRef = useRef(null);
@@ -55,7 +51,6 @@ const Navbar = () => {
     setAboutDropdownOpen(false);
     setAdminDropdownOpen(false);
     setAdmissionsDropdownOpen(false);
-    setIqacDropdownOpen(false);
     setRightAcademicsDropdownOpen(false);
     setCellsDropdownOpen(false);
   };
@@ -66,7 +61,6 @@ const Navbar = () => {
     setMobileAboutOpen(false);
     setMobileAdmissionsOpen(false);
     setMobileAdminOpen(false);
-    setMobileIqacOpen(false);
     setMobileAcademicsOpen(false);
     setMobileCellsOpen(false);
   }, []);
@@ -109,7 +103,7 @@ const Navbar = () => {
     document.addEventListener('keydown', handleKey);
     return () => {
       document.removeEventListener('keydown', handleKey);
-      [adminCloseTimeoutRef, aboutCloseTimeoutRef, iqacCloseTimeoutRef, admissionsCloseTimeoutRef, rightAcademicsCloseTimeoutRef, cellsCloseTimeoutRef].forEach(ref => {
+      [adminCloseTimeoutRef, aboutCloseTimeoutRef, admissionsCloseTimeoutRef, rightAcademicsCloseTimeoutRef, cellsCloseTimeoutRef].forEach(ref => {
         if (ref.current) {
           clearTimeout(ref.current);
           ref.current = null;
@@ -139,14 +133,12 @@ const Navbar = () => {
     { label: t('nav.aboutSub.institutionsPride'), to: "/about/institutions-pride" },
     { label: t('nav.aboutSub.modelElectoralLiteracyClub'), to: "/about/melc" },
     { label: t('nav.aboutSub.visionMissionCoreValues'), to: "/about/vision-mission" },
-    { label: t('nav.aboutSub.bestPractices'), to: "/about/best-practices" },
     { label: t('nav.aboutSub.feedback'), to: "/about/feedback-forms" },
     { label: t('nav.aboutSub.environmentalPolicy'), to: "/about/environment-policy" },
     { label: t('nav.aboutSub.mou'), to: "/about/mou" },
     { label: t('nav.aboutSub.futurePlans'), to: "/about/future-plans" },
     { label: t('nav.aboutSub.milestones'), to: "/about/milestones" },
     { label: t('nav.aboutSub.visitorsNote'), to: "/about/visitors-note" },
-    { label: t('nav.aboutSub.managementAdministration'), to: "/about/management-administration" },
     { label: t('nav.aboutSub.infrastructureMaintenance'), to: "/about/infrastructure-maintenance" },
     { label: t('nav.aboutSub.mis'), to: "/about/mis" },
   ]), [i18n.language]);
@@ -156,18 +148,11 @@ const Navbar = () => {
     { label: 'Departments', to: '/departments' },
     { label: t('nav.nep2020Sub.academicInfrastructure'), to: "/nep2020/academic-infrastructure" },
     { label: t('nav.nep2020Sub.courseMaterial'), to: "/nep2020/course-material" },
-    { label: t('nav.nep2020Sub.fineArts'), to: "/nep2020/fine-arts" },
-    { label: t('nav.nep2020Sub.humanities'), to: "/nep2020/humanities" },
-    { label: t('nav.nep2020Sub.library'), to: "/nep2020/library" },
     { label: t('nav.nep2020Sub.programOutcome.title'), to: "/nep2020/program-outcome" },
     { label: t('nav.nep2020Sub.publications'), to: "/nep2020/publications" },
-    { label: t('nav.nep2020Sub.science'), to: "/nep2020/science" },
-    { label: t('nav.nep2020Sub.socialScience'), to: "/nep2020/social-science" },
     { label: t('nav.nep2020Sub.syllabus'), to: "/nep2020/syllabus" },
     { label: t('nav.nep2020Sub.syllabusNEP'), to: "/nep2020/syllabus-nep" },
     { label: t('nav.nep2020Sub.timeTable'), to: "/nep2020/time-table" },
-    { label: t('nav.nep2020Sub.vocationalCommerce'), to: "/nep2020/vocational-commerce" },
-    { label: t('nav.nep2020Sub.vocationalComputerApplication'), to: "/nep2020/vocational-computer-application" },
   ]), [i18n.language]);
 
   const admissionsItems = React.useMemo(() => ([
@@ -184,20 +169,6 @@ const Navbar = () => {
     { label: t('nav.admissionsSub.bbaAdmission'), to: "/admissions/bba-admission" },
     { label: t('nav.admissionsSub.admittedStudentsYearWise'), to: "/admissions/admitted-students-year-wise" },
   ]), [i18n.language]);
-
-  const iqacItems = React.useMemo(() => ([
-    { label: 'Workshop', to: '/iqac/workshop' },
-    { label: 'NAAC', to: '/iqac/naac' },
-    { label: 'Feedback', to: '/iqac/feedback' },
-    { label: 'Research', to: '/iqac/research' },
-    { label: 'Extension Activities (NSS, NCC)', to: '/iqac/extension-activities' },
-    { label: 'Collaboration', to: '/iqac/collaboration' },
-    { label: 'Student Progression Form', to: '/iqac/student-progression-form' },
-    { label: 'Student Satisfaction Survey', to: '/iqac/student-satisfaction-survey' },
-    { label: 'Project Internship & Field Work', to: '/iqac/project-internship-fieldwork' },
-    { label: 'Best practices 2023-24', to: '/iqac/best-practices-2023-24' },
-    { label: 'Best Practices – Photo Gallery', to: '/iqac/best-practices-photo-gallery' },
-  ]), []);
 
   const linksLeft = [];
 
@@ -219,9 +190,6 @@ const Navbar = () => {
       }
       if (admissionsDropdownRef.current && !admissionsDropdownRef.current.contains(event.target)) {
         setAdmissionsDropdownOpen(false);
-      }
-      if (iqacDropdownRef.current && !iqacDropdownRef.current.contains(event.target)) {
-        setIqacDropdownOpen(false);
       }
       if (rightAcademicsDropdownRef.current && !rightAcademicsDropdownRef.current.contains(event.target)) {
         setRightAcademicsDropdownOpen(false);
@@ -477,8 +445,18 @@ const Navbar = () => {
 
             {/* AICTE LINK */}
             <Link to="/aicte" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
-              <Shield className="w-4 h-4 mr-2" />
+              <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+                <Shield className="w-4 h-4 mr-2" />
+              </motion.div>
               AICTE
+            </Link>
+
+            {/* IQAC LINK */}
+            <Link to="/iqac" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
+              <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+                <Award className="w-4 h-4 mr-2" />
+              </motion.div>
+              IQAC
             </Link>
 
             {/* ADMIN DROPDOWN */}
@@ -512,7 +490,6 @@ const Navbar = () => {
                 aria-controls="admin-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
-                <Building className="w-4 h-4 mr-2" />
                 Administration
                 <ChevronDown
                   className={`ml-1 transition-transform duration-300 ${adminDropdownOpen ? 'rotate-180' : ''}`}
@@ -738,100 +715,6 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {/* IQAC DROPDOWN */}
-            <div
-              className="relative"
-              ref={iqacDropdownRef}
-              onMouseEnter={() => {
-                closeAllDropdowns();
-                setIqacDropdownOpen(true);
-              }}
-              onMouseLeave={() => setIqacDropdownOpen(false)}
-            >
-              <button
-                onClick={() => setIqacDropdownOpen(!iqacDropdownOpen)}
-                onKeyDown={(e) => handleDropdownButtonKeyDown(e, setIqacDropdownOpen, iqacDropdownRef)}
-                aria-haspopup="menu"
-                aria-expanded={iqacDropdownOpen}
-                aria-controls="iqac-menu"
-                className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
-              >
-                <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
-                  <Shield className="w-4 h-4 mr-2" />
-                </motion.div>
-                IQAC
-                <ChevronDown
-                  className={`ml-1 transition-transform duration-300 ${iqacDropdownOpen ? 'rotate-180' : ''}`}
-                  size={14}
-                />
-              </button>
-
-              <AnimatePresence>
-                {iqacDropdownOpen && (
-                  <motion.div
-                    id="iqac-menu"
-                    role="menu"
-                    aria-label="IQAC"
-                    initial={{ opacity: 0, y: -8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -8, scale: 0.98 }}
-                    transition={{
-                      duration: 0.2,
-                      ease: [0.4, 0, 0.2, 1],
-                      staggerChildren: 0.05,
-                      delayChildren: 0.1
-                    }}
-                    className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-[999] overflow-y-auto overflow-x-hidden"
-                    style={{ width: 'min(420px, 80vw)', maxHeight: '70vh' }}
-                  >
-                    {iqacItems.map((item, index) => (
-                      <motion.div
-                        key={`${item.to}-${index}`}
-                        initial={{ opacity: 0, x: -6 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.2,
-                          delay: index * 0.03,
-                          ease: [0.4, 0, 0.2, 1]
-                        }}
-                      >
-                        <Link
-                          to={item.to}
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="group relative block px-5 py-3 text-xs uppercase hover:text-primary whitespace-normal border-b border-gray-100 last:border-0 transition-all duration-200 ease-out"
-                        >
-                          <motion.span
-                            className="relative z-10"
-                            whileHover={{
-                              scale: 1.02,
-                              transition: { duration: 0.15, ease: [0.4, 0, 0.2, 1] }
-                            }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            {item.label}
-                          </motion.span>
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                            initial={false}
-                            whileHover={{
-                              x: [0, 100, 0],
-                              transition: {
-                                duration: 0.6,
-                                ease: "easeInOut",
-                                repeat: Infinity,
-                                repeatDelay: 2
-                              }
-                            }}
-                          />
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {/* ADMISSIONS DROPDOWN */}
             <div
               className="relative"
@@ -861,7 +744,6 @@ const Navbar = () => {
                 aria-controls="admissions-menu"
                 className="nav-link hover:text-primary flex items-center font-medium tracking-wide"
               >
-                <BookOpen className="w-4 h-4 mr-2" />
                 {t('nav.admissions')}
                 <ChevronDown
                   className={`ml-1 transition-transform duration-300 ${admissionsDropdownOpen ? 'rotate-180' : ''}`}
@@ -1051,15 +933,21 @@ const Navbar = () => {
             </div>
 
             <Link to="/campus-life" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
-              <Home className="w-4 h-4 mr-2" />
+              <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+                <Building className="w-4 h-4 mr-2" />
+              </motion.div>
               Campus Life
             </Link>
             <Link to="/contact" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
-              <Phone className="w-4 h-4 mr-2" />
+              <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+                <Phone className="w-4 h-4 mr-2" />
+              </motion.div>
               Contact
             </Link>
             <Link to="/nirf" className="nav-link hover:text-primary font-medium tracking-wide flex items-center">
-              <TrendingUp className="w-4 h-4 mr-2" />
+              <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+                <TrendingUp className="w-4 h-4 mr-2" />
+              </motion.div>
               NIRF
             </Link>
           </div>
@@ -1263,7 +1151,6 @@ const Navbar = () => {
                     setMobileAboutOpen(!mobileAboutOpen);
                     setMobileAdmissionsOpen(false);
                     setMobileAdminOpen(false);
-                    setMobileIqacOpen(false);
                     setMobileAcademicsOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
@@ -1331,7 +1218,6 @@ const Navbar = () => {
                     setMobileAdminOpen(!mobileAdminOpen);
                     setMobileAboutOpen(false);
                     setMobileAdmissionsOpen(false);
-                    setMobileIqacOpen(false);
                     setMobileAcademicsOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
@@ -1409,60 +1295,6 @@ const Navbar = () => {
                 </AnimatePresence>
               </motion.div>
 
-              {/* IQAC Accordion */}
-              <motion.div
-                className="border-b border-gray-200 pb-2"
-                variants={{
-                  hidden: { opacity: 0, x: -20 },
-                  visible: { opacity: 1, x: 0 }
-                }}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-              >
-                <button
-                  onClick={() => {
-                    setMobileIqacOpen(!mobileIqacOpen);
-                    setMobileAboutOpen(false);
-                    setMobileAdmissionsOpen(false);
-                    setMobileAdminOpen(false);
-                    setMobileAcademicsOpen(false);
-                  }}
-                  className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
-                >
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-5 h-5" />
-                    <span>IQAC</span>
-                  </div>
-                  <ChevronDown
-                    className={`transition-transform duration-300 ${mobileIqacOpen ? 'rotate-180' : ''}`}
-                    size={18}
-                  />
-                </button>
-                <AnimatePresence>
-                  {mobileIqacOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="space-y-1 bg-gray-50 rounded-lg p-3 mt-2">
-                        {iqacItems.map((item, idx) => (
-                          <Link
-                            key={`${item.to}-${idx}`}
-                            to={item.to}
-                            onClick={closeMobileMenu}
-                            className="block uppercase text-xs py-2 hover:text-primary pl-4 transition-colors"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-
               {/* Admissions Accordion */}
               <motion.div
                 className="border-b border-gray-200 pb-2"
@@ -1476,9 +1308,7 @@ const Navbar = () => {
                   onClick={() => {
                     setMobileAdmissionsOpen(!mobileAdmissionsOpen);
                     setMobileAboutOpen(false);
-                    setMobileNepOpen(false);
                     setMobileAdminOpen(false);
-                    setMobileIqacOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
@@ -1532,7 +1362,6 @@ const Navbar = () => {
                     setMobileAboutOpen(false);
                     setMobileAdmissionsOpen(false);
                     setMobileAdminOpen(false);
-                    setMobileIqacOpen(false);
                   }}
                   className="flex items-center justify-between w-full uppercase text-sm font-bold text-primary py-3 hover:bg-gray-50 px-3 rounded transition-colors"
                 >
@@ -1581,6 +1410,19 @@ const Navbar = () => {
               >
                 <Link to="/alumni" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
                   Alumni
+                </Link>
+              </motion.div>
+
+              {/* IQAC Link */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Link to="/iqac" onClick={closeMobileMenu} className="block uppercase text-sm py-3 hover:text-primary font-medium transition-colors">
+                  IQAC
                 </Link>
               </motion.div>
 

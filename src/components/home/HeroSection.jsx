@@ -32,8 +32,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 z-10 bg-gradient-to-br from-primary/80 to-primary/40" />
       )}
       
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 z-10 bg-black/40" />
 
       {/* CONTENT */}
       <motion.div
@@ -47,7 +45,7 @@ const HeroSection = () => {
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-          className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur shadow-lg mb-8"
+          className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white shadow-lg mb-8"
         >
           <motion.div
             animate={{ rotate: [0, 12, -12, 0], scale: [1, 1.1, 1] }}
@@ -88,7 +86,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-white/90 mb-4 max-w-3xl mx-auto"
+          className="text-white mb-4 max-w-3xl mx-auto"
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -97,7 +95,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/70 mb-12 max-w-2xl mx-auto"
+          className="text-white mb-12 max-w-2xl mx-auto"
         >
           {t('hero.accreditations')}
         </motion.p>
@@ -131,7 +129,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/60 text-blue-500 hover:bg-white/10"
+                className="border-2 border-white text-blue-500 hover:bg-white/10"
               >
                 {t('hero.exploreLegacy')}
               </Button>
@@ -146,11 +144,11 @@ const HeroSection = () => {
         transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-white/60 flex items-start justify-center p-2">
+        <div className="w-6 h-10 rounded-full border-2 border-white flex items-start justify-center p-2">
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 rounded-full bg-white/70"
+            className="w-1.5 h-1.5 rounded-full bg-white"
           />
         </div>
       </motion.div>

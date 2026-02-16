@@ -75,7 +75,8 @@ const VisionMission = () => {
               <img
                 src="/documents/about/vision-mission/mmc_vision_mission_hindi.jpg"
                 alt="Vision Mission Hindi"
-                className="w-full max-w-4xl h-auto rounded-lg shadow-lg"
+                className="max-w-full h-auto rounded-lg shadow-lg object-contain"
+                style={{ maxHeight: '600px' }}
               />
             </div>
           </div>

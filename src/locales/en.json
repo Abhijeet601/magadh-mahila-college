@@ -18,7 +18,7 @@
     "aboutDropdown": "ABOUT",
     "aboutSub": {
       "welcome": "Welcome to Magadh Mahila College",
-      "principalProfile": "Profile of Principal Magadh Mahila College",
+      "principalProfile": "From the Principal's Desk",
       "previousPrincipals": "Previous Principals",
       "collegeEmblem": "College Emblem",
       "collegeEmblemPage": {
@@ -99,7 +99,7 @@
       "publications": "Publications",
       "science": "Science",
       "socialScience": "Social Science",
-      "syllabus": "Syllabus",
+      "syllabus": "CBCS Syllabus",
       "syllabusNEP": "Syllabus NEP",
       "timeTable": "Time Table",
       "vocationalCommerce": "Vocational Commerce",
@@ -124,6 +124,7 @@
     }
   },
   "pages": {
+    "principalProfile": "From the Principal's Desk",
     "about": {
       "title": "About Us - Magadh Mahila College",
       "metaDescription": "Learn about Magadh Mahila College, its history, vision, mission, and various aspects of our institution.",

@@ -10,16 +10,14 @@ const Academics = () => {
   const [activeTab, setActiveTab] = useState('all');
 
   const programs = [
-    { name: 'Bachelor of Arts (B.A.)', category: 'ug', duration: '3 Years', icon: '🎓' },
-    { name: 'Bachelor of Science (B.Sc.)', category: 'ug', duration: '3 Years', icon: '🔬' },
-    { name: 'Bachelor of Commerce (B.Com)', category: 'ug', duration: '3 Years', icon: '💼' },
+    { name: 'Bachelor of Arts (B.A.)', category: 'ug', duration: '4 Years', icon: '🎓' },
+    { name: 'Bachelor of Science (B.Sc.)', category: 'ug', duration: '4Years', icon: '🔬' },
+    { name: 'Bachelor of Commerce (B.Com)', category: 'ug', duration: '4 Years', icon: '💼' },
     { name: 'Bachelor of Business Administration (B.B.A.)', category: 'ug', duration: '3 Years', icon: '📊' },
     { name: 'Bachelor of Computer Applications (B.C.A.)', category: 'ug', duration: '3 Years', icon: '💻' },
     { name: 'Bachelor of Social Work (B.S.W.)', category: 'ug', duration: '3 Years', icon: '🤝' },
     { name: 'Master of Arts (M.A.)', category: 'pg', duration: '2 Years', icon: '📚' },
-    { name: 'Master of Science (M.Sc.)', category: 'pg', duration: '2 Years', icon: '🔭' },
-    { name: 'Post Graduate Vocational in Computer Applications (PGDCA)', category: 'vocational', duration: '1 Year', icon: '🖥️' },
-  ];
+    { name: 'Master of Science (M.Sc.)', category: 'pg', duration: '2 Years', icon: '🔭' },  ];
 
   const filteredPrograms = activeTab === 'all' 
     ? programs 
@@ -28,9 +26,7 @@ const Academics = () => {
   const tabs = [
     { id: 'all', label: t('academics.allPrograms'), icon: BookOpen },
     { id: 'ug', label: t('academics.undergraduate'), icon: GraduationCap },
-    { id: 'pg', label: t('academics.postgraduate'), icon: Award },
-    { id: 'diploma', label: t('academics.diploma'), icon: Award },
-  ];
+    { id: 'pg', label: t('academics.postgraduate'), icon: Award },  ];
 
   return (
     <>

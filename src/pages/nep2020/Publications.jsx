@@ -2,6 +2,26 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { publications } from '../../data/publications';
 
+// Sort publications by year in descending order
+const sortedPublications = [...publications].sort((a, b) => {
+  // Extract the ending year from the year string
+  // For "2017-18", extract 18; for "2023", extract 2023
+  const extractYear = (yearStr) => {
+    if (yearStr.includes('-')) {
+      // For ranges like "2017-18", get the last part
+      const parts = yearStr.split('-');
+      return parseInt(parts[parts.length - 1], 10) + 2000; // Convert 18 to 2018
+    }
+    return parseInt(yearStr, 10);
+  };
+  
+  const yearA = extractYear(a.year);
+  const yearB = extractYear(b.year);
+  
+  // Sort in descending order (newest first)
+  return yearB - yearA;
+});
+
 const Publications = () => {
   return (
     <>
@@ -24,7 +44,7 @@ const Publications = () => {
 
               <h2 className="text-2xl font-semibold text-primary mb-4">Available Publications</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                {publications.map((pub, index) => (
+                {sortedPublications.map((pub, index) => (
                   <div key={index} className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
                     <div className="flex items-center mb-4">
                       <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">

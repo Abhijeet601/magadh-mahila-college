@@ -286,6 +286,15 @@ const Footer = () => {
                 <ExternalLink className="w-4 h-4" />
                 Bharat Padhe Online campaign
               </a>
+              <a
+                href="https://pup.samarth.ac.in/index.php/site/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-xs hover:text-highlight transition flex items-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                PU SAMARTH
+              </a>
             </nav>
           </motion.div>
 

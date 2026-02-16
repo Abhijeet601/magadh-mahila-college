@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Languages, Brain, ScrollText, Globe, PenTool, Music, Users, X } from 'lucide-react';
+import { BookOpen, Languages, Brain, ScrollText, Globe, PenTool, Music, Users, X, Sparkles, Star, Zap } from 'lucide-react';
+import { 
+  AnimatedCard, 
+  AnimatedIcon, 
+  FloatingElement, 
+  GradientText,
+  StaggerContainer,
+  FadeInUp,
+  BlurFadeIn,
+  HoverGlow
+} from '../../components/animations/AnimatedCard';
+
 
 const Humanities = () => {
   const [selectedSubject, setSelectedSubject] = useState(null);
@@ -78,6 +89,30 @@ const Humanities = () => {
     }
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const heroVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -85,90 +120,154 @@ const Humanities = () => {
         <meta name="description" content="Humanities programs under National Education Policy 2020 at Magadh Mahila College." />
       </Helmet>
 
-      <div className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 py-12">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <h1 className="text-4xl font-bold text-primary mb-6 text-center">
-              Humanities
-            </h1>
+          <motion.div 
+            variants={heroVariants}
+            initial="hidden"
+            animate="visible"
+            className="bg-white rounded-2xl shadow-xl p-8 mb-8 border border-blue-100 relative overflow-hidden"
+          >
+            {/* Animated background decoration */}
+            <motion.div
+              className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full"
+              animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute -bottom-20 -left-20 w-60 h-60 bg-highlight/5 rounded-full"
+              animate={{ scale: [1, 1.3, 1], rotate: [360, 180, 0] }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            />
+            
+            <div className="relative z-10">
+              <FloatingElement>
+                <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
+                  <GradientText className="text-4xl md:text-5xl font-bold">
+                    Humanities
+                  </GradientText>
+                  <motion.span
+                    className="inline-block ml-3"
+                    animate={{ rotate: [0, 20, -20, 0], scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                  >
+                    <Sparkles className="w-8 h-8 text-yellow-500" />
+                  </motion.span>
+                </h1>
+              </FloatingElement>
 
-            <div className="prose max-w-none">
-              <p className="text-gray-700 mb-6 text-lg">
-                The Humanities department at Magadh Mahila College offers comprehensive programs aligned with NEP 2020 guidelines, focusing on critical thinking, cultural understanding, and interdisciplinary learning.
-              </p>
 
-              <h2 className="text-2xl font-semibold text-primary mb-4">Programs Offered</h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                <li>Bachelor of Arts (BA) - 4 Year Program</li>
-                <li>Master of Arts (MA) in various disciplines</li>
-                <li>Certificate and Vocational courses</li>
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-primary mb-4">Key Features</h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                <li>Interdisciplinary curriculum</li>
-                <li>Focus on skill development</li>
-                <li>Research-oriented learning</li>
-                <li>Cultural and ethical studies</li>
-              </ul>
-
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
-                <p className="text-blue-800">
-                  <strong>Note:</strong> Detailed curriculum and course information will be available here soon.
+            <BlurFadeIn delay={0.2}>
+              <div className="prose max-w-none">
+                <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                  The Humanities department at Magadh Mahila College offers comprehensive programs aligned with NEP 2020 guidelines, focusing on critical thinking, cultural understanding, and interdisciplinary learning.
                 </p>
               </div>
-            </div>
+            </BlurFadeIn>
+
+            <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-6" staggerDelay={0.1}>
+              <FadeInUp>
+                <HoverGlow className="h-full">
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100 h-full">
+                    <h2 className="text-2xl font-semibold text-primary mb-4 flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-yellow-500" />
+                      Programs Offered
+                    </h2>
+                    <ul className="space-y-3 text-gray-700">
+                      {['Bachelor of Arts (BA) - 4 Year Program', 'Master of Arts (MA) in various disciplines', 'Certificate and Vocational courses'].map((item, i) => (
+                        <motion.li 
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                          className="flex items-center gap-2"
+                        >
+                          <span className="w-2 h-2 bg-primary rounded-full" />
+                          {item}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </HoverGlow>
+              </FadeInUp>
+
+              <FadeInUp>
+                <HoverGlow className="h-full">
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100 h-full">
+                    <h2 className="text-2xl font-semibold text-primary mb-4 flex items-center gap-2">
+                      <Star className="w-5 h-5 text-yellow-500" />
+                      Key Features
+                    </h2>
+                    <ul className="space-y-3 text-gray-700">
+                      {['Interdisciplinary curriculum', 'Focus on skill development', 'Research-oriented learning', 'Cultural and ethical studies'].map((item, i) => (
+                        <motion.li 
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                          className="flex items-center gap-2"
+                        >
+                          <span className="w-2 h-2 bg-green-500 rounded-full" />
+                          {item}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </HoverGlow>
+              </FadeInUp>
+            </StaggerContainer>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-primary p-4 rounded-r-lg"
+            >
+              <p className="text-blue-800 flex items-center gap-2">
+                <motion.span
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Sparkles className="w-5 h-5" />
+                </motion.span>
+                <strong>Note:</strong> Detailed curriculum and course information will be available here soon.
+              </p>
+            </motion.div>
           </div>
+        </motion.div>
+
+
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-8"
           >
-            <h2 className="text-4xl font-bold text-center mb-12">
-              <span className="text-primary">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-center mb-12"
+            >
+              <GradientText className="text-4xl font-bold">
                 Subjects Offered
-              </span>
-            </h2>
+              </GradientText>
+            </motion.h2>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {subjects.map((subject, index) => (
-                <motion.div
+                <AnimatedCard
                   key={index}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.12 }}
-                  whileHover={{ y: -15, scale: 1.05 }}
-                  className="group relative cursor-pointer h-full"
+                  index={index}
                   onClick={() => setSelectedSubject(subject)}
+                  className="h-full"
                 >
                   <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-200 overflow-hidden relative">
-
-                    {/* Animated background blob */}
-                    <motion.div
-                      className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100"
-                      animate={{ scale: [1, 1.3, 1] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    />
-
-                    {/* Shine effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
-                      animate={{ x: ['-100%', '100%'] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-
                     <div className="relative z-10">
-                      <motion.div
-                        whileHover={{ rotate: 360, scale: 1.15 }}
-                        transition={{ duration: 0.8 }}
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${subject.color} flex items-center justify-center mb-6 shadow-lg`}
-                      >
-                        <subject.icon className="w-8 h-8 text-white" />
-                      </motion.div>
-
+                      <AnimatedIcon icon={subject.icon} color={subject.color} />
+                      
                       <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                         {subject.name}
                       </h3>
@@ -182,14 +281,21 @@ const Humanities = () => {
                         initial={{ x: -10, opacity: 0 }}
                         whileHover={{ x: 5 }}
                       >
-                        Explore <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
+                        Explore 
+                        <motion.span 
+                          animate={{ x: [0, 5, 0] }} 
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
                       </motion.div>
                     </div>
                   </div>
-                </motion.div>
+                </AnimatedCard>
               ))}
             </div>
           </motion.div>
+
         </div>
       </div>
 
@@ -200,70 +306,128 @@ const Humanities = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedSubject(null)}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-pointer"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer"
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 50 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl cursor-default"
             >
-              <button
+              <motion.button
                 onClick={() => setSelectedSubject(null)}
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2 }}
                 className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors z-10"
               >
                 <X className="w-6 h-6 text-white" />
-              </button>
+              </motion.button>
 
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
                   <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
                     whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.8 }}
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedSubject.color} flex items-center justify-center shadow-lg`}
                   >
                     <selectedSubject.icon className="w-8 h-8 text-white" />
                   </motion.div>
                   <div>
-                    <h2 className="text-3xl font-bold text-foreground">Department of {selectedSubject.name}</h2>
-                    <p className="text-muted-foreground text-lg">{selectedSubject.description}</p>
+                    <motion.h2 
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="text-3xl font-bold text-foreground"
+                    >
+                      Department of {selectedSubject.name}
+                    </motion.h2>
+                    <motion.p 
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="text-muted-foreground text-lg"
+                    >
+                      {selectedSubject.description}
+                    </motion.p>
                   </div>
                 </div>
 
-                <div className="space-y-6 mb-8">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-primary mb-3">Highlights of the Department</h3>
-                    <p className="text-sm text-foreground">{selectedSubject.highlights}</p>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="space-y-6 mb-8"
+                >
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-primary">
+                    <h3 className="text-lg font-semibold text-primary mb-3 flex items-center gap-2">
+                      <Star className="w-5 h-5" />
+                      Highlights of the Department
+                    </h3>
+                    <p className="text-foreground whitespace-pre-line">{selectedSubject.highlights}</p>
                   </div>
 
                   {selectedSubject.faculty.length > 0 && (
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <h3 className="text-lg font-semibold text-primary mb-3">Faculty Members</h3>
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                      className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border-l-4 border-green-500"
+                    >
+                      <h3 className="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+                        <Users className="w-5 h-5" />
+                        Faculty Members
+                      </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {selectedSubject.faculty.map((member, index) => (
-                          <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                            <img
-                              className="w-20 h-20 rounded-full mx-auto mb-3 object-cover"
-                              alt={member.name}
-                              src={`/documents/faculty/${encodeURIComponent(member.image)}`}
-                              onError={(e) => {
-                                e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d';
-                              }}
-                            />
+                          <motion.div 
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 + index * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -5 }}
+                            className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+                          >
+                            <motion.div
+                              whileHover={{ scale: 1.1 }}
+                              className="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden bg-gray-200"
+                            >
+                              {member.image ? (
+                                <img
+                                  className="w-full h-full object-cover"
+                                  alt={member.name}
+                                  src={`/images/faculty/${member.image}`}
+                                  onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    e.target.nextSibling.style.display = 'flex';
+                                  }}
+                                />
+                              ) : null}
+                              <div 
+                                className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100 text-primary font-bold text-xl"
+                                style={{ display: member.image ? 'none' : 'flex' }}
+                              >
+                                {member.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
+                              </div>
+                            </motion.div>
                             <h4 className="text-sm font-semibold text-center text-foreground">{member.name}</h4>
                             <p className="text-xs text-center text-muted-foreground">{member.designation}</p>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
                   )}
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </>
   );
 };

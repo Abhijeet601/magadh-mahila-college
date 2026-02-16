@@ -20,24 +20,12 @@ const ProgramOutcome = () => {
             </h1>
 
             <div className="prose max-w-none">
-              <p className="text-gray-700 mb-6 text-lg">
-                {t('nav.nep2020Sub.programOutcome.intro')}
-              </p>
-
-              <h2 className="text-2xl font-semibold text-primary mb-4">{t('nav.nep2020Sub.programOutcome.programOutcomesTitle')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('nav.nep2020Sub.programOutcome.programOutcomesDesc')}
-              </p>
-
-              <h2 className="text-2xl font-semibold text-primary mb-4">{t('nav.nep2020Sub.programOutcome.courseOutcomesTitle')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('nav.nep2020Sub.programOutcome.courseOutcomesDesc')}
-              </p>
-
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
-                <p className="text-blue-800">
-                  <strong>{t('common.note')}:</strong> {t('nav.nep2020Sub.programOutcome.note')}
-                </p>
+              <div className="w-full h-screen-lg">
+                <iframe
+                  src="/data files/NEP 2020/Final-CO-PO_250129_145038-2.pdf"
+                  title="Program Outcome and Course Outcome"
+                  className="w-full h-[800px] border-2 border-gray-300 rounded-lg"
+                />
               </div>
             </div>
           </div>

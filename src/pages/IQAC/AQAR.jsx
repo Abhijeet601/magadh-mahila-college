@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FileText, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { FileText, Download, ChevronRight } from 'lucide-react';
 
 const AQAR = () => {
   const aqarFiles = [
@@ -17,6 +18,15 @@ const AQAR = () => {
     { year: '2021-22', file: 'AQAR-2021-22.pdf' },
     { year: '2022-23', file: 'AQAR-2022-23.pdf' },
   ];
+  const extractYear = (value) => {
+    const match = value.match(/\d{4}/);
+    return match ? Number(match[0]) : 0;
+  };
+
+  const sortedAqarFiles = [...aqarFiles].sort((a, b) => {
+    const yearDiff = extractYear(b.year) - extractYear(a.year);
+    return yearDiff !== 0 ? yearDiff : b.year.localeCompare(a.year);
+  });
 
   return (
     <>
@@ -28,6 +38,11 @@ const AQAR = () => {
       <div className="pt-0">
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
+            <Link to="/iqac" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium mb-8">
+              <ChevronRight className="w-4 h-4 rotate-180" />
+              Back to IQAC
+            </Link>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -49,9 +64,9 @@ const AQAR = () => {
               transition={{ duration: 0.6 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {aqarFiles.map((item, index) => (
+              {sortedAqarFiles.map((item, index) => (
                 <motion.div
-                  key={index}
+                  key={item.file}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

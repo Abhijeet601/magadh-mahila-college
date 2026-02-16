@@ -32,7 +32,11 @@
       },
       "codeOfEthics": "Code of Ethics",
       "codeOfConduct": "Code of Conduct",
-      "instituteDistinctiveness": "Institute Distinctiveness",
+      "instituteDistinctiveness": {
+        "title": "Institute Distinctiveness",
+        "description": "What makes us unique",
+        "content": "Institute Distinctiveness\n\nThe thrust area of building transformative multi-faceted learning ecosystem at Magadh Mahila College is primarily embedded in its vision of creating a \"Distinctive environment of educational excellence with human values and social responsibility\" through a plethora of 'beyond the curriculum' activities for promoting knowledge that is blended with right skills, attitude and values for life long success and wholesome living.Hence, our distinctiveness is reflected in giving the students the cutting edge 360-degree dimensional 'learning experiences 'beyond the classroom.The campus is ever vibrant with opportunities galore to nurture talent, build competencies and confidence among students to face challenges in the context of rapidly changing global dynamics.The institution is a shining example of an ideal academic institution that has successfully fulfilled its role in the society. The college has taken several progressive communitarian actions that have made it stand out among its peers. One of the college's most notable achievements is its ability to inculcate the best value system among its students, ensuring that they develop into responsible and ethical citizens who will contribute positively to society. Additionally, the college has successfully spread knowledge among all, regardless of caste, creed, or economic background. This approach has ensured that the college has a diverse student body, creating an inclusive environment for all. The college prides itself for being the mentoring centre for many such students who went on to make good careers and happy breadwinners for their families. It happily functions as a centre for community upliftment. The excellent works done by NSS, Gender Cell, ICC, IQAC have created a very inclusive environment not only for the students but also for the members of the locality and beyond.Academic excellence of college is reflected by the number college students bagging Gold medal and rank holders in Patna University examinations. Nineteen students were awarded gold medal in Patna University examination 2022. The college also provides cash rewards as Merit Scholarship to university Gold Medalists and Rank Holders students through cheque.\n\nMahima Chhatravas, the G+7 Floor New Girls' Hostel of Magadh Mahila College, Patna University, Patna completed in 30th September, 2021 is located within the College campus and is an integral part of the College. The foundation stone was laid by the Hon'ble Chief Minister, Shri Nitish Kumar on 18th September, 2019. Mahima Chhatravas is a distinctive accomplishment of the College that aims to provide convenient and comfortable stay for the outstation students. The New Hostel has one hundred sixty-eight (168) furnished rooms. It has twenty- four rooms with seventy-two (72) occupancy, One Common Room, 16 Toilets with separate 12 Bathrooms and One BHK Assistant Superintendent accommodation on each floor. The hostel provides accommodation to Five Hundred Four (504) students across the conventional and semester courses. Mahima Chhatravas is adequately furnished. It has lavish dining Hall on ground floor for dinner, indoor sport game facility, gym, beauty salon, coffee shop. Wi-Fi facility is also available in the hostel. Laundry services are separately provided within the campus for residents. In addition, the hostel also provides washing machine for self-washing by residents. It also has 24/7 dedicated housekeeping staff to cater the needs of boarders."
+      },
       "institutionsPride": "Institutions’ Pride",
       "modelElectoralLiteracyClub": "Model Electoral Literacy Club",
       "visionMissionCoreValues": "Vision, Mission & Core Values",
@@ -90,7 +94,7 @@
       "publications": "Publications",
       "science": "Science",
       "socialScience": "Social Science",
-      "syllabus": "Syllabus",
+      "syllabus": "CBCS Syllabus",
       "syllabusNEP": "Syllabus NEP",
       "timeTable": "Time Table",
       "vocationalCommerce": "Vocational Commerce",
@@ -115,6 +119,7 @@
     }
   },
   "pages": {
+    "principalProfile": "From the Principal's Desk",
     "about": {
       "title": "About Us - Magadh Mahila College",
       "metaDescription": "Learn about Magadh Mahila College, its history, vision, mission, and various aspects of our institution.",
