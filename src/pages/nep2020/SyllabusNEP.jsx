@@ -30,7 +30,8 @@ const syllabusData = [
   {
     subject: 'Physics',
     files: [
-      { name: 'Physics Sem 1&2', url: '/documents/nep-syllabus/Physics Sem1 &2.pdf' }
+      { name: 'Physics Sem 1&2', url: '/documents/nep-syllabus/Physics Sem1 &2.pdf' },
+      { name: 'Physics Sem 3-8', url: '/documents/nep-syllabus/Physics Sem 3-8.pdf' }
     ]
   },
   {
@@ -86,7 +87,8 @@ const syllabusData = [
   {
     subject: 'Persian',
     files: [
-      { name: 'Persian Sem 1&2', url: '/documents/nep-syllabus/Persian Sem 1&2.pdf' }
+      { name: 'Persian Sem 1&2', url: '/documents/nep-syllabus/Persian Sem 1&2.pdf' },
+      { name: 'Persian Sem 3-8', url: '/documents/nep-syllabus/Persian Sem 3-8.pdf' }
     ]
   },
   {

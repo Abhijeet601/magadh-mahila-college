@@ -1,9 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 const FeaturesSection = () => {
   const { t } = useTranslation();
+  const fallbackVideoSrc = '/Magadh_Mahila_College_New_Edited_Video.mp4';
+  const [videoState, setVideoState] = useState({
+    modern: {
+      src: '/main gate video.mp4',
+      attemptedFallback: false,
+      failed: false
+    },
+    academic: {
+      src: '/building.mp4',
+      attemptedFallback: false,
+      failed: false
+    }
+  });
+
+  const handleVideoError = (key) => {
+    setVideoState((prev) => {
+      const current = prev[key];
+      if (current.failed) {
+        return prev;
+      }
+
+      if (!current.attemptedFallback) {
+        return {
+          ...prev,
+          [key]: {
+            ...current,
+            src: fallbackVideoSrc,
+            attemptedFallback: true
+          }
+        };
+      }
+
+      return {
+        ...prev,
+        [key]: {
+          ...current,
+          failed: true
+        }
+      };
+    });
+  };
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -33,16 +75,28 @@ const FeaturesSection = () => {
             whileHover={{ scale: 1.02 }}
             className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group"
           >
-            <video
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              controls
-              autoPlay
-              loop
-              muted
-            >
-              <source src="/main%20gate%20video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {videoState.modern.failed ? (
+              <img
+                src="/modern-campus.webp"
+                alt={t('features.modernCampus')}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            ) : (
+              <video
+                key={videoState.modern.src}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                onError={() => handleVideoError('modern')}
+              >
+                <source src={encodeURI(videoState.modern.src)} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
             <div className="absolute inset-0 bg-section/10 flex items-end p-8">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('features.modernCampus')}</h3>
@@ -59,16 +113,28 @@ const FeaturesSection = () => {
             whileHover={{ scale: 1.02 }}
             className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group"
           >
-            <video
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              controls
-              autoPlay
-              loop
-              muted
-            >
-              <source src="/building.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {videoState.academic.failed ? (
+              <img
+                src="/academic-excellence.webp"
+                alt={t('features.academicExcellence')}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            ) : (
+              <video
+                key={videoState.academic.src}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                onError={() => handleVideoError('academic')}
+              >
+                <source src={encodeURI(videoState.academic.src)} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
             <div className="absolute inset-0 bg-section/10 flex items-end p-8">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('features.academicExcellence')}</h3>

@@ -288,8 +288,8 @@ This department was awarded with 'STAR DEPARTMENT' by UGC, New Delhi under CPE P
 The 'Remedial Coaching at Undergraduate level for SCs/ STs OBC, and Minority Communities' students under UGC scheme, has been started by the Department since December,2010 .The' Students' Counseling Centre' has been established in September 2011, which serves all students of the College. The Department has planed to publish a monthly News Bulletin 'Self Expression-Ek Abhivyakti'. All teachers of the Department are sincerely engaged in scholarly pursuit.
 The Department has been maintaining its reputation of high standard and discipline since its inception. Academic as well as extracurricular performance of our students is consistently good and some of them have secured good ranks in the university examinations. The UGC also appreciated the achievements of the department and allocated substantial grant under XI plan.`,
       faculty: [
-        { name: 'Prof. (Dr.) Pushplata Kumari', designation: 'HOD, Political Science', image: 'Prof. Pushpalata Kumari, Professor, Political Science Coordinator, IQAC, MMC.jpeg' },
-        { name: 'Dr. Rishu Raj', designation: 'Assistant Professor, Political Science' },
+        { name: 'Dr. Rishu Raj', designation: 'HOD, Political Science' },
+        { name: 'Prof. (Dr.) Pushplata Kumari', designation: 'Professor, Political Science', image: 'Prof. Pushpalata Kumari, Professor, Political Science Coordinator, IQAC, MMC.jpeg' },
         { name: 'Dr. Varsha Shekhar', designation: 'Guest Faculty, Political Science' }
       ]
     },

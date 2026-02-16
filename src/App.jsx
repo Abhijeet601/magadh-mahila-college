@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
@@ -6,6 +6,7 @@ import { BilingualProvider } from './contexts/BilingualContext';
 import Navbar from './components/Navbar';
 import SlidingNotice from './components/SlidingNotice';
 import Footer from './components/Footer';
+import IQACStickyLayout from './components/IQACStickyLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Academics from './pages/Academics';
@@ -13,6 +14,7 @@ import Admissions from './pages/Admissions';
 import CampusLife from './pages/CampusLife';
 import Contact from './pages/Contact';
 import AnnualReports from './pages/AnnualReports';
+import AuditReport from './pages/AuditReport';
 
 import TermsConditions from './pages/TermsConditions';
 import Disclaimer from './pages/Disclaimer';
@@ -195,6 +197,7 @@ function App() {
               <Route path="/campus-life" element={<CampusLife />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/annual-reports" element={<AnnualReports />} />
+              <Route path="/audit-report" element={<AuditReport />} />
 
               {/* Dedicated pages */}
               <Route path="/news" element={<News />} />
@@ -203,7 +206,6 @@ function App() {
               <Route path="/ncc" element={<NCC />} />
               <Route path="/nss" element={<NSS />} />
               <Route path="/nep-2020" element={<NEP2020 />} />
-              <Route path="/iqac" element={<IQAC />} />
               <Route path="/alumni" element={<Alumni />} />
 
               {/* Admin page */}
@@ -222,40 +224,44 @@ function App() {
               <Route path="/aicte/compliance" element={<AICTECompliance />} />
               <Route path="/aicte/reports" element={<AICTEReports />} />
 
-              {/* IQAC sub-pages */}
-              <Route path="/iqac/workshop" element={<IQACWorkshop />} />
-              <Route path="/iqac/naac" element={<IQACNAAC />} />
-              <Route path="/iqac/naac-certificate" element={<NAACCertificate />} />
-              <Route path="/iqac/naac-certificates" element={<NAACCertificates />} />
-              <Route path="/iqac/self-study-report" element={<SelfStudyReport />} />
-              <Route path="/iqac/peer-team-visit-photos" element={<PeerTeamVisitPhotos />} />
-              <Route path="/iqac/video-recording-naac-peer-team-visit" element={<VideoRecordingNAACPeerTeamVisit />} />
-              <Route path="/iqac/revisit-naac-peer-team" element={<RevisitNAACPeerTeam />} />
-              <Route path="/iqac/aqar" element={<AQAR />} />
-              <Route path="/iqac/feedback" element={<IQACFeedback />} />
-              <Route path="/iqac/feedback/student" element={<StudentFeedbackForm />} />
-              <Route path="/iqac/feedback/parents" element={<ParentsFeedbackForm />} />
-              <Route path="/iqac/feedback/teachers" element={<TeachersFeedbackForm />} />
-              <Route path="/iqac/feedback/alumni" element={<AlumniFeedbackForm />} />
-              <Route path="/iqac/feedback/industry" element={<IndustryFeedbackForm />} />
-              <Route path="/iqac/research" element={<IQACResearch />} />
-              <Route path="/iqac/research-grants" element={<IQACResearchGrants />} />
-              <Route path="/iqac/research-publications" element={<IQACResearchPublications />} />
-              <Route path="/iqac/research-guides-phd-scholars" element={<IQACResearchGuidesPhdScholars />} />
-              <Route path="/iqac/research-development-cell" element={<IQACResearchDevelopmentCell />} />
-              <Route path="/iqac/extension-activities" element={<IQACExtensionActivities />} />
-              <Route path="/iqac/collaboration" element={<IQACCollaboration />} />
-              <Route path="/iqac/student-progression-form" element={<IQACStudentProgressionForm />} />
-              <Route path="/iqac/student-satisfaction-survey" element={<IQACStudentSatisfactionSurvey />} />
-              <Route path="/iqac/project-internship-fieldwork" element={<IQACProjectInternshipFieldwork />} />
-              <Route path="/iqac/best-practices-2023-24" element={<IQACBestPractices2023 />} />
-              <Route path="/iqac/best-practices-photo-gallery" element={<IQACBestPracticesPhotoGallery />} />
-              <Route path="/iqac/composition-of-iqac" element={<CompositionOfIQAC />} />
-              <Route path="/iqac/best-practices" element={<IQACBestPractices />} />
-              <Route path="/iqac/criteria" element={<Criteria />} />
-              <Route path="/iqac/objectives-of-iqac" element={<ObjectivesOfIQAC />} />
-              <Route path="/iqac/minutes-of-iqac" element={<MinutesOfIQAC />} />
-              <Route path="/iqac/naac-peer-team-visit" element={<NAACPeerTeamVisit />} />
+              {/* IQAC pages with shared sticky menu */}
+              <Route path="/iqac" element={<IQACStickyLayout />}>
+                <Route index element={<IQAC />} />
+                <Route path="workshop" element={<IQACWorkshop />} />
+                <Route path="naac" element={<IQACNAAC />} />
+                <Route path="naac-certificate" element={<NAACCertificate />} />
+                <Route path="naac-certificates" element={<NAACCertificates />} />
+                <Route path="self-study-report" element={<SelfStudyReport />} />
+                <Route path="peer-team-visit-photos" element={<PeerTeamVisitPhotos />} />
+                <Route path="video-recording-naac-peer-team-visit" element={<VideoRecordingNAACPeerTeamVisit />} />
+                <Route path="revisit-naac-peer-team" element={<RevisitNAACPeerTeam />} />
+                <Route path="aqar" element={<AQAR />} />
+                <Route path="feedback" element={<IQACFeedback />} />
+                <Route path="feedback/student" element={<StudentFeedbackForm />} />
+                <Route path="feedback/parents" element={<ParentsFeedbackForm />} />
+                <Route path="feedback/teachers" element={<TeachersFeedbackForm />} />
+                <Route path="feedback/alumni" element={<AlumniFeedbackForm />} />
+                <Route path="feedback/industry" element={<IndustryFeedbackForm />} />
+                <Route path="research" element={<IQACResearch />} />
+                <Route path="research-grants" element={<IQACResearchGrants />} />
+                <Route path="research-publications" element={<IQACResearchPublications />} />
+                <Route path="research-guides-phd-scholars" element={<IQACResearchGuidesPhdScholars />} />
+                <Route path="research-development-cell" element={<IQACResearchDevelopmentCell />} />
+                <Route path="publication-in-books-other-journals" element={<PublicationInBooksOtherJournals />} />
+                <Route path="extension-activities" element={<IQACExtensionActivities />} />
+                <Route path="collaboration" element={<IQACCollaboration />} />
+                <Route path="student-progression-form" element={<IQACStudentProgressionForm />} />
+                <Route path="student-satisfaction-survey" element={<IQACStudentSatisfactionSurvey />} />
+                <Route path="project-internship-fieldwork" element={<IQACProjectInternshipFieldwork />} />
+                <Route path="best-practices-2023-24" element={<IQACBestPractices2023 />} />
+                <Route path="best-practices-photo-gallery" element={<IQACBestPracticesPhotoGallery />} />
+                <Route path="composition-of-iqac" element={<CompositionOfIQAC />} />
+                <Route path="best-practices" element={<IQACBestPractices />} />
+                <Route path="criteria" element={<Criteria />} />
+                <Route path="objectives-of-iqac" element={<ObjectivesOfIQAC />} />
+                <Route path="minutes-of-iqac" element={<MinutesOfIQAC />} />
+                <Route path="naac-peer-team-visit" element={<NAACPeerTeamVisit />} />
+              </Route>
 
               {/* NEP 2020 pages */}
               <Route path="/nep2020/program-outcome" element={<ProgramOutcome />} />
@@ -333,9 +339,12 @@ function App() {
               <Route path="/about/milestones" element={<Milestones />} />
               <Route path="/about/visitors-note" element={<VisitorsNote />} />
               <Route path="/about/management-administration" element={<ManagementAdministration />} />
-<Route path="/about/mis" element={<MIS />} />
+              <Route path="/about/mis" element={<MIS />} />
               <Route path="/about/infrastructure-maintenance" element={<InfrastructureMaintenance />} />
               <Route path="/about/institute-distinctiveness" element={<InstituteDistinctiveness />} />
+
+              {/* Router fallback for unknown paths */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             <Footer />
             <Toaster />

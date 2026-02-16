@@ -23,6 +23,7 @@ const extensionUnits = [
     subtitle: 'Leadership, discipline, and national service',
     icon: Shield,
     color: 'from-green-600 to-green-700',
+    image: '/images/iqac/extension-activities/ncc-image.jpg',
     overview: `National Cadet Corps is one of the foremost youth organizations of India, cultivating national integration, unity, discipline, and responsible citizenship among students.
 
 The NCC Unit in Magadh Mahila College has been active since the foundation of the college. It is a unit of 1st Bihar Girls Battalion, NCC, Patna, under the Bihar and Jharkhand Directorate.
@@ -298,6 +299,16 @@ const ExtensionActivities = () => {
                     <p className="text-muted-foreground mt-1">{selectedUnit.subtitle}</p>
                   </div>
                 </div>
+
+                {selectedUnit.image && (
+                  <div className="mb-8 border border-gray-200 rounded-xl overflow-hidden">
+                    <img
+                      src={selectedUnit.image}
+                      alt={`${selectedUnit.title} activities`}
+                      className="w-full h-auto max-h-[420px] object-cover"
+                    />
+                  </div>
+                )}
 
                 <div className="mb-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
                   <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">

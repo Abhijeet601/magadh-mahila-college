@@ -134,21 +134,6 @@ const Contact = () => {
                   ))}
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="h-64 rounded-2xl overflow-hidden shadow-xl"
-                >
-                  <iframe
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=85.1265%2C25.5991%2C85.1465%2C25.6191&layer=mapnik&marker=25.6091%2C85.1365"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    title="Magadh Mahila College Location"
-                  />
-                </motion.div>
               </motion.div>
 
               <motion.div
@@ -226,49 +211,6 @@ const Contact = () => {
                       <p className="text-muted-foreground text-sm">info@magadhmahilacollege.org<br />principal@magadhmahilacollege.org</p>
                     </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                      className="p-4 rounded-xl bg-white hover:shadow-lg transition-all border-l-4 border-primary"
-                    >
-                      <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                        <Phone className="w-4 h-4" /> Department Wise Contact
-                      </h3>
-                      <motion.table
-                        className="w-full text-left border-collapse"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1, duration: 0.5 }}
-                      >
-                        <thead>
-                          <tr className="border-b">
-                            <th className="pb-2 font-semibold text-sm text-foreground">Department</th>
-                            <th className="pb-2 font-semibold text-sm text-foreground">Contact</th>
-                          </tr>
-                        </thead>
-                        <tbody className="text-muted-foreground text-xs">
-                          {[
-                            { dept: 'B.B.A', phone: '+91-612-6550287' },
-                            { dept: 'B.Com', phone: '+91-612-6455262' },
-                            { dept: 'B.C.A, P.G.D.C.A', phone: '+91-612-2207920' },
-                            { dept: 'B.SW', phone: '+91-9431879047' },
-                            { dept: 'Music', phone: '+91-9835681230' },
-                          ].map((row, idx) => (
-                            <motion.tr
-                              key={idx}
-                              initial={{ opacity: 0, y: 5 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 1 + idx * 0.1, duration: 0.3 }}
-                              className="border-b hover:bg-blue-50 transition-colors"
-                            >
-                              <td className="py-2">{row.dept}</td>
-                              <td className="py-2 text-primary font-medium">{row.phone}</td>
-                            </motion.tr>
-                          ))}
-                        </tbody>
-                      </motion.table>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>

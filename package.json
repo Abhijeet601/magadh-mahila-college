@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host :: --port 3000",
     "copy-images": "node scripts/copy-images.js",
-    "build": "vite build",
+    "verify:assets": "node scripts/check-assets.js",
+    "build": "npm run verify:assets && vite build",
     "preview": "vite preview --host :: --port 3000"
   },
   "dependencies": {

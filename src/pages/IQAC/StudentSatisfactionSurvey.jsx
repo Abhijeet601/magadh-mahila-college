@@ -1,9 +1,25 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { MessageSquare, Users, TrendingUp } from 'lucide-react';
+import { MessageSquare, FileText, ExternalLink, Download } from 'lucide-react';
 
 const StudentSatisfactionSurvey = () => {
+  const surveyFormLink =
+    'https://docs.google.com/forms/d/1rWE_80w9hgKh6tlz3tiBtCkBiUc_8DYxo9ClJHHGRII/viewform?pli=1&pli=1&edit_requested=true';
+
+  const pdfLinks = [
+    {
+      title: 'Student Satisfaction Survey Report',
+      fileName: 'SSS-report.pdf',
+      href: '/documents/IQAC/Student%20Satisfaction%20Survey/SSS-report.pdf'
+    },
+    {
+      title: 'Student Satisfaction Survey Document',
+      fileName: 'mmc_student1.pdf',
+      href: '/documents/IQAC/Student%20Satisfaction%20Survey/mmc_student1.pdf'
+    }
+  ];
+
   return (
     <>
       <Helmet>
@@ -40,9 +56,60 @@ const StudentSatisfactionSurvey = () => {
               <p className="text-muted-foreground mb-6">
                 Help us understand your experience and improve our services.
               </p>
-              <button className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+              <a
+                href={surveyFormLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+              >
+                <ExternalLink className="w-4 h-4" />
                 Take Survey
-              </button>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-8 bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-lg"
+            >
+              <h2 className="text-2xl font-bold mb-6 text-foreground">Survey PDFs</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {pdfLinks.map((pdf) => (
+                  <div key={pdf.href} className="border border-gray-200 rounded-xl p-4">
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <FileText className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground">{pdf.title}</h3>
+                        <p className="text-sm text-muted-foreground">{pdf.fileName}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <a
+                        href={pdf.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/5 transition-colors text-sm font-medium"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Open PDF
+                      </a>
+                      <a
+                        href={pdf.href}
+                        download
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
+                      >
+                        <Download className="w-4 h-4" />
+                        Download
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>

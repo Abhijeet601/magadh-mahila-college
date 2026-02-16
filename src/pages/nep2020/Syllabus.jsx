@@ -148,13 +148,6 @@ const syllabusData = [
     ]
   },
   {
-    subject: 'Statistics',
-    files: [
-      { name: 'Statistics Sem 1&2', url: '/data files/CBCS Syllabus/Statistics Sem 1&2.pdf' },
-      { name: 'Statistics Sem 3-8', url: '/data files/CBCS Syllabus/Statistics Sem 3-8.pdf' }
-    ]
-  },
-  {
     subject: 'Urdu',
     files: [
       { name: 'Urdu', url: '/data files/CBCS Syllabus/Urdu.pdf' }
