@@ -34,7 +34,7 @@ Magadh Mahila College has been selected as Model Electoral Literacy Club (MELC) 
             {melcImages.map((image, index) => (
               <div key={index} className="flex justify-center">
                 <img
-                  src={`/data files/about/Model Electoral Literacy Club/${image}`}
+                  src={`/images/about/melc/${image}`}
                   alt={`MELC Image ${index + 1}`}
                   className="max-w-full h-auto rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 />

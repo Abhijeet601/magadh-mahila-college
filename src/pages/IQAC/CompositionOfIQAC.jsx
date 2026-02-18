@@ -8,19 +8,19 @@ const CompositionOfIQAC = () => {
   const compositionImages = [
     {
       title: 'IQAC Composition 2024-25',
-      src: '/data files/IQAC/Composition of IQAC/iqac24_25.jpeg',
+      src: '/images/iqac/composition-of-iqac/iqac-2024-25.jpeg',
     },
     {
       title: 'IQAC Composition 2023-24',
-      src: '/data files/IQAC/Composition of IQAC/The composition of Internal Quality Assurance Cell (IQAC) for Academic Session \u2013 2023-24.jpg',
+      src: '/images/iqac/composition-of-iqac/iqac-2023-24.jpg',
     },
     {
       title: 'IQAC Composition 2022-23',
-      src: '/data files/IQAC/Composition of IQAC/The composition of Internal Quality Assurance Cell (IQAC) for Academic Session \u2013 2022-23.jpeg',
+      src: '/images/iqac/composition-of-iqac/iqac-2022-23.jpeg',
     },
     {
       title: 'IQAC Composition 2021-22',
-      src: '/data files/IQAC/Composition of IQAC/The composition of Internal Quality Assurance Cell (IQAC) for Academic Session \u2013 2021-22.jpg',
+      src: '/images/iqac/composition-of-iqac/iqac-2021-22.jpg',
     },
   ];
 

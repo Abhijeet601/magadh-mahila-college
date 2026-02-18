@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Info, Building, Shield, UserCheck, BookOpen, GraduationCap, Home, Phone, TrendingUp, Users, Bell, FileText, Search, Award } from 'lucide-react';
+import { Menu, X, ChevronDown, Info, Building, Shield, UserCheck, BookOpen, GraduationCap, Home, Phone, TrendingUp, Users, Bell, FileText, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../contexts/ThemeContext';
 import { useBilingual } from '../contexts/BilingualContext';
@@ -306,29 +306,26 @@ const Navbar = () => {
 
       {/* ========== MOBILE HEADER BAR ========== */}
       {!open && (
-        <div className="md:hidden relative bg-white text-primary h-14 flex items-center justify-between px-4 z-50 shadow-md">
+        <div className="md:hidden relative bg-white text-primary h-14 flex items-center gap-3 px-4 z-50 shadow-md">
           <button
             onClick={() => setOpen(prev => !prev)}
-            className="p-2 hover:bg-primary/10 rounded-lg"
+            className="p-2 hover:bg-primary/10 rounded-lg flex-shrink-0"
             aria-label="Toggle menu"
             aria-expanded={open}
             aria-controls="mobile-menu"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 min-w-0 flex-1">
             <img
               src="/Magadh_Mahila_College.png"
               alt="Magadh Mahila College Logo"
-              className="w-8 h-8 object-contain bg-white rounded"
+              className="w-8 h-8 object-contain bg-white rounded flex-shrink-0"
               loading="lazy"
               decoding="async"
             />
-            <span className="text-sm font-semibold truncate max-w-[60%]">Magadh Mahila College, Patna</span>
+            <span className="text-sm font-semibold leading-tight">Magadh Mahila College, Patna</span>
           </Link>
-          <button className="p-2 hover:bg-primary/10 rounded-lg" aria-label="Search">
-            <Search size={20} />
-          </button>
         </div>
       )}
 

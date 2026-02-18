@@ -65,7 +65,7 @@ const IQACStickyLayout = () => {
         </aside>
 
         <div className="flex-1 min-w-0">
-        <div className="lg:hidden fixed bottom-6 right-6 z-40">
+        <div className="lg:hidden fixed top-24 right-4 z-40">
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}

@@ -40,7 +40,7 @@ const StudentsRollOfHonor = () => {
                   {/* Placeholder for images - in a real app, you'd dynamically load images */}
                   <div className="text-center">
                     <img
-                      src={`/images/about/students-roll-of-honor/Gold medalist and rank holders ${year}/image1.jpg`}
+                      src={`/images/about/students-roll-of-honor/preview-${year}.jpg`}
                       alt={`Gold Medalist ${year}`}
                       className="w-full h-48 object-cover rounded-lg shadow-md"
                       onError={(e) => e.target.style.display = 'none'}

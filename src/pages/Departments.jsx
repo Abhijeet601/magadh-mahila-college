@@ -169,13 +169,13 @@ The Department of Mathematics in Magadh Mahila College was established in 1948. 
 Department also organizes Guidance, Counselling, and Mental Health Services for college students. Invited Lectures & Workshops are also frequently organized. It offers Mental Health Check-ups, Personality assessments, and Interest Tests for college students. It observes important days like World Mental Health Day and World Suicide Prevention Day etc. Department offers UG and PG courses in Psychology.`,
       faculty: [
         { name: 'Dr. Namrata', designation: 'Assistant Professor, HOD, Psychology', image: 'Dr.Namrata, Assistant Professor, HOD,  Psychology.jpeg' },
+        { name: 'Ms. Nidhi Singh', designation: 'Assistant Professor, Psychology', image: 'Ms. Nidhi Singh, Assistant Professor, Psychology.jpeg' },
         { name: 'Dr. Archana Kumari', designation: 'Assistant Professor, Psychology', image: 'Archana Kumari, Assistant Professor, Psychology.jpeg' },
         { name: 'Dr. Archana Bharti', designation: 'Assistant Professor, Psychology', image: 'Dr. Archana Bharti, Assistant Professor, Psychology.jpeg' },
         { name: 'Dr. Kavita Chowdhary', designation: 'Assistant Professor, Department of Psychology', image: 'Dr. Kavita Chowdhary, Assistant Professor, Department of Psychology.jpeg' },
         { name: 'Dr. Priyamvada', designation: 'Assistant Professor, Psychology', image: 'Dr. Priyamvada, Assistant Professor, Psychology.jpeg' },
         { name: 'Dr. Ranjana Kumari', designation: 'Assistant Professor, Psychology', image: 'Dr. Ranjana Kumari, Assistant Professor, Psychology.jpeg' },
-        { name: 'Dr. Sonali Kumari', designation: 'Assistant Professor, Psychology', image: 'Dr. Sonali Kumari, Assistant Professor, Psychology.jpeg' },
-        { name: 'Ms. Nidhi Singh', designation: 'Assistant Professor, Psychology', image: 'Ms. Nidhi Singh, Assistant Professor, Psychology.jpeg' }
+        { name: 'Dr. Sonali Kumari', designation: 'Assistant Professor, Psychology', image: 'Dr. Sonali Kumari, Assistant Professor, Psychology.jpeg' }
       ]
     },
     {
