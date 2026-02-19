@@ -85,7 +85,7 @@ const SexualHarassment = () => {
           </h1>
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              {t('pages.sexualHarassment')}
+              {t('sexualHarassment.content')}
             </p>
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
               The composition of Anti-Sexual Harassment Cell Session 2025-26 is as follows:

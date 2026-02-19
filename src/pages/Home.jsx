@@ -270,15 +270,12 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                Anti Ragging
-              </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Important anti-ragging resources and information for students and parents.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               <motion.a
                 href="https://antiragging.in/affidavit_registration_disclaimer.html"
                 target="_blank"
@@ -317,6 +314,46 @@ const Home = () => {
                   </h3>
                   <p className="text-gray-600 text-sm">
                     Committee details and contact information
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="/sexual-harassment"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 block"
+                whileHover={{ scale: 1.02, y: -5 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <div className="text-center">
+                  <Heart className="w-12 h-12 text-pink-500 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-primary mb-2">
+                    Anti Sexual Harassment Committee 2025-26
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Committee details, prevention policy and support contacts
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="/grievance"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 block"
+                whileHover={{ scale: 1.02, y: -5 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <div className="text-center">
+                  <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-primary mb-2">
+                    Grievance Cell 2025-26
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Student and staff grievance redressal details
                   </p>
                 </div>
               </motion.a>
