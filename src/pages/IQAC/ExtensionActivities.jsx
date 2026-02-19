@@ -23,7 +23,7 @@ const extensionUnits = [
     subtitle: 'Leadership, discipline, and national service',
     icon: Shield,
     color: 'from-green-600 to-green-700',
-    image: '/images/iqac/extension-activities/ncc-image.jpg',
+    image: '/images/iqac/extension-activities/ncc-image-2026-02-18.jpeg',
     overview: `National Cadet Corps is one of the foremost youth organizations of India, cultivating national integration, unity, discipline, and responsible citizenship among students.
 
 The NCC Unit in Magadh Mahila College has been active since the foundation of the college. It is a unit of 1st Bihar Girls Battalion, NCC, Patna, under the Bihar and Jharkhand Directorate.
@@ -39,9 +39,9 @@ The unit also organizes SSB training, and some cadets have joined defense servic
     ],
     officers: [
       {
-        name: 'Captain Dr. Pushpalata Kumari',
+        name: 'Dr. Namrata',
         designation: 'Associate NCC Officer',
-        note: 'Associate Professor, Department of Political Science'
+        note: 'Assistant Professor, Department of Psychology'
       }
     ],
     programmeComponents: [
@@ -89,9 +89,9 @@ NSS conducts regular and special camp activities and works with partners such as
       { label: 'Core Objective', value: 'Personality development through community service' }
     ],
     officers: [
-      { name: 'Dr. Kiran Mala', designation: 'Programme Officer' },
-      { name: 'Dr. Binay Kumar Bimal', designation: 'Programme Officer' },
-      { name: 'Dr. Archana Katiyar', designation: 'Programme Officer' }
+      { name: 'Dr. Madhu Kumari Gupta' },
+      { name: 'Dr. Jyoti Dubey' },
+      { name: 'Dr. Aasha Kumari' }
     ],
     programmeComponents: [
       'Regular activity: 120 hours each year',
@@ -342,7 +342,7 @@ const ExtensionActivities = () => {
                     {selectedUnit.officers.map((officer) => (
                       <div key={`officer-${officer.name}`} className="border border-gray-200 rounded-xl p-4">
                         <div className="font-semibold text-foreground">{officer.name}</div>
-                        <div className="text-sm text-primary">{officer.designation}</div>
+                        {officer.designation && <div className="text-sm text-primary">{officer.designation}</div>}
                         {officer.note && <div className="text-sm text-muted-foreground mt-1">{officer.note}</div>}
                       </div>
                     ))}

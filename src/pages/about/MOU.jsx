@@ -5,29 +5,44 @@ import { motion } from 'framer-motion';
 const MOU = () => {
   const { t } = useTranslation();
 
-  const documents = [
-    { name: 'Antaghaat-Adoption.pdf', type: 'pdf' },
-    { name: 'IBRF.pdf', type: 'pdf' },
-    { name: 'MMCP-01.pdf', type: 'pdf' },
-    { name: 'MOU Magadh Industries Private Limited.jpeg', type: 'image' },
-    { name: 'MOU taru_mitra.pdf', type: 'pdf' },
-    { name: 'mou_aic-bv.pdf', type: 'pdf' },
-    { name: 'mou_amity.pdf', type: 'pdf' },
-    { name: 'mou_gujrat_univ.pdf', type: 'pdf' },
-    { name: 'mou_red_cross.pdf', type: 'pdf' },
-    { name: 'mou-a-n-sinha.pdf', type: 'pdf' },
-    { name: 'mou-cii.pdf', type: 'pdf' },
-    { name: 'mou-fire.pdf', type: 'pdf' },
-    { name: 'mou-ganpat.pdf', type: 'pdf' },
-    { name: 'mou-german_language.pdf', type: 'pdf' },
-    { name: 'mou-iiied.pdf', type: 'pdf' },
-    { name: 'mou-nhn.pdf', type: 'pdf' },
-    { name: 'mou-sunai.pdf', type: 'pdf' },
-    { name: 'mou-suryam.pdf', type: 'pdf' },
-    { name: 'mou-ugc.pdf', type: 'pdf' },
-    { name: 'MOU-with-Shiva-Dancing-School-of-Yoga.pdf', type: 'pdf' },
-    { name: 'spmu_ranchi_mou.pdf', type: 'pdf' },
+  const documentNames = [
+    'Antaghaat-Adoption.pdf',
+    'IBRF.pdf',
+    'MMCP-01.pdf',
+    'MOU Magadh Industries Private Limited.jpeg',
+    'MOU taru_mitra.pdf',
+    'mou_aic-bv.pdf',
+    'mou_amity.pdf',
+    'mou_gujrat_univ.pdf',
+    'mou_red_cross.pdf',
+    'mou-a-n-sinha.pdf',
+    'mou-cii.pdf',
+    'mou-fire.pdf',
+    'mou-ganpat.pdf',
+    'mou-german_language.pdf',
+    'mou-iiied.pdf',
+    'mou-nhn.pdf',
+    'mou-sunai.pdf',
+    'mou-suryam.pdf',
+    'mou-ugc.pdf',
+    'MOU-with-Shiva-Dancing-School-of-Yoga.pdf',
+    'spmu_ranchi_mou.pdf'
   ];
+
+  const getDocumentType = (name) => {
+    const lower = name.toLowerCase();
+    if (lower.endsWith('.jpeg') || lower.endsWith('.jpg') || lower.endsWith('.png') || lower.endsWith('.webp')) {
+      return 'image';
+    }
+    return 'pdf';
+  };
+
+  const getDocumentUrl = (name) => `/documents/about/mou/${encodeURIComponent(name)}`;
+
+  const documents = documentNames.map((name) => ({
+    name,
+    type: getDocumentType(name)
+  }));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -160,7 +175,13 @@ const MOU = () => {
                     )}
                   </div>
                   <h3 className="text-sm font-medium text-gray-900 truncate" title={doc.name}>
-                    {doc.name.replace('.pdf', '').replace('.jpeg', '')}
+                    {doc.name
+                      .replace('.pdf', '')
+                      .replace('.jpeg', '')
+                      .replace('.jpg', '')
+                      .replace('.png', '')
+                      .replace('.webp', '')
+                      .replace('.txt', '')}
                   </h3>
                 </motion.div>
 
@@ -172,7 +193,7 @@ const MOU = () => {
                 >
                   {doc.type === 'image' ? (
                     <motion.img
-                      src={`/documents/about/mou/${doc.name}`}
+                      src={getDocumentUrl(doc.name)}
                       alt={doc.name}
                       className="w-full h-48 object-cover rounded-lg"
                       whileHover={{ scale: 1.05 }}
@@ -181,7 +202,7 @@ const MOU = () => {
                   ) : (
                     <div className="relative">
                       <object
-                        data={`/documents/about/mou/${doc.name}`}
+                        data={getDocumentUrl(doc.name)}
                         type="application/pdf"
                         width="100%"
                         height="300px"
@@ -194,7 +215,7 @@ const MOU = () => {
                             </svg>
                             <p className="text-sm text-gray-500 mb-2">PDF Preview</p>
                             <a
-                              href={`/documents/about/mou/${doc.name}`}
+                              href={getDocumentUrl(doc.name)}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded hover:bg-blue-700 transition-colors"
@@ -216,7 +237,7 @@ const MOU = () => {
                         transition={{ delay: index * 0.1 + 0.9, duration: 0.3 }}
                       >
                         <motion.a
-                          href={`/documents/about/mou/${doc.name}`}
+                          href={getDocumentUrl(doc.name)}
                           download={doc.name}
                           className="inline-flex items-center px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                           whileHover={{ scale: 1.05, y: -2 }}

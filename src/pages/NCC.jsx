@@ -76,6 +76,23 @@ const NCC = () => {
               </div>
             </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-12"
+            >
+              <div className="rounded-2xl overflow-hidden border border-green-100 shadow-lg">
+                <img
+                  src="/images/iqac/extension-activities/ncc-image-2026-02-18.jpeg"
+                  alt="NCC Activities"
+                  className="w-full h-auto max-h-[560px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+
             {/* Key Highlights */}
             <motion.div
               variants={staggerContainer}
@@ -123,12 +140,12 @@ const NCC = () => {
               </h2>
               <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg border border-green-100 overflow-hidden">
                 <div className="bg-green-700 p-4">
-                  <h3 className="text-white text-xl font-bold text-center">Capt. Dr. Pushpalata Kumari</h3>
+                  <h3 className="text-white text-xl font-bold text-center">Dr. Namrata</h3>
                   <p className="text-green-100 text-center">Associate NCC Officer</p>
                 </div>
                 <div className="p-6 text-center">
-                  <p className="text-gray-600">Associate Professor</p>
-                  <p className="text-gray-600">Department of Political Science</p>
+                  <p className="text-gray-600">Assistant Professor</p>
+                  <p className="text-gray-600">Department of Psychology</p>
                 </div>
               </div>
             </motion.div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { MessageSquare, ChevronDown, Users, Heart, GraduationCap, Building } from 'lucide-react';
+import { ChevronDown, Users, Heart, GraduationCap, Building } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const IQACFeedback = () => {
@@ -98,33 +98,6 @@ const IQACFeedback = () => {
                 </Link>
               </motion.div>
             ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 p-8 bg-primary text-primary-foreground rounded-3xl text-center"
-          >
-            <MessageSquare className="w-16 h-16 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-4">Why Your Feedback Matters</h2>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Your honest feedback helps us identify areas for improvement, maintain high educational standards, and ensure that Magadh Mahila College continues to provide exceptional learning experiences for all students.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="font-bold text-lg mb-2">Quality Enhancement</div>
-                <div className="text-white/80 text-sm">Continuous improvement of academic programs</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="font-bold text-lg mb-2">Stakeholder Engagement</div>
-                <div className="text-white/80 text-sm">Inclusive approach to quality assurance</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="font-bold text-lg mb-2">Institutional Excellence</div>
-                <div className="text-white/80 text-sm">Maintaining high standards of education</div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

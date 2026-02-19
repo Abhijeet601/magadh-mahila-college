@@ -17,6 +17,7 @@ const AQAR = () => {
     { year: '2020-21', file: 'AQAR-2020-21.pdf' },
     { year: '2021-22', file: 'AQAR-2021-22.pdf' },
     { year: '2022-23', file: 'AQAR-2022-23.pdf' },
+    { year: '2023-24', file: 'AQAR-2023-24.pdf' },
   ];
   const extractYear = (value) => {
     const match = value.match(/\d{4}/);

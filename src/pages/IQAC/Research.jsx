@@ -98,27 +98,6 @@ const Research = () => {
               </div>
             </motion.div>
 
-            {/* Contact */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="p-8 md:p-12 rounded-3xl bg-primary text-primary-foreground text-center"
-            >
-              <Lightbulb className="w-16 h-16 mx-auto mb-6" />
-              <h2 className="text-3xl font-bold mb-4">Research Support</h2>
-              <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-                For research guidance, publication support, or collaboration opportunities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <div className="font-bold">Research Coordinator</div>
-                  <div className="text-white/80">Dr. Nagendra Prasad Verma</div>
-                  <div className="text-white/80">research@magadhmahilacollege.org</div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </section>
       </div>

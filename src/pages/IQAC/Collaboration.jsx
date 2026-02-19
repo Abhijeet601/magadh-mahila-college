@@ -1,9 +1,24 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Handshake, Building, Award, Users } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const Collaboration = () => {
+  const collaborationDocuments = [
+    {
+      label: 'BBA_BCA_Psychology_merged.pdf',
+      href: '/documents/IQAC/Collaboration/BBA_BCA_Psychology_merged.pdf'
+    },
+    {
+      label: 'collaborative-activities.pdf',
+      href: '/documents/IQAC/Collaboration/collaborative-activities.pdf'
+    }
+  ];
+
+  const mouDocuments = [
+    { label: 'View All MOU Documents', href: '/about/mou' }
+  ];
+
   return (
     <>
       <Helmet>
@@ -40,7 +55,6 @@ const Collaboration = () => {
                 <span className="text-primary">Collaboration Documents</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Collaboration Documents Card */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -49,29 +63,55 @@ const Collaboration = () => {
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
                   className="p-8 rounded-2xl bg-white shadow-lg border border-border cursor-pointer"
                 >
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Institutional Collaboration</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <FileText className="w-7 h-7 text-primary" />
+                    <h3 className="text-2xl font-bold text-foreground">Institutional Collaboration</h3>
+                  </div>
                   <p className="text-muted-foreground mb-6">Documents related to institutional collaborations and partnerships.</p>
                   <div className="space-y-2">
-                    <motion.a
-                      href="/documents/IQAC/Collaboration/BBA_BCA_Psychology_merged.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-primary hover:underline"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      BBA_BCA_Psychology_merged.pdf
-                    </motion.a>
-                    <motion.a
-                      href="/documents/IQAC/Collaboration/collaborative-activities.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-primary hover:underline"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      collaborative-activities.pdf
-                    </motion.a>
+                    {collaborationDocuments.map((doc) => (
+                      <motion.a
+                        key={doc.href}
+                        href={doc.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary hover:underline"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {doc.label}
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                  className="p-8 rounded-2xl bg-white shadow-lg border border-border cursor-pointer"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <FileText className="w-7 h-7 text-primary" />
+                    <h3 className="text-2xl font-bold text-foreground">MOU Documents</h3>
+                  </div>
+                  <p className="text-muted-foreground mb-6">Memorandum of Understanding documents relevant to institutional collaboration.</p>
+                  <div className="space-y-2">
+                    {mouDocuments.map((doc) => (
+                      <motion.a
+                        key={doc.href}
+                        href={doc.href}
+                        target={doc.href.startsWith('/documents/') ? '_blank' : undefined}
+                        rel={doc.href.startsWith('/documents/') ? 'noopener noreferrer' : undefined}
+                        className="block text-primary hover:underline"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {doc.label}
+                      </motion.a>
+                    ))}
                   </div>
                 </motion.div>
               </div>

@@ -30,6 +30,10 @@ const sources = [
   { src: path.join(workspaceRoot, 'data files', 'Alumini Meet', 'mmc_alumni2023_2-768x511.jpeg'), destName: 'alumni_mmc_alumni2023_2_768x511.jpeg' },
   { src: path.join(workspaceRoot, 'data files', 'Alumini Meet', 'mmc_med1.jpeg'), destName: 'alumni_mmc_med1.jpeg' },
   { src: path.join(workspaceRoot, 'data files', 'Alumini Meet', 'mmc_med2.jpeg'), destName: 'alumni_mmc_med2.jpeg' },
+  // Course list images
+  { src: path.join(workspaceRoot, 'data files', 'Admission', 'course-list-1.jpg'), destName: 'course-list-1.jpg' },
+  { src: path.join(workspaceRoot, 'data files', 'Admission', 'course-list-2.jpg'), destName: 'course-list-2.jpg' },
+  { src: path.join(workspaceRoot, 'data files', 'Admission', 'course-list-3.jpg'), destName: 'course-list-3.jpg' },
 ];
 
 const destDir = path.join(workspaceRoot, 'public', 'images');

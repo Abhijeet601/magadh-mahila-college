@@ -118,9 +118,9 @@ const NSS = () => {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { name: "Dr. Kiran Mala", designation: "Programme Officer" },
-                  { name: "Dr. Binay Kumar Bimal", designation: "Programme Officer" },
-                  { name: "Dr. Archana Katiyar", designation: "Programme Officer" }
+                  { name: "Dr. Madhu Kumari Gupta", designation: "Programme Officer" },
+                  { name: "Dr. Jyoti Dubey", designation: "Programme Officer" },
+                  { name: "Dr. Aasha Kumari", designation: "Programme Officer" }
                 ].map((officer, index) => (
                   <motion.div
                     key={index}

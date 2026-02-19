@@ -48,7 +48,7 @@ const IQACStudentProgressionForm = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <FileText className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold text-foreground">IQAC Student Progression Form</h2>
+              <h2 className="text-2xl font-bold text-foreground"> Student Progression Form</h2>
             </div>
 
             <a
