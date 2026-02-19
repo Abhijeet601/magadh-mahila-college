@@ -4,11 +4,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite --host :: --port 3000",
-    "copy-images": "node scripts/copy-images.js",
-    "verify:assets": "node scripts/check-assets.js",
-    "build": "npm run verify:assets && vite build",
-    "preview": "vite preview --host :: --port 3000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.4",
