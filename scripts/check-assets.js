@@ -10,6 +10,7 @@ const ASSET_REF_REGEX = /['"](\/[A-Za-z0-9_\-./% ()]+\.(?:pdf|jpg|jpeg|png|webp|
 
 const SOURCE_EXTENSIONS = new Set(['.js', '.jsx', '.ts', '.tsx', '.json']);
 const LFS_HEADER = 'version https://git-lfs.github.com/spec/v1';
+const allowLFSPointers = ['1', 'true'].includes(String(process.env.ALLOW_LFS_POINTERS || '').toLowerCase());
 
 const walkFiles = (dir) => {
   const output = [];
@@ -214,24 +215,43 @@ const lfsPointers = publicFiles
   .filter(isLFSPointerFile)
   .map((file) => normalizeSlash(path.relative(ROOT, file)));
 
-if (missingRefs.length === 0 && lfsPointers.length === 0) {
+const hasMissingRefs = missingRefs.length > 0;
+const hasLFSPointers = lfsPointers.length > 0;
+
+if (!hasMissingRefs && !hasLFSPointers) {
   console.log('Asset check passed. No missing asset references and no LFS pointer files in public/.');
   process.exit(0);
 }
 
-if (missingRefs.length > 0) {
+if (hasMissingRefs) {
   console.error(`Missing asset references: ${missingRefs.length}`);
   for (const item of missingRefs) {
     console.error(`- ${item.source} -> ${item.ref}`);
   }
 }
 
-if (lfsPointers.length > 0) {
-  console.error(`LFS pointer files detected in public/: ${lfsPointers.length}`);
-  for (const pointer of lfsPointers) {
-    console.error(`- ${pointer}`);
+if (hasLFSPointers) {
+  if (allowLFSPointers) {
+    console.warn(`LFS pointer files detected in public/: ${lfsPointers.length}`);
+    const preview = lfsPointers.slice(0, 20);
+    for (const pointer of preview) {
+      console.warn(`- ${pointer}`);
+    }
+    if (lfsPointers.length > preview.length) {
+      console.warn(`...and ${lfsPointers.length - preview.length} more.`);
+    }
+    console.warn('Continuing because ALLOW_LFS_POINTERS is enabled.');
+  } else {
+    console.error(`LFS pointer files detected in public/: ${lfsPointers.length}`);
+    for (const pointer of lfsPointers) {
+      console.error(`- ${pointer}`);
+    }
+    console.error('Run: git lfs pull && git lfs checkout');
   }
-  console.error('Run: git lfs pull && git lfs checkout');
 }
 
-process.exit(1);
+if (hasMissingRefs || (hasLFSPointers && !allowLFSPointers)) {
+  process.exit(1);
+}
+
+process.exit(0);
