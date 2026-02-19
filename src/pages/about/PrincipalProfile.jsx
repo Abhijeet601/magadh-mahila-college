@@ -53,7 +53,7 @@ const PrincipalProfile = () => {
   };
 
   const principalMessage = {
-    title: "From the Principal's Desk",
+    deskTitle: "From the Principal's Desk",
     content: `Dear Students!
 
 It is my heartfelt pleasure to welcome all the newly admitted students of Magadh Mahila College, a pioneering institution of higher education for young women in Bihar. The college was established as a constituent unit of Patna University, Patna in 1946. Patna University has introduced the New Education Policy (NEP), 2020 and the four-year degree programme in the year 2023. Currently, we are in the third batch under NEP, 2020.
@@ -68,7 +68,7 @@ Our college always identifies and appreciates emerging talent of the students by
 
 All the best for your new academic journey!!!`,
     name: "Prof. (Dr.) Nagendra Pd. Verma",
-    title: "Principal",
+    designation: "Principal",
     college: "Magadh Mahila College"
   };
 
@@ -156,7 +156,7 @@ All the best for your new academic journey!!!`,
                       transition={{ delay: 0.6, duration: 0.6 }}
                     >
                       <p className="text-white text-xl font-bold">{principalMessage.name}</p>
-                      <p className="text-white/80">{principalMessage.title}</p>
+                      <p className="text-white/80">{principalMessage.designation}</p>
                       <p className="text-white/60 text-sm">{principalMessage.college}</p>
                     </motion.div>
                   </div>
@@ -203,7 +203,7 @@ All the best for your new academic journey!!!`,
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <span className="w-2 h-8 bg-blue-500 rounded-full mr-3"></span>
-                    {principalMessage.title}
+                    {principalMessage.deskTitle}
                   </motion.h2>
                 </motion.div>
 
@@ -222,7 +222,7 @@ All the best for your new academic journey!!!`,
                 >
                   <div className="text-right">
                     <p className="text-gray-900 font-semibold text-lg">{principalMessage.name}</p>
-                    <p className="text-gray-600">{principalMessage.title}</p>
+                    <p className="text-gray-600">{principalMessage.designation}</p>
                     <p className="text-gray-500 text-sm">{principalMessage.college}</p>
                   </div>
                 </motion.div>
