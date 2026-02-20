@@ -11,6 +11,19 @@ import NoticeAndEvents from '@/components/home/NoticeAndEvents';
 
 const Home = () => {
   const { t } = useTranslation();
+  const distinguishedVisitors = [
+    { name: 'Abhishek Bachchan', image: 'AbhishekBachhan.jpg' },
+    { name: 'Dr. Sharda Sinha', image: 'Dr.ShardaSinha.jpg' },
+    { name: 'G. P. Andry', image: 'G.-P-andry.jpg' },
+    { name: 'Gurmeet Choudhary', image: 'Gurmeet-choudhary.jpg' },
+    { name: 'Mridula Sinha', image: 'Mridula-sinha.jpg' },
+    { name: 'Nitish Kumar', image: 'Nitish-Kumar.jpg' },
+    { name: 'Ratan Rajput', image: 'Ratan-Rajput.jpg' },
+    { name: 'Shri K. G. Balakrishanan', image: 'ShriK.G-Balakrishanan.jpg' },
+    { name: 'Shri Shatrughan Sinha', image: 'ShriShatrughanSinha.jpg' },
+    { name: 'Sri Satya Pal Malik', image: 'Sri-Satya-Pal-Malik.jpg' },
+  ];
+  const visitorCards = [...distinguishedVisitors, ...distinguishedVisitors];
 
   return (
     <>
@@ -134,24 +147,24 @@ const Home = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <img
-                    src="/images/principal.jpg"
-                    alt="Principal"
+                    src="/images/Arif_Md.jpeg"
+                    alt="Hon'ble Chancellor"
                     loading="lazy"
-                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                    className="w-32 h-32 rounded-full mx-auto mb-4 object-contain shadow-lg"
                   />
                   <motion.h3
                     className="text-lg font-semibold text-primary dark:text-white mb-2"
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    Prof. (Dr.) Nagendra Prasad Verma
+                    Shri Arif Mohammed Khan
                   </motion.h3>
                   <motion.p
                     className="text-2xl font-bold text-primary dark:text-white"
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    Principal, Magadh Mahila College
+                    Hon'ble Chancellor
                   </motion.p>
                 </motion.div>
                 <div className="space-y-3">
@@ -207,7 +220,7 @@ const Home = () => {
                 </div>
               </motion.div>
 
-              {/* SEPARATE CARD: Hon'ble Chancellor */}
+              {/* SEPARATE CARD: Principal */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -232,9 +245,9 @@ const Home = () => {
                 >
                   <motion.img
                     loading="lazy"
-                    src="/images/Arif_Md.jpeg"
-                    alt="Hon'ble Chancellor"
-                    className="w-32 h-32 rounded-full mx-auto mb-4 object-contain shadow-lg"
+                    src="/images/principal.jpg"
+                    alt="Principal"
+                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   />
@@ -243,14 +256,14 @@ const Home = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    Shri Arif Mohammed Khan
+                    Prof. (Dr.) Nagendra Prasad Verma
                   </motion.h3>
                   <motion.p
                     className="text-2xl font-bold text-primary dark:text-white"
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    Hon'ble Chancellor
+                    Principal, Magadh Mahila College
                   </motion.p>
                 </motion.div>
                 <div className="space-y-3">
@@ -350,7 +363,7 @@ const Home = () => {
                 <div className="text-center">
                   <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
                   <h3 className="text-lg font-semibold text-primary mb-2">
-                    Grievance Cell 2025-26
+                    Grievance Redressal Cell 2025-26
                   </h3>
                   <p className="text-gray-600 text-sm">
                     Student and staff grievance redressal details
@@ -450,149 +463,50 @@ const Home = () => {
 
             <div className="relative overflow-hidden">
               <motion.div
-                className="flex space-x-6"
+                className="flex w-max gap-6 py-2"
                 animate={{
-                  x: [0, -2304], // Scroll through 10 items of 256px each, total 2560px, scroll to -2304 to show last
+                  x: ['0%', '-50%'],
                 }}
                 transition={{
                   x: {
                     repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 30,
-                    ease: "linear",
+                    repeatType: 'loop',
+                    duration: 38,
+                    ease: 'linear',
                   },
                 }}
-                style={{ width: '2560px' }} // Fixed width for 10 items of 256px each
               >
-                {[
-                  { name: 'Abhishek Bachchan', image: 'AbhishekBachhan.jpg' },
-                  { name: 'Dr. Sharda Sinha', image: 'Dr.ShardaSinha.jpg' },
-                  { name: 'Gupteshwar Pandey', image: 'G.-P-andry.jpg' },
-                  { name: 'Gurmeet Choudhary', image: 'Gurmeet-choudhary.jpg' },
-                  { name: 'Mridula Sinha', image: 'Mridula-sinha.jpg' },
-                  { name: 'Nitish Kumar', image: 'Nitish-Kumar.jpg' },
-                  { name: 'Ratan Rajput', image: 'Ratan-Rajput.jpg' },
-                  { name: 'Shri K. G. Balakrishanan', image: 'ShriK.G-Balakrishanan.jpg' },
-                  { name: 'Shri Shatrughan Sinha', image: 'ShriShatrughanSinha.jpg' },
-                  { name: 'Sri Satya Pal Malik', image: 'Sri-Satya-Pal-Malik.jpg' },
-                ].map((visitor, i) => (
-                  <motion.div
-                    key={i}
-                    className="flex-shrink-0 w-full md:w-64 bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2 relative overflow-hidden"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                {visitorCards.map((visitor, i) => (
+                  <article
+                    key={`${visitor.image}-${i}`}
+                    className="group w-64 sm:w-72 flex-shrink-0 bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 overflow-hidden"
                   >
                     <motion.div
-                      className="relative h-48 md:h-64 flex items-center justify-center bg-gray-100"
-                      transition={{ duration: 0.3 }}
+                      className="relative h-52 sm:h-56 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.25 }}
                     >
                       <img
                         src={`/images/visitor-notes/${visitor.image}`}
                         alt={visitor.name}
                         loading="lazy"
-                        className="max-w-full max-h-full object-contain"
+                        className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
                         onError={(e) => {
-                          e.target.src = '/images/placeholder.jpg'; // Fallback image
+                          e.target.src = '/images/placeholder.jpg';
                         }}
                       />
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
                     </motion.div>
-                    <motion.div
+                    <div
                       className="p-4 text-center"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.1 }}
                     >
-                      <motion.h3
-                        className="text-lg font-semibold text-primary mb-1"
-                        whileHover={{ color: '#8B4513' }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <h3 className="text-base sm:text-lg font-semibold text-primary leading-tight">
                         {visitor.name}
-                      </motion.h3>
-                      <motion.p
-                        className="text-sm text-gray-600"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
-                      >
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-600 mt-1">
                         Distinguished Visitor
-                      </motion.p>
-                    </motion.div>
-                  </motion.div>
-                ))}
-                {/* Duplicate the array for seamless loop */}
-                {[
-                  { name: 'Abhishek Bachchan', image: 'AbhishekBachhan.jpg' },
-                  { name: 'Dr. Sharda Sinha', image: 'Dr.ShardaSinha.jpg' },
-                  { name: 'G. P. Andry', image: 'G.-P-andry.jpg' },
-                  { name: 'Gurmeet Choudhary', image: 'Gurmeet-choudhary.jpg' },
-                  { name: 'Mridula Sinha', image: 'Mridula-sinha.jpg' },
-                  { name: 'Nitish Kumar', image: 'Nitish-Kumar.jpg' },
-                  { name: 'Ratan Rajput', image: 'Ratan-Rajput.jpg' },
-                  { name: 'Shri K. G. Balakrishanan', image: 'ShriK.G-Balakrishanan.jpg' },
-                  { name: 'Shri Shatrughan Sinha', image: 'ShriShatrughanSinha.jpg' },
-                  { name: 'Sri Satya Pal Malik', image: 'Sri-Satya-Pal-Malik.jpg' },
-                ].map((visitor, i) => (
-                  <motion.div
-                    key={`duplicate-${i}`}
-                    className="flex-shrink-0 w-full md:w-64 bg-white rounded-xl shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-2 relative overflow-hidden"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                  >
-                    <motion.div
-                      className="relative h-48 overflow-hidden"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <img
-                        src={`/images/visitor-notes/${visitor.image}`}
-                        alt={visitor.name}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.src = '/images/placeholder.jpg'; // Fallback image
-                        }}
-                      />
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </motion.div>
-                    <motion.div
-                      className="p-4 text-center"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.1 }}
-                    >
-                      <motion.h3
-                        className="text-lg font-semibold text-primary mb-1"
-                        whileHover={{ color: '#8B4513' }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {visitor.name}
-                      </motion.h3>
-                      <motion.p
-                        className="text-sm text-gray-600"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
-                      >
-                        Distinguished Visitor
-                      </motion.p>
-                    </motion.div>
-                  </motion.div>
+                      </p>
+                    </div>
+                  </article>
                 ))}
               </motion.div>
             </div>

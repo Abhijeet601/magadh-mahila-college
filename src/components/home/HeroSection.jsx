@@ -21,7 +21,7 @@ const HeroSection = () => {
           playsInline
           onError={() => setVideoError(true)}
         >
-          <source src="/Magadh_Mahila_College_New_Edited_Video.mp4" type="video/mp4" />
+          <source src="/hero-section-video.mp4" type="video/mp4" />
           <source src="/main%20gate%20video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

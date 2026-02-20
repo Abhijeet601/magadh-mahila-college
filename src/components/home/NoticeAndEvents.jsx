@@ -1,51 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { getActiveNotifications } from '@/services/notifications';
 
 /* ================= Scroll List ================= */
-const ScrollList = ({ items, accent }) => {
-  const trackRef = useRef(null);
-  const controls = useAnimation();
-  const [contentHeight, setContentHeight] = useState(0);
+const ScrollList = ({ items, accent, emptyText }) => {
+  if (!items.length) {
+    return (
+      <div className="relative h-64 overflow-hidden rounded-lg border border-dashed border-gray-300 bg-white/80 flex items-center justify-center text-sm text-gray-500">
+        {emptyText}
+      </div>
+    );
+  }
 
-  /* Measure content height */
-  useEffect(() => {
-    if (!trackRef.current) return;
-
-    const height = trackRef.current.scrollHeight / 2;
-    setContentHeight(height);
-    startScroll(height);
-  }, [items]);
-
-  const startScroll = async (height) => {
-    if (!height) return;
-
-    await controls.start({
-      y: -height,
-      transition: {
-        duration: height / 40,
-        ease: 'linear',
-        repeat: Infinity,
-      },
-    });
-  };
-
-  const pauseScroll = () => controls.stop();
-  const resumeScroll = () => startScroll(contentHeight);
-
+  // Slightly slow down as the number of cards grows.
+  const duration = Math.max(items.length * 6, 20);
   const duplicatedItems = [...items, ...items];
 
   return (
-    <div
-      className="relative h-64 overflow-hidden"
-      onMouseEnter={pauseScroll}
-      onMouseLeave={resumeScroll}
-    >
-      <motion.div
-        ref={trackRef}
-        animate={controls}
-        className="space-y-4"
+    <div className="relative h-64 overflow-hidden notice-scroll-container">
+      <div
+        className="notice-scroll-track space-y-4"
+        style={{ animationDuration: `${duration}s` }}
       >
         {duplicatedItems.map((item, index) => (
           <a
@@ -59,17 +36,13 @@ const ScrollList = ({ items, accent }) => {
               whileHover={{ scale: 1.02 }}
               className="p-4 rounded-lg border border-gray-200 bg-white hover:shadow-lg hover:border-primary transition-all duration-300"
             >
-              <p className={`text-sm font-sans font-medium ${accent} mb-1`}>
-                {item.date || 'Recent'}
-              </p>
-
-              <p className="text-gray-800 font-serif font-medium">
+              <p className={`font-serif font-medium ${accent}`}>
                 {item.title || item.text}
               </p>
             </motion.div>
           </a>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -88,25 +61,12 @@ const NoticeAndEvents = () => {
         .slice(0, 10)
         .map(notification => ({
           title: notification.title,
-          date: new Date(notification.createdAt).toLocaleDateString(),
           link: notification.link || notification.fileUrl,
         }));
 
       setNotices(formattedNotices);
-
-      /* Example events placeholder */
-      setEvents([
-        {
-          title: 'Annual Cultural Fest',
-          date: 'March 25, 2026',
-          link: '#',
-        },
-        {
-          title: 'Sports Meet',
-          date: 'April 2, 2026',
-          link: '#',
-        },
-      ]);
+      // Keep upcoming events board empty until real event data is added.
+      setEvents([]);
     };
 
     loadNotifications();
@@ -130,11 +90,15 @@ const NoticeAndEvents = () => {
               {t('notices.noticeBoard')}
             </h2>
 
-            <ScrollList items={notices} accent="text-red-600" />
+            <ScrollList
+              items={notices}
+              accent="text-red-700"
+              emptyText={t('notices.noNotices', 'No notices available right now.')}
+            />
 
-            <button className="mt-6 text-sm font-semibold text-primary hover:underline">
+            <Link to="/notifications" className="inline-block mt-6 text-sm font-semibold text-primary hover:underline">
               {t('notices.viewAllNotices')}
-            </button>
+            </Link>
           </motion.div>
 
           {/* UPCOMING EVENTS */}
@@ -148,11 +112,15 @@ const NoticeAndEvents = () => {
               {t('notices.upcomingEvents')}
             </h2>
 
-            <ScrollList items={events} accent="text-blue-600" />
+            <ScrollList
+              items={events}
+              accent="text-blue-700"
+              emptyText={t('notices.noUpcomingEvents', 'No upcoming events right now.')}
+            />
 
-            <button className="mt-6 text-sm font-semibold text-primary hover:underline">
+            <Link to="/events" className="inline-block mt-6 text-sm font-semibold text-primary hover:underline">
               {t('notices.viewAllEvents')}
-            </button>
+            </Link>
           </motion.div>
 
         </div>

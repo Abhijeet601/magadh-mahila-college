@@ -5,19 +5,6 @@ const NOTIFICATIONS_KEY = 'mmc_notifications';
 const DEFAULT_NOTICES = [
   {
     id: 'default-1',
-    title: 'Anti Ragging Committee 2024',
-    description: '',
-    link: '/documents/notices/Anti-Ragging-Committee-2024.pdf',
-    fileUrl: '/documents/notices/Anti-Ragging-Committee-2024.pdf',
-    fileName: 'Anti-Ragging-Committee-2024.pdf',
-    published: true,
-    pinned: false,
-    expiryDate: null,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: 'default-2',
     title: 'Auction Notice for Unserviceable Items of Awantika Matrayee Hostel',
     description: '',
     link: '/documents/notices/Auction-Notice-for-unserviceable-items-of-Awantika-Matrayee-Hostel.pdf',
@@ -30,7 +17,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-3',
+    id: 'default-2',
     title: 'NIQ for Physics Equipment and Consumables',
     description: '',
     link: '/documents/notices/NIQ-for-Physics-Equipment-and-consumables.pdf',
@@ -43,7 +30,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-4',
+    id: 'default-3',
     title: 'Niq for Website',
     description: '',
     link: '/documents/notices/Niq-for-website.pdf',
@@ -56,7 +43,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-5',
+    id: 'default-4',
     title: 'NIQ No P MMC 956 dated 10.12.2025 Repair of False ceiling of room number 7580818285 and verandah at second floor of MMC',
     description: '',
     link: '/documents/notices/NIQ-No-P-MMC-956-dated-10.12.2025-Repair-of-False-ceiling-of-room-number-7580818285-and-verandah-at-second-floor-of-MMC.pdf',
@@ -69,7 +56,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-6',
+    id: 'default-5',
     title: 'NIQ No.P MMC 957 Dated 10.12.2025 Re roofing of both staircases of vocational building of MM College',
     description: '',
     link: '/documents/notices/NIQ-No.P-MMC-957-Dated-10.12.2025-Re-roofing-of-both-staircases-of-vocational-building-of-MM-College.pdf',
@@ -82,7 +69,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-7',
+    id: 'default-6',
     title: 'NIQ No.P MMC 958 dated 10.12.2025 Fixing of aluminium windows in the B.C.A department of MMC',
     description: '',
     link: '/documents/notices/NIQ-No.P-MMC-958-dated-10.12.2025-Fixing-of-aluminium-windows-in-the-B.C.A-department-of-MMC.pdf',
@@ -95,20 +82,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-8',
-    title: 'NIRF 2025',
-    description: '',
-    link: '/documents/notices/NIRF 2025.pdf',
-    fileUrl: '/documents/notices/NIRF 2025.pdf',
-    fileName: 'NIRF 2025.pdf',
-    published: true,
-    pinned: false,
-    expiryDate: null,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: 'default-9',
+    id: 'default-7',
     title: 'Notice for admission in hostel',
     description: '',
     link: '/documents/notices/Notice for admission in hostel.jpeg',
@@ -121,20 +95,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-10',
-    title: 'Notice for Awantika Hostel demolishing material Auction (1)',
-    description: '',
-    link: '/documents/notices/Notice-for-Awantika-Hostel-demolishing-material-Auction (1).pdf',
-    fileUrl: '/documents/notices/Notice-for-Awantika-Hostel-demolishing-material-Auction (1).pdf',
-    fileName: 'Notice-for-Awantika-Hostel-demolishing-material-Auction (1).pdf',
-    published: true,
-    pinned: false,
-    expiryDate: null,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: 'default-11',
+    id: 'default-8',
     title: 'Notice for Awantika Hostel demolishing material Auction',
     description: '',
     link: '/documents/notices/Notice-for-Awantika-Hostel-demolishing-material-Auction.pdf',
@@ -147,7 +108,7 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-12',
+    id: 'default-9',
     title: 'Quotation Invited for Repair and painting at Department of Music',
     description: '',
     link: '/documents/notices/Quotation Invited for Repair and painting at Department of Music.pdf',
@@ -160,12 +121,12 @@ const DEFAULT_NOTICES = [
     updatedAt: new Date().toISOString()
   },
   {
-    id: 'default-13',
-    title: 'Rules Regulations Regarding Central Library',
+    id: 'default-10',
+    title: 'NIQ for the supply of books for the central library of MMC',
     description: '',
-    link: '/documents/notices/Rules-Regulations-Regarding-Central-Library.pdf',
-    fileUrl: '/documents/notices/Rules-Regulations-Regarding-Central-Library.pdf',
-    fileName: 'Rules-Regulations-Regarding-Central-Library.pdf',
+    link: '/documents/notices/NIQ for the supply of books for the central library of MMC.pdf',
+    fileUrl: '/documents/notices/NIQ for the supply of books for the central library of MMC.pdf',
+    fileName: 'NIQ for the supply of books for the central library of MMC.pdf',
     published: true,
     pinned: false,
     expiryDate: null,
@@ -174,6 +135,69 @@ const DEFAULT_NOTICES = [
   }
 ];
 
+const REMOVED_NOTICE_TITLES = new Set([
+  'anti ragging committee 2024',
+  'nirf 2025',
+  'rules regulations regarding central library',
+  'notice for awantika hostel demolishing material auction (1)'
+]);
+
+const REMOVED_NOTICE_FILES = new Set([
+  'anti-ragging-committee-2024.pdf',
+  'nirf 2025.pdf',
+  'rules-regulations-regarding-central-library.pdf',
+  'notice-for-awantika-hostel-demolishing-material-auction (1).pdf'
+]);
+
+const REQUIRED_NOTICE = {
+  id: 'default-10',
+  title: 'NIQ for the supply of books for the central library of MMC',
+  description: '',
+  link: '/documents/notices/NIQ for the supply of books for the central library of MMC.pdf',
+  fileUrl: '/documents/notices/NIQ for the supply of books for the central library of MMC.pdf',
+  fileName: 'NIQ for the supply of books for the central library of MMC.pdf',
+  published: true,
+  pinned: false,
+  expiryDate: null
+};
+
+const normalizeText = (value = '') =>
+  value.toString().trim().toLowerCase().replace(/\s+/g, ' ');
+
+const getFileNameFromPath = (value = '') => {
+  const cleaned = value.split('?')[0].split('#')[0];
+  const parts = cleaned.split('/');
+  return parts[parts.length - 1] || '';
+};
+
+const shouldRemoveNotice = (notice) => {
+  const title = normalizeText(notice.title);
+  const fileName = normalizeText(notice.fileName || getFileNameFromPath(notice.fileUrl || notice.link));
+  return REMOVED_NOTICE_TITLES.has(title) || REMOVED_NOTICE_FILES.has(fileName);
+};
+
+const syncNotices = (notifications = []) => {
+  const filtered = notifications.filter((notice) => !shouldRemoveNotice(notice));
+  const hasRequiredNotice = filtered.some((notice) => {
+    const title = normalizeText(notice.title);
+    const fileName = normalizeText(notice.fileName || getFileNameFromPath(notice.fileUrl || notice.link));
+    return (
+      title === normalizeText(REQUIRED_NOTICE.title) ||
+      fileName === normalizeText(REQUIRED_NOTICE.fileName)
+    );
+  });
+
+  if (!hasRequiredNotice) {
+    filtered.unshift({
+      ...REQUIRED_NOTICE,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    });
+  }
+
+  return filtered;
+};
+
 export const getNotifications = () => {
   try {
     const notifications = localStorage.getItem(NOTIFICATIONS_KEY);
@@ -181,25 +205,32 @@ export const getNotifications = () => {
       const parsed = JSON.parse(notifications);
       if (parsed.length === 0) {
         // If empty array, initialize with default notices
-        localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(DEFAULT_NOTICES));
-        return DEFAULT_NOTICES;
+        const syncedDefaults = syncNotices(DEFAULT_NOTICES);
+        localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(syncedDefaults));
+        return syncedDefaults;
       }
       // Check if this is old data (no default notices)
       const hasDefaults = parsed.some(n => n.id && n.id.startsWith('default-'));
       if (!hasDefaults) {
         // Old data, replace with defaults
-        localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(DEFAULT_NOTICES));
-        return DEFAULT_NOTICES;
+        const syncedDefaults = syncNotices(DEFAULT_NOTICES);
+        localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(syncedDefaults));
+        return syncedDefaults;
       }
-      return parsed;
+      const syncedParsed = syncNotices(parsed);
+      if (JSON.stringify(syncedParsed) !== JSON.stringify(parsed)) {
+        localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(syncedParsed));
+      }
+      return syncedParsed;
     } else {
       // Initialize with default notices
-      localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(DEFAULT_NOTICES));
-      return DEFAULT_NOTICES;
+      const syncedDefaults = syncNotices(DEFAULT_NOTICES);
+      localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(syncedDefaults));
+      return syncedDefaults;
     }
   } catch (error) {
     console.error('Error getting notifications:', error);
-    return DEFAULT_NOTICES;
+    return syncNotices(DEFAULT_NOTICES);
   }
 };
 

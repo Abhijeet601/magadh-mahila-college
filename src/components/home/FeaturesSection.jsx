@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const FeaturesSection = () => {
   const { t } = useTranslation();
-  const fallbackVideoSrc = '/Magadh_Mahila_College_New_Edited_Video.mp4';
+  const fallbackVideoSrc = '/hero-section-video.mp4';
   const [videoState, setVideoState] = useState({
     modern: {
       src: '/main gate video.mp4',

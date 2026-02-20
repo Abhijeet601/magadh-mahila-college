@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { getSlidingNotices } from '../services/notifications';
 
 const SlidingNotice = () => {
   const { theme } = useTheme();
   const [notices, setNotices] = useState([]);
-  const trackRef = useRef(null);
-  const controls = useAnimation();
-  const [contentWidth, setContentWidth] = useState(0);
 
   /* Load notices */
   useEffect(() => {
@@ -21,52 +18,22 @@ const SlidingNotice = () => {
     return () => clearInterval(interval);
   }, []);
 
-  /* Measure content width */
-  useEffect(() => {
-    if (!trackRef.current) return;
-
-    const totalWidth = trackRef.current.scrollWidth / 2;
-    setContentWidth(totalWidth);
-
-    startAnimation(totalWidth);
-  }, [notices]);
-
-  /* Start scrolling animation */
-  const startAnimation = async (width) => {
-    if (!width) return;
-
-    await controls.start({
-      x: -width,
-      transition: {
-        duration: width / 80, // speed factor
-        ease: 'linear',
-        repeat: Infinity,
-      },
-    });
-  };
-
-  /* Pause & Resume */
-  const pause = () => controls.stop();
-  const resume = () => startAnimation(contentWidth);
-
   const bgClass =
     theme === 'blue'
       ? 'bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-800 dark:to-blue-900'
       : 'bg-gradient-to-r from-red-600 to-red-700 dark:from-red-800 dark:to-red-900';
 
+  const scrollDuration = Math.max(notices.length * 6, 20);
   const duplicatedNotices = [...notices, ...notices];
 
   return (
     <div
-      className={`relative w-full ${bgClass} py-2 text-xs overflow-hidden border-b-2 border-white/20`}
+      className={`notice-horizontal-container relative w-full ${bgClass} py-2 text-xs overflow-hidden border-b-2 border-white/20 cursor-pointer`}
       style={{ zIndex: 40 }}
-      onMouseEnter={pause}
-      onMouseLeave={resume}
     >
-      <motion.div
-        ref={trackRef}
-        className="flex whitespace-nowrap"
-        animate={controls}
+      <div
+        className="notice-horizontal-track flex whitespace-nowrap w-max"
+        style={{ animationDuration: `${scrollDuration}s` }}
       >
         {duplicatedNotices.map((notice, index) => (
           <div
@@ -79,13 +46,17 @@ const SlidingNotice = () => {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              <span className="text-xs font-medium">
+              <motion.span
+                className="text-xs font-medium inline-block"
+                whileHover={{ y: -1, x: 2 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              >
                 {notice.text}
-              </span>
+              </motion.span>
             </a>
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };

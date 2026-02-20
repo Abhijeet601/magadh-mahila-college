@@ -13,19 +13,16 @@ import {
 
 // List of notices from the folder
 const NOTICE_FILES = [
-  'Anti-Ragging-Committee-2024.pdf',
   'Auction-Notice-for-unserviceable-items-of-Awantika-Matrayee-Hostel.pdf',
+  'NIQ for the supply of books for the central library of MMC.pdf',
   'NIQ-for-Physics-Equipment-and-consumables.pdf',
   'Niq-for-website.pdf',
   'NIQ-No-P-MMC-956-dated-10.12.2025-Repair-of-False-ceiling-of-room-number-7580818285-and-verandah-at-second-floor-of-MMC.pdf',
   'NIQ-No.P-MMC-957-Dated-10.12.2025-Re-roofing-of-both-staircases-of-vocational-building-of-MM-College.pdf',
   'NIQ-No.P-MMC-958-dated-10.12.2025-Fixing-of-aluminium-windows-in-the-B.C.A-department-of-MMC.pdf',
-  'NIRF 2025.pdf',
   'Notice for admission in hostel.jpeg',
-  'Notice-for-Awantika-Hostel-demolishing-material-Auction (1).pdf',
   'Notice-for-Awantika-Hostel-demolishing-material-Auction.pdf',
-  'Quotation Invited for Repair and painting at Department of Music.pdf',
-  'Rules-Regulations-Regarding-Central-Library.pdf'
+  'Quotation Invited for Repair and painting at Department of Music.pdf'
 ];
 
 const ADMIN_PASSWORD = 'admin123'; // In production, use proper authentication

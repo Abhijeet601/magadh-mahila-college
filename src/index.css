@@ -213,6 +213,43 @@ body {
     transform: translateX(20px);
   }
 }
+
+@keyframes noticeScrollVertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.notice-horizontal-track {
+  animation-name: noticeScrollHorizontal;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes noticeScrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.notice-scroll-track {
+  animation-name: noticeScrollVertical;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.notice-horizontal-container:hover .notice-horizontal-track,
+.notice-scroll-container:hover .notice-scroll-track {
+  animation-play-state: paused;
+}
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

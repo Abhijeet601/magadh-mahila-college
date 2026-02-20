@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { Bell, Calendar, FileText, Link as LinkIcon, Pin, Settings, Download } from 'lucide-react';
+import { Bell, Link as LinkIcon, Pin, Settings, Download } from 'lucide-react';
 import { getActiveNotifications } from '@/services/notifications';
 import { useNavigate } from 'react-router-dom';
 
 const Notifications = () => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,16 +19,6 @@ const Notifications = () => {
     const activeNotifications = getActiveNotifications();
     setNotifications(activeNotifications);
     setLoading(false);
-  };
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-IN', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
   };
 
   const handleDownload = (fileUrl, fileName) => {
@@ -129,18 +117,6 @@ const Notifications = () => {
                         )}
 
                         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-                          <div className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {formatDate(notification.createdAt)}
-                          </div>
-
-                          {notification.expiryDate && (
-                            <div className="flex items-center text-orange-600">
-                              <Calendar className="w-4 h-4 mr-1" />
-                              Expires: {formatDate(notification.expiryDate)}
-                            </div>
-                          )}
-
                           {notification.link && (
                             <a
                               href={notification.link}

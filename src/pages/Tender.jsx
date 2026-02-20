@@ -128,8 +128,8 @@ const Tender = () => {
   return (
     <>
       <Helmet>
-        <title>{t('pages.tenders.title')}</title>
-        <meta name="description" content={t('pages.tenders.metaDescription')} />
+        <title>{t('tenders.title')}</title>
+        <meta name="description" content={t('tenders.metaDescription')} />
       </Helmet>
 
       <div className="pt-0">
@@ -142,9 +142,9 @@ const Tender = () => {
               className="text-center mb-12"
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-3">
-                <span className="text-primary">{t('pages.tenders.pageTitle')}</span>
+                <span className="text-primary">{t('tenders.pageTitle')}</span>
               </h1>
-              <p className="text-foreground max-w-3xl mx-auto">{t('pages.tenders.pageSubtitle')}</p>
+              <p className="text-foreground max-w-3xl mx-auto">{t('tenders.pageSubtitle')}</p>
             </motion.div>
 
             {/* Controls: Search / Sort / Filters */}
@@ -159,7 +159,7 @@ const Tender = () => {
                   <Search className="w-4 h-4 text-muted-foreground" />
                   <input
                     aria-label="Search tenders"
-                    placeholder={t('pages.tenders.searchPlaceholder') || 'Search tenders...'}
+                    placeholder={t('tenders.searchPlaceholder') || 'Search tenders...'}
                     value={searchQuery}
                     onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                     className="ml-3 w-full bg-transparent outline-none text-sm"
@@ -238,7 +238,7 @@ const Tender = () => {
                           </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                          <button onClick={() => handleDownload(ft)} className="px-3 py-2 bg-primary text-white rounded">{t('pages.tenders.download')}</button>
+                          <button onClick={() => handleDownload(ft)} className="px-3 py-2 bg-primary text-white rounded">{t('tenders.download')}</button>
                           <button onClick={() => openDetails(ft)} className="px-3 py-2 border rounded">View</button>
                         </div>
                       </div>
@@ -280,11 +280,11 @@ const Tender = () => {
                     <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1"><FileText className="w-3 h-3" />{tender.tenderNumber}</div>
-                        <div className="flex items-center gap-1"><Calendar className="w-3 h-3" />{t('pages.tenders.lastDate')}: {tender.lastDate}</div>
+                        <div className="flex items-center gap-1"><Calendar className="w-3 h-3" />{t('tenders.lastDate')}: {tender.lastDate}</div>
                       </div>
                       <div className="flex items-center gap-2">
                         <button onClick={() => handleDownload(tender)} className="flex items-center gap-2 px-3 py-2 rounded bg-primary text-white text-sm">
-                          <Download className="w-4 h-4" />{t('pages.tenders.download')}
+                          <Download className="w-4 h-4" />{t('tenders.download')}
                         </button>
                         <button onClick={() => openDetails(tender)} className="px-3 py-2 rounded border text-sm">Details</button>
                         <button onClick={() => handleCopyLink(tender)} className="px-2 py-2 rounded border text-sm" title="Copy link"><Copy className="w-4 h-4" /></button>
@@ -295,7 +295,7 @@ const Tender = () => {
               ) : (
                 <div className="col-span-full text-center py-12">
                   <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{t('pages.tenders.noTenders')}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{t('tenders.noTenders')}</h3>
                   <p className="text-muted-foreground">Please check back later for new tenders.</p>
                 </div>
               )}
@@ -335,9 +335,9 @@ const Tender = () => {
                 viewport={{ once: true }}
                 className="p-6 rounded-2xl bg-primary text-primary-foreground"
               >
-                <h3 className="text-xl font-bold mb-2">{t('pages.tenders.contactProcurement')}</h3>
+                <h3 className="text-xl font-bold mb-2">{t('tenders.contactProcurement')}</h3>
                 <p className="text-white/90 mb-4">For queries, contact our procurement officer.</p>
-                <p className="text-sm text-white/90">{t('pages.tenders.procurementOfficer')}<br />{t('pages.tenders.procurementEmail')}<br />{t('pages.tenders.procurementPhone')}</p>
+                <p className="text-sm text-white/90">{t('tenders.procurementOfficer')}<br />{t('tenders.procurementEmail')}<br />{t('tenders.procurementPhone')}</p>
               </motion.div>
             </div>
 

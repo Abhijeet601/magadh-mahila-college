@@ -251,15 +251,6 @@ const Footer = () => {
                 National Scholarship Portal
               </a>
               <a
-                href="https://scholarships.gov.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-xs hover:text-highlight transition flex items-center gap-2"
-              >
-                <ExternalLink className="w-4 h-4" />
-                National Scholarship Portal
-              </a>
-              <a
                 href="https://aishe.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
